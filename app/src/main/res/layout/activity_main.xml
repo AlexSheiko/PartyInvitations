@@ -17,7 +17,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@drawable/ic_category_party"/>
 
             <TextView
                 style="@style/GridLabel"
@@ -31,7 +31,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@drawable/ic_category_birthday"/>
 
             <TextView
                 style="@style/GridLabel"
