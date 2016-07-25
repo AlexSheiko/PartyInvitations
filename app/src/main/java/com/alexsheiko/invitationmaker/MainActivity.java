@@ -21,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < ((ViewGroup) view).getChildCount(); ++i) {
             View child = ((ViewGroup) view).getChildAt(i);
             if (child instanceof TextView) {
-                intent.putExtra("category", ((TextView) child).getText().toString());
+                intent.putExtra("category", ((TextView) child).getText().toString()
+                        .replaceAll(" ", "").replace("\n", " "));
             }
         }
         startActivity(intent);
