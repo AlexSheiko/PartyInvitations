@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Invitation Cards</string>
     <string name="title_activity_template">Template</string>
+    <string name="title_activity_preview">Preview</string>
 </resources>
