@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -54,11 +55,24 @@ public class ResultActivity extends AppCompatActivity {
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);
             shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
-            shareIntent.setType("image/png");
+            shareIntent.setType("image/*");
             startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
         } catch (Exception e) {
             Toast.makeText(this, "Failed to share image: " + e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        findViewById(R.id.finish_button).setVisibility(View.VISIBLE);
+    }
+
+    public void onClickFinish(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 }
