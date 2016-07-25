@@ -1,5 +1,7 @@
 package com.alexsheiko.invitationmaker;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.GridView;
@@ -25,6 +27,19 @@ public class TemplateActivity extends AppCompatActivity {
             int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
             if (resId != 0) {
                 adapter.add(resId);
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {
+                Uri editedImageUri = data.getData();
+                Intent intent = new Intent(this, PreviewActivity.class);
+                intent.putExtra("imageUri", editedImageUri.toString());
+                startActivity(intent);
+                overridePendingTransition(0, 0);
             }
         }
     }
