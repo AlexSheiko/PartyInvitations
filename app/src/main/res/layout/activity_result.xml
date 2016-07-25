@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
+        android:scaleType="fitStart"
         tools:src="@drawable/birthday_template_1"/>
 
 </FrameLayout>

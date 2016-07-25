@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.GridView;
 
-import com.alexsheiko.invitationmaker.adapters.TemplateAdapter;
-
 public class GridActivity extends AppCompatActivity {
 
     @Override
@@ -19,7 +17,7 @@ public class GridActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(category);
 
         GridView gridView = (GridView) findViewById(R.id.gridView);
-        TemplateAdapter adapter = new TemplateAdapter(this);
+        GridAdapter adapter = new GridAdapter(this);
         gridView.setAdapter(adapter);
 
         for (int i = 1; i < 100; i++) {

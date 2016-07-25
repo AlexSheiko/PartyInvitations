@@ -1,4 +1,4 @@
-package com.alexsheiko.invitationmaker.adapters;
+package com.alexsheiko.invitationmaker;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +13,6 @@ import android.widget.ImageView;
 
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
-import com.alexsheiko.invitationmaker.GridActivity;
-import com.alexsheiko.invitationmaker.R;
 import com.bumptech.glide.Glide;
 
 import java.io.ByteArrayOutputStream;
@@ -23,9 +21,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 
-public class TemplateAdapter extends ArrayAdapter<Integer> {
+public class GridAdapter extends ArrayAdapter<Integer> {
 
-    public TemplateAdapter(Context context) {
+    public GridAdapter(Context context) {
         super(context, 0);
     }
 
@@ -36,7 +34,7 @@ public class TemplateAdapter extends ArrayAdapter<Integer> {
         if (convertView != null) {
             view = convertView;
         } else {
-            view = inflater.inflate(R.layout.list_item_template, parent, false);
+            view = inflater.inflate(R.layout.grid_item_template, parent, false);
         }
         int resId = getItem(position);
         Glide.with(getContext()).load(resId).fitCenter().centerCrop().into(((ImageView) view));
