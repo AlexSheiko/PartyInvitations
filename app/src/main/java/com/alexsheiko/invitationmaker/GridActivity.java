@@ -8,12 +8,12 @@ import android.widget.GridView;
 
 import com.alexsheiko.invitationmaker.adapters.TemplateAdapter;
 
-public class TemplateActivity extends AppCompatActivity {
+public class GridActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_template);
+        setContentView(R.layout.activity_grid);
 
         String category = getIntent().getStringExtra("category");
         getSupportActionBar().setTitle(category);
@@ -36,7 +36,7 @@ public class TemplateActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             if (requestCode == 1) {
                 Uri editedImageUri = data.getData();
-                Intent intent = new Intent(this, PreviewActivity.class);
+                Intent intent = new Intent(this, ResultActivity.class);
                 intent.putExtra("imageUri", editedImageUri.toString());
                 startActivity(intent);
                 overridePendingTransition(0, 0);

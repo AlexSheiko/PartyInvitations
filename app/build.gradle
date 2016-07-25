@@ -4,7 +4,7 @@ apply plugin: 'me.tatarka.retrolambda'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
-    project.archivesBaseName = "Invitation Cards";
+    project.archivesBaseName = "Invitation Maker";
     defaultConfig {
         applicationId "com.alexsheiko.invitationmaker"
         minSdkVersion 16

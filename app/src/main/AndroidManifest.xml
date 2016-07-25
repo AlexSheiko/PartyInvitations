@@ -22,14 +22,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TemplateActivity"
-            android:label="@string/title_activity_template"
+            android:name=".GridActivity"
+            android:label="@string/title_activity_grid"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
-            android:name=".PreviewActivity"
+            android:name=".ResultActivity"
             android:label="@string/title_activity_preview"
-            android:parentActivityName=".TemplateActivity">
+            android:parentActivityName=".GridActivity">
         </activity>
     </application>
 

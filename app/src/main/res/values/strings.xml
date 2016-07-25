@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Invitation Maker</string>
-    <string name="title_activity_template">Template</string>
+    <string name="title_activity_grid">Template</string>
     <string name="title_activity_preview"></string>
     <string name="action_send">Send</string>
+    <string name="send_to">Share image using...</string>
 </resources>

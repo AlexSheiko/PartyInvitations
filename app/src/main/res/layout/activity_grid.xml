@@ -11,6 +11,7 @@
     android:paddingBottom="26dp"
     android:paddingLeft="4dp"
     android:paddingRight="4dp"
+    android:scrollbarStyle="outsideInset"
     android:verticalSpacing="4dp"
-    tools:context=".TemplateActivity"
+    tools:context=".GridActivity"
     tools:listitem="@layout/list_item_template"/>

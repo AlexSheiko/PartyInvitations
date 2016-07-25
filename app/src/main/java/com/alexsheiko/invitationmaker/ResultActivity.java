@@ -1,5 +1,6 @@
 package com.alexsheiko.invitationmaker;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,12 +9,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-public class PreviewActivity extends AppCompatActivity {
+public class ResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_preview);
+        setContentView(R.layout.activity_result);
 
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
@@ -23,7 +24,7 @@ public class PreviewActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main, menu);
+        inflater.inflate(R.menu.result, menu);
         return true;
     }
 
@@ -40,6 +41,10 @@ public class PreviewActivity extends AppCompatActivity {
     }
 
     private void shareImage(Uri imageUri) {
-
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+        shareIntent.setType("image/png");
+        startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
     }
 }

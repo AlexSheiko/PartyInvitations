@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressWarnings("unused")
     public void onClickCategory(View view) {
-        Intent intent = new Intent(this, TemplateActivity.class);
+        Intent intent = new Intent(this, GridActivity.class);
         for (int i = 0; i < ((ViewGroup) view).getChildCount(); ++i) {
             View child = ((ViewGroup) view).getChildAt(i);
             if (child instanceof TextView) {

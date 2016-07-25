@@ -13,8 +13,8 @@ import android.widget.ImageView;
 
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
+import com.alexsheiko.invitationmaker.GridActivity;
 import com.alexsheiko.invitationmaker.R;
-import com.alexsheiko.invitationmaker.TemplateActivity;
 import com.bumptech.glide.Glide;
 
 import java.io.ByteArrayOutputStream;
@@ -66,7 +66,7 @@ public class TemplateAdapter extends ArrayAdapter<Integer> {
                     .build();
 
             /* Start the Image Editor with request code 1 */
-            ((TemplateActivity) getContext()).startActivityForResult(imageEditorIntent, 1);
+            ((GridActivity) getContext()).startActivityForResult(imageEditorIntent, 1);
         } catch (IOException e) {
             e.printStackTrace();
         }
