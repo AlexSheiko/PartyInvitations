@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
+    project.archivesBaseName = "Invitation Cards";
     defaultConfig {
         applicationId "com.alexsheiko.invitationmaker"
         minSdkVersion 16
@@ -14,6 +15,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFile = new File(output.outputFile.parent, output.outputFile.name.replace("-release", ""))
+                }
+            }
         }
     }
 }
