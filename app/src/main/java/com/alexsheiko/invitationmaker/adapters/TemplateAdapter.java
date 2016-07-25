@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
+import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
 import com.alexsheiko.invitationmaker.R;
 import com.alexsheiko.invitationmaker.TemplateActivity;
 import com.bumptech.glide.Glide;
@@ -51,8 +52,17 @@ public class TemplateAdapter extends ArrayAdapter<Integer> {
             File file = convertBitmapToFile(bitmap);
             Uri imageUri = Uri.fromFile(file);
 
+            ToolLoaderFactory.Tools[] tools = {
+                    ToolLoaderFactory.Tools.CROP,
+                    ToolLoaderFactory.Tools.MEME,
+                    ToolLoaderFactory.Tools.TEXT,
+                    ToolLoaderFactory.Tools.DRAW,
+                    ToolLoaderFactory.Tools.FRAMES,
+                    ToolLoaderFactory.Tools.ENHANCE,
+            };
             Intent imageEditorIntent = new AdobeImageIntent.Builder(getContext())
                     .setData(imageUri)
+                    .withToolList(tools)
                     .build();
 
             /* Start the Image Editor with request code 1 */
