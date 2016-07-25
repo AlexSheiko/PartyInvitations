@@ -12,6 +12,7 @@ public class TemplateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_template);
+        getSupportActionBar().setElevation(0);
 
         String category = getIntent().getStringExtra("category");
         getSupportActionBar().setTitle(category);
