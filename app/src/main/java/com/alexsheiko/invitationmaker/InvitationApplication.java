@@ -2,11 +2,11 @@ package com.alexsheiko.invitationmaker;
 
 import android.app.Application;
 
+import com.adobe.creativesdk.aviary.IAviaryClientCredentials;
 import com.adobe.creativesdk.foundation.AdobeCSDKFoundation;
-import com.adobe.creativesdk.foundation.auth.IAdobeAuthClientCredentials;
 
 
-public class MainApplication extends Application implements IAdobeAuthClientCredentials {
+public class InvitationApplication extends Application implements IAviaryClientCredentials {
 
     private static final String CREATIVE_SDK_CLIENT_ID = "56d4547128e84e079f6e1ef131607153";
     private static final String CREATIVE_SDK_CLIENT_SECRET = "a46a3b39-4a9e-42c2-a5bc-6d7487e21943";
@@ -25,5 +25,10 @@ public class MainApplication extends Application implements IAdobeAuthClientCred
     @Override
     public String getClientSecret() {
         return CREATIVE_SDK_CLIENT_SECRET;
+    }
+
+    @Override
+    public String getBillingKey() {
+        return "";
     }
 }
