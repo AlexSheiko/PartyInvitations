@@ -31,6 +31,11 @@
             android:label="@string/title_activity_preview"
             android:parentActivityName=".GridActivity">
         </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="37603fd544c2349d3453ebc172ed3673360bae53"/>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

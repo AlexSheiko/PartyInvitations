@@ -4,6 +4,9 @@ import android.app.Application;
 
 import com.adobe.creativesdk.aviary.IAviaryClientCredentials;
 import com.adobe.creativesdk.foundation.AdobeCSDKFoundation;
+import com.crashlytics.android.Crashlytics;
+
+import io.fabric.sdk.android.Fabric;
 
 
 public class InvitationApplication extends Application implements IAviaryClientCredentials {
@@ -14,6 +17,7 @@ public class InvitationApplication extends Application implements IAviaryClientC
     @Override
     public void onCreate() {
         super.onCreate();
+        Fabric.with(this, new Crashlytics());
         AdobeCSDKFoundation.initializeCSDKFoundation(getApplicationContext());
     }
 

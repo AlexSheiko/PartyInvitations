@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
@@ -9,7 +24,7 @@ android {
         applicationId "com.alexsheiko.invitationmaker"
         minSdkVersion 16
         targetSdkVersion 24
-        versionCode 3
+        versionCode 4
         versionName "1.0"
     }
     buildTypes {
@@ -22,6 +37,9 @@ android {
                     output.outputFile = new File(output.outputFile.parent, output.outputFile.name.replace("-release", ""))
                 }
             }
+        }
+        debug {
+            ext.enableCrashlytics = false
         }
     }
     /* Compile for Java 1.8 or greater */
@@ -47,4 +65,7 @@ dependencies {
 
     compile 'com.adobe.creativesdk.foundation:auth:0.9.7'
     compile 'com.adobe.creativesdk:image:4.4.8'
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.1@aar') {
+        transitive = true;
+    }
 }

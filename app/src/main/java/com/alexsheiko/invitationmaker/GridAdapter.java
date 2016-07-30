@@ -51,12 +51,12 @@ public class GridAdapter extends ArrayAdapter<Integer> {
             Uri imageUri = Uri.fromFile(file);
 
             ToolLoaderFactory.Tools[] tools = {
-                    ToolLoaderFactory.Tools.CROP,
-                    ToolLoaderFactory.Tools.MEME,
                     ToolLoaderFactory.Tools.TEXT,
                     ToolLoaderFactory.Tools.DRAW,
-                    ToolLoaderFactory.Tools.FRAMES,
+                    ToolLoaderFactory.Tools.CROP,
                     ToolLoaderFactory.Tools.ENHANCE,
+                    ToolLoaderFactory.Tools.FRAMES,
+                    ToolLoaderFactory.Tools.MEME,
             };
             Intent imageEditorIntent = new AdobeImageIntent.Builder(getContext())
                     .setData(imageUri)
