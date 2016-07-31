@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="56dp"
-        android:background="#e79e64"
+        android:background="#8BC34A"
         android:elevation="8dp"
         android:onClick="onClickFinish"
         android:paddingBottom="32dp"

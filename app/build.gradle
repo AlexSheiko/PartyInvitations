@@ -38,9 +38,6 @@ android {
                 }
             }
         }
-        debug {
-            ext.enableCrashlytics = false
-        }
     }
     /* Compile for Java 1.8 or greater */
     compileOptions {

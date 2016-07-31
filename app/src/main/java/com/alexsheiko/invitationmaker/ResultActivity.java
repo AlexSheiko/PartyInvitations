@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,9 +14,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.adobe.creativesdk.aviary.internal.cds.util.IabHelper;
+
 import java.io.File;
 
 public class ResultActivity extends AppCompatActivity {
+
+    IabHelper mHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,24 @@ public class ResultActivity extends AppCompatActivity {
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setImageURI(imageUri);
+
+        mHelper = new IabHelper(this, getString(R.string.base64EncodedPublicKey));
+        mHelper.startSetup(result -> {
+            if (!result.isSuccess()) {
+                // Oh noes, there was a problem.
+                Log.d("TAG", "Problem setting up In-app Billing: " + result);
+            } else {
+                // Hooray, IAB is fully set up!
+                Log.d("TAG", "Hooray, IAB is fully set up!");
+            }
+        });
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mHelper != null) mHelper.dispose();
+        mHelper = null;
     }
 
     @Override
