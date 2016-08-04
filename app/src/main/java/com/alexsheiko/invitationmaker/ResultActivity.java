@@ -45,19 +45,25 @@ public class ResultActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         int id = item.getItemId();
         if (id == R.id.action_send) {
+            Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
             shareImage(imageUri);
             return true;
         } else if (id == android.R.id.home) {
-            Intent intent = new Intent();
-            intent.putExtra("imageUri", imageUri.toString());
-            setResult(Activity.RESULT_CANCELED, intent);
             onBackPressed();
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
+        Intent intent = new Intent();
+        intent.putExtra("imageUri", imageUri.toString());
+        setResult(Activity.RESULT_CANCELED, intent);
+        super.onBackPressed();
     }
 
     public void onClickFinish(View view) {
