@@ -6,7 +6,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.GridView;
 
+import com.adobe.creativesdk.aviary.AdobeImageIntent;
+import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
+
 public class GridActivity extends AppCompatActivity {
+
+    public static final int REQUEST_CREATE = 101;
+    private static final int REQUEST_SHARE = 237;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +38,35 @@ public class GridActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (requestCode == 1) {
+        if (requestCode == REQUEST_CREATE) {
+            if (resultCode == RESULT_OK) {
                 Uri editedImageUri = data.getData();
                 Intent intent = new Intent(this, ResultActivity.class);
                 intent.putExtra("imageUri", editedImageUri.toString());
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_SHARE);
                 overridePendingTransition(0, 0);
             }
+        } else if (requestCode == REQUEST_SHARE) {
+            Uri imageUri = Uri.parse(data.getStringExtra("imageUri"));
+            openImageEditor(imageUri);
         }
+    }
+
+    public void openImageEditor(Uri imageUri) {
+        ToolLoaderFactory.Tools[] tools = {
+                ToolLoaderFactory.Tools.TEXT,
+                ToolLoaderFactory.Tools.DRAW,
+                ToolLoaderFactory.Tools.CROP,
+                ToolLoaderFactory.Tools.ENHANCE,
+                ToolLoaderFactory.Tools.FRAMES,
+                ToolLoaderFactory.Tools.MEME,
+        };
+        Intent imageEditorIntent = new AdobeImageIntent.Builder(this)
+                .setData(imageUri)
+                .withToolList(tools)
+                .build();
+
+        /* Start the Image Editor */
+        startActivityForResult(imageEditorIntent, GridActivity.REQUEST_CREATE);
     }
 }

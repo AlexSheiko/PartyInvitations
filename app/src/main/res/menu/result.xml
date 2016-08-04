@@ -6,9 +6,5 @@
         android:icon="@drawable/ic_send"
         android:title="@string/action_send"
         app:showAsAction="always"/>
-    <item
-        android:id="@+id/action_stickers"
-        android:title="@string/action_stickers"
-        app:showAsAction="never"/>
 
 </menu>

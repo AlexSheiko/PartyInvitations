@@ -1,7 +1,6 @@
 package com.alexsheiko.invitationmaker;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -11,8 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
-import com.adobe.creativesdk.aviary.AdobeImageIntent;
-import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
 import com.bumptech.glide.Glide;
 
 import java.io.ByteArrayOutputStream;
@@ -39,36 +36,16 @@ public class GridAdapter extends ArrayAdapter<Integer> {
         int resId = getItem(position);
         Glide.with(getContext()).load(resId).fitCenter().centerCrop().into(((ImageView) view));
         view.setOnClickListener(view1 -> {
-            openImageEditor(resId);
+            try {
+                Bitmap bitmap = BitmapFactory.decodeResource(getContext().getResources(), resId);
+                File file = convertBitmapToFile(bitmap);
+                Uri imageUri = Uri.fromFile(file);
+                ((GridActivity) getContext()).openImageEditor(imageUri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
         return view;
-    }
-
-    private void openImageEditor(int resId) {
-        try {
-            Bitmap bitmap = BitmapFactory.decodeResource(getContext().getResources(), resId);
-            File file = convertBitmapToFile(bitmap);
-            Uri imageUri = Uri.fromFile(file);
-
-            ToolLoaderFactory.Tools[] tools = {
-                    ToolLoaderFactory.Tools.STICKERS,
-                    ToolLoaderFactory.Tools.TEXT,
-                    ToolLoaderFactory.Tools.DRAW,
-                    ToolLoaderFactory.Tools.CROP,
-                    ToolLoaderFactory.Tools.ENHANCE,
-                    ToolLoaderFactory.Tools.FRAMES,
-                    ToolLoaderFactory.Tools.MEME,
-            };
-            Intent imageEditorIntent = new AdobeImageIntent.Builder(getContext())
-                    .setData(imageUri)
-                    .withToolList(tools)
-                    .build();
-
-            /* Start the Image Editor with request code 1 */
-            ((GridActivity) getContext()).startActivityForResult(imageEditorIntent, 1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private File convertBitmapToFile(Bitmap bitmap) throws IOException {

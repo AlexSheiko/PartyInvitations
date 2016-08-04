@@ -3,8 +3,6 @@
           package="com.alexsheiko.invitationmaker"
           android:installLocation="preferExternal">
 
-    <uses-permission android:name="com.android.vending.BILLING"/>
-
     <application
         android:name=".InvitationApplication"
         android:allowBackup="true"
@@ -40,5 +38,4 @@
             android:value="37603fd544c2349d3453ebc172ed3673360bae53"/>
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

@@ -1,12 +1,12 @@
 package com.alexsheiko.invitationmaker;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,19 +14,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.adobe.creativesdk.aviary.internal.cds.util.IabHelper;
-import com.adobe.creativesdk.aviary.internal.cds.util.IabResult;
-import com.adobe.creativesdk.aviary.internal.cds.util.Purchase;
-
 import java.io.File;
 
 import static com.alexsheiko.invitationmaker.R.menu.result;
 
-public class ResultActivity extends AppCompatActivity
-        implements IabHelper.OnIabPurchaseFinishedListener {
-
-    private static final int REQUEST_BUY_STICKERS = 263;
-    IabHelper mHelper;
+public class ResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,30 +28,12 @@ public class ResultActivity extends AppCompatActivity
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setImageURI(imageUri);
-
-        mHelper = new IabHelper(this, getString(R.string.base64EncodedPublicKey));
-        mHelper.startSetup(result -> {
-            if (!result.isSuccess()) {
-                // Oh noes, there was a problem.
-                Log.d("TAG", "Problem setting up In-app Billing: " + result);
-            } else {
-                // Hooray, IAB is fully set up!
-                Log.d("TAG", "Hooray, IAB is fully set up!");
-            }
-        });
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         findViewById(R.id.finish_button).setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mHelper != null) mHelper.dispose();
-        mHelper = null;
     }
 
     @Override
@@ -71,29 +45,19 @@ public class ResultActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         int id = item.getItemId();
         if (id == R.id.action_send) {
-            Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
             shareImage(imageUri);
             return true;
-        } else if (id == R.id.action_stickers) {
-            mHelper.launchPurchaseFlow(this, "stickers", REQUEST_BUY_STICKERS, this);
-            return true;
         } else if (id == android.R.id.home) {
+            Intent intent = new Intent();
+            intent.putExtra("imageUri", imageUri.toString());
+            setResult(Activity.RESULT_CANCELED, intent);
             onBackPressed();
             return true;
         }
         return false;
-    }
-
-    @Override
-    public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
-        if (result.isFailure()) {
-            Toast.makeText(this, "Failed to purchase stickers: " + result.getMessage(), Toast.LENGTH_SHORT).show();
-        } else if (purchase.getSku().equals("stickers")) {
-            // give user access to stickers content and update the UI
-            Toast.makeText(this, "Stickers successfully unlocked!", Toast.LENGTH_SHORT).show();
-        }
     }
 
     public void onClickFinish(View view) {
