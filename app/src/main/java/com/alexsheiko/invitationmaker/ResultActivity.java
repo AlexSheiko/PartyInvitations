@@ -15,11 +15,17 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.adobe.creativesdk.aviary.internal.cds.util.IabHelper;
+import com.adobe.creativesdk.aviary.internal.cds.util.IabResult;
+import com.adobe.creativesdk.aviary.internal.cds.util.Purchase;
 
 import java.io.File;
 
-public class ResultActivity extends AppCompatActivity {
+import static com.alexsheiko.invitationmaker.R.menu.result;
 
+public class ResultActivity extends AppCompatActivity
+        implements IabHelper.OnIabPurchaseFinishedListener {
+
+    private static final int REQUEST_BUY_STICKERS = 263;
     IabHelper mHelper;
 
     @Override
@@ -44,6 +50,12 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        findViewById(R.id.finish_button).setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
         if (mHelper != null) mHelper.dispose();
@@ -53,20 +65,42 @@ public class ResultActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.result, menu);
+        inflater.inflate(result, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_send) {
+        int id = item.getItemId();
+        if (id == R.id.action_send) {
             Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
             shareImage(imageUri);
-        } else if (item.getItemId() == android.R.id.home) {
+            return true;
+        } else if (id == R.id.action_stickers) {
+            mHelper.launchPurchaseFlow(this, "stickers", REQUEST_BUY_STICKERS, this);
+            return true;
+        } else if (id == android.R.id.home) {
             onBackPressed();
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+        if (result.isFailure()) {
+            Toast.makeText(this, "Failed to purchase stickers: " + result.getMessage(), Toast.LENGTH_SHORT).show();
+        } else if (purchase.getSku().equals("stickers")) {
+            // give user access to stickers content and update the UI
+            Toast.makeText(this, "Stickers successfully unlocked!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onClickFinish(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+        finish();
     }
 
     private void shareImage(Uri imageUri) {
@@ -84,18 +118,5 @@ public class ResultActivity extends AppCompatActivity {
             Toast.makeText(this, "Failed to share image: " + e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        findViewById(R.id.finish_button).setVisibility(View.VISIBLE);
-    }
-
-    public void onClickFinish(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
     }
 }

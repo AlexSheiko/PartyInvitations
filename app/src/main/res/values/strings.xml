@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Invitation Maker</string>
     <string name="title_activity_grid">Template</string>
-    <string name="title_activity_preview"></string>
+    <string name="title_activity_preview"/>
     <string name="action_send">Send</string>
-    <string name="send_to">Share image using...</string>
-    <string name="action_stickers">Add stickers - $0.25</string>
+    <string name="send_to">Share image using…</string>
     <string name="base64EncodedPublicKey">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgXawB4X3eOJ82v3s+xhLyXV7zrEx8xoIEwXmUL6oo3Mh5pV9o5zodDkapTuIh52/E01ZVxVLSixKKXGRubacqfuosAMQ5aepOsJX78h5BbPGFc8GiGRyb9e2jicGa4iRSTiuBaIslBYSl6TEKxwdP7RqLKDU0foYQiUSXAvwEcnc65bciX2TqmfcCh7ZHU0Bw7fdAAzRncyBkNtoDFWfMO4Kap0SkDf0kXN0OdJ59EfAZxK5pcSbCGbzQGUB8tCMg98dE575Mxn2ocf0+kqGKWGdckFHxn35Iecy2T44BRyWcdC0LgiDNGs4zyq4D2ih/JWLgMBg9e+scIp00LupWwIDAQAB</string>
+    <string name="action_save">Save without sharing</string>
+    <string name="action_stickers">Buy stickers</string>
 </resources>

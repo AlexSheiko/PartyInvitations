@@ -51,6 +51,7 @@ public class GridAdapter extends ArrayAdapter<Integer> {
             Uri imageUri = Uri.fromFile(file);
 
             ToolLoaderFactory.Tools[] tools = {
+                    ToolLoaderFactory.Tools.STICKERS,
                     ToolLoaderFactory.Tools.TEXT,
                     ToolLoaderFactory.Tools.DRAW,
                     ToolLoaderFactory.Tools.CROP,
