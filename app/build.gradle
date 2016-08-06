@@ -24,10 +24,8 @@ android {
         applicationId "com.alexsheiko.invitationmaker"
         minSdkVersion 16
         targetSdkVersion 24
-        versionCode 5
+        versionCode 6
         versionName "1.1"
-
-        manifestPlaceholders = [appPackageName: "${applicationId}"]
     }
     buildTypes {
         release {

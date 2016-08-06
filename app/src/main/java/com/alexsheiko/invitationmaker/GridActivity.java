@@ -59,10 +59,10 @@ public class GridActivity extends AppCompatActivity {
                 ToolLoaderFactory.Tools.CROP,
                 ToolLoaderFactory.Tools.ENHANCE,
                 ToolLoaderFactory.Tools.FRAMES,
-                ToolLoaderFactory.Tools.MEME,
         };
         Intent imageEditorIntent = new AdobeImageIntent.Builder(this)
                 .setData(imageUri)
+                .withSharedElementTransition(true)
                 .withToolList(tools)
                 .build();
 
