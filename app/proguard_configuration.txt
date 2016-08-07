@@ -1,0 +1,1524 @@
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.ab\ab-test\2.0.5\jars\classes.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.jakewharton\disklrucache\2.0.2\93b399470e72c0bc8cb52379943b63c9aa586cd8\disklrucache-2.0.2.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.0\748f0546d5c3c27f1aef07270ffea0c45f0c42a4\rxjava-1.1.0.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth\rxbroadcast\0.0.2\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.imagezoom\imagezoom\2.2.4\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.trello\rxlifecycle\0.3.0\jars\classes.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.6.0\212387a39088ecd3daff8e3bfc3bdc4123e33c67\okhttp-2.6.0.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.path\android-priority-jobqueue\1.1.2\b3549df66f71fb135bce3300eecb1a88fd45d86f\android-priority-jobqueue-1.1.2.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.sothree.slidinguppanel\library\3.0.0\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics\2.6.1\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.targettooltip\target-tooltip-library\1.3.11\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics-core\2.3.10\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.getbase\floatingactionbutton\1.10.0\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\io.fabric.sdk.android\fabric\1.3.12\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\beta\1.2.1\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.github.fengdai\alertdialogpro-theme-material\0.2.6\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.adobe.creativesdk\image\4.4.8\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.infstory\proguard-annotations\1.0.2\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.github.fengdai\alertdialogpro-core\0.2.6\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.viewrevealanimator\view-reveal-animator\1.1.4\jars\classes.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\commons-io\commons-io\2.4\b1b6ea3b7e4aa4f492509a4952029cd8e48019ad\commons-io-2.4.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.picasso\picasso\2.5.2.4b\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.exif\android-exif-extended\1.0.6\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.timehop.stickyheadersrecyclerview\library\0.4.3\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp-urlconnection\2.6.0\f1c87f9ffe72bfcdce6f2514d12e42ed43410a87\okhttp-urlconnection-2.6.0.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.adobe.creativesdk.foundation\auth\0.9.7\jars\classes.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.adobe.creativesdk.aviary.common\common-ui\1.1.0\jars\classes.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.trello\rxlifecycle-components\0.3.0\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.jakewharton.rxbinding\rxbinding\0.2.0\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\answers\1.3.8\jars\classes.jar'(**/*.class)
+-injars 'C:\Users\Alexey\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.disklrumulticache\disklrumulticache\1.0.6\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.0.1\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.intellij\annotations\12.0\bbcf6448f6d40abe506e2c83b70a3e8bfd2b4539\annotations-12.0.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\de.greenrobot\eventbus\2.4.0\ddd166d01b3158d1c00576d29f7ed15c030df719\eventbus-2.4.0.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\palette-v7\23.1.1\jars\classes.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.adobe.creativesdk\image\4.4.8\jars\libs\localytics.jar'(**/*.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.4\5fe28b9518e58819180a43a850fbc0dd24b7c050\commons-lang3-3.4.jar'(**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\transforms\mergeJavaRes\release\jars\2\1f\main.jar'(!**/*.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\transforms\retrolambda\release\folders\1\1\retrolambda'(**/*.class)
+-outjars 'D:\InvitationMaker\app\build\intermediates\transforms\proguard\release\jars\3\1f\main.jar'
+
+-libraryjars 'C:\Users\Alexey\AppData\Local\Android\sdk\platforms\android-24\android.jar'
+-libraryjars 'C:\Users\Alexey\AppData\Local\Android\sdk\platforms\android-24\optional\org.apache.http.legacy.jar'
+
+-forceprocessing
+-printusage 'D:\InvitationMaker\app\build\outputs\mapping\release\usage.txt'
+-dontoptimize
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable,!code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*,!code/simplification/arithmetic
+-optimizationpasses 5
+-allowaccessmodification
+-dontobfuscate
+-printmapping 'D:\InvitationMaker\app\build\outputs\mapping\release\mapping.txt'
+-dontusemixedcaseclassnames
+-keepattributes *Annotation*,SourceFile,LineNumberTable,Signature,InnerClasses,*Annotation*,*Annotation*,*Annotation*,*Annotation*,Signature
+-renamesourcefileattribute SourceFile
+-dontpreverify
+-verbose
+-dontnote com.android.vending.licensing.ILicensingService,com.google.vending.licensing.ILicensingService,com.google.android.vending.licensing.ILicensingService,android.support.**
+-dontwarn android.support.**,org.apache.commons.**,com.squareup.okhttp.internal.**,okio.**,java.lang.invoke.*,sun.misc.Unsafe,javax.annotation.**,rx.**,com.adobe.creativesdk.aviary.AdobeImageEditorActivity**,org.apache.http.**,oauth.signpost.signature.**,uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper,sun.misc.**,android.security.NetworkSecurityPolicy,proguard.annotation.**,android.support.**,android.security.NetworkSecurityPolicy,android.support.**,android.support.**,android.app.Notification,com.squareup.okhttp.internal.**
+-printconfiguration 'D:\InvitationMaker\app\proguard_configuration.txt'
+-dump 'D:\InvitationMaker\app\build\outputs\mapping\release\dump.txt'
+-printseeds 'D:\InvitationMaker\app\build\outputs\mapping\release\seeds.txt'
+
+
+-keep public class com.google.vending.licensing.ILicensingService
+
+-keep public class com.android.vending.licensing.ILicensingService
+
+# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
+-keepclasseswithmembers,allowshrinking class * {
+    native <methods>;
+}
+
+# keep setters in Views so that animations can still work.
+# see http://proguard.sourceforge.net/manual/examples.html#beans
+-keepclassmembers public class * extends android.view.View {
+    void set*(***);
+    *** get*();
+}
+
+# We want to keep methods in Activity that could be used in the XML attribute onClick
+-keepclassmembers class * extends android.app.Activity {
+    public void *(android.view.View);
+}
+
+# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
+-keepclassmembers enum  * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keepclassmembers class * extends android.os.Parcelable {
+    public static final android.os.Parcelable$Creator CREATOR;
+}
+
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
+-keep class * extends android.app.Service
+
+-keep class * extends android.app.Activity
+
+-keep class * extends android.app.Application
+
+-keep class * extends android.app.Service
+
+-keep class * extends android.content.BroadcastReceiver
+
+-keep class * extends android.content.ContentProvider
+
+-keep class * extends android.os.AsyncTask
+
+-keep class org.apache.commons.codec.binary.**
+
+-keep interface  org.apache.commons.codec.binary.**
+
+-keep enum  org.apache.commons.codec.binary.**
+
+-keep class org.apache.http.** {
+    <fields>;
+    <methods>;
+}
+
+-keep class javax.inject.* {
+    <fields>;
+    <methods>;
+}
+
+-keep class sun.misc.Unsafe {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.adobe.creativesdk.aviary.AdobeImageIntent
+
+-keep class com.adobe.creativesdk.aviary.AdobeImageIntent$Builder
+
+-keep class com.adobe.creativesdk.aviary.AdobeImageEditorVersion
+
+-keep class com.adobe.creativesdk.aviary.AdobeImageIntent$SourceType
+
+-keep class com.adobe.creativesdk.aviary.internal.account.Constants
+
+-keep class com.adobe.creativesdk.aviary.internal.headless.AdobeImageEffect
+
+-keep class com.adobe.creativesdk.aviary.internal.headless.filters.NativeFilterProxy
+
+-keep class com.adobe.creativesdk.aviary.internal.headless.moa.Moa {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.adobe.creativesdk.aviary.internal.headless.moa.Moa$MoaJniIO {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.adobe.creativesdk.aviary.internal.headless.moa.Moa$MoaStreamsIO {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.adobe.creativesdk.aviary.internal.headless.moa.Moa$MoaActionlistTextAttributes {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.adobe.creativesdk.aviary.internal.headless.moa.MoaHistory {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.adobe.creativesdk.aviary.internal.headless.moa.MoaFontProxy {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.adobe.creativesdk.aviary.internal.headless.moa.MoaFontProxy$MoaFont {
+    <fields>;
+    <methods>;
+}
+
+-keep enum  com.adobe.creativesdk.aviary.internal.headless.moa.Moa$** {
+    <fields>;
+    <methods>;
+}
+
+# keep anything annotated with @Keep
+-keepclassmembers class * {
+    @android.support.annotation.Keep
+    <fields>;
+    @android.support.annotation.Keep
+    <methods>;
+}
+
+# Also keep classes that @Expose everything
+-keep @android.support.annotation.Keep class *
+
+-keep class com.adobe.creativesdk.aviary.internal.headless.utils.CameraUtils
+
+-keep class com.adobe.creativesdk.aviary.internal.tracking.AbstractTracker
+
+-keep class com.adobe.creativesdk.aviary.internal.tracking.AdobeImageAnalyticsTracker
+
+-keep class com.adobe.creativesdk.aviary.internal.tracking.TrackerFactory
+
+-keep class com.adobe.creativesdk.aviary.log.LoggerFactory
+
+-keep class com.adobe.creativesdk.aviary.utils.AdobeImageEditorIntentConfigurationValidator
+
+-keep class com.adobe.creativesdk.aviary.AdobeImageBillingService
+
+-keep interface  com.adobe.creativesdk.aviary.internal.graphics.drawable.FeatherDrawable
+
+-keep class * extends com.adobe.creativesdk.aviary.widget.PackDetailLayout
+
+-keep class * extends com.adobe.creativesdk.aviary.internal.tracking.AbstractTracker
+
+-keep class com.android.vending.licensing.ILicensingService
+
+-keep public class com.android.vending.billing.IInAppBillingService
+
+-keep public class com.adobe.creativesdk.aviary.transition.** {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers interface  com.adobe.creativesdk.aviary.internal.graphics.drawable.FeatherDrawable {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class * extends com.adobe.creativesdk.aviary.internal.graphics.drawable.FeatherDrawable {
+    float getScaleX();
+    void setScaleX(float);
+}
+
+-keepclassmembers class com.adobe.creativesdk.aviary.AdobeImageIntent {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.adobe.creativesdk.aviary.AdobeImageIntent$Builder {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.adobe.creativesdk.aviary.AdobeImageIntent$SourceType {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.adobe.creativesdk.aviary.AdobeImageEditorVersion {
+    <fields>;
+}
+
+-keepclassmembers class com.adobe.creativesdk.aviary.utils.AdobeImageEditorIntentConfigurationValidator {
+    <methods>;
+}
+
+# -keepclassmembers class com.adobe.creativesdk.aviary.internal.graphics.drawable.FeatherDrawable {*;}
+-keepclassmembers class com.adobe.creativesdk.aviary.internal.utils.SDKUtils {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.adobe.creativesdk.aviary.internal.utils.SDKUtils$ApiKeyReader {
+    <fields>;
+    <methods>;
+}
+
+# # keep everything for native methods/fields
+-keepclassmembers class com.aviary.android.feather.sdk.BuildConfig {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.adobe.creativesdk.aviary.AdobeImageBillingService {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class * extends android.os.Parcelable {
+    static ** CREATOR;
+}
+
+-keepclassmembers class * {
+    private native <methods>;
+    public native <methods>;
+    protected native <methods>;
+    public static native <methods>;
+    private static native <methods>;
+    static native <methods>;
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(com.adobe.creativesdk.aviary.internal.AdobeImageEditorController);
+}
+
+# EventBus
+-keepclassmembers class ** {
+    public void onEvent(**);
+    public void onEventMainThread(**);
+}
+
+-keep,allowshrinking class * extends java.io.Serializable
+
+-keepclassmembers class * extends java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    !static !transient <fields>;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+# RxJava 1.0.14
+-keep class rx.internal.util.unsafe.** {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+    long producerIndex;
+    long consumerIndex;
+}
+
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    long producerNode;
+    long consumerNode;
+}
+
+-keep class * extends java.util.ListResourceBundle {
+    protected java.lang.Object[][] getContents();
+}
+
+# Keep SafeParcelable value, needed for reflection. This is required to support backwards
+# compatibility of some classes.
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+# Keep the names of classes/members we need for client functionality.
+-keep @interface  com.google.android.gms.common.annotation.KeepName
+
+-keep,allowshrinking @com.google.android.gms.common.annotation.KeepName class *
+
+-keepclassmembers,allowshrinking class * {
+    @com.google.android.gms.common.annotation.KeepName
+    <fields>;
+    @com.google.android.gms.common.annotation.KeepName
+    <methods>;
+}
+
+# Needed for Parcelable/SafeParcelable Creators to not get stripped
+-keep,allowshrinking class * extends android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+# Keep metadata about included modules.
+-keep public class com.google.android.gms.dynamite.descriptors.** {
+    public <fields>;
+}
+
+# Keep the implementation of the flags api for google-play-services-flags
+-keep public class com.google.android.gms.flags.impl.FlagProviderImpl {
+    public <fields>;
+    public <methods>;
+}
+
+# Copyright (C) 2015 The Android Open Source Project
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# CoordinatorLayout resolves the behaviors of its child components with reflection.
+-keep public class * extends android.support.design.widget.CoordinatorLayout$Behavior {
+    public <init>(android.content.Context,android.util.AttributeSet);
+    public <init>();
+}
+
+-keep class proguard.annotation.*
+
+# The following annotations can be specified with classes and with class
+# members.
+# @Keep specifies not to shrink, optimize, or obfuscate the annotated class
+# or class member as an entry point.
+-keep @proguard.annotation.Keep class *
+
+-keepclassmembers class * {
+    @proguard.annotation.Keep
+    <fields>;
+    @proguard.annotation.Keep
+    <methods>;
+}
+
+# @KeepName specifies not to optimize or obfuscate the annotated class or
+# class member as an entry point.
+-keep,allowshrinking @proguard.annotation.KeepName class *
+
+-keepclassmembers,allowshrinking class * {
+    @proguard.annotation.KeepName
+    <fields>;
+    @proguard.annotation.KeepName
+    <methods>;
+}
+
+# The following annotations can only be specified with classes.
+# @KeepImplementations and @KeepPublicImplementations specify to keep all,
+# resp. all public, implementations or extensions of the annotated class as
+# entry points. Note the extension of the java-like syntax, adding annotations
+# before the (wild-carded) interface name.
+-keep class * extends @proguard.annotation.KeepImplementations *
+
+-keep public class * extends @proguard.annotation.KeepPublicImplementations *
+
+# @KeepApplication specifies to keep the annotated class as an application,
+# together with its main method.
+-keepclasseswithmembers @proguard.annotation.KeepApplication public class * {
+    public static void main(java.lang.String[]);
+}
+
+# @KeepClassMembers, @KeepPublicClassMembers, and
+# @KeepPublicProtectedClassMembers specify to keep all, all public, resp.
+# all public or protected, class members of the annotated class from being
+# shrunk, optimized, or obfuscated as entry points.
+-keepclassmembers @proguard.annotation.KeepClassMembers class * {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers @proguard.annotation.KeepPublicClassMembers class * {
+    public <fields>;
+    public <methods>;
+}
+
+-keepclassmembers @proguard.annotation.KeepPublicProtectedClassMembers class * {
+    public protected <fields>;
+    public protected <methods>;
+}
+
+# @KeepClassMemberNames, @KeepPublicClassMemberNames, and
+# @KeepPublicProtectedClassMemberNames specify to keep all, all public, resp.
+# all public or protected, class members of the annotated class from being
+# optimized or obfuscated as entry points.
+-keepclassmembers,allowshrinking @proguard.annotation.KeepClassMemberNames class * {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers,allowshrinking @proguard.annotation.KeepPublicClassMemberNames class * {
+    public <fields>;
+    public <methods>;
+}
+
+-keepclassmembers,allowshrinking @proguard.annotation.KeepPublicProtectedClassMemberNames class * {
+    public protected <fields>;
+    public protected <methods>;
+}
+
+# @KeepGettersSetters and @KeepPublicGettersSetters specify to keep all, resp.
+# all public, getters and setters of the annotated class from being shrunk,
+# optimized, or obfuscated as entry points.
+-keepclassmembers @proguard.annotation.KeepGettersSetters class * {
+    void set*(***);
+    void set*(int,***);
+    boolean is*();
+    boolean is*(int);
+    *** get*();
+    *** get*(int);
+}
+
+-keepclassmembers @proguard.annotation.KeepPublicGettersSetters class * {
+    public void set*(***);
+    public void set*(int,***);
+    public boolean is*();
+    public boolean is*(int);
+    public *** get*();
+    public *** get*(int);
+}
+
+-keep public class com.google.vending.licensing.ILicensingService
+
+-keep public class com.android.vending.licensing.ILicensingService
+
+# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
+-keepclasseswithmembers,allowshrinking class * {
+    native <methods>;
+}
+
+# keep setters in Views so that animations can still work.
+# see http://proguard.sourceforge.net/manual/examples.html#beans
+-keepclassmembers public class * extends android.view.View {
+    void set*(***);
+    *** get*();
+}
+
+# We want to keep methods in Activity that could be used in the XML attribute onClick
+-keepclassmembers class * extends android.app.Activity {
+    public void *(android.view.View);
+}
+
+# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
+-keepclassmembers enum  * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keepclassmembers class * extends android.os.Parcelable {
+    public static final android.os.Parcelable$Creator CREATOR;
+}
+
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in /Applications/Android Studio.app/sdk/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+# 
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+# Add any project specific keep options here:
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+# -keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+# }
+-keep class it.sephiroth.android.library.tooltip.TooltipOverlayDrawable {
+    <fields>;
+    <methods>;
+}
+
+-keep class * extends java.util.ListResourceBundle {
+    protected java.lang.Object[][] getContents();
+}
+
+# Keep SafeParcelable value, needed for reflection. This is required to support backwards
+# compatibility of some classes.
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+# Keep the names of classes/members we need for client functionality.
+-keep @interface  com.google.android.gms.common.annotation.KeepName
+
+-keep,allowshrinking @com.google.android.gms.common.annotation.KeepName class *
+
+-keepclassmembers,allowshrinking class * {
+    @com.google.android.gms.common.annotation.KeepName
+    <fields>;
+    @com.google.android.gms.common.annotation.KeepName
+    <methods>;
+}
+
+# Needed for Parcelable/SafeParcelable Creators to not get stripped
+-keep,allowshrinking class * extends android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+# Keep metadata about included modules.
+-keep public class com.google.android.gms.dynamite.descriptors.** {
+    public <fields>;
+}
+
+# Keep the implementation of the flags api for google-play-services-flags
+-keep public class com.google.android.gms.flags.impl.FlagProviderImpl {
+    public <fields>;
+    public <methods>;
+}
+
+# Fabric Proguard Config
+-keep class com.google.android.gms.common.GooglePlayServicesUtil {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info {
+    <fields>;
+    <methods>;
+}
+
+# view res/layout/design_navigation_item.xml #generated:17
+-keep class android.support.design.internal.NavigationMenuItemView {
+    <init>(...);
+}
+
+# view res/layout/design_navigation_menu.xml #generated:17
+-keep class android.support.design.internal.NavigationMenuView {
+    <init>(...);
+}
+
+# view res/layout/design_layout_snackbar.xml #generated:18
+# view sw600dp-v13\res/layout-sw600dp-v13/design_layout_snackbar.xml #generated:18
+-keep class android.support.design.widget.Snackbar$SnackbarLayout {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_editor_feedback_dialog_dislike.xml #generated:43
+# view res/layout/com_adobe_image_editor_feedback_dialog_dislike.xml #generated:63
+-keep class android.support.design.widget.TextInputLayout {
+    <init>(...);
+}
+
+# view res/layout/abc_alert_dialog_material.xml #generated:75
+-keep class android.support.v4.widget.NestedScrollView {
+    <init>(...);
+}
+
+# view res/layout/abc_alert_dialog_button_bar_material.xml #generated:40
+# view res/layout/adp_alert_dialog_material.xml #generated:114
+-keep class android.support.v4.widget.Space {
+    <init>(...);
+}
+
+# view res/layout/abc_action_menu_item_layout.xml #generated:17
+-keep class android.support.v7.view.menu.ActionMenuItemView {
+    <init>(...);
+}
+
+# view res/layout/abc_expanded_menu_layout.xml #generated:17
+-keep class android.support.v7.view.menu.ExpandedMenuView {
+    <init>(...);
+}
+
+# view res/layout/abc_list_menu_item_layout.xml #generated:17
+# view res/layout/abc_popup_menu_item_layout.xml #generated:17
+-keep class android.support.v7.view.menu.ListMenuItemView {
+    <init>(...);
+}
+
+# view res/layout/abc_screen_toolbar.xml #generated:27
+-keep class android.support.v7.widget.ActionBarContainer {
+    <init>(...);
+}
+
+# view res/layout/abc_action_mode_bar.xml #generated:19
+# view res/layout/abc_screen_toolbar.xml #generated:43
+-keep class android.support.v7.widget.ActionBarContextView {
+    <init>(...);
+}
+
+# view res/layout/abc_screen_toolbar.xml #generated:17
+-keep class android.support.v7.widget.ActionBarOverlayLayout {
+    <init>(...);
+}
+
+# view res/layout/abc_action_menu_layout.xml #generated:17
+-keep class android.support.v7.widget.ActionMenuView {
+    <init>(...);
+}
+
+# view res/layout/abc_activity_chooser_view.xml #generated:19
+-keep class android.support.v7.widget.ActivityChooserView$InnerLayout {
+    <init>(...);
+}
+
+# view res/layout/adp_alert_dialog_material.xml #generated:108
+# view res/layout/adp_alert_dialog_material.xml #generated:120
+# view res/layout/adp_alert_dialog_material.xml #generated:126
+# view res/layout/com_adobe_image_editor_feedback_dialog_dislike.xml #generated:85
+# view res/layout/com_adobe_image_editor_feedback_dialog_new.xml #generated:56
+# view res/layout/com_adobe_image_editor_feedback_dialog_new.xml #generated:62
+# view res/layout/com_adobe_image_editor_feedback_dialog_new.xml #generated:68
+# view res/layout/com_adobe_image_editor_feedback_dialog_new.xml #generated:86
+# view res/layout/com_adobe_image_editor_feedback_dialog_report_bug.xml #generated:55
+# view res/layout/com_adobe_image_login_dialog.xml #generated:104
+# view res/layout/com_adobe_image_login_dialog.xml #generated:94
+# view res/layout/com_adobe_image_main_toolbar.xml #generated:37
+-keep class android.support.v7.widget.AppCompatButton {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_listview_layout.xml #generated:39
+# view res/layout/com_adobe_image_main_toolbar.xml #generated:29
+# view res/layout/com_adobe_image_progress_small_layout.xml #generated:17
+# view res/layout/com_adobe_image_recyclerfragment.xml #generated:28
+# view res/layout/com_adobe_image_toolbar_title_textview.xml #generated:2
+# view v21\res/layout-v21/com_adobe_image_progress_small_layout.xml #generated:1
+-keep class android.support.v7.widget.AppCompatTextView {
+    <init>(...);
+}
+
+# view res/layout/abc_alert_dialog_button_bar_material.xml #generated:18
+-keep class android.support.v7.widget.ButtonBarLayout {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_login_dialog.xml #generated:3
+# view res/layout/com_adobe_image_thank_you_dialog.xml #generated:3
+-keep class android.support.v7.widget.CardView {
+    <init>(...);
+}
+
+# view res/layout/abc_screen_content_include.xml #generated:19
+-keep class android.support.v7.widget.ContentFrameLayout {
+    <init>(...);
+}
+
+# view res/layout/abc_alert_dialog_material.xml #generated:48
+-keep class android.support.v7.widget.DialogTitle {
+    <init>(...);
+}
+
+# view res/layout/abc_screen_simple_overlay_action_mode.xml #generated:23
+-keep class android.support.v7.widget.FitWindowsFrameLayout {
+    <init>(...);
+}
+
+# view res/layout/abc_dialog_title_material.xml #generated:22
+# view res/layout/abc_screen_simple.xml #generated:17
+-keep class android.support.v7.widget.FitWindowsLinearLayout {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_bottombar_panel_adjust.xml #generated:12
+# view res/layout/com_adobe_image_bottombar_panel_content_frames.xml #generated:16
+# view res/layout/com_adobe_image_bottombar_panel_stickers.xml #generated:24
+# view res/layout/com_adobe_image_bottombar_panel_stickers.xml #generated:35
+# view res/layout/com_adobe_image_listview_layout.xml #generated:31
+# view res/layout/com_adobe_image_main_bottombar.xml #generated:16
+# view res/layout/com_adobe_image_recyclerfragment.xml #generated:34
+# view res/layout/com_adobe_image_store_detail_layout_previews.xml #generated:9
+-keep class android.support.v7.widget.RecyclerView {
+    <init>(...);
+}
+
+# view res/layout/abc_search_view.xml #generated:78
+-keep class android.support.v7.widget.SearchView$SearchAutoComplete {
+    <init>(...);
+}
+
+# view land\res/layout-land/adobe_csdk_actionbar.xml #generated:2
+# view port\res/layout-port/adobe_csdk_actionbar.xml #generated:2
+# view res/layout/abc_screen_toolbar.xml #generated:36
+-keep class android.support.v7.widget.Toolbar {
+    <init>(...);
+}
+
+# view res/layout/abc_screen_simple.xml #generated:25
+# view res/layout/abc_screen_simple_overlay_action_mode.xml #generated:32
+-keep class android.support.v7.widget.ViewStubCompat {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_login_dialog.xml #generated:27
+# view res/layout/com_adobe_image_store_detail_fragment.xml #generated:15
+-keep class com.adobe.android.ui.view.AdaptiveFrameLayout {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_bottombar_panel_meme.xml #generated:16
+# view res/layout/com_adobe_image_bottombar_panel_meme.xml #generated:46
+# view res/layout/com_adobe_image_editor_tutoria_overlay_close_button.xml #generated:4
+# view res/layout/com_adobe_image_promo_message_dialog.xml #generated:63
+# view res/layout/com_adobe_image_promo_message_dialog.xml #generated:72
+# view res/layout/com_adobe_image_store_listview.xml #generated:30
+-keep class com.adobe.android.ui.view.AdobeButton {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_bottombar_crop_item_layout.xml #generated:20
+# view res/layout/com_adobe_image_bottombar_panel_enhance.xml #generated:110
+# view res/layout/com_adobe_image_bottombar_panel_enhance.xml #generated:135
+# view res/layout/com_adobe_image_bottombar_panel_enhance.xml #generated:32
+# view res/layout/com_adobe_image_bottombar_panel_enhance.xml #generated:58
+# view res/layout/com_adobe_image_bottombar_panel_enhance.xml #generated:84
+# view res/layout/com_adobe_image_bottombar_panel_focus.xml #generated:27
+# view res/layout/com_adobe_image_bottombar_panel_focus.xml #generated:51
+# view res/layout/com_adobe_image_bottombar_panel_item_adjust.xml #generated:19
+# view res/layout/com_adobe_image_bottombar_panel_orientation.xml #generated:45
+# view res/layout/com_adobe_image_bottombar_panel_orientation.xml #generated:88
+# view res/layout/com_adobe_image_bottombar_panel_text.xml #generated:43
+# view res/layout/com_adobe_image_bottombar_panel_text.xml #generated:67
+# view res/layout/com_adobe_image_bottombar_slider_tooltip.xml #generated:12
+# view res/layout/com_adobe_image_bottombar_tool_item_layout.xml #generated:20
+# view res/layout/com_adobe_image_content_effects_item_content_item.xml #generated:46
+# view res/layout/com_adobe_image_content_frames_item_content_item.xml #generated:28
+# view res/layout/com_adobe_image_content_frames_item_external_pack.xml #generated:30
+# view res/layout/com_adobe_image_content_frames_item_recent_pack.xml #generated:24
+# view res/layout/com_adobe_image_content_frames_item_supplies.xml #generated:25
+# view res/layout/com_adobe_image_content_stickers_item_internal_pack.xml #generated:23
+# view res/layout/com_adobe_image_editor_feedback_dialog_dislike.xml #generated:30
+# view res/layout/com_adobe_image_editor_feedback_dialog_new.xml #generated:46
+# view res/layout/com_adobe_image_editor_feedback_dialog_report_bug.xml #generated:30
+# view res/layout/com_adobe_image_editor_feedback_dialog_report_bug.xml #generated:41
+# view res/layout/com_adobe_image_login_dialog.xml #generated:60
+# view res/layout/com_adobe_image_login_dialog.xml #generated:71
+# view res/layout/com_adobe_image_main_view_loader.xml #generated:25
+# view res/layout/com_adobe_image_panel_colorsplash.xml #generated:33
+# view res/layout/com_adobe_image_panel_colorsplash.xml #generated:56
+# view res/layout/com_adobe_image_panel_colorsplash.xml #generated:79
+# view res/layout/com_adobe_image_promo_message_dialog.xml #generated:29
+# view res/layout/com_adobe_image_promo_message_dialog.xml #generated:40
+# view res/layout/com_adobe_image_store_detail_fragment.xml #generated:116
+# view res/layout/com_adobe_image_store_detail_fragment.xml #generated:124
+# view res/layout/com_adobe_image_store_detail_fragment.xml #generated:41
+# view res/layout/com_adobe_image_store_detail_fragment.xml #generated:48
+# view res/layout/com_adobe_image_store_detail_fragment.xml #generated:59
+# view res/layout/com_adobe_image_store_detail_preview_effect.xml #generated:20
+# view res/layout/com_adobe_image_store_list_item.xml #generated:28
+# view res/layout/com_adobe_image_thank_you_dialog.xml #generated:34
+# view res/layout/custom_tooltip_textview.xml #generated:9
+-keep class com.adobe.android.ui.view.AdobeTextView {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_content_effects_item_content_item.xml #generated:26
+# view res/layout/com_adobe_image_content_frames_item_content_item.xml #generated:16
+# view res/layout/com_adobe_image_store_detail_banner.xml #generated:16
+# view res/layout/com_adobe_image_store_list_item.xml #generated:17
+-keep class com.adobe.android.ui.view.SquareImageView {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_store_detail_layout_previews.xml #generated:17
+-keep class com.adobe.android.ui.widget.AdobeContentLoadingProgressBar {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_bottombar_panel_draw.xml #generated:12
+# view res/layout/com_adobe_image_bottombar_panel_draw.xml #generated:23
+# view res/layout/com_adobe_image_bottombar_panel_spot.xml #generated:7
+# view res/layout/com_adobe_image_bottombar_panel_text.xml #generated:75
+-keep class com.adobe.android.ui.widget.AdobeGalleryView {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:135
+-keep class com.adobe.creativesdk.aviary.AdobeImageBillingService {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:61
+-keep class com.adobe.creativesdk.aviary.AdobeImageEditorActivity {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:108
+-keep class com.adobe.creativesdk.aviary.internal.cds.CdsAssetsDownloaderService {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:36
+-keep class com.adobe.creativesdk.aviary.internal.cds.CdsProvider {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:120
+-keep class com.adobe.creativesdk.aviary.internal.cds.CdsReceiver {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:97
+-keep class com.adobe.creativesdk.aviary.internal.cds.CdsService {
+    <init>(...);
+}
+
+# view v21\res/transition-v21/com_adobe_image_editor_enter.xml #generated:8
+-keep class com.adobe.creativesdk.aviary.transition.EditorTransition {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_editor_content_orientation.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.AdobeImageAdjustImageView {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_main_bottombar.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.AdobeImageBottomBarAnimator {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_bottombar_crop_item_layout.xml #generated:12
+# view res/layout/com_adobe_image_bottombar_feedback_item_layout.xml #generated:16
+# view res/layout/com_adobe_image_bottombar_panel_enhance.xml #generated:101
+# view res/layout/com_adobe_image_bottombar_panel_enhance.xml #generated:126
+# view res/layout/com_adobe_image_bottombar_panel_enhance.xml #generated:23
+# view res/layout/com_adobe_image_bottombar_panel_enhance.xml #generated:49
+# view res/layout/com_adobe_image_bottombar_panel_enhance.xml #generated:75
+# view res/layout/com_adobe_image_bottombar_panel_focus.xml #generated:18
+# view res/layout/com_adobe_image_bottombar_panel_focus.xml #generated:42
+# view res/layout/com_adobe_image_bottombar_panel_orientation.xml #generated:21
+# view res/layout/com_adobe_image_bottombar_panel_orientation.xml #generated:32
+# view res/layout/com_adobe_image_bottombar_panel_orientation.xml #generated:65
+# view res/layout/com_adobe_image_bottombar_panel_orientation.xml #generated:76
+# view res/layout/com_adobe_image_bottombar_panel_text.xml #generated:34
+# view res/layout/com_adobe_image_bottombar_panel_text.xml #generated:59
+# view res/layout/com_adobe_image_bottombar_tool_item_layout.xml #generated:13
+# view res/layout/com_adobe_image_panel_colorsplash.xml #generated:24
+# view res/layout/com_adobe_image_panel_colorsplash.xml #generated:48
+# view res/layout/com_adobe_image_panel_colorsplash.xml #generated:71
+-keep class com.adobe.creativesdk.aviary.widget.AdobeImageHighlightImageButton {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_main_toolbar.xml #generated:5
+-keep class com.adobe.creativesdk.aviary.widget.AdobeImageToolBar {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_main_layout.xml #generated:32
+-keep class com.adobe.creativesdk.aviary.widget.AdobeImageViewUndoRedo {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_editor_content_vignette.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.AdobeImageViewVignette {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_content_effects_item_content_item.xml #generated:2
+# view res/layout/com_adobe_image_content_frames_item_content_item.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.CheckableRelativeLayout {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_editor_content_crop.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.CropImageView {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_store_detail_fragment.xml #generated:95
+# view res/layout/com_adobe_image_store_list_item.xml #generated:44
+-keep class com.adobe.creativesdk.aviary.widget.IAPBuyButton {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_editor_content_meme.xml #generated:36
+# view res/layout/com_adobe_image_editor_content_stickers.xml #generated:2
+# view res/layout/com_adobe_image_editor_content_text.xml #generated:16
+-keep class com.adobe.creativesdk.aviary.widget.ImageViewDrawableOverlay {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_editor_content_overlays.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.ImageViewOverlay {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_editor_content_spot_draw.xml #generated:7
+-keep class com.adobe.creativesdk.aviary.widget.ImageViewSpotDraw {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_editor_content_blemish.xml #generated:7
+-keep class com.adobe.creativesdk.aviary.widget.ImageViewSpotSingleTap {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_editor_content_focus.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.ImageViewTiltiShiftTouch {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_editor_content_frames.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.ImageViewWithIntensity {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_bottombar_slider_tooltip.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.IntensitySliderView {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_store_detail_banner.xml #generated:4
+-keep class com.adobe.creativesdk.aviary.widget.PackDetailBannerView {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_store_detail_layout_previews.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.PackDetailPreviews {
+    <init>(...);
+}
+
+# view res/layout/com_adobe_image_store_detail_fragment.xml #generated:2
+-keep class com.adobe.creativesdk.aviary.widget.StoreDetailLayout {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:148
+-keep class com.adobe.creativesdk.foundation.internal.auth.AdobeAuthSignInActivity {
+    <init>(...);
+}
+
+# view res/layout/adobe_csdk_common_errorview.xml #generated:14
+-keep class com.adobe.creativesdk.foundation.internal.utils.CreativeSDKBoldTextView {
+    <init>(...);
+}
+
+# view res/layout/adobe_csdk_common_dialog_fragment.xml #generated:18
+-keep class com.adobe.creativesdk.foundation.internal.utils.CreativeSDKEditText {
+    <init>(...);
+}
+
+# view land\res/layout-land/adobe_csdk_actionbar.xml #generated:15
+# view port\res/layout-port/adobe_csdk_actionbar.xml #generated:14
+# view res/layout/adobe_csdk_common_dialog_fragment.xml #generated:41
+# view res/layout/adobe_csdk_common_dialog_fragment.xml #generated:65
+# view res/layout/adobe_csdk_common_dialog_fragment.xml #generated:78
+# view res/layout/adobe_csdk_common_popup_bannerview.xml #generated:9
+-keep class com.adobe.creativesdk.foundation.internal.utils.CreativeSDKTextView {
+    <init>(...);
+}
+
+# view res/layout/adobe_csdk_ux_auth_fragment_view.xml #generated:1
+-keep class com.adobe.creativesdk.foundation.internal.utils.DrawShadowRelativeLayout {
+    <init>(...);
+}
+
+# view res/layout/adp_select_dialog_material.xml #generated:2
+-keep class com.alertdialogpro.internal.AlertController$RecycleListView {
+    <init>(...);
+}
+
+# view res/layout/adp_alert_dialog_material.xml #generated:33
+-keep class com.alertdialogpro.internal.DialogTitle {
+    <init>(...);
+}
+
+# view res/layout/adp_select_dialog_multichoice_material.xml #generated:2
+# view res/layout/adp_select_dialog_singlechoice_material.xml #generated:2
+-keep class com.alertdialogpro.material.CheckedTextViewCompat {
+    <init>(...);
+}
+
+# view res/layout/adp_progress_dialog_material.xml #generated:17
+-keep class com.alertdialogpro.material.ProgressBarCompat {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:48
+-keep class com.alexsheiko.invitationmaker.GridActivity {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:29
+-keep class com.alexsheiko.invitationmaker.InvitationApplication {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:41
+-keep class com.alexsheiko.invitationmaker.MainActivity {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:52
+-keep class com.alexsheiko.invitationmaker.ResultActivity {
+    <init>(...);
+}
+
+# onClick res/layout/activity_result.xml #generated:18
+-keepclassmembers class * {
+    *** onClickFinish(...);
+}
+
+-keep public class com.google.vending.licensing.ILicensingService
+
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keep public class com.google.android.vending.licensing.ILicensingService
+
+# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
+-keepclasseswithmembers,allowshrinking class * {
+    native <methods>;
+}
+
+# Keep setters in Views so that animations can still work.
+# see http://proguard.sourceforge.net/manual/examples.html#beans
+-keepclassmembers public class * extends android.view.View {
+    void set*(***);
+    *** get*();
+}
+
+# We want to keep methods in Activity that could be used in the XML attribute onClick.
+-keepclassmembers class * extends android.app.Activity {
+    public void *(android.view.View);
+}
+
+# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
+-keepclassmembers enum  * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keepclassmembers class * extends android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
+# Understand the @Keep support annotation.
+-keep class android.support.annotation.Keep
+
+-keep @android.support.annotation.Keep class * {
+    <fields>;
+    <methods>;
+}
+
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep
+    <methods>;
+}
+
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep
+    <fields>;
+}
+
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep
+    <init>(...);
+}
+
+-keep public class com.google.vending.licensing.ILicensingService
+
+-keep public class com.android.vending.licensing.ILicensingService
+
+# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
+-keepclasseswithmembers,allowshrinking class * {
+    native <methods>;
+}
+
+# keep setters in Views so that animations can still work.
+# see http://proguard.sourceforge.net/manual/examples.html#beans
+-keepclassmembers public class * extends android.view.View {
+    void set*(***);
+    *** get*();
+}
+
+# We want to keep methods in Activity that could be used in the XML attribute onClick
+-keepclassmembers class * extends android.app.Activity {
+    public void *(android.view.View);
+}
+
+# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
+-keepclassmembers enum  * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keepclassmembers class * extends android.os.Parcelable {
+    public static final android.os.Parcelable$Creator CREATOR;
+}
+
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in /Users/crugnola/Library/Android/sdk/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the proguardFiles
+# directive in build.gradle.
+# 
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+# Add any project specific keep options here:
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+# -keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+# }
+-keep class com.adobe.android.ui.widget.AdobeContentLoadingProgressBar {
+    <fields>;
+    <methods>;
+}
+
+# common library
+-keep class com.aviary.android.feather.sdk.AviaryIntent
+
+-keep class com.aviary.android.feather.sdk.internal.tracking.AviaryTracker
+
+-keep class com.aviary.android.feather.sdk.internal.tracking.AbstractTracker
+
+-keep class com.aviary.android.feather.sdk.log.LoggerFactory
+
+-keep class com.aviary.android.feather.sdk.internal.headless.gl.GLUtils
+
+-keep class com.aviary.android.feather.sdk.internal.services.BaseContextService
+
+-keep class com.aviary.android.feather.sdk.internal.tracking.TrackerFactory
+
+# headless library
+-keep interface  com.aviary.android.feather.sdk.internal.headless.filters.IFilter
+
+-keep class com.aviary.android.feather.sdk.internal.headless.AviaryEffect
+
+-keep class com.aviary.android.feather.sdk.internal.headless.moa.Moa
+
+-keep class com.aviary.android.feather.sdk.internal.headless.moa.MoaHD
+
+-keep class com.aviary.android.feather.sdk.internal.headless.moa.MoaParameter
+
+-keep class com.aviary.android.feather.sdk.internal.headless.utils.CameraUtils
+
+-keep class com.aviary.android.feather.sdk.internal.headless.moa.MoaJavaUndo
+
+-keep class com.aviary.android.feather.sdk.internal.headless.moa.MoaJavaUndo$MoaUndoBitmap
+
+-keep class com.aviary.android.feather.sdk.BuildConfig
+
+-keep class com.aviary.android.feather.cds.BuildConfig
+
+-keep class com.aviary.android.feather.headless.BuildConfig
+
+-keep class com.aviary.android.feather.common.BuildConfig
+
+-keep class * extends com.aviary.android.feather.sdk.internal.headless.filters.IFilter
+
+-keep class * extends com.aviary.android.feather.sdk.internal.headless.moa.MoaParameter
+
+-keep class * extends com.aviary.android.feather.sdk.widget.AviaryStoreWrapperAbstract
+
+-keep class * extends com.aviary.android.feather.sdk.widget.PackDetailLayout
+
+-keep class * extends com.aviary.android.feather.sdk.internal.services.BaseContextService
+
+-keep class * extends com.aviary.android.feather.sdk.internal.tracking.AbstractTracker
+
+-keep class * extends android.app.Service
+
+-keep class * extends android.os.AsyncTask
+
+-keep class * extends android.app.Activity
+
+-keep class * extends android.app.Application
+
+-keep class * extends android.app.Service
+
+-keep class * extends android.content.BroadcastReceiver
+
+-keep class * extends android.content.ContentProvider
+
+-keep class com.android.vending.licensing.ILicensingService
+
+-keep public class com.android.vending.billing.IInAppBillingService
+
+-keep class com.aviary.android.feather.sdk.internal.headless.moa.MoaResult
+
+-keep class com.aviary.android.feather.sdk.internal.headless.filters.NativeFilterProxy
+
+-keep class com.aviary.android.feather.sdk.utils.AviaryIntentConfigurationValidator
+
+-keep class com.aviary.android.feather.sdk.internal.Constants
+
+-keep class com.aviary.android.feather.sdk.AviaryIntent
+
+-keep class com.aviary.android.feather.sdk.AviaryIntent$Builder
+
+-keep class com.aviary.android.feather.sdk.AviaryVersion
+
+-keepclassmembers class com.aviary.android.feather.sdk.overlays.UndoRedoOverlay {
+    void setAlpha1(int);
+    void setAlpha2(int);
+    void setAlpha3(int);
+    int getAlpha1();
+    int getAlpha2();
+    int getAlpha3();
+}
+
+-keepclassmembers class * extends com.aviary.android.feather.sdk.internal.graphics.drawable.FeatherDrawable {
+    float getScaleX();
+    void setScaleX(float);
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.AviaryIntent {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.AviaryIntent$Builder {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.AviaryVersion {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.utils.AviaryIntentConfigurationValidator {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.graphics.drawable.FeatherDrawable {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.utils.SDKUtils {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.utils.SDKUtils$ApiKeyReader {
+    <fields>;
+    <methods>;
+}
+
+# keep everything for native methods/fields
+-keepclassmembers class com.aviary.android.feather.sdk.internal.headless.moa.Moa {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.headless.moa.MoaHD {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.headless.moa.MoaJavaUndo {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.headless.utils.CameraUtils {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.headless.moa.MoaResult {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.opengl.AviaryGLSurfaceView {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.headless.filters.MoaJavaToolStrokeResult {
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.headless.gl.GLUtils {
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.headless.filters.NativeToolFilter {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.AviaryIntent {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.os.AviaryIntentService {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.os.AviaryAsyncTask {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.tracking.AbstractTracker {
+    <fields>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.tracking.AviaryTracker {
+    <fields>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.log.LoggerFactory {
+    <fields>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.headless.moa.MoaJavaUndo$MoaUndoBitmap {
+    <fields>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.BuildConfig {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.cds.BuildConfig {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.headless.BuildConfig {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.common.BuildConfig {
+    <fields>;
+    <methods>;
+}
+
+# keep class members
+-keepclassmembers class com.aviary.android.feather.sdk.internal.tracking.AbstractTracker {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.tracking.TrackerFactory {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.headless.gl.GLUtils {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.sdk.internal.services.BaseContextService {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class com.aviary.android.feather.utils.SettingsUtils {
+    <fields>;
+    <methods>;
+}
+
+-keepclassmembers class * extends com.aviary.android.feather.sdk.internal.services.BaseContextService {
+    public <init>(com.aviary.android.feather.sdk.internal.services.IAviaryController);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(com.aviary.android.feather.sdk.internal.services.IAviaryController);
+}
+
+-keepclassmembers class * extends android.os.Parcelable {
+    static ** CREATOR;
+}
+
+# Keep all the native methods
+-keepclassmembers class * {
+    private native <methods>;
+    public native <methods>;
+    protected native <methods>;
+    public static native <methods>;
+    private static native <methods>;
+    static native <methods>;
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(com.aviary.android.feather.sdk.internal.services.IAviaryController);
+}
+
+# EventBus
+-keepclassmembers class ** {
+    public void onEvent*(**);
+}
+
+# 
+# facebook sdk specific entries
+-keep,allowshrinking class * extends java.io.Serializable
+
+-keepclassmembers class * extends java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    !static !transient <fields>;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+-keepclassmembers class com.facebook.Session {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.facebook.model.** {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.google.android.gms.R$styleable
+
+-keepclassmembers class com.google.android.gms.R$styleable {
+    <fields>;
+    <methods>;
+}
+
+# keep getters/setters in RotatingDrawable so that animations can still work.
+-keepclassmembers class com.getbase.floatingactionbutton.FloatingActionsMenu$RotatingDrawable {
+    void set*(***);
+    *** get*();
+}

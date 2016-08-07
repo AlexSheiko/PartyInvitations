@@ -24,12 +24,10 @@
         </activity>
         <activity
             android:name=".GridActivity"
-            android:label="@string/title_activity_grid"
             android:parentActivityName=".MainActivity">
         </activity>
         <activity
             android:name=".ResultActivity"
-            android:label="@string/title_activity_preview"
             android:parentActivityName=".GridActivity">
         </activity>
 
