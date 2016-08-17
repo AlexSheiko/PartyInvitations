@@ -54,11 +54,11 @@ public class GridActivity extends AppCompatActivity {
 
     public void openImageEditor(Uri imageUri) {
         ToolLoaderFactory.Tools[] tools = {
+                ToolLoaderFactory.Tools.BLUR,
                 ToolLoaderFactory.Tools.TEXT,
                 ToolLoaderFactory.Tools.DRAW,
                 ToolLoaderFactory.Tools.CROP,
                 ToolLoaderFactory.Tools.ENHANCE,
-                ToolLoaderFactory.Tools.FRAMES,
         };
         Intent imageEditorIntent = new AdobeImageIntent.Builder(this)
                 .setData(imageUri)

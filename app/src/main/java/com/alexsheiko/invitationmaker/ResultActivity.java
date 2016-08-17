@@ -1,12 +1,14 @@
 package com.alexsheiko.invitationmaker;
 
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,12 +16,18 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.PurchaseEvent;
+import com.crashlytics.android.answers.ShareEvent;
+
 import java.io.File;
+import java.math.BigDecimal;
+import java.util.Currency;
 
 import static com.alexsheiko.invitationmaker.R.menu.result;
 
 
-public class ResultActivity extends AppCompatActivity {
+public class ResultActivity extends BillingActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +41,9 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStop() {
+    protected void onPause() {
         super.onStop();
-        findViewById(R.id.finish_button).setVisibility(View.VISIBLE);
+        findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -68,6 +76,38 @@ public class ResultActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1001) {
+            Toast.makeText(this, "Thank you, enjoy using the app!", Toast.LENGTH_SHORT).show();
+
+            Answers.getInstance().logPurchase(new PurchaseEvent()
+                    .putItemPrice(BigDecimal.valueOf(1.00))
+                    .putCurrency(Currency.getInstance("USD"))
+                    .putItemName("Donation 1 USD")
+                    .putItemType("Donation")
+                    .putItemId("donate1")
+                    .putSuccess(resultCode == Activity.RESULT_OK));
+            return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void onClickDonate(View view) {
+        if (mService == null) return;
+        try {
+            Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
+                    "donate1", "inapp", "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
+            PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
+            startIntentSenderForResult(pendingIntent.getIntentSender(),
+                    1001, new Intent(), Integer.valueOf(0), Integer.valueOf(0),
+                    Integer.valueOf(0));
+        } catch (RemoteException | IntentSender.SendIntentException e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
     public void onClickFinish(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -86,6 +126,8 @@ public class ResultActivity extends AppCompatActivity {
             shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
             shareIntent.setType("image/*");
             startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
+
+            Answers.getInstance().logShare(new ShareEvent());
         } catch (Exception e) {
             Toast.makeText(this, "Failed to share image: " + e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();

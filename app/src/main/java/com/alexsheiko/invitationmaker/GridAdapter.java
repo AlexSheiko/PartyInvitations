@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.ContentViewEvent;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -44,6 +46,11 @@ public class GridAdapter extends ArrayAdapter<Integer> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            String templateName = getContext().getResources().getResourceEntryName(resId);
+            Answers.getInstance().logContentView(new ContentViewEvent()
+                    .putContentType("Template")
+                    .putContentId(templateName));
         });
         return view;
     }

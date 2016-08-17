@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".ResultActivity">
 
     <ImageView
@@ -12,26 +13,36 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        android:scaleType="fitStart"
+        android:scaleType="fitCenter"
         tools:src="@drawable/birthday_template_1"/>
 
-    <Button
-        android:id="@+id/finish_button"
+    <LinearLayout
+        android:id="@+id/finish_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="56dp"
-        android:background="#8BC34A"
-        android:elevation="8dp"
-        android:onClick="onClickFinish"
-        android:paddingBottom="32dp"
-        android:paddingLeft="48dp"
-        android:paddingRight="48dp"
-        android:paddingTop="32dp"
-        android:text="F i n i s h"
-        android:textColor="@android:color/white"
-        android:textSize="32sp"
+        android:orientation="vertical"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="visible">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:background="#8BC34A"
+            android:elevation="8dp"
+            android:onClick="onClickFinish"
+            android:paddingBottom="32dp"
+            android:paddingLeft="48dp"
+            android:paddingRight="48dp"
+            android:paddingTop="32dp"
+            android:text="F i n i s h"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"/>
+
+        <include
+            layout="@layout/footer_recipes_list"/>
+
+    </LinearLayout>
 
 </FrameLayout>
