@@ -7,9 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.crashlytics.android.answers.Answers;
-import com.crashlytics.android.answers.ContentViewEvent;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -27,10 +24,6 @@ public class MainActivity extends AppCompatActivity {
                 String category = ((TextView) child).getText().toString()
                         .replaceAll(" ", "").replace("\n", " ");
                 intent.putExtra("category", category);
-
-                Answers.getInstance().logContentView(new ContentViewEvent()
-                        .putContentType("Category")
-                        .putContentId(category));
             }
         }
         startActivity(intent);
