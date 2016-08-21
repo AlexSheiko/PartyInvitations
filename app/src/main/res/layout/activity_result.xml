@@ -7,14 +7,30 @@
     android:animateLayoutChanges="true"
     tools:context=".ResultActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        tools:src="@drawable/birthday_template_1"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitStart"
+            tools:src="@drawable/birthday_template_1"/>
+
+        <TextView
+            android:id="@+id/congratsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="Looking nice, great job!"
+            android:textStyle="italic"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/finish_container"
@@ -26,7 +42,7 @@
         tools:visibility="visible">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
             android:background="#8BC34A"
@@ -41,7 +57,8 @@
             android:textSize="32sp"/>
 
         <include
-            layout="@layout/footer_recipes_list"/>
+            layout="@layout/footer_recipes_list"
+            android:visibility="gone"/>
 
     </LinearLayout>
 

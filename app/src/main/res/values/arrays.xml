@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="congrats">
+        <item>Looking good, great job!</item>
+        <item>Just look at it!</item>
+        <item>Your friends will appreciate it!</item>
+    </string-array>
+</resources>

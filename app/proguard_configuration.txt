@@ -68,7 +68,7 @@
 -dontpreverify
 -verbose
 -dontnote com.android.vending.licensing.ILicensingService,com.google.vending.licensing.ILicensingService,com.google.android.vending.licensing.ILicensingService,android.support.**
--dontwarn android.support.**,org.apache.commons.**,com.squareup.okhttp.internal.**,okio.**,java.lang.invoke.*,sun.misc.Unsafe,javax.annotation.**,rx.**,com.adobe.creativesdk.aviary.AdobeImageEditorActivity**,org.apache.http.**,oauth.signpost.signature.**,uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper,sun.misc.**,android.security.NetworkSecurityPolicy,proguard.annotation.**,android.support.**,android.security.NetworkSecurityPolicy,android.support.**,android.support.**,android.app.Notification,com.squareup.okhttp.internal.**
+-dontwarn android.support.**,org.apache.commons.**,com.squareup.okhttp.internal.**,okio.**,java.lang.invoke.*,sun.misc.Unsafe,javax.annotation.**,rx.**,com.adobe.creativesdk.aviary.AdobeImageEditorActivity**,org.apache.http.**,oauth.signpost.signature.**,uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper,sun.misc.**,android.security.NetworkSecurityPolicy,proguard.annotation.**,android.support.**,android.support.**,android.security.NetworkSecurityPolicy,android.support.**,android.app.Notification,com.squareup.okhttp.internal.**
 -printconfiguration 'D:\InvitationMaker\app\proguard_configuration.txt'
 -dump 'D:\InvitationMaker\app\build\outputs\mapping\release\dump.txt'
 -printseeds 'D:\InvitationMaker\app\build\outputs\mapping\release\seeds.txt'
@@ -555,6 +555,66 @@
 -keep class it.sephiroth.android.library.tooltip.TooltipOverlayDrawable {
     <fields>;
     <methods>;
+}
+
+-keep public class com.google.vending.licensing.ILicensingService
+
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keep public class com.google.android.vending.licensing.ILicensingService
+
+# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
+-keepclasseswithmembers,allowshrinking class * {
+    native <methods>;
+}
+
+# Keep setters in Views so that animations can still work.
+# see http://proguard.sourceforge.net/manual/examples.html#beans
+-keepclassmembers public class * extends android.view.View {
+    void set*(***);
+    *** get*();
+}
+
+# We want to keep methods in Activity that could be used in the XML attribute onClick.
+-keepclassmembers class * extends android.app.Activity {
+    public void *(android.view.View);
+}
+
+# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
+-keepclassmembers enum  * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keepclassmembers class * extends android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
+# Understand the @Keep support annotation.
+-keep class android.support.annotation.Keep
+
+-keep @android.support.annotation.Keep class * {
+    <fields>;
+    <methods>;
+}
+
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep
+    <methods>;
+}
+
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep
+    <fields>;
+}
+
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep
+    <init>(...);
 }
 
 -keep class * extends java.util.ListResourceBundle {
@@ -1080,69 +1140,15 @@
     <init>(...);
 }
 
-# onClick res/layout/activity_result.xml #generated:18
+# onClick res/layout/footer_recipes_list.xml #generated:24
+-keepclassmembers class * {
+    *** onClickDonate(...);
+}
+
+# onClick res/layout/activity_result.xml #generated:28
+# onClick res/layout/footer_recipes_list.xml #generated:33
 -keepclassmembers class * {
     *** onClickFinish(...);
-}
-
--keep public class com.google.vending.licensing.ILicensingService
-
--keep public class com.android.vending.licensing.ILicensingService
-
--keep public class com.google.android.vending.licensing.ILicensingService
-
-# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
--keepclasseswithmembers,allowshrinking class * {
-    native <methods>;
-}
-
-# Keep setters in Views so that animations can still work.
-# see http://proguard.sourceforge.net/manual/examples.html#beans
--keepclassmembers public class * extends android.view.View {
-    void set*(***);
-    *** get*();
-}
-
-# We want to keep methods in Activity that could be used in the XML attribute onClick.
--keepclassmembers class * extends android.app.Activity {
-    public void *(android.view.View);
-}
-
-# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
--keepclassmembers enum  * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
-}
-
--keepclassmembers class * extends android.os.Parcelable {
-    public static final ** CREATOR;
-}
-
--keepclassmembers class **.R$* {
-    public static <fields>;
-}
-
-# Understand the @Keep support annotation.
--keep class android.support.annotation.Keep
-
--keep @android.support.annotation.Keep class * {
-    <fields>;
-    <methods>;
-}
-
--keepclasseswithmembers class * {
-    @android.support.annotation.Keep
-    <methods>;
-}
-
--keepclasseswithmembers class * {
-    @android.support.annotation.Keep
-    <fields>;
-}
-
--keepclasseswithmembers class * {
-    @android.support.annotation.Keep
-    <init>(...);
 }
 
 -keep public class com.google.vending.licensing.ILicensingService

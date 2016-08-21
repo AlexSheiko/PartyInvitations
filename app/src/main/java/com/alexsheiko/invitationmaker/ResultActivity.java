@@ -14,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crashlytics.android.answers.Answers;
@@ -23,6 +24,7 @@ import com.crashlytics.android.answers.ShareEvent;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.Currency;
+import java.util.Random;
 
 import static com.alexsheiko.invitationmaker.R.menu.result;
 
@@ -38,6 +40,11 @@ public class ResultActivity extends BillingActivity {
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setImageURI(imageUri);
+
+        TextView congratsLabel = (TextView) findViewById(R.id.congratsLabel);
+        String[] congratsArray = getResources().getStringArray(R.array.congrats);
+        int index = new Random().nextInt(congratsArray.length);
+        congratsLabel.setText(congratsArray[index]);
     }
 
     @Override
