@@ -140,4 +140,8 @@ public class ResultActivity extends BillingActivity {
             e.printStackTrace();
         }
     }
+
+    public void onClickImage(View view) {
+        onBackPressed();
+    }
 }

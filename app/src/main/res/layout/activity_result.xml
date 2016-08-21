@@ -18,6 +18,9 @@
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:clickable="true"
+            android:foreground="?selectableItemBackground"
+            android:onClick="onClickImage"
             android:scaleType="fitStart"
             tools:src="@drawable/birthday_template_1"/>
 
