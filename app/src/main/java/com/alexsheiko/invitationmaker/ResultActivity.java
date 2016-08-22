@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.PurchaseEvent;
 import com.crashlytics.android.answers.ShareEvent;
+import com.mopub.mobileads.MoPubErrorCode;
+import com.mopub.mobileads.MoPubInterstitial;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -29,7 +32,10 @@ import java.util.Random;
 import static com.alexsheiko.invitationmaker.R.menu.result;
 
 
-public class ResultActivity extends BillingActivity {
+public class ResultActivity extends BillingActivity
+        implements MoPubInterstitial.InterstitialAdListener {
+
+    private MoPubInterstitial interstitial;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,14 @@ public class ResultActivity extends BillingActivity {
     protected void onPause() {
         super.onStop();
         findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (interstitial != null) {
+            interstitial.destroy();
+        }
     }
 
     @Override
@@ -116,6 +130,12 @@ public class ResultActivity extends BillingActivity {
     }
 
     public void onClickFinish(View view) {
+        interstitial = new MoPubInterstitial(this, "c2c50ad94d474a20a919ca7d33638a0b");
+        interstitial.setInterstitialAdListener(this);
+        interstitial.load();
+    }
+
+    private void navigateToMainScreen() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
@@ -143,5 +163,36 @@ public class ResultActivity extends BillingActivity {
 
     public void onClickImage(View view) {
         onBackPressed();
+    }
+
+    // InterstitialAdListener methods
+    @Override
+    public void onInterstitialLoaded(MoPubInterstitial interstitial) {
+        // This sample automatically shows the ad as soon as it's loaded, but
+        // you can move this show call to a time more appropriate for your app.
+        if (interstitial.isReady()) {
+            interstitial.show();
+        }
+    }
+
+    @Override
+    public void onInterstitialFailed(MoPubInterstitial interstitial, MoPubErrorCode errorCode) {
+        Log.d("MoPub", "Interstitial load failed: " + errorCode);
+    }
+
+    @Override
+    public void onInterstitialShown(MoPubInterstitial interstitial) {
+    }
+
+    @Override
+    public void onInterstitialClicked(MoPubInterstitial interstitial) {
+        navigateToMainScreen();
+        Toast.makeText(this, "Thank you!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onInterstitialDismissed(MoPubInterstitial interstitial) {
+        navigateToMainScreen();
+        Toast.makeText(this, "Thank you!", Toast.LENGTH_SHORT).show();
     }
 }

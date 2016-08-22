@@ -41,13 +41,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="vertical"
+        android:paddingTop="56dp"
         android:visibility="gone"
         tools:visibility="visible">
 
         <Button
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
             android:background="#8BC34A"
             android:elevation="8dp"
             android:onClick="onClickFinish"

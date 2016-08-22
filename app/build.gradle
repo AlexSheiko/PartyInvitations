@@ -24,8 +24,8 @@ android {
         applicationId "com.alexsheiko.invitationmaker"
         minSdkVersion 16
         targetSdkVersion 24
-        versionCode 8
-        versionName "1.2"
+        versionCode 9
+        versionName "1.5"
 
         resConfigs "en"
     }
@@ -63,7 +63,13 @@ dependencies {
 
     compile 'com.adobe.creativesdk.foundation:auth:0.9.7'
     compile 'com.adobe.creativesdk:image:4.4.8'
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.1@aar') {
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
+        transitive = true;
+    }
+    compile('com.mopub:mopub-sdk:4.8.0@aar') {
+        transitive = true;
+    }
+    compile('io.fabric.sdk.android:fabric:1.3.10@aar') {
         transitive = true;
     }
 }
