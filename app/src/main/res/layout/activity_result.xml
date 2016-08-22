@@ -50,14 +50,15 @@
             android:layout_height="wrap_content"
             android:background="#8BC34A"
             android:elevation="8dp"
+            android:lineSpacingMultiplier="1.2"
             android:onClick="onClickFinish"
             android:paddingBottom="32dp"
             android:paddingLeft="48dp"
             android:paddingRight="48dp"
             android:paddingTop="32dp"
-            android:text="F i n i s h"
+            android:text="W a t c h\na n   a d "
             android:textColor="@android:color/white"
-            android:textSize="32sp"/>
+            android:textSize="24sp"/>
 
         <include
             layout="@layout/footer_recipes_list"
