@@ -26,12 +26,19 @@ public class GridActivity extends AppCompatActivity {
         GridAdapter adapter = new GridAdapter(this);
         gridView.setAdapter(adapter);
 
-        for (int i = 1; i < 100; i++) {
+        for (int i = 1; i < 300; i++) {
             String imageName = category.toLowerCase() + "_template_" + i;
             imageName = imageName.replace(" ", "_");
             int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
             if (resId != 0) {
                 adapter.add(resId);
+            } else {
+                String imageNamePaid = category.toLowerCase() + "_template_" + i + "_paid";
+                imageNamePaid = imageNamePaid.replace(" ", "_");
+                int resIdPaid = getResources().getIdentifier(imageNamePaid, "drawable", getPackageName());
+                if (resIdPaid != 0) {
+                    adapter.add(resIdPaid);
+                }
             }
         }
     }
@@ -54,7 +61,6 @@ public class GridActivity extends AppCompatActivity {
 
     public void openImageEditor(Uri imageUri) {
         ToolLoaderFactory.Tools[] tools = {
-                ToolLoaderFactory.Tools.BLUR,
                 ToolLoaderFactory.Tools.TEXT,
                 ToolLoaderFactory.Tools.DRAW,
                 ToolLoaderFactory.Tools.CROP,

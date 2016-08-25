@@ -54,10 +54,10 @@
             android:name="com.millennialmedia.android.VideoPlayer"
             android:configChanges="keyboardHidden|orientation|keyboard"/>
 
-    </application>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="37603fd544c2349d3453ebc172ed3673360bae53"/>
 
-    <meta-data
-        android:name="io.fabric.ApiKey"
-        android:value="37603fd544c2349d3453ebc172ed3673360bae53"/>
+    </application>
 
 </manifest>

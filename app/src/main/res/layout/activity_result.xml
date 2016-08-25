@@ -22,7 +22,7 @@
             android:foreground="?selectableItemBackground"
             android:onClick="onClickImage"
             android:scaleType="fitStart"
-            tools:src="@drawable/birthday_template_1"/>
+            tools:src="@drawable/birthday_template_10"/>
 
         <TextView
             android:id="@+id/congratsLabel"
@@ -56,7 +56,7 @@
             android:paddingLeft="48dp"
             android:paddingRight="48dp"
             android:paddingTop="32dp"
-            android:text="W a t c h\na n   a d "
+            android:text="W a t c h\nA n  a d"
             android:textColor="@android:color/white"
             android:textSize="24sp"/>
 

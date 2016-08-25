@@ -36,6 +36,7 @@ public class ResultActivity extends BillingActivity
         implements MoPubInterstitial.InterstitialAdListener {
 
     private MoPubInterstitial interstitial;
+    private boolean mInterstitialShown = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,19 @@ public class ResultActivity extends BillingActivity
         String[] congratsArray = getResources().getStringArray(R.array.congrats);
         int index = new Random().nextInt(congratsArray.length);
         congratsLabel.setText(congratsArray[index]);
+
+        interstitial = new MoPubInterstitial(this, "c2c50ad94d474a20a919ca7d33638a0b");
+        interstitial.setInterstitialAdListener(this);
+        interstitial.load();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mInterstitialShown) {
+            navigateToMainScreen();
+            Toast.makeText(this, "Cool!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -130,9 +144,10 @@ public class ResultActivity extends BillingActivity
     }
 
     public void onClickFinish(View view) {
-        interstitial = new MoPubInterstitial(this, "c2c50ad94d474a20a919ca7d33638a0b");
-        interstitial.setInterstitialAdListener(this);
-        interstitial.load();
+        if (interstitial.isReady()) {
+            interstitial.show();
+            mInterstitialShown = true;
+        }
     }
 
     private void navigateToMainScreen() {
@@ -168,11 +183,6 @@ public class ResultActivity extends BillingActivity
     // InterstitialAdListener methods
     @Override
     public void onInterstitialLoaded(MoPubInterstitial interstitial) {
-        // This sample automatically shows the ad as soon as it's loaded, but
-        // you can move this show call to a time more appropriate for your app.
-        if (interstitial.isReady()) {
-            interstitial.show();
-        }
     }
 
     @Override
@@ -182,17 +192,17 @@ public class ResultActivity extends BillingActivity
 
     @Override
     public void onInterstitialShown(MoPubInterstitial interstitial) {
+        Toast.makeText(this, "Shown!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onInterstitialClicked(MoPubInterstitial interstitial) {
-        navigateToMainScreen();
         Toast.makeText(this, "Thank you!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onInterstitialDismissed(MoPubInterstitial interstitial) {
         navigateToMainScreen();
-        Toast.makeText(this, "Thank you!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Cool!", Toast.LENGTH_SHORT).show();
     }
 }
