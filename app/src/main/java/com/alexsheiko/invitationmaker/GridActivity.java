@@ -170,6 +170,7 @@ public class GridActivity extends AppCompatActivity {
         } else if (requestCode == REQUEST_PURCHASE) {
             if (resultCode == RESULT_OK) {
                 Toast.makeText(this, "Thank you, enjoy using the template!", Toast.LENGTH_SHORT).show();
+                refreshOwnedImages();
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);

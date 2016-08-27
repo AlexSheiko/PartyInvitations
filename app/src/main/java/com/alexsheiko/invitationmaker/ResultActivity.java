@@ -1,15 +1,11 @@
 package com.alexsheiko.invitationmaker;
 
 import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.RemoteException;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,8 +17,6 @@ import android.widget.Toast;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.PurchaseEvent;
 import com.crashlytics.android.answers.ShareEvent;
-import com.mopub.mobileads.MoPubErrorCode;
-import com.mopub.mobileads.MoPubInterstitial;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -32,11 +26,9 @@ import java.util.Random;
 import static com.alexsheiko.invitationmaker.R.menu.result;
 
 
-public class ResultActivity extends BillingActivity
-        implements MoPubInterstitial.InterstitialAdListener {
+public class ResultActivity extends BillingActivity {
 
-    private MoPubInterstitial interstitial;
-    private boolean mInterstitialShown = false;
+    private boolean mStartup = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,33 +44,15 @@ public class ResultActivity extends BillingActivity
         String[] congratsArray = getResources().getStringArray(R.array.congrats);
         int index = new Random().nextInt(congratsArray.length);
         congratsLabel.setText(congratsArray[index]);
-
-        interstitial = new MoPubInterstitial(this, "c2c50ad94d474a20a919ca7d33638a0b");
-        interstitial.setInterstitialAdListener(this);
-        interstitial.load();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (mInterstitialShown) {
-            navigateToMainScreen();
-            Toast.makeText(this, "Cool!", Toast.LENGTH_SHORT).show();
+        if (!mStartup) {
+            findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
         }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onStop();
-        findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (interstitial != null) {
-            interstitial.destroy();
-        }
+        mStartup = false;
     }
 
     @Override
@@ -128,26 +102,9 @@ public class ResultActivity extends BillingActivity
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    public void onClickDonate(View view) {
-        if (mService == null) return;
-        try {
-            Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
-                    "donate1", "inapp", "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
-            PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-            startIntentSenderForResult(pendingIntent.getIntentSender(),
-                    1001, new Intent(), Integer.valueOf(0), Integer.valueOf(0),
-                    Integer.valueOf(0));
-        } catch (RemoteException | IntentSender.SendIntentException e) {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
-    }
-
     public void onClickFinish(View view) {
-        if (interstitial.isReady()) {
-            interstitial.show();
-            mInterstitialShown = true;
-        }
+        Toast.makeText(this, "Cool!", Toast.LENGTH_SHORT).show();
+        navigateToMainScreen();
     }
 
     private void navigateToMainScreen() {
@@ -178,31 +135,5 @@ public class ResultActivity extends BillingActivity
 
     public void onClickImage(View view) {
         onBackPressed();
-    }
-
-    // InterstitialAdListener methods
-    @Override
-    public void onInterstitialLoaded(MoPubInterstitial interstitial) {
-    }
-
-    @Override
-    public void onInterstitialFailed(MoPubInterstitial interstitial, MoPubErrorCode errorCode) {
-        Log.d("MoPub", "Interstitial load failed: " + errorCode);
-    }
-
-    @Override
-    public void onInterstitialShown(MoPubInterstitial interstitial) {
-        Toast.makeText(this, "Shown!", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onInterstitialClicked(MoPubInterstitial interstitial) {
-        Toast.makeText(this, "Thank you!", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onInterstitialDismissed(MoPubInterstitial interstitial) {
-        navigateToMainScreen();
-        Toast.makeText(this, "Cool!", Toast.LENGTH_SHORT).show();
     }
 }

@@ -2,15 +2,14 @@
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.jakewharton\disklrucache\2.0.2\93b399470e72c0bc8cb52379943b63c9aa586cd8\disklrucache-2.0.2.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.0\748f0546d5c3c27f1aef07270ffea0c45f0c42a4\rxjava-1.1.0.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth\rxbroadcast\0.0.2\jars\classes.jar'(**.class)
--injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.imagezoom\imagezoom\2.2.4\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.imagezoom\imagezoom\2.2.4\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics\2.6.2\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.trello\rxlifecycle\0.3.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics-core\2.3.11\jars\classes.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.6.0\212387a39088ecd3daff8e3bfc3bdc4123e33c67\okhttp-2.6.0.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.path\android-priority-jobqueue\1.1.2\b3549df66f71fb135bce3300eecb1a88fd45d86f\android-priority-jobqueue-1.1.2.jar'(**.class)
--injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.mopub\mopub-sdk\4.8.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.sothree.slidinguppanel\library\3.0.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.targettooltip\target-tooltip-library\1.3.11\jars\classes.jar'(**.class)
@@ -25,7 +24,6 @@
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.infstory\proguard-annotations\1.0.2\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.github.fengdai\alertdialogpro-core\0.2.6\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.viewrevealanimator\view-reveal-animator\1.1.4\jars\classes.jar'(**.class)
--injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.exoplayer\exoplayer\r1.5.6\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.picasso\picasso\2.5.2.4b\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.exif\android-exif-extended\1.0.6\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.timehop.stickyheadersrecyclerview\library\0.4.3\jars\classes.jar'(**.class)
@@ -45,7 +43,6 @@
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.0.1\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\de.greenrobot\eventbus\2.4.0\ddd166d01b3158d1c00576d29f7ed15c030df719\eventbus-2.4.0.jar'(**.class)
--injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.mopub.volley\mopub-volley\1.1.0\4357bce66ae3bb9be50679e43df122fd0a8f3394\mopub-volley-1.1.0.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\palette-v7\23.1.1\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.adobe.creativesdk\image\4.4.8\jars\libs\localytics.jar'(**.class)
@@ -60,154 +57,22 @@
 -forceprocessing
 -printusage 'D:\InvitationMaker\app\build\outputs\mapping\release\usage.txt'
 -dontoptimize
--optimizations !code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*,!code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable,!code/simplification/arithmetic
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable,!code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*,!code/simplification/arithmetic
 -optimizationpasses 5
 -allowaccessmodification
 -dontobfuscate
 -printmapping 'D:\InvitationMaker\app\build\outputs\mapping\release\mapping.txt'
 -dontusemixedcaseclassnames
--keepattributes *Annotation*,Signature,InnerClasses,SourceFile,LineNumberTable,*Annotation*,SourceFile,LineNumberTable,Signature,InnerClasses,*Annotation*,*Annotation*,*Annotation*,Signature
+-keepattributes *Annotation*,SourceFile,LineNumberTable,Signature,InnerClasses,*Annotation*,*Annotation*,*Annotation*,Signature,InnerClasses,SourceFile,LineNumberTable,*Annotation*,Signature
 -renamesourcefileattribute SourceFile
 -dontpreverify
 -verbose
 -dontnote com.android.vending.licensing.ILicensingService,com.google.vending.licensing.ILicensingService,com.google.android.vending.licensing.ILicensingService,android.support.**
--dontwarn android.support.**,android.security.NetworkSecurityPolicy,android.support.**,org.apache.commons.**,com.squareup.okhttp.internal.**,okio.**,java.lang.invoke.*,sun.misc.Unsafe,javax.annotation.**,rx.**,com.adobe.creativesdk.aviary.AdobeImageEditorActivity**,org.apache.http.**,oauth.signpost.signature.**,uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper,sun.misc.**,android.security.NetworkSecurityPolicy,proguard.annotation.**,android.support.**,com.google.android.gms.**,org.apache.http.**,com.mopub.volley.toolbox.**,android.support.**,android.app.Notification,com.squareup.okhttp.internal.**
+-dontwarn android.support.**,org.apache.commons.**,com.squareup.okhttp.internal.**,okio.**,java.lang.invoke.*,sun.misc.Unsafe,javax.annotation.**,rx.**,com.adobe.creativesdk.aviary.AdobeImageEditorActivity**,org.apache.http.**,oauth.signpost.signature.**,uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper,sun.misc.**,android.security.NetworkSecurityPolicy,proguard.annotation.**,android.support.**,android.support.**,android.security.NetworkSecurityPolicy,android.support.**,android.app.Notification,com.squareup.okhttp.internal.**
 -printconfiguration 'D:\InvitationMaker\app\proguard_configuration.txt'
 -dump 'D:\InvitationMaker\app\build\outputs\mapping\release\dump.txt'
 -printseeds 'D:\InvitationMaker\app\build\outputs\mapping\release\seeds.txt'
 
-
-# Copyright (C) 2015 The Android Open Source Project
-# 
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-# 
-#      http://www.apache.org/licenses/LICENSE-2.0
-# 
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# CoordinatorLayout resolves the behaviors of its child components with reflection.
--keep public class * extends android.support.design.widget.CoordinatorLayout$Behavior {
-    public <init>(android.content.Context,android.util.AttributeSet);
-    public <init>();
-}
-
--keep public class com.google.vending.licensing.ILicensingService
-
--keep public class com.android.vending.licensing.ILicensingService
-
--keep public class com.google.android.vending.licensing.ILicensingService
-
-# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
--keepclasseswithmembers,allowshrinking class * {
-    native <methods>;
-}
-
-# Keep setters in Views so that animations can still work. Also, keep constructors.
-# see http://proguard.sourceforge.net/manual/examples.html#beans
--keepclassmembers public class * extends android.view.View {
-    public <init>(android.content.Context);
-    public <init>(android.content.Context,android.util.AttributeSet);
-    public <init>(android.content.Context,android.util.AttributeSet,int);
-    void set*(***);
-    *** get*();
-}
-
-# We want to keep methods in Activity that could be used in the XML attribute onClick.
--keepclassmembers class * extends android.app.Activity {
-    public void *(android.view.View);
-}
-
-# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
--keepclassmembers enum  * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
-}
-
--keepclassmembers class * extends android.os.Parcelable {
-    public static final ** CREATOR;
-}
-
--keepclassmembers class **.R$* {
-    public static <fields>;
-}
-
-# Preserve annotated Javascript interface methods.
--keepclassmembers class * {
-    @android.webkit.JavascriptInterface
-    <methods>;
-}
-
-# Understand the @Keep support annotation.
--keep class android.support.annotation.Keep
-
--keep @android.support.annotation.Keep class * {
-    <fields>;
-    <methods>;
-}
-
--keepclasseswithmembers class * {
-    @android.support.annotation.Keep
-    <methods>;
-}
-
--keepclasseswithmembers class * {
-    @android.support.annotation.Keep
-    <fields>;
-}
-
--keepclasseswithmembers class * {
-    @android.support.annotation.Keep
-    <init>(...);
-}
-
--keep class * extends java.util.ListResourceBundle {
-    protected java.lang.Object[][] getContents();
-}
-
-# Keep SafeParcelable value, needed for reflection. This is required to support backwards
-# compatibility of some classes.
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
-    public static final *** NULL;
-}
-
-# Keep the names of classes/members we need for client functionality.
--keep @interface  com.google.android.gms.common.annotation.KeepName
-
--keep,allowshrinking @com.google.android.gms.common.annotation.KeepName class *
-
--keepclassmembers,allowshrinking class * {
-    @com.google.android.gms.common.annotation.KeepName
-    <fields>;
-    @com.google.android.gms.common.annotation.KeepName
-    <methods>;
-}
-
-# Needed for Parcelable/SafeParcelable Creators to not get stripped
--keep,allowshrinking class * extends android.os.Parcelable {
-    public static final ** CREATOR;
-}
-
-# Keep metadata about included modules.
--keep public class com.google.android.gms.dynamite.descriptors.** {
-    public <fields>;
-}
-
-# Keep the implementation of the flags api for google-play-services-flags
--keep public class com.google.android.gms.flags.impl.FlagProviderImpl {
-    public <fields>;
-    public <methods>;
-}
-
-# keep getters/setters in RotatingDrawable so that animations can still work.
--keepclassmembers class com.getbase.floatingactionbutton.FloatingActionsMenu$RotatingDrawable {
-    void set*(***);
-    *** get*();
-}
 
 -keep public class com.google.vending.licensing.ILicensingService
 
@@ -518,6 +383,25 @@
     public <methods>;
 }
 
+# Copyright (C) 2015 The Android Open Source Project
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# CoordinatorLayout resolves the behaviors of its child components with reflection.
+-keep public class * extends android.support.design.widget.CoordinatorLayout$Behavior {
+    public <init>(android.content.Context,android.util.AttributeSet);
+    public <init>();
+}
+
 -keep class proguard.annotation.*
 
 # The following annotations can be specified with classes and with class
@@ -673,40 +557,73 @@
     <methods>;
 }
 
-# MoPub Proguard Config
-# NOTE: You should also include the Android Proguard config found with the build tools:
-# $ANDROID_HOME/tools/proguard/proguard-android.txt
-# Keep public classes and methods.
--keepclassmembers class com.mopub.** {
-    public <fields>;
-    public <methods>;
+-keep public class com.google.vending.licensing.ILicensingService
+
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keep public class com.google.android.vending.licensing.ILicensingService
+
+# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
+-keepclasseswithmembers,allowshrinking class * {
+    native <methods>;
 }
 
--keep public class com.mopub.**
+# Keep setters in Views so that animations can still work. Also, keep constructors.
+# see http://proguard.sourceforge.net/manual/examples.html#beans
+-keepclassmembers public class * extends android.view.View {
+    public <init>(android.content.Context);
+    public <init>(android.content.Context,android.util.AttributeSet);
+    public <init>(android.content.Context,android.util.AttributeSet,int);
+    void set*(***);
+    *** get*();
+}
 
-# Explicitly keep any custom event classes in any package.
--keep class * extends com.mopub.mobileads.CustomEventBanner
+# We want to keep methods in Activity that could be used in the XML attribute onClick.
+-keepclassmembers class * extends android.app.Activity {
+    public void *(android.view.View);
+}
 
--keep class * extends com.mopub.mobileads.CustomEventInterstitial
+# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
+-keepclassmembers enum  * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
 
--keep class * extends com.mopub.nativeads.CustomEventNative
+-keepclassmembers class * extends android.os.Parcelable {
+    public static final ** CREATOR;
+}
 
--keep class * extends com.mopub.mobileads.CustomEventRewardedVideo
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
 
-# Support for Android Advertiser ID.
--keep class com.google.android.gms.common.GooglePlayServicesUtil {
+# Preserve annotated Javascript interface methods.
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface
+    <methods>;
+}
+
+# Understand the @Keep support annotation.
+-keep class android.support.annotation.Keep
+
+-keep @android.support.annotation.Keep class * {
     <fields>;
     <methods>;
 }
 
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient {
-    <fields>;
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep
     <methods>;
 }
 
--keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info {
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep
     <fields>;
-    <methods>;
+}
+
+-keepclasseswithmembers class * {
+    @android.support.annotation.Keep
+    <init>(...);
 }
 
 # Fabric Proguard Config
@@ -723,6 +640,44 @@
 -keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info {
     <fields>;
     <methods>;
+}
+
+-keep class * extends java.util.ListResourceBundle {
+    protected java.lang.Object[][] getContents();
+}
+
+# Keep SafeParcelable value, needed for reflection. This is required to support backwards
+# compatibility of some classes.
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+# Keep the names of classes/members we need for client functionality.
+-keep @interface  com.google.android.gms.common.annotation.KeepName
+
+-keep,allowshrinking @com.google.android.gms.common.annotation.KeepName class *
+
+-keepclassmembers,allowshrinking class * {
+    @com.google.android.gms.common.annotation.KeepName
+    <fields>;
+    @com.google.android.gms.common.annotation.KeepName
+    <methods>;
+}
+
+# Needed for Parcelable/SafeParcelable Creators to not get stripped
+-keep,allowshrinking class * extends android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+# Keep metadata about included modules.
+-keep public class com.google.android.gms.dynamite.descriptors.** {
+    public <fields>;
+}
+
+# Keep the implementation of the flags api for google-play-services-flags
+-keep public class com.google.android.gms.flags.impl.FlagProviderImpl {
+    public <fields>;
+    public <methods>;
 }
 
 # view res/layout/design_navigation_item.xml #generated:17
@@ -1615,4 +1570,10 @@
 -keepclassmembers class com.google.android.gms.R$styleable {
     <fields>;
     <methods>;
+}
+
+# keep getters/setters in RotatingDrawable so that animations can still work.
+-keepclassmembers class com.getbase.floatingactionbutton.FloatingActionsMenu$RotatingDrawable {
+    void set*(***);
+    *** get*();
 }

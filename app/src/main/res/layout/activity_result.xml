@@ -56,7 +56,7 @@
             android:paddingLeft="48dp"
             android:paddingRight="48dp"
             android:paddingTop="32dp"
-            android:text="W a t c h\nA n  a d"
+            android:text="F i n i s h"
             android:textColor="@android:color/white"
             android:textSize="24sp"/>
 
