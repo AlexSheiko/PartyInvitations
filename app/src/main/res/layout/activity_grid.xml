@@ -8,6 +8,7 @@
     android:clipToPadding="false"
     android:horizontalSpacing="16dp"
     android:numColumns="3"
+    android:overScrollMode="always"
     android:paddingBottom="26dp"
     android:paddingLeft="4dp"
     android:paddingRight="4dp"

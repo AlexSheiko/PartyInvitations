@@ -1,18 +1,80 @@
 package com.alexsheiko.invitationmaker;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.GridView;
 
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
+import com.android.vending.billing.IInAppBillingService;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.ContentViewEvent;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GridActivity extends AppCompatActivity {
 
     public static final int REQUEST_CREATE = 101;
     private static final int REQUEST_SHARE = 237;
+
+    IInAppBillingService mService;
+
+    private List<String> mOwnedPaidImages = new ArrayList<>();
+    ServiceConnection mServiceConn = new ServiceConnection() {
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            mService = null;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName name,
+                                       IBinder service) {
+            mService = IInAppBillingService.Stub.asInterface(service);
+
+            try {
+                Bundle ownedItems = mService.getPurchases(3, getPackageName(), "inapp", null);
+
+                int response = ownedItems.getInt("RESPONSE_CODE");
+                if (response == 0) {
+                    ArrayList<String> ownedSkus =
+                            ownedItems.getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
+                    ArrayList<String> purchaseDataList =
+                            ownedItems.getStringArrayList("INAPP_PURCHASE_DATA_LIST");
+                    ArrayList<String> signatureList =
+                            ownedItems.getStringArrayList("INAPP_DATA_SIGNATURE_LIST");
+                    String continuationToken =
+                            ownedItems.getString("INAPP_CONTINUATION_TOKEN");
+
+                    for (int i = 0; i < purchaseDataList.size(); ++i) {
+                        String sku = ownedSkus.get(i);
+                        mOwnedPaidImages.add(sku);
+
+                        // do something with this purchase information
+                        // e.g. display the updated list of products owned by user
+                    }
+
+                    // if continuationToken != null, call getPurchases again
+                    // and pass in the token to retrieve more items
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +87,26 @@ public class GridActivity extends AppCompatActivity {
         GridView gridView = (GridView) findViewById(R.id.gridView);
         GridAdapter adapter = new GridAdapter(this);
         gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener((parent, view, position, id) -> {
+            int resId = adapter.getItem(position);
+            String templateName = getResources().getResourceEntryName(resId);
+            if (mOwnedPaidImages.contains(templateName)) {
+                try {
+                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
+                    File file = convertBitmapToFile(bitmap);
+                    Uri imageUri = Uri.fromFile(file);
+                    openImageEditor(imageUri);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                // TODO: Show purchase dialog
+            }
+
+            Answers.getInstance().logContentView(new ContentViewEvent()
+                    .putContentType("Template")
+                    .putContentId(templateName));
+        });
 
         for (int i = 1; i < 300; i++) {
             String imageName = category.toLowerCase() + "_template_" + i;
@@ -41,6 +123,11 @@ public class GridActivity extends AppCompatActivity {
                 }
             }
         }
+
+        Intent serviceIntent =
+                new Intent("com.android.vending.billing.InAppBillingService.BIND");
+        serviceIntent.setPackage("com.android.vending");
+        bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
     }
 
     @Override
@@ -59,6 +146,14 @@ public class GridActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mService != null) {
+            unbindService(mServiceConn);
+        }
+    }
+
     public void openImageEditor(Uri imageUri) {
         ToolLoaderFactory.Tools[] tools = {
                 ToolLoaderFactory.Tools.TEXT,
@@ -74,5 +169,22 @@ public class GridActivity extends AppCompatActivity {
 
         /* Start the Image Editor */
         startActivityForResult(imageEditorIntent, GridActivity.REQUEST_CREATE);
+    }
+
+    private File convertBitmapToFile(Bitmap bitmap) throws IOException {
+        // Create a file to write bitmap data
+        File file = new File(getCacheDir(), "image.png");
+
+        // Convert bitmap to byte array
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
+        byte[] bytes = bos.toByteArray();
+
+        // Write the bytes in file
+        FileOutputStream fos = new FileOutputStream(file);
+        fos.write(bytes);
+        fos.flush();
+        fos.close();
+        return file;
     }
 }
