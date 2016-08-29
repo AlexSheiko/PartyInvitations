@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,10 +32,10 @@ import java.util.Random;
 import static com.alexsheiko.invitationmaker.R.menu.result;
 
 
-public class ResultActivity extends BillingActivity implements RewardedVideoAdListener {
+public class ResultActivity extends AppCompatActivity
+        implements RewardedVideoAdListener {
 
     private static final String AD_UNIT_ID = "ca-app-pub-3038649646029056/3650335528";
-    private static final String APP_ID = "appd3fbafd399de4909ab";
 
     private boolean mStartup = true;
     private RewardedVideoAd mRewardedVideoAd;
@@ -55,7 +56,6 @@ public class ResultActivity extends BillingActivity implements RewardedVideoAdLi
         congratsLabel.setText(congratsArray[index]);
 
         // Initialize the Mobile Ads SDK.
-        MobileAds.initialize(this, APP_ID);
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.setRewardedVideoAdListener(this);
         mRewardedVideoAd.loadAd(AD_UNIT_ID, new AdRequest.Builder().build());
