@@ -21,6 +21,7 @@ import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
 import com.android.vending.billing.IInAppBillingService;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ContentViewEvent;
+import com.crashlytics.android.answers.PurchaseEvent;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -172,6 +173,8 @@ public class GridActivity extends AppCompatActivity {
                 Toast.makeText(this, "Thank you, enjoy using the template!", Toast.LENGTH_SHORT).show();
                 refreshOwnedImages();
             }
+            Answers.getInstance().logPurchase(new PurchaseEvent()
+                    .putSuccess(resultCode == RESULT_OK));
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
