@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "100206785490",
+    "firebase_url": "https://invitation-maker.firebaseio.com",
+    "project_id": "invitation-maker",
+    "storage_bucket": "invitation-maker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100206785490:android:45acfaae17091a95",
+        "android_client_info": {
+          "package_name": "com.alexsheiko.invitationmaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100206785490-92fvtitl9imbrbggna6e82nmput08gvv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexsheiko.invitationmaker",
+            "certificate_hash": "23F79F514C050A2F99B27E294846BAE1D9F231AB"
+          }
+        },
+        {
+          "client_id": "100206785490-igqus10jbhrqudlr3qkd5s8r0fnfi5sc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMTuzFBHxxIzvDV-GMj1FwqYyQe5HjvQQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100206785490-igqus10jbhrqudlr3qkd5s8r0fnfi5sc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

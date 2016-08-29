@@ -17,6 +17,11 @@ import android.widget.Toast;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.PurchaseEvent;
 import com.crashlytics.android.answers.ShareEvent;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.reward.RewardItem;
+import com.google.android.gms.ads.reward.RewardedVideoAd;
+import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -26,9 +31,13 @@ import java.util.Random;
 import static com.alexsheiko.invitationmaker.R.menu.result;
 
 
-public class ResultActivity extends BillingActivity {
+public class ResultActivity extends BillingActivity implements RewardedVideoAdListener {
+
+    private static final String AD_UNIT_ID = "ca-app-pub-3038649646029056/3650335528";
+    private static final String APP_ID = "appd3fbafd399de4909ab";
 
     private boolean mStartup = true;
+    private RewardedVideoAd mRewardedVideoAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +53,12 @@ public class ResultActivity extends BillingActivity {
         String[] congratsArray = getResources().getStringArray(R.array.congrats);
         int index = new Random().nextInt(congratsArray.length);
         congratsLabel.setText(congratsArray[index]);
+
+        // Initialize the Mobile Ads SDK.
+        MobileAds.initialize(this, APP_ID);
+        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+        mRewardedVideoAd.setRewardedVideoAdListener(this);
+        mRewardedVideoAd.loadAd(AD_UNIT_ID, new AdRequest.Builder().build());
     }
 
     @Override
@@ -103,8 +118,11 @@ public class ResultActivity extends BillingActivity {
     }
 
     public void onClickFinish(View view) {
-        Toast.makeText(this, "Cool!", Toast.LENGTH_SHORT).show();
-        navigateToMainScreen();
+        if (mRewardedVideoAd.isLoaded()) {
+            mRewardedVideoAd.show();
+        } else {
+            navigateToMainScreen();
+        }
     }
 
     private void navigateToMainScreen() {
@@ -135,5 +153,40 @@ public class ResultActivity extends BillingActivity {
 
     public void onClickImage(View view) {
         onBackPressed();
+    }
+
+    @Override
+    public void onRewardedVideoAdLoaded() {
+    }
+
+    @Override
+    public void onRewardedVideoAdOpened() {
+
+    }
+
+    @Override
+    public void onRewardedVideoStarted() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdClosed() {
+        Toast.makeText(this, "Thank you for supporting the app!", Toast.LENGTH_SHORT).show();
+        navigateToMainScreen();
+    }
+
+    @Override
+    public void onRewarded(RewardItem rewardItem) {
+        Toast.makeText(this, "Thank you for supporting the app!", Toast.LENGTH_SHORT).show();
+        navigateToMainScreen();
+    }
+
+    @Override
+    public void onRewardedVideoAdLeftApplication() {
+
+    }
+
+    @Override
+    public void onRewardedVideoAdFailedToLoad(int i) {
     }
 }
