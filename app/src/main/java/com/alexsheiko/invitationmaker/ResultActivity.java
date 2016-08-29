@@ -58,7 +58,10 @@ public class ResultActivity extends AppCompatActivity
         // Initialize the Mobile Ads SDK.
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
         mRewardedVideoAd.setRewardedVideoAdListener(this);
-        mRewardedVideoAd.loadAd(AD_UNIT_ID, new AdRequest.Builder().build());
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+        mRewardedVideoAd.loadAd(AD_UNIT_ID, adRequest);
     }
 
     @Override
@@ -68,6 +71,19 @@ public class ResultActivity extends AppCompatActivity
             findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
         }
         mStartup = false;
+        mRewardedVideoAd.resume(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mRewardedVideoAd.pause(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        mRewardedVideoAd.destroy(this);
+        super.onDestroy();
     }
 
     @Override
