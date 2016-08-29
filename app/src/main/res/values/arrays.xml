@@ -13,4 +13,6 @@
         <item>0xff0a2a64</item>
         <item>0xff640a43</item>
     </integer-array>
+    <item name="com_adobe_image_editor_text_default_size" format="dimension" type="dimen">18sp
+    </item>
 </resources>
