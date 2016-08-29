@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="com_adobe_image_editor_text_colors">
+        <item>0xff0a642a</item>
+        <item>0xff0a2a64</item>
+        <item>0xff640a43</item>
+    </integer-array>
+    <item name="com_adobe_image_editor_text_default_size" format="dimension" type="dimen">18sp
+    </item>
+</resources>
