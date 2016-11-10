@@ -2,10 +2,9 @@ package com.alexsheiko.invitationmaker;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,8 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crashlytics.android.answers.Answers;
-import com.crashlytics.android.answers.CustomEvent;
 import com.crashlytics.android.answers.PurchaseEvent;
+import com.crashlytics.android.answers.ShareEvent;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
@@ -137,32 +136,16 @@ public class ResultActivity extends AppCompatActivity {
     }
 
     private void shareImage(Uri imageUri) {
-        try {
-            Uri uri = Uri.fromFile(new File(imageUri.toString()));
-            Bitmap bitmap = MediaStore.Images.Media.getBitmap(
-                    getContentResolver(), uri);
-            String path = MediaStore.Images.Media.insertImage(
-                    getContentResolver(), bitmap, "title",
-                    "description");
-            Intent shareIntent = new Intent();
-            shareIntent.setAction(Intent.ACTION_SEND);
-            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
-            shareIntent.setType("image/*");
-            startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
+        File file = new File(imageUri.toString());
+        Uri uri = FileProvider.getUriForFile(this, "com.alexsheiko.invitationmaker.files", file);
 
-            logShare("true");
-        } catch (Exception e) {
-            Toast.makeText(this, "Failed to share image: " + e.getMessage(), Toast.LENGTH_LONG).show();
-            e.printStackTrace();
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.setType("image/*");
+        startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
 
-            logShare("false");
-        }
-    }
-
-    private void logShare(String success) {
-        CustomEvent shareEvent = new CustomEvent("shareImage")
-                .putCustomAttribute("success", success);
-        Answers.getInstance().logCustom(shareEvent);
+        Answers.getInstance().logShare(new ShareEvent());
     }
 
     public void onClickImage(View view) {
