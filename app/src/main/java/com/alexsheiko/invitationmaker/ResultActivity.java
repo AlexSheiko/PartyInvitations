@@ -19,10 +19,7 @@ import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.PurchaseEvent;
 import com.crashlytics.android.answers.ShareEvent;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -32,13 +29,11 @@ import java.util.Random;
 import static com.alexsheiko.invitationmaker.R.menu.result;
 
 
-public class ResultActivity extends AppCompatActivity
-        implements RewardedVideoAdListener {
+public class ResultActivity extends AppCompatActivity {
 
     private static final String AD_UNIT_ID = "ca-app-pub-3038649646029056/3650335528";
-
+    InterstitialAd mInterstitialAd;
     private boolean mStartup = true;
-    private RewardedVideoAd mRewardedVideoAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +51,18 @@ public class ResultActivity extends AppCompatActivity
         congratsLabel.setText(congratsArray[index]);
 
         // Initialize the Mobile Ads SDK.
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        mRewardedVideoAd.setRewardedVideoAdListener(this);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3038649646029056/5392277129");
+
+        requestNewInterstitial();
+    }
+
+    private void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .build();
-        mRewardedVideoAd.loadAd(AD_UNIT_ID, adRequest);
+
+        mInterstitialAd.loadAd(adRequest);
     }
 
     @Override
@@ -69,21 +70,12 @@ public class ResultActivity extends AppCompatActivity
         super.onResume();
         if (!mStartup) {
             findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
+
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            }
         }
         mStartup = false;
-        mRewardedVideoAd.resume(this);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mRewardedVideoAd.pause(this);
-    }
-
-    @Override
-    public void onDestroy() {
-        mRewardedVideoAd.destroy(this);
-        super.onDestroy();
     }
 
     @Override
@@ -134,11 +126,7 @@ public class ResultActivity extends AppCompatActivity
     }
 
     public void onClickFinish(View view) {
-        if (mRewardedVideoAd.isLoaded()) {
-            mRewardedVideoAd.show();
-        } else {
             navigateToMainScreen();
-        }
     }
 
     private void navigateToMainScreen() {
@@ -169,40 +157,5 @@ public class ResultActivity extends AppCompatActivity
 
     public void onClickImage(View view) {
         onBackPressed();
-    }
-
-    @Override
-    public void onRewardedVideoAdLoaded() {
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-        Toast.makeText(this, "Thank you for supporting the app!", Toast.LENGTH_SHORT).show();
-        navigateToMainScreen();
-    }
-
-    @Override
-    public void onRewarded(RewardItem rewardItem) {
-        Toast.makeText(this, "Thank you for supporting the app!", Toast.LENGTH_SHORT).show();
-        navigateToMainScreen();
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
     }
 }
