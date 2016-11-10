@@ -16,8 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
 import com.crashlytics.android.answers.PurchaseEvent;
-import com.crashlytics.android.answers.ShareEvent;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
@@ -138,7 +138,9 @@ public class ResultActivity extends AppCompatActivity {
 
     private void shareImage(Uri imageUri) {
         try {
-            Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.fromFile(new File(imageUri.toString())));
+            Uri uri = Uri.fromFile(new File(imageUri.toString()));
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+                    getContentResolver(), uri);
             String path = MediaStore.Images.Media.insertImage(
                     getContentResolver(), bitmap, "title",
                     "description");
@@ -148,11 +150,19 @@ public class ResultActivity extends AppCompatActivity {
             shareIntent.setType("image/*");
             startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
 
-            Answers.getInstance().logShare(new ShareEvent());
+            logShare("true");
         } catch (Exception e) {
             Toast.makeText(this, "Failed to share image: " + e.getMessage(), Toast.LENGTH_LONG).show();
             e.printStackTrace();
+
+            logShare("false");
         }
+    }
+
+    private void logShare(String success) {
+        CustomEvent shareEvent = new CustomEvent("shareImage")
+                .putCustomAttribute("success", success);
+        Answers.getInstance().logCustom(shareEvent);
     }
 
     public void onClickImage(View view) {
