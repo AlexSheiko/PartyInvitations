@@ -20,6 +20,7 @@ import com.crashlytics.android.answers.PurchaseEvent;
 import com.crashlytics.android.answers.ShareEvent;
 
 import java.io.File;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Random;
@@ -122,8 +123,17 @@ public class ResultActivity extends BaseActivity {
     }
 
     private void shareImage(Uri imageUri) {
-        File file = new File(imageUri.toString());
-        Uri uri = FileProvider.getUriForFile(this, "com.alexsheiko.invitationmaker.fileprovider", file);
+        File fileSd = new File(imageUri.toString());
+        String fileSdName = fileSd.getAbsolutePath();
+        File fileInternal;
+        try {
+            fileInternal = File.createTempFile(fileSdName, null, getCacheDir());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        Uri uri = FileProvider.getUriForFile(this, "com.alexsheiko.invitationmaker.fileprovider", fileSd);
 
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);

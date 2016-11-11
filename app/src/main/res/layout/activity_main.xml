@@ -48,8 +48,8 @@
 
         <LinearLayout
             style="@style/GridRow"
-            android:scaleX="1.5"
-            android:scaleY="1.5">
+            android:scaleX="1.7"
+            android:scaleY="1.7">
 
             <LinearLayout
                 style="@style/GridCell">
@@ -61,6 +61,7 @@
 
                 <TextView
                     style="@style/GridLabel"
+                    android:alpha="0.7"
                     android:text="P a r t y"/>
 
             </LinearLayout>
