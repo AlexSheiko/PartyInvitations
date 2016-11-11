@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.FileProvider;
@@ -49,6 +50,9 @@ public class ResultActivity extends BaseActivity {
             findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
             mSendFAB.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             mSendFAB.setImageResource(R.drawable.ic_send);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mSendFAB.setElevation(0.0f);
+            }
         }
         mStartup = false;
     }

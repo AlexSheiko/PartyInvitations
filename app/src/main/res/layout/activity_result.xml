@@ -75,10 +75,10 @@
         tools:visibility="visible">
 
         <Button
-            android:layout_width="240dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="248dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:elevation="8dp"
+            android:backgroundTint="@color/colorAccent"
             android:foreground="?selectableItemBackground"
             android:lineSpacingMultiplier="1.2"
             android:onClick="onClickFinish"
