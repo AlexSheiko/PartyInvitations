@@ -52,7 +52,9 @@
             android:scaleY="1.7">
 
             <LinearLayout
-                style="@style/GridCell">
+                style="@style/GridCell"
+                android:background="@null"
+                android:foreground="?selectableItemBackgroundBorderless">
 
                 <ImageView
                     android:layout_width="wrap_content"
