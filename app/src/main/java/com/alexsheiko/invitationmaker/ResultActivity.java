@@ -49,9 +49,6 @@ public class ResultActivity extends BaseActivity {
             findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
             mSendFAB.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
             mSendFAB.setImageResource(R.drawable.ic_send);
-
-            // Perhaps it worth showing the ad after pressing Finish?
-            mAdProvider.onClickShow();
         }
         mStartup = false;
     }
