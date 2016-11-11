@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
+import com.alexsheiko.invitationmaker.ads.AdClosedListener;
 import com.alexsheiko.invitationmaker.ads.AdProviderVideo;
 import com.alexsheiko.invitationmaker.base.BaseActivity;
 import com.android.vending.billing.IInAppBillingService;
@@ -30,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class GridActivity extends BaseActivity {
+public class GridActivity extends BaseActivity implements AdClosedListener {
 
     public static final int REQUEST_CREATE = 101;
     private static final int REQUEST_SHARE = 237;
@@ -105,7 +106,7 @@ public class GridActivity extends BaseActivity {
         bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 
         mAdProvider = new AdProviderVideo();
-        mAdProvider.prepare(this);
+        mAdProvider.prepare(this, this);
     }
 
     private void openEditor(int resId) {
@@ -116,15 +117,6 @@ public class GridActivity extends BaseActivity {
             openImageEditor(imageUri);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (mShowingAdForId != 0) {
-            openEditor(mShowingAdForId);
-            mShowingAdForId = 0;
         }
     }
 
@@ -202,5 +194,11 @@ public class GridActivity extends BaseActivity {
         fos.flush();
         fos.close();
         return file;
+    }
+
+    @Override
+    public void onAdClosed() {
+        mAdProvider.loadVideo();
+        openEditor(mShowingAdForId);
     }
 }

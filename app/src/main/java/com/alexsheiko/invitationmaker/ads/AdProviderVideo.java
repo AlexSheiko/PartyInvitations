@@ -14,15 +14,17 @@ public class AdProviderVideo {
     private Context mContext;
     private AdColonyInterstitial mAd;
     private boolean mAdLoaded = false;
+    private AdClosedListener mCloseListener;
 
-    public void prepare(Context context) {
+    public void prepare(Context context, AdClosedListener closeListener) {
         mContext = context;
+        mCloseListener = closeListener;
 
         AdColony.configure((Activity) mContext, "appd3fbafd399de4909ab", ZONE_ID);
         loadVideo();
     }
 
-    private void loadVideo() {
+    public void loadVideo() {
         AdColonyInterstitialListener listener = new AdColonyInterstitialListener() {
             @Override
             public void onRequestFilled(AdColonyInterstitial ad) {
@@ -31,6 +33,12 @@ public class AdProviderVideo {
                 if (mAd != null) {
                     mAdLoaded = true;
                 }
+            }
+
+            @Override
+            public void onClosed(AdColonyInterstitial ad) {
+                super.onClosed(ad);
+                mCloseListener.onAdClosed();
             }
         };
 
