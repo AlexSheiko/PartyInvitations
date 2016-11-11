@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
@@ -158,7 +157,6 @@ public class GridActivity extends BaseActivity implements AdClosedListener {
     @Override
     public void onAdClosed() {
         mAdProvider.loadVideo();
-        Toast.makeText(this, "Thank you, enjoy using the template!", Toast.LENGTH_SHORT).show();
         openEditor(mShowingAdForId);
     }
 }
