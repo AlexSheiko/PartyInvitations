@@ -53,7 +53,7 @@ public class AdProviderVideo {
     public void onClickShow() {
         if (mAdLoaded) {
             mAd.show();
-            Toast.makeText(mActivity, "Thank you, you help support the app", Toast.LENGTH_LONG).show();
+            Toast.makeText(mActivity, "Thank you, you help support the app!", Toast.LENGTH_LONG).show();
         } else {
             View parentLayout = mActivity.findViewById(android.R.id.content);
             mSnackbar = Snackbar.make(parentLayout, "Loading video...", Snackbar.LENGTH_INDEFINITE);
