@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
+import com.alexsheiko.invitationmaker.ads.AdProviderVideo;
 import com.android.vending.billing.IInAppBillingService;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ContentViewEvent;

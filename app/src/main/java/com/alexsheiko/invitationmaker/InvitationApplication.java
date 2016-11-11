@@ -19,6 +19,12 @@ public class InvitationApplication extends Application implements IAviaryClientC
         super.onCreate();
         Fabric.with(this, new Crashlytics());
         AdobeCSDKFoundation.initializeCSDKFoundation(getApplicationContext());
+
+        // Init default font
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/Brandon-Regular.otf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
     }
 
     @Override

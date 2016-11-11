@@ -1,4 +1,4 @@
-package com.alexsheiko.invitationmaker;
+package com.alexsheiko.invitationmaker.ads;
 
 import android.content.Context;
 import android.widget.Toast;

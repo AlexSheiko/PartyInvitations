@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alexsheiko.invitationmaker.ads.AdProviderImage;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.PurchaseEvent;
 import com.crashlytics.android.answers.ShareEvent;
