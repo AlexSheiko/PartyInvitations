@@ -17,8 +17,6 @@ import android.widget.Toast;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.PurchaseEvent;
 import com.crashlytics.android.answers.ShareEvent;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -30,9 +28,8 @@ import static com.alexsheiko.invitationmaker.R.menu.result;
 
 public class ResultActivity extends AppCompatActivity {
 
-    private static final String AD_UNIT_ID = "ca-app-pub-3038649646029056/3650335528";
-    InterstitialAd mInterstitialAd;
     private boolean mStartup = true;
+    private AdProvider mAdProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,19 +46,8 @@ public class ResultActivity extends AppCompatActivity {
         int index = new Random().nextInt(congratsArray.length);
         congratsLabel.setText(congratsArray[index]);
 
-        // Initialize the Mobile Ads SDK.
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3038649646029056/5392277129");
-
-        requestNewInterstitial();
-    }
-
-    private void requestNewInterstitial() {
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .build();
-
-        mInterstitialAd.loadAd(adRequest);
+        mAdProvider = new AdProvider();
+        mAdProvider.prepare(this);
     }
 
     @Override
@@ -70,9 +56,7 @@ public class ResultActivity extends AppCompatActivity {
         if (!mStartup) {
             findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
 
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            }
+            mAdProvider.showImage();
         }
         mStartup = false;
     }

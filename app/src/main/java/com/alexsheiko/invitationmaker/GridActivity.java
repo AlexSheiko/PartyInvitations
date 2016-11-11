@@ -36,9 +36,8 @@ public class GridActivity extends AppCompatActivity {
     public static final int REQUEST_CREATE = 101;
     private static final int REQUEST_SHARE = 237;
     private static final int REQUEST_PURCHASE = 333;
-
     IInAppBillingService mService;
-
+    private AdProvider mAdProvider;
     private List<String> mOwnedPaidImages = new ArrayList<>();
     ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
@@ -111,7 +110,8 @@ public class GridActivity extends AppCompatActivity {
                 }
             } else {
                 // Show purchase dialog
-                purchase(imageName);
+                // purchase(imageName);
+                mAdProvider.showImage();
             }
 
             Answers.getInstance().logContentView(new ContentViewEvent()
@@ -139,6 +139,9 @@ public class GridActivity extends AppCompatActivity {
                 new Intent("com.android.vending.billing.InAppBillingService.BIND");
         serviceIntent.setPackage("com.android.vending");
         bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
+
+        mAdProvider = new AdProvider();
+        mAdProvider.prepare(this);
     }
 
     private void purchase(String sku) {
