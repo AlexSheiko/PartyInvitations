@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/colorWindowBackground</color>
+    <color name="colorPrimary">#E8FFE0</color>
     <color name="colorPrimaryDark">#A2B29C</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorWindowBackground">#E8FFE0</color>
+    <color name="colorWindowBackground">#FAFAFA</color>
     <color name="editor_image_background">#757575</color>
     <color name="com_adobe_image_color_dark_gray1">@color/editor_image_background</color>
     <color name="com_adobe_image_color_light_gray41">@color/editor_image_background</color>
