@@ -7,12 +7,12 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
-class AdProviderImage {
+public class AdProviderImage {
 
     private InterstitialAd mInterstitialAd;
     private Context mContext;
 
-    void prepare(Context context) {
+    public void prepare(Context context) {
         mContext = context;
         // Initialize the Mobile Ads SDK.
         mInterstitialAd = new InterstitialAd(context);
@@ -30,7 +30,7 @@ class AdProviderImage {
         mInterstitialAd.loadAd(adRequest);
     }
 
-    void show() {
+    public void show() {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {

@@ -9,13 +9,13 @@ import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
-class AdProviderVideo implements RewardedVideoAdListener {
+public class AdProviderVideo implements RewardedVideoAdListener {
 
     private RewardedVideoAd mAd;
     private boolean mClickedShow = false;
     private Context mContext;
 
-    void prepare(Context context) {
+    public void prepare(Context context) {
         mContext = context;
         mAd = MobileAds.getRewardedVideoAdInstance(context);
         mAd.setRewardedVideoAdListener(this);
@@ -27,7 +27,7 @@ class AdProviderVideo implements RewardedVideoAdListener {
                 new AdRequest.Builder().build());
     }
 
-    void show() {
+    public void show() {
         if (mAd.isLoaded()) {
             mAd.show();
         } else {

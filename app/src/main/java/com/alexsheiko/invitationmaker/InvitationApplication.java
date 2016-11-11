@@ -7,6 +7,7 @@ import com.adobe.creativesdk.foundation.AdobeCSDKFoundation;
 import com.crashlytics.android.Crashlytics;
 
 import io.fabric.sdk.android.Fabric;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 
 public class InvitationApplication extends Application implements IAviaryClientCredentials {

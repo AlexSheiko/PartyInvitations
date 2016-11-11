@@ -9,7 +9,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -17,6 +16,7 @@ import android.widget.Toast;
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
 import com.alexsheiko.invitationmaker.ads.AdProviderVideo;
+import com.alexsheiko.invitationmaker.base.BaseActivity;
 import com.android.vending.billing.IInAppBillingService;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ContentViewEvent;
@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GridActivity extends AppCompatActivity {
+public class GridActivity extends BaseActivity {
 
     public static final int REQUEST_CREATE = 101;
     private static final int REQUEST_SHARE = 237;

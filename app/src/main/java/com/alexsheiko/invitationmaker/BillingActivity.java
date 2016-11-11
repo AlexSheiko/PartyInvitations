@@ -7,11 +7,11 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
+import com.alexsheiko.invitationmaker.base.BaseActivity;
 import com.android.vending.billing.IInAppBillingService;
 
-public class BillingActivity extends AppCompatActivity {
+public class BillingActivity extends BaseActivity {
 
     IInAppBillingService mService;
 
