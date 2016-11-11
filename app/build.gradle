@@ -8,10 +8,12 @@ buildscript {
     }
 }
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'io.fabric'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
+    mavenCentral()
 }
 
 apply plugin: 'me.tatarka.retrolambda'
@@ -54,6 +56,9 @@ android {
         exclude 'META-INF/DEPENDENCIES'
         pickFirst 'AndroidManifest.xml'
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 dependencies {
@@ -71,6 +76,7 @@ dependencies {
     compile 'com.google.firebase:firebase-core:9.4.0'
     compile 'com.google.firebase:firebase-ads:9.4.0'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 apply plugin: 'com.google.gms.google-services'
