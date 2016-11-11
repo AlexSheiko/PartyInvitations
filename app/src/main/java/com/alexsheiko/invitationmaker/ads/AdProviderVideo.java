@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.adcolony.sdk.AdColony;
 import com.adcolony.sdk.AdColonyInterstitial;
 import com.adcolony.sdk.AdColonyInterstitialListener;
+import com.adcolony.sdk.AdColonyZone;
 
 public class AdProviderVideo {
 
@@ -34,9 +35,7 @@ public class AdProviderVideo {
                 mAd = ad;
                 if (mAd != null) {
                     mAdLoaded = true;
-                    if (mSnackbar != null && mSnackbar.isShown()) {
-                        mSnackbar.dismiss();
-                    }
+                    dismissSnackbar();
                 }
             }
 
@@ -45,15 +44,32 @@ public class AdProviderVideo {
                 super.onClosed(ad);
                 mCloseListener.onAdClosed();
             }
+
+            @Override
+            public void onOpened(AdColonyInterstitial ad) {
+                super.onOpened(ad);
+                Toast.makeText(mActivity, "Thank you, you help support the app!", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onRequestNotFilled(AdColonyZone zone) {
+                super.onRequestNotFilled(zone);
+                dismissSnackbar();
+            }
         };
 
         AdColony.requestInterstitial(ZONE_ID, listener);
     }
 
+    private void dismissSnackbar() {
+        if (mSnackbar != null && mSnackbar.isShown()) {
+            mSnackbar.dismiss();
+        }
+    }
+
     public void onClickShow() {
         if (mAdLoaded) {
             mAd.show();
-            Toast.makeText(mActivity, "Thank you, you help support the app!", Toast.LENGTH_LONG).show();
         } else {
             View parentLayout = mActivity.findViewById(android.R.id.content);
             mSnackbar = Snackbar.make(parentLayout, "Loading video...", Snackbar.LENGTH_INDEFINITE);
