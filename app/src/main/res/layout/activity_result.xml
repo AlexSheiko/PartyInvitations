@@ -61,7 +61,7 @@
             android:layout_marginBottom="52dp"
             android:gravity="center_horizontal"
             android:padding="16dp"
-            android:text="Looking good, nice job!"
+            android:text="Tap to edit"
             android:textSize="16sp"
             android:textStyle="italic"
             android:translationZ="2dp"/>

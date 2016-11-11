@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alexsheiko.invitationmaker.ads.AdProviderImage;
@@ -19,10 +18,8 @@ import com.crashlytics.android.answers.PurchaseEvent;
 import com.crashlytics.android.answers.ShareEvent;
 
 import java.io.File;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Currency;
-import java.util.Random;
 
 
 public class ResultActivity extends BaseActivity {
@@ -42,11 +39,6 @@ public class ResultActivity extends BaseActivity {
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setImageURI(imageUri);
-
-        TextView congratsLabel = (TextView) findViewById(R.id.congratsLabel);
-        String[] congratsArray = getResources().getStringArray(R.array.congrats);
-        int index = new Random().nextInt(congratsArray.length);
-        congratsLabel.setText("Tap to edit");
 
         mAdProvider = new AdProviderImage();
         mAdProvider.prepare(this);
@@ -116,17 +108,8 @@ public class ResultActivity extends BaseActivity {
     }
 
     private void shareImage(Uri imageUri) {
-        File fileSd = new File(imageUri.toString());
-        String fileSdName = fileSd.getAbsolutePath();
-        File fileInternal;
-        try {
-            fileInternal = File.createTempFile(fileSdName, null, getCacheDir());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        Uri uri = FileProvider.getUriForFile(this, "com.alexsheiko.invitationmaker.fileprovider", fileSd);
+        File fileSD = new File(imageUri.toString());
+        Uri uri = FileProvider.getUriForFile(this, "com.alexsheiko.invitationmaker.fileprovider", fileSD);
 
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
