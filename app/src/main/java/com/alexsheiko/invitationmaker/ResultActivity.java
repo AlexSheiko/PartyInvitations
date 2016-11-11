@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.alexsheiko.invitationmaker.ads.AdProviderImage;
 import com.alexsheiko.invitationmaker.base.BaseActivity;
+import com.bumptech.glide.Glide;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ShareEvent;
 
@@ -37,7 +38,7 @@ public class ResultActivity extends BaseActivity {
 
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setImageURI(imageUri);
+        Glide.with(this).load(imageUri).fitCenter().into(imageView);
 
         mAdProvider = new AdProviderImage();
         mAdProvider.prepare(this);
