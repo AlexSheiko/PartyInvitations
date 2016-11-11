@@ -1,12 +1,12 @@
 package com.alexsheiko.invitationmaker;
 
 import android.content.Context;
-import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
-public class AdProvider {
+public class AdProviderImage {
 
     private InterstitialAd mInterstitialAd;
     private Context mContext;
@@ -29,11 +29,16 @@ public class AdProvider {
         mInterstitialAd.loadAd(adRequest);
     }
 
-    public void showImage() {
+    public void show() {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
-            Toast.makeText(mContext, "Retry in 2 seconds", Toast.LENGTH_SHORT).show();
+            mInterstitialAd.setAdListener(new AdListener() {
+                @Override
+                public void onAdLoaded() {
+                    mInterstitialAd.show();
+                }
+            });
         }
     }
 }

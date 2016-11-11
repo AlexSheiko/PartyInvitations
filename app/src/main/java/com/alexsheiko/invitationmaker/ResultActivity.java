@@ -29,7 +29,7 @@ import static com.alexsheiko.invitationmaker.R.menu.result;
 public class ResultActivity extends AppCompatActivity {
 
     private boolean mStartup = true;
-    private AdProvider mAdProvider;
+    private AdProviderImage mAdProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class ResultActivity extends AppCompatActivity {
         int index = new Random().nextInt(congratsArray.length);
         congratsLabel.setText(congratsArray[index]);
 
-        mAdProvider = new AdProvider();
+        mAdProvider = new AdProviderImage();
         mAdProvider.prepare(this);
     }
 
@@ -56,7 +56,7 @@ public class ResultActivity extends AppCompatActivity {
         if (!mStartup) {
             findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
 
-            mAdProvider.showImage();
+            mAdProvider.show();
         }
         mStartup = false;
     }

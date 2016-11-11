@@ -46,7 +46,7 @@ public class GridActivity extends AppCompatActivity {
             mService = IInAppBillingService.Stub.asInterface(service);
         }
     };
-    private AdProvider mAdProvider;
+    private AdProviderImage mAdProvider;
     private List<String> mOwnedPaidImages = new ArrayList<>();
 
     @Override
@@ -75,7 +75,7 @@ public class GridActivity extends AppCompatActivity {
                 }
             } else {
                 // Show video ad
-                mAdProvider.showImage();
+                mAdProvider.show();
             }
 
             Answers.getInstance().logContentView(new ContentViewEvent()
@@ -104,7 +104,7 @@ public class GridActivity extends AppCompatActivity {
         serviceIntent.setPackage("com.android.vending");
         bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 
-        mAdProvider = new AdProvider();
+        mAdProvider = new AdProviderImage();
         mAdProvider.prepare(this);
     }
 
