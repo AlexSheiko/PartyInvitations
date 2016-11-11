@@ -38,7 +38,7 @@ public class ResultActivity extends BaseActivity {
 
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        Glide.with(this).load(imageUri).fitCenter().into(imageView);
+        Glide.with(this).load(new File(imageUri.toString())).into(imageView);
 
         mAdProvider = new AdProviderImage();
         mAdProvider.prepare(this);
