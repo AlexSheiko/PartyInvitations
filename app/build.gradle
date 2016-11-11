@@ -11,6 +11,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'io.fabric'
 
+configurations {
+    compile.exclude group: "com.google.android", module: "android"
+}
+
 repositories {
     jcenter()
     maven {
