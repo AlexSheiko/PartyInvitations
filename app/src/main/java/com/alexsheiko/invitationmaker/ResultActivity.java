@@ -13,6 +13,7 @@ import android.support.v7.widget.CardView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.alexsheiko.invitationmaker.ads.AdProviderImage;
 import com.alexsheiko.invitationmaker.base.BaseActivity;
@@ -20,6 +21,7 @@ import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ShareEvent;
 
 import java.io.File;
+import java.util.Random;
 
 
 public class ResultActivity extends BaseActivity {
@@ -84,7 +86,8 @@ public class ResultActivity extends BaseActivity {
     }
 
     public void onClickFinish(View view) {
-            navigateToMainScreen();
+        showCongrats();
+        navigateToMainScreen();
     }
 
     private void navigateToMainScreen() {
@@ -92,6 +95,12 @@ public class ResultActivity extends BaseActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
         finish();
+    }
+
+    private void showCongrats() {
+        String[] congratsArray = getResources().getStringArray(R.array.congrats);
+        int index = new Random().nextInt(congratsArray.length);
+        Toast.makeText(this, congratsArray[index], Toast.LENGTH_LONG).show();
     }
 
     private void shareImage(Uri imageUri) {
