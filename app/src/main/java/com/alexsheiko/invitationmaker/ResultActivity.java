@@ -2,8 +2,11 @@ package com.alexsheiko.invitationmaker;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.FileProvider;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +24,7 @@ public class ResultActivity extends BaseActivity {
 
     private boolean mStartup = true;
     private AdProviderImage mAdProvider;
+    private FloatingActionButton mSendFAB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ public class ResultActivity extends BaseActivity {
         mAdProvider = new AdProviderImage();
         mAdProvider.prepare(this);
 
-        View mSendFAB = findViewById(R.id.sendButton);
+        mSendFAB = (FloatingActionButton) findViewById(R.id.sendButton);
         mSendFAB.setOnClickListener(view -> shareImage(imageUri));
     }
 
@@ -43,6 +47,8 @@ public class ResultActivity extends BaseActivity {
         super.onResume();
         if (!mStartup) {
             findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
+            mSendFAB.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+            mSendFAB.setImageResource(R.drawable.ic_send);
 
             // Perhaps it worth showing the ad after pressing Finish?
             mAdProvider.onClickShow();
