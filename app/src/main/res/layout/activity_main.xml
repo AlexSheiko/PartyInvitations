@@ -54,25 +54,16 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
                     android:src="@drawable/ic_category_party"/>
 
                 <TextView
                     style="@style/GridLabel"
+                    android:layout_marginTop="32dp"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
                     android:text="P a r t y"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/GridCell">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_category_baby_shower"/>
-
-                <TextView
-                    style="@style/GridLabel"
-                    android:text="B a b y\nS h o w e r"/>
 
             </LinearLayout>
 
