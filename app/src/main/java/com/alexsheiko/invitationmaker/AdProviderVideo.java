@@ -1,6 +1,7 @@
 package com.alexsheiko.invitationmaker;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
@@ -12,8 +13,10 @@ class AdProviderVideo implements RewardedVideoAdListener {
 
     private RewardedVideoAd mAd;
     private boolean mClickedShow = false;
+    private Context mContext;
 
     void prepare(Context context) {
+        mContext = context;
         mAd = MobileAds.getRewardedVideoAdInstance(context);
         mAd.setRewardedVideoAdListener(this);
         loadRewardedVideoAd();
@@ -28,6 +31,7 @@ class AdProviderVideo implements RewardedVideoAdListener {
         if (mAd.isLoaded()) {
             mAd.show();
         } else {
+            Toast.makeText(mContext, "Loading...", Toast.LENGTH_SHORT).show();
             mClickedShow = true; // wait for onRewardedVideoAdLoaded()
         }
     }

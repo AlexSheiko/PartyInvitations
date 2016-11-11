@@ -46,7 +46,7 @@ public class GridActivity extends AppCompatActivity {
             mService = IInAppBillingService.Stub.asInterface(service);
         }
     };
-    private AdProviderImage mAdProvider;
+    private AdProviderVideo mAdProvider;
     private List<String> mOwnedPaidImages = new ArrayList<>();
 
     @Override
@@ -104,7 +104,7 @@ public class GridActivity extends AppCompatActivity {
         serviceIntent.setPackage("com.android.vending");
         bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
 
-        mAdProvider = new AdProviderImage();
+        mAdProvider = new AdProviderVideo();
         mAdProvider.prepare(this);
     }
 

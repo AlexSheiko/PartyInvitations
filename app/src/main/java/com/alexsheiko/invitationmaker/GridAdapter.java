@@ -26,7 +26,7 @@ public class GridAdapter extends ArrayAdapter<Integer> {
         if (convertView != null) {
             view = convertView;
         } else {
-            view = inflater.inflate(R.layout.grid_item_template, parent, false);
+            view = inflater.inflate(R.layout.item_template, parent, false);
         }
         int resId = getItem(position);
         Glide.with(getContext())

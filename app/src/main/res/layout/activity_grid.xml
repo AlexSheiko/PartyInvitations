@@ -15,4 +15,4 @@
     android:scrollbarStyle="outsideInset"
     android:verticalSpacing="4dp"
     tools:context=".GridActivity"
-    tools:listitem="@layout/grid_item_template"/>
+    tools:listitem="@layout/item_template"/>
