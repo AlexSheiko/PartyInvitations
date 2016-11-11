@@ -46,7 +46,7 @@ public class ResultActivity extends BaseActivity {
         TextView congratsLabel = (TextView) findViewById(R.id.congratsLabel);
         String[] congratsArray = getResources().getStringArray(R.array.congrats);
         int index = new Random().nextInt(congratsArray.length);
-        congratsLabel.setText("Tap image to edit");
+        congratsLabel.setText("Tap to edit");
 
         mAdProvider = new AdProviderImage();
         mAdProvider.prepare(this);

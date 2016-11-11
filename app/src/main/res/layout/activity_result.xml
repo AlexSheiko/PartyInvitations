@@ -32,7 +32,7 @@
             android:id="@+id/card_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
+            android:layout_marginBottom="-52dp"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
             android:elevation="2dp"
@@ -43,9 +43,11 @@
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
                 android:clickable="true"
                 android:foreground="?selectableItemBackground"
                 android:onClick="onClickImage"
+                android:paddingBottom="52dp"
                 android:scaleType="fitStart"
                 tools:src="@drawable/birthday_template_10"/>
 
@@ -56,11 +58,13 @@
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="52dp"
             android:gravity="center_horizontal"
             android:padding="16dp"
             android:text="Looking good, nice job!"
             android:textSize="16sp"
-            android:textStyle="italic"/>
+            android:textStyle="italic"
+            android:translationZ="2dp"/>
 
     </LinearLayout>
 
