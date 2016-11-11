@@ -1,76 +1,47 @@
 package com.alexsheiko.invitationmaker.ads;
 
+import android.app.Activity;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.reward.RewardItem;
-import com.google.android.gms.ads.reward.RewardedVideoAd;
-import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.adcolony.sdk.AdColony;
+import com.adcolony.sdk.AdColonyInterstitial;
+import com.adcolony.sdk.AdColonyInterstitialListener;
 
-public class AdProviderVideo implements RewardedVideoAdListener {
+public class AdProviderVideo {
 
-    private RewardedVideoAd mAd;
-    private boolean mClickedShow = false;
+    private static final String ZONE_ID = "vz732ea85f536a4b0aae";
     private Context mContext;
+    private AdColonyInterstitial mAd;
+    private boolean mAdLoaded = false;
 
     public void prepare(Context context) {
         mContext = context;
-        mAd = MobileAds.getRewardedVideoAdInstance(context);
-        mAd.setRewardedVideoAdListener(this);
-        loadRewardedVideoAd();
+
+        AdColony.configure((Activity) mContext, "appd3fbafd399de4909ab", ZONE_ID);
+        loadVideo();
     }
 
-    private void loadRewardedVideoAd() {
-        mAd.loadAd("",
-                new AdRequest.Builder().build());
+    private void loadVideo() {
+        AdColonyInterstitialListener listener = new AdColonyInterstitialListener() {
+            @Override
+            public void onRequestFilled(AdColonyInterstitial ad) {
+                /** Store and use this ad object to onClickShow your ad when appropriate */
+                mAd = ad;
+                if (mAd != null) {
+                    mAdLoaded = true;
+                }
+            }
+        };
+
+        AdColony.requestInterstitial(ZONE_ID, listener);
     }
 
-    public void show() {
-        if (mAd.isLoaded()) {
+    public void onClickShow() {
+        if (mAdLoaded) {
             mAd.show();
         } else {
             Toast.makeText(mContext, "Loading...", Toast.LENGTH_SHORT).show();
-            mClickedShow = true; // wait for onRewardedVideoAdLoaded()
         }
-    }
-
-    @Override
-    public void onRewardedVideoAdLoaded() {
-        if (mClickedShow) {
-            mAd.show();
-        }
-        mClickedShow = false;
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-
-    }
-
-    @Override
-    public void onRewarded(RewardItem rewardItem) {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
-
     }
 }

@@ -55,7 +55,7 @@ public class ResultActivity extends BaseActivity {
             findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
 
             // TODO: Move ad to after pressing Finish
-            mAdProvider.show();
+            mAdProvider.onClickShow();
         }
         mStartup = false;
     }

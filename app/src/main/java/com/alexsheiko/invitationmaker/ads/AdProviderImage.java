@@ -29,7 +29,7 @@ public class AdProviderImage {
         mInterstitialAd.loadAd(adRequest);
     }
 
-    public void show() {
+    public void onClickShow() {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {

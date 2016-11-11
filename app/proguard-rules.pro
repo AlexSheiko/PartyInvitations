@@ -211,3 +211,8 @@
 -keepclassmembers class com.google.android.gms.R$styleable {*;}
 
 -dontwarn com.adobe.**
+
+# For communication with AdColony's WebView
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}

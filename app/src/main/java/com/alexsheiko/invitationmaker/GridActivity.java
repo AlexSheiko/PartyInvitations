@@ -77,7 +77,7 @@ public class GridActivity extends BaseActivity {
                 }
             } else {
                 // Show video ad
-                mAdProvider.show();
+                mAdProvider.onClickShow();
             }
 
             Answers.getInstance().logContentView(new ContentViewEvent()
