@@ -5,21 +5,16 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.FileProvider;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.alexsheiko.invitationmaker.ads.AdProviderImage;
 import com.alexsheiko.invitationmaker.base.BaseActivity;
 import com.crashlytics.android.answers.Answers;
-import com.crashlytics.android.answers.PurchaseEvent;
 import com.crashlytics.android.answers.ShareEvent;
 
 import java.io.File;
-import java.math.BigDecimal;
-import java.util.Currency;
 
 
 public class ResultActivity extends BaseActivity {
@@ -32,10 +27,6 @@ public class ResultActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setImageURI(imageUri);
@@ -43,9 +34,8 @@ public class ResultActivity extends BaseActivity {
         mAdProvider = new AdProviderImage();
         mAdProvider.prepare(this);
 
-        findViewById(R.id.sendButton).setOnClickListener(view -> {
-            shareImage(imageUri);
-        });
+        View mSendFAB = findViewById(R.id.sendButton);
+        mSendFAB.setOnClickListener(view -> shareImage(imageUri));
     }
 
     @Override
@@ -54,7 +44,7 @@ public class ResultActivity extends BaseActivity {
         if (!mStartup) {
             findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
 
-            // TODO: Move ad to after pressing Finish
+            // Perhaps it worth showing the ad after pressing Finish?
             mAdProvider.onClickShow();
         }
         mStartup = false;
@@ -77,23 +67,6 @@ public class ResultActivity extends BaseActivity {
         intent.putExtra("imageUri", imageUri.toString());
         setResult(Activity.RESULT_CANCELED, intent);
         super.onBackPressed();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1001) {
-            Toast.makeText(this, "Thank you, enjoy using the app!", Toast.LENGTH_SHORT).show();
-
-            Answers.getInstance().logPurchase(new PurchaseEvent()
-                    .putItemPrice(BigDecimal.valueOf(1.00))
-                    .putCurrency(Currency.getInstance("USD"))
-                    .putItemName("Donation 1 USD")
-                    .putItemType("Donation")
-                    .putItemId("donate1")
-                    .putSuccess(resultCode == Activity.RESULT_OK));
-            return;
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     public void onClickFinish(View view) {
