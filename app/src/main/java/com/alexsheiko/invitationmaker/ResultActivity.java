@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.alexsheiko.invitationmaker.ads.AdProviderImage;
 import com.alexsheiko.invitationmaker.base.BaseActivity;
-import com.bumptech.glide.Glide;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ShareEvent;
 
@@ -38,7 +37,7 @@ public class ResultActivity extends BaseActivity {
 
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        Glide.with(this).load(new File(imageUri.toString())).into(imageView);
+        imageView.setImageURI(imageUri);
 
         mAdProvider = new AdProviderImage();
         mAdProvider.prepare(this);
@@ -115,6 +114,7 @@ public class ResultActivity extends BaseActivity {
         startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
 
         Answers.getInstance().logShare(new ShareEvent());
+        // TODO: Remove file from cache
     }
 
     public void onClickImage(View view) {
