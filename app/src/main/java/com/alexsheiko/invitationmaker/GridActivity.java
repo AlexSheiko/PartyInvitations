@@ -50,6 +50,7 @@ public class GridActivity extends BaseActivity {
     };
     private AdProviderVideo mAdProvider;
     private List<String> mOwnedPaidImages = new ArrayList<>();
+    private int mShowingAdForId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,17 +68,11 @@ public class GridActivity extends BaseActivity {
             String imageName = getResources().getResourceEntryName(resId);
             boolean isImagePaid = imageName.contains("paid");
             if (!isImagePaid || mOwnedPaidImages.contains(imageName)) {
-                try {
-                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
-                    File file = convertBitmapToFile(bitmap);
-                    Uri imageUri = Uri.fromFile(file);
-                    openImageEditor(imageUri);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                openEditor(resId);
             } else {
                 // Show video ad
                 mAdProvider.onClickShow();
+                mShowingAdForId = resId;
             }
 
             Answers.getInstance().logContentView(new ContentViewEvent()
@@ -111,6 +106,26 @@ public class GridActivity extends BaseActivity {
 
         mAdProvider = new AdProviderVideo();
         mAdProvider.prepare(this);
+    }
+
+    private void openEditor(int resId) {
+        try {
+            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
+            File file = convertBitmapToFile(bitmap);
+            Uri imageUri = Uri.fromFile(file);
+            openImageEditor(imageUri);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mShowingAdForId != 0) {
+            openEditor(mShowingAdForId);
+            mShowingAdForId = 0;
+        }
     }
 
     @Override
