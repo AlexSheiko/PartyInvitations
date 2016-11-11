@@ -1,7 +1,6 @@
 package com.alexsheiko.invitationmaker.ads;
 
 import android.content.Context;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -34,7 +33,6 @@ public class AdProviderImage {
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
-            Toast.makeText(mContext, "Loading ad...", Toast.LENGTH_SHORT).show();
             mInterstitialAd.setAdListener(new AdListener() {
                 @Override
                 public void onAdLoaded() {

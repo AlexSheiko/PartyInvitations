@@ -36,7 +36,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:clickable">true</item>
         <item name="android:onClick">onClickCategory</item>
-        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
     </style>
 
     <style name="GridLabel">

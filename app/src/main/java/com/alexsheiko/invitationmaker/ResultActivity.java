@@ -57,6 +57,7 @@ public class ResultActivity extends BaseActivity {
         if (!mStartup) {
             findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
 
+            // TODO: Move ad to after pressing Finish
             mAdProvider.show();
         }
         mStartup = false;
@@ -122,7 +123,7 @@ public class ResultActivity extends BaseActivity {
 
     private void shareImage(Uri imageUri) {
         File file = new File(imageUri.toString());
-        Uri uri = FileProvider.getUriForFile(this, "com.alexsheiko.invitationmaker.files", file);
+        Uri uri = FileProvider.getUriForFile(this, "com.alexsheiko.invitationmaker.fileprovider", file);
 
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
