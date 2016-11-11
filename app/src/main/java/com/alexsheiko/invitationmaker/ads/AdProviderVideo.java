@@ -61,19 +61,25 @@ public class AdProviderVideo {
         AdColony.requestInterstitial(ZONE_ID, listener);
     }
 
-    private void dismissSnackbar() {
-        if (mSnackbar != null && mSnackbar.isShown()) {
-            mSnackbar.dismiss();
-        }
-    }
-
     public void onClickShow() {
         if (mAdLoaded) {
             mAd.show();
         } else {
-            View parentLayout = mActivity.findViewById(android.R.id.content);
+            showSnackBar();
+        }
+    }
+
+    private void showSnackBar() {
+        View parentLayout = mActivity.findViewById(android.R.id.content);
+        if (mSnackbar == null) {
             mSnackbar = Snackbar.make(parentLayout, "Loading video...", Snackbar.LENGTH_INDEFINITE);
-            mSnackbar.show();
+        }
+        mSnackbar.show();
+    }
+
+    private void dismissSnackbar() {
+        if (mSnackbar != null && mSnackbar.isShown()) {
+            mSnackbar.dismiss();
         }
     }
 }

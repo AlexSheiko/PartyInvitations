@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.GridView;
 
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
@@ -30,6 +33,7 @@ public class GridActivity extends BaseActivity implements AdClosedListener {
     private static final int REQUEST_SHARE = 237;
     private AdProviderVideo mAdProvider;
     private int mShowingAdForId;
+    private Snackbar mSnackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,14 +87,32 @@ public class GridActivity extends BaseActivity implements AdClosedListener {
     }
 
     private void openEditor(int resId) {
-        try {
-            Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
-            File file = convertBitmapToFile(bitmap);
-            Uri imageUri = Uri.fromFile(file);
-            openImageEditor(imageUri);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        new AsyncTask<Integer, Void, Uri>() {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                showSnackBar();
+            }
+
+            @Override
+            protected Uri doInBackground(Integer... integers) {
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
+                try {
+                    File file = convertBitmapToFile(bitmap);
+                    return Uri.fromFile(file);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Uri imageUri) {
+                super.onPostExecute(imageUri);
+                openImageEditor(imageUri);
+                dismissSnackbar();
+            }
+        }.execute(resId);
     }
 
     @Override
@@ -159,5 +181,19 @@ public class GridActivity extends BaseActivity implements AdClosedListener {
     public void onAdClosed() {
         mAdProvider.loadVideo();
         openEditor(mShowingAdForId);
+    }
+
+    private void showSnackBar() {
+        View parentLayout = findViewById(android.R.id.content);
+        if (mSnackbar == null) {
+            mSnackbar = Snackbar.make(parentLayout, "Loading image...", Snackbar.LENGTH_INDEFINITE);
+        }
+        mSnackbar.show();
+    }
+
+    private void dismissSnackbar() {
+        if (mSnackbar != null && mSnackbar.isShown()) {
+            mSnackbar.dismiss();
+        }
     }
 }
