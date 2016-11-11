@@ -17,6 +17,11 @@
         <item name="colorPrimary">@color/colorWindowBackground</item>
     </style>
 
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="ActionBarNoShadow" parent="Widget.AppCompat.Light.ActionBar">
         <item name="elevation">0dp</item>
     </style>

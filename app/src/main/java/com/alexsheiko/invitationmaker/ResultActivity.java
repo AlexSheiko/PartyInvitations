@@ -5,8 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.FileProvider;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,8 +24,6 @@ import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Random;
 
-import static com.alexsheiko.invitationmaker.R.menu.result;
-
 
 public class ResultActivity extends BaseActivity {
 
@@ -37,6 +34,9 @@ public class ResultActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
@@ -50,6 +50,10 @@ public class ResultActivity extends BaseActivity {
 
         mAdProvider = new AdProviderImage();
         mAdProvider.prepare(this);
+
+        findViewById(R.id.sendButton).setOnClickListener(view -> {
+            shareImage(imageUri);
+        });
     }
 
     @Override
@@ -65,20 +69,9 @@ public class ResultActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(result, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_send) {
-            Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
-            shareImage(imageUri);
-            return true;
-        } else if (id == android.R.id.home) {
+        if (id == android.R.id.home) {
             onBackPressed();
             return true;
         }
