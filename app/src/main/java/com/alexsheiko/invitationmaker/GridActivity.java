@@ -1,14 +1,10 @@
 package com.alexsheiko.invitationmaker;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.view.MenuItem;
 import android.widget.GridView;
 import android.widget.Toast;
@@ -18,10 +14,8 @@ import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
 import com.alexsheiko.invitationmaker.ads.AdClosedListener;
 import com.alexsheiko.invitationmaker.ads.AdProviderVideo;
 import com.alexsheiko.invitationmaker.base.BaseActivity;
-import com.android.vending.billing.IInAppBillingService;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ContentViewEvent;
-import com.crashlytics.android.answers.PurchaseEvent;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -35,22 +29,7 @@ public class GridActivity extends BaseActivity implements AdClosedListener {
 
     public static final int REQUEST_CREATE = 101;
     private static final int REQUEST_SHARE = 237;
-    private static final int REQUEST_PURCHASE = 333;
-    IInAppBillingService mService;
-    ServiceConnection mServiceConn = new ServiceConnection() {
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            mService = null;
-        }
-
-        @Override
-        public void onServiceConnected(ComponentName name,
-                                       IBinder service) {
-            mService = IInAppBillingService.Stub.asInterface(service);
-        }
-    };
     private AdProviderVideo mAdProvider;
-    private List<String> mOwnedPaidImages = new ArrayList<>();
     private int mShowingAdForId;
 
     @Override
@@ -68,7 +47,7 @@ public class GridActivity extends BaseActivity implements AdClosedListener {
             int resId = adapter.getItem(position);
             String imageName = getResources().getResourceEntryName(resId);
             boolean isImagePaid = imageName.contains("paid");
-            if (!isImagePaid || mOwnedPaidImages.contains(imageName)) {
+            if (!isImagePaid) {
                 openEditor(resId);
             } else {
                 // Show video ad
@@ -100,11 +79,6 @@ public class GridActivity extends BaseActivity implements AdClosedListener {
         Collections.shuffle(templates);
         adapter.addAll(templates);
 
-        Intent serviceIntent =
-                new Intent("com.android.vending.billing.InAppBillingService.BIND");
-        serviceIntent.setPackage("com.android.vending");
-        bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);
-
         mAdProvider = new AdProviderVideo();
         mAdProvider.prepare(this, this);
     }
@@ -133,23 +107,8 @@ public class GridActivity extends BaseActivity implements AdClosedListener {
         } else if (requestCode == REQUEST_SHARE) {
             Uri imageUri = Uri.parse(data.getStringExtra("imageUri"));
             openImageEditor(imageUri);
-        } else if (requestCode == REQUEST_PURCHASE) {
-            if (resultCode == RESULT_OK) {
-                Toast.makeText(this, "Thank you, enjoy using the template!", Toast.LENGTH_SHORT).show();
-                // TODO: Save unlocked image
-            }
-            Answers.getInstance().logPurchase(new PurchaseEvent()
-                    .putSuccess(resultCode == RESULT_OK));
         } else {
             super.onActivityResult(requestCode, resultCode, data);
-        }
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (mService != null) {
-            unbindService(mServiceConn);
         }
     }
 
@@ -199,6 +158,7 @@ public class GridActivity extends BaseActivity implements AdClosedListener {
     @Override
     public void onAdClosed() {
         mAdProvider.loadVideo();
+        Toast.makeText(this, "Thank you, enjoy using the template!", Toast.LENGTH_SHORT).show();
         openEditor(mShowingAdForId);
     }
 }
