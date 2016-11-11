@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class GridActivity extends BaseActivity {
@@ -84,21 +85,24 @@ public class GridActivity extends BaseActivity {
                     .putContentId(imageName));
         });
 
+        List<Integer> templates = new ArrayList<>();
         for (int i = 1; i < 300; i++) {
             String imageName = category.toLowerCase() + "_template_" + i;
             imageName = imageName.replace(" ", "_");
             int resId = getResources().getIdentifier(imageName, "drawable", getPackageName());
             if (resId != 0) {
-                adapter.add(resId);
+                templates.add(resId);
             } else {
                 String imageNamePaid = category.toLowerCase() + "_template_" + i + "_paid";
                 imageNamePaid = imageNamePaid.replace(" ", "_");
                 int resIdPaid = getResources().getIdentifier(imageNamePaid, "drawable", getPackageName());
                 if (resIdPaid != 0) {
-                    adapter.add(resIdPaid);
+                    templates.add(resIdPaid);
                 }
             }
         }
+        Collections.shuffle(templates);
+        adapter.addAll(templates);
 
         Intent serviceIntent =
                 new Intent("com.android.vending.billing.InAppBillingService.BIND");
