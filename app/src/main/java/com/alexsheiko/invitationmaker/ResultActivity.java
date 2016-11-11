@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.FileProvider;
+import android.support.v7.widget.CardView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -47,14 +48,20 @@ public class ResultActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         if (!mStartup) {
-            findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
-            mSendFAB.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
-            mSendFAB.setImageResource(R.drawable.ic_send);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mSendFAB.setElevation(0.0f);
-            }
+            showFinishButton();
         }
         mStartup = false;
+    }
+
+    private void showFinishButton() {
+        findViewById(R.id.finish_container).setVisibility(View.VISIBLE);
+        mSendFAB.setBackgroundTintList(ColorStateList.valueOf(Color.WHITE));
+        mSendFAB.setImageResource(R.drawable.ic_send);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mSendFAB.setElevation(0.0f);
+            CardView containerCardView = (CardView) findViewById(R.id.containerCardView);
+            containerCardView.setElevation(0.0f);
+        }
     }
 
     @Override

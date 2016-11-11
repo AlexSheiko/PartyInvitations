@@ -138,6 +138,7 @@ public class GridActivity extends BaseActivity implements AdClosedListener {
     }
 
     private File convertBitmapToFile(Bitmap bitmap) throws IOException {
+        //Todo: Show loading snackbar and parse image in background
         // Create a file to write bitmap data
         File file = new File(getCacheDir(), "image.png");
 
