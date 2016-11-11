@@ -23,6 +23,7 @@ public class AdProvider {
     private void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("1A6B43A15E989B8B4F9121A9D649E323")
                 .build();
 
         mInterstitialAd.loadAd(adRequest);

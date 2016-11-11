@@ -1,17 +1,14 @@
 package com.alexsheiko.invitationmaker;
 
-import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.GridView;
@@ -37,8 +34,6 @@ public class GridActivity extends AppCompatActivity {
     private static final int REQUEST_SHARE = 237;
     private static final int REQUEST_PURCHASE = 333;
     IInAppBillingService mService;
-    private AdProvider mAdProvider;
-    private List<String> mOwnedPaidImages = new ArrayList<>();
     ServiceConnection mServiceConn = new ServiceConnection() {
         @Override
         public void onServiceDisconnected(ComponentName name) {
@@ -49,40 +44,10 @@ public class GridActivity extends AppCompatActivity {
         public void onServiceConnected(ComponentName name,
                                        IBinder service) {
             mService = IInAppBillingService.Stub.asInterface(service);
-
-            refreshOwnedImages();
         }
     };
-
-    private void refreshOwnedImages() {
-        try {
-            Bundle ownedItems = mService.getPurchases(3, getPackageName(), "inapp", null);
-
-            int response = ownedItems.getInt("RESPONSE_CODE");
-            if (response == 0) {
-                ArrayList<String> ownedSkus =
-                        ownedItems.getStringArrayList("INAPP_PURCHASE_ITEM_LIST");
-                ArrayList<String> purchaseDataList =
-                        ownedItems.getStringArrayList("INAPP_PURCHASE_DATA_LIST");
-                String continuationToken =
-                        ownedItems.getString("INAPP_CONTINUATION_TOKEN");
-
-                mOwnedPaidImages.clear();
-                for (int i = 0; i < purchaseDataList.size(); ++i) {
-                    String sku = ownedSkus.get(i);
-                    mOwnedPaidImages.add(sku);
-
-                    // do something with this purchase information
-                    // e.g. display the updated list of products owned by user
-                }
-
-                // if continuationToken != null, call getPurchases again
-                // and pass in the token to retrieve more items
-            }
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
+    private AdProvider mAdProvider;
+    private List<String> mOwnedPaidImages = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,8 +74,7 @@ public class GridActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             } else {
-                // Show purchase dialog
-                // purchase(imageName);
+                // Show video ad
                 mAdProvider.showImage();
             }
 
@@ -144,21 +108,6 @@ public class GridActivity extends AppCompatActivity {
         mAdProvider.prepare(this);
     }
 
-    private void purchase(String sku) {
-        if (mService == null) return;
-        try {
-            Bundle buyIntentBundle = mService.getBuyIntent(3, getPackageName(),
-                    sku, "inapp", "bGoa+V7g/yqDXvKRqq+JTFn4uQZbPiQJo4pf9RzJ");
-            PendingIntent pendingIntent = buyIntentBundle.getParcelable("BUY_INTENT");
-            startIntentSenderForResult(pendingIntent.getIntentSender(),
-                    REQUEST_PURCHASE, new Intent(), Integer.valueOf(0), Integer.valueOf(0),
-                    Integer.valueOf(0));
-        } catch (RemoteException | IntentSender.SendIntentException e) {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CREATE) {
@@ -175,7 +124,7 @@ public class GridActivity extends AppCompatActivity {
         } else if (requestCode == REQUEST_PURCHASE) {
             if (resultCode == RESULT_OK) {
                 Toast.makeText(this, "Thank you, enjoy using the template!", Toast.LENGTH_SHORT).show();
-                refreshOwnedImages();
+                // TODO: Save unlocked image
             }
             Answers.getInstance().logPurchase(new PurchaseEvent()
                     .putSuccess(resultCode == RESULT_OK));
