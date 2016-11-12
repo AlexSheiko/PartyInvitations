@@ -3,12 +3,9 @@ package com.alexsheiko.invitationmaker.ads;
 import android.app.Activity;
 import android.support.design.widget.Snackbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.adcolony.sdk.AdColony;
 import com.adcolony.sdk.AdColonyInterstitial;
-import com.adcolony.sdk.AdColonyInterstitialListener;
-import com.adcolony.sdk.AdColonyZone;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
@@ -17,7 +14,6 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 public class AdProviderVideo implements RewardedVideoAdListener {
 
-    private static final String ZONE_ID = "vz732ea85f536a4b0aae";
     private Activity mActivity;
     private AdColonyInterstitial mAdColony;
     private boolean mAdLoaded = false;
@@ -29,7 +25,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
         mActivity = activity;
         mCloseListener = closeListener;
 
-        AdColony.configure(mActivity, "appd3fbafd399de4909ab", ZONE_ID);
+        AdColony.configure(mActivity, "appd3fbafd399de4909ab", "vz732ea85f536a4b0aae");
 
         // Use an activity context to get the rewarded video instance.
         mAd = MobileAds.getRewardedVideoAdInstance(mActivity);
@@ -39,40 +35,42 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     }
 
     public void loadVideo() {
-        mAd.loadAd("ca-app-pub-3038649646029056/3650335528", new AdRequest.Builder().build());
+        AdRequest adRequest = new AdRequest.Builder()
+                //.addNetworkExtrasBundle(AdColonyAdapter.class)
+                .build();
 
-        AdColonyInterstitialListener listener = new AdColonyInterstitialListener() {
-            @Override
-            public void onRequestFilled(AdColonyInterstitial ad) {
-                /** Store and use this ad object to onClickShow your ad when appropriate */
-                mAdColony = ad;
-                if (mAdColony != null) {
-                    mAdLoaded = true;
-                    dismissSnackbar();
-                }
-            }
+        mAd.loadAd("ca-app-pub-3038649646029056/3650335528", adRequest);
 
-            @Override
-            public void onClosed(AdColonyInterstitial ad) {
-                super.onClosed(ad);
-                mCloseListener.onAdClosed();
-            }
-
-            @Override
-            public void onOpened(AdColonyInterstitial ad) {
-                super.onOpened(ad);
-                Toast.makeText(mActivity, "Thank you, you help support the app!", Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onRequestNotFilled(AdColonyZone zone) {
-                super.onRequestNotFilled(zone);
-                dismissSnackbar();
-                mAdLoaded = false;
-            }
-        };
-
-        AdColony.requestInterstitial(ZONE_ID, listener);
+        //        AdColonyInterstitialListener listener = new AdColonyInterstitialListener() {
+        //            @Override
+        //            public void onRequestFilled(AdColonyInterstitial ad) {
+        //                /** Store and use this ad object to onClickShow your ad when appropriate */
+        //                mAdColony = ad;
+        //                if (mAdColony != null) {
+        //                    mAdLoaded = true;
+        //                    dismissSnackbar();
+        //                }
+        //            }
+        //
+        //            @Override
+        //            public void onClosed(AdColonyInterstitial ad) {
+        //                super.onClosed(ad);
+        //                mCloseListener.onAdClosed();
+        //            }
+        //
+        //            @Override
+        //            public void onOpened(AdColonyInterstitial ad) {
+        //                super.onOpened(ad);
+        //                Toast.makeText(mActivity, "Thank you, you help support the app!", Toast.LENGTH_LONG).show();
+        //            }
+        //
+        //            @Override
+        //            public void onRequestNotFilled(AdColonyZone zone) {
+        //                super.onRequestNotFilled(zone);
+        //                dismissSnackbar();
+        //                mAdLoaded = false;
+        //            }
+        //        };
     }
 
     public void onClickShow() {
