@@ -15,6 +15,8 @@ import com.jirbo.adcolony.AdColony;
 import com.jirbo.adcolony.AdColonyBundleBuilder;
 import com.unity3d.ads.UnityAds;
 
+import static com.unity3d.ads.properties.ClientProperties.getApplicationContext;
+
 public class AdProviderVideo implements RewardedVideoAdListener {
 
     private Activity mActivity;
@@ -29,6 +31,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
         initProviders();
 
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3038649646029056/3650335528");
         // Use an activity context to get the rewarded video instance.
         mAd = MobileAds.getRewardedVideoAdInstance(mActivity);
         mAd.setRewardedVideoAdListener(this);
@@ -66,7 +69,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     private void showSnackBar() {
         View parentLayout = mActivity.findViewById(android.R.id.content);
         if (mSnackbar == null) {
-            mSnackbar = Snackbar.make(parentLayout, "Loading video...", Snackbar.LENGTH_INDEFINITE);
+            mSnackbar = Snackbar.make(parentLayout, "Loading video... Thank you for waiting", Snackbar.LENGTH_INDEFINITE);
         }
         mSnackbar.show();
     }
@@ -111,11 +114,10 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     public void onRewardedVideoAdFailedToLoad(int i) {
         dismissSnackbar();
         mAdLoaded = false;
-        if (i == 3) {
-            View parentLayout = mActivity.findViewById(android.R.id.content);
-            Snackbar snackbar = Snackbar.make(parentLayout, "No ads available, try templates without green label", Snackbar.LENGTH_LONG);
-            snackbar.show();
-        }
+
+        View parentLayout = mActivity.findViewById(android.R.id.content);
+        Snackbar snackbar = Snackbar.make(parentLayout, "No ads available, try templates without green label", Snackbar.LENGTH_LONG);
+        snackbar.show();
     }
 
     public RewardedVideoAd getAd() {
