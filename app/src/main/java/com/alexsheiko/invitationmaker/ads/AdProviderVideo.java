@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
@@ -13,12 +14,10 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.jirbo.adcolony.AdColony;
 import com.jirbo.adcolony.AdColonyAdapter;
 import com.jirbo.adcolony.AdColonyBundleBuilder;
-import com.jirbo.adcolony.AdColonyInterstitialAd;
 
 public class AdProviderVideo implements RewardedVideoAdListener {
 
     private Activity mActivity;
-    private AdColonyInterstitialAd mAdColony;
     private boolean mAdLoaded = false;
     private AdCloseListener mCloseListener;
     private Snackbar mSnackbar;
@@ -45,37 +44,6 @@ public class AdProviderVideo implements RewardedVideoAdListener {
                 .build();
 
         mAd.loadAd("ca-app-pub-3038649646029056/3650335528", adRequest);
-
-        //        AdColonyInterstitialListener listener = new AdColonyInterstitialListener() {
-        //            @Override
-        //            public void onRequestFilled(AdColonyInterstitial ad) {
-        //                /** Store and use this ad object to onClickShow your ad when appropriate */
-        //                mAdColony = ad;
-        //                if (mAdColony != null) {
-        //                    mAdLoaded = true;
-        //                    dismissSnackbar();
-        //                }
-        //            }
-        //
-        //            @Override
-        //            public void onClosed(AdColonyInterstitial ad) {
-        //                super.onClosed(ad);
-        //                mCloseListener.onAdClosed();
-        //            }
-        //
-        //            @Override
-        //            public void onOpened(AdColonyInterstitial ad) {
-        //                super.onOpened(ad);
-        //                Toast.makeText(mActivity, "Thank you, you help support the app!", Toast.LENGTH_LONG).show();
-        //            }
-        //
-        //            @Override
-        //            public void onRequestNotFilled(AdColonyZone zone) {
-        //                super.onRequestNotFilled(zone);
-        //                dismissSnackbar();
-        //                mAdLoaded = false;
-        //            }
-        //        };
     }
 
     public void onClickShow() {
@@ -109,32 +77,30 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
     @Override
     public void onRewardedVideoAdOpened() {
-
+        Toast.makeText(mActivity, "Thank you, you help support the app!", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onRewardedVideoStarted() {
-
     }
 
     @Override
     public void onRewardedVideoAdClosed() {
-
+        mCloseListener.onAdClosed();
     }
 
     @Override
     public void onRewarded(RewardItem rewardItem) {
-
     }
 
     @Override
     public void onRewardedVideoAdLeftApplication() {
-
     }
 
     @Override
     public void onRewardedVideoAdFailedToLoad(int i) {
-        Log.d("AdProviderVideo", "onRewardedVideoAdFailedToLoad with code " + i);
         dismissSnackbar();
+        mAdLoaded = false;
+        Log.d("AdProviderVideo", "onRewardedVideoAdFailedToLoad with code " + i);
     }
 }
