@@ -54,8 +54,6 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
         AdRequest adRequest = new AdRequest.Builder()
                 .addNetworkExtrasBundle(AdColonyAdapter.class, AdColonyBundleBuilder.build())
-                //                .addNetworkExtrasBundle(ChartboostAdapter.class, new ChartboostAdapter.ChartboostExtrasBundleBuilder().build())
-                //                .addNetworkExtrasBundle(UnityAdapter.class, Bundle.EMPTY)
                 .build();
 
         mAd.loadAd("ca-app-pub-3038649646029056/3650335528", adRequest);
@@ -74,7 +72,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     private void showSnackBar() {
         View parentLayout = mActivity.findViewById(android.R.id.content);
         if (mSnackbar == null) {
-            mSnackbar = Snackbar.make(parentLayout, "Loading video... Thank you for waiting", Snackbar.LENGTH_INDEFINITE);
+            mSnackbar = Snackbar.make(parentLayout, "Loading video... thank you for waiting", Snackbar.LENGTH_INDEFINITE);
         }
         mSnackbar.show();
     }
@@ -107,9 +105,9 @@ public class AdProviderVideo implements RewardedVideoAdListener {
         Toast.makeText(mActivity, "Thank you for being patient!", Toast.LENGTH_LONG).show();
 
         new Handler().postDelayed(() ->
-                        Toast.makeText(mActivity, "You're awesome!'",
+                        Toast.makeText(mActivity, "You're awesome!",
                                 Toast.LENGTH_LONG).show(),
-                10000);
+                15000);
     }
 
     @Override
@@ -121,6 +119,8 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
     @Override
     public void onRewarded(RewardItem rewardItem) {
+        mRewardListener.onRewarded();
+        Toast.makeText(mActivity, "Enjoy using the template!", Toast.LENGTH_LONG).show();
         reset();
     }
 
