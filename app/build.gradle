@@ -104,9 +104,6 @@ dependencies {
     compile('com.google.firebase:firebase-ads:9.4.0') {
         exclude module: 'annotations'
     }
-    compile('com.google.android.gms:play-services-ads:9.4.0') {
-        exclude module: 'annotations'
-    }
     compile files('libs/adcolony.jar')
     compile files('libs/ChartboostAdapter.jar')
     compile files('libs/chartboost.jar')
