@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.chartboost.sdk.Chartboost;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
@@ -27,13 +28,19 @@ public class AdProviderVideo implements RewardedVideoAdListener {
         mActivity = activity;
         mCloseListener = closeListener;
 
-        AdColony.configure(mActivity, "appd3fbafd399de4909ab", "vz732ea85f536a4b0aae");
+        initProviders();
 
         // Use an activity context to get the rewarded video instance.
         mAd = MobileAds.getRewardedVideoAdInstance(mActivity);
         mAd.setRewardedVideoAdListener(this);
 
         loadVideo();
+    }
+
+    private void initProviders() {
+        AdColony.configure(mActivity, "appd3fbafd399de4909ab", "vz732ea85f536a4b0aae");
+        Chartboost.startWithAppId(mActivity, "57c4638143150f2dbda90642", "97d51d16f7428263e14b26881a665e87b23f47ee");
+        Chartboost.onCreate(mActivity);
     }
 
     public void loadVideo() {

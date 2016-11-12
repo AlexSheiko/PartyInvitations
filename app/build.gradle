@@ -87,6 +87,8 @@ dependencies {
     compile 'com.google.firebase:firebase-ads:9.4.0'
     compile 'com.google.android.gms:play-services-ads:9.4.0'
     compile files('libs/adcolony.jar')
+    compile files('libs/ChartboostAdapter.jar')
+    compile files('libs/chartboost.jar')
 }
 
 apply plugin: 'com.google.gms.google-services'
