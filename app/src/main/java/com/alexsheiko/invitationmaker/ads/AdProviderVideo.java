@@ -2,7 +2,6 @@ package com.alexsheiko.invitationmaker.ads;
 
 import android.app.Activity;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -108,6 +107,5 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     public void onRewardedVideoAdFailedToLoad(int i) {
         dismissSnackbar();
         mAdLoaded = false;
-        Log.d("AdProviderVideo", "onRewardedVideoAdFailedToLoad with code " + i);
     }
 }
