@@ -249,3 +249,6 @@
 }
 # TODO: Remove?
 -dontwarn com.google.ads.mediation.unity.**
+
+-dontwarn com.immersion.**
+-dontnote com.immersion.**

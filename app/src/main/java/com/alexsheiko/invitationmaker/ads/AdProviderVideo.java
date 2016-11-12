@@ -40,7 +40,8 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     }
 
     private void initProviders() {
-        AdColony.configure(mActivity, "appd3fbafd399de4909ab", "vz732ea85f536a4b0aae");
+        // TODO: Make class a singeleton to only initialize once
+        AdColony.configure(mActivity, "version:3.0,store:google", "appd3fbafd399de4909ab", "vz732ea85f536a4b0aae");
         Chartboost.startWithAppId(mActivity, "57c4638143150f2dbda90642", "97d51d16f7428263e14b26881a665e87b23f47ee");
         UnityAds.initialize(mActivity, "1127394", null);
     }
