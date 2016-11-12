@@ -1,6 +1,7 @@
 package com.alexsheiko.invitationmaker.ads;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.Toast;
@@ -104,16 +105,22 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     public void onRewardedVideoStarted() {
         Toast.makeText(mActivity, "Thank you for being patient!", Toast.LENGTH_LONG).show();
         Toast.makeText(mActivity, "Thank you for being patient!", Toast.LENGTH_LONG).show();
+
+        new Handler().postDelayed(() ->
+                        Toast.makeText(mActivity, "You're awesome!'",
+                                Toast.LENGTH_LONG).show(),
+                10000);
     }
 
     @Override
     public void onRewardedVideoAdClosed() {
+        mRewardListener.onRewarded();
+        Toast.makeText(mActivity, "Enjoy using the template!", Toast.LENGTH_LONG).show();
         reset();
     }
 
     @Override
     public void onRewarded(RewardItem rewardItem) {
-        mRewardListener.onRewarded();
         reset();
     }
 
@@ -133,7 +140,6 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
     private void reset() {
         mAd.setRewardedVideoAdListener(null);
-        mAd = null;
         mAdLoaded = false;
         loadVideo();
     }
