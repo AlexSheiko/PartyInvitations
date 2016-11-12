@@ -86,6 +86,24 @@ public class GridActivity extends BaseActivity implements AdCloseListener {
         mAdProvider.prepare(this, this);
     }
 
+    @Override
+    public void onResume() {
+        mAdProvider.getAd().resume(this);
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        mAdProvider.getAd().pause(this);
+        super.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        mAdProvider.getAd().destroy(this);
+        super.onDestroy();
+    }
+
     private void openEditor(int resId) {
         new AsyncTask<Integer, Void, Uri>() {
             @Override

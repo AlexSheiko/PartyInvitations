@@ -1,11 +1,14 @@
 package com.alexsheiko.invitationmaker.ads;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.Toast;
 
 import com.chartboost.sdk.Chartboost;
+import com.google.ads.mediation.chartboost.ChartboostAdapter;
+import com.google.ads.mediation.unity.UnityAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
@@ -40,6 +43,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
         AdColony.configure(mActivity, "appd3fbafd399de4909ab", "vz732ea85f536a4b0aae");
         Chartboost.startWithAppId(mActivity, "57c4638143150f2dbda90642", "97d51d16f7428263e14b26881a665e87b23f47ee");
         Chartboost.onCreate(mActivity);
+        // TODO: Init Unity ads
     }
 
     public void loadVideo() {
@@ -47,6 +51,8 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
         AdRequest adRequest = new AdRequest.Builder()
                 .addNetworkExtrasBundle(AdColonyAdapter.class, AdColonyBundleBuilder.build())
+                .addNetworkExtrasBundle(ChartboostAdapter.class, Bundle.EMPTY)
+                .addNetworkExtrasBundle(UnityAdapter.class, Bundle.EMPTY)
                 .build();
 
         mAd.loadAd("ca-app-pub-3038649646029056/3650335528", adRequest);
@@ -107,5 +113,9 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     public void onRewardedVideoAdFailedToLoad(int i) {
         dismissSnackbar();
         mAdLoaded = false;
+    }
+
+    public RewardedVideoAd getAd() {
+        return mAd;
     }
 }

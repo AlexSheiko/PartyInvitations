@@ -89,7 +89,8 @@ dependencies {
         exclude module: 'annotations'
     }
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile('uk.co.chrisjenx:calligraphy:2.2.0') {
+    compile('uk.co.chrisjenx:calligraphy:2.2.0')
+            {
         exclude module: 'annotations'
     }
     compile('com.sromku:simple-storage:1.2.0') {
@@ -111,6 +112,7 @@ dependencies {
     compile('com.android.support:multidex:1.0.1') {
         exclude module: 'annotations'
     }
+    compile project(':unity-ads')
 }
 
 apply plugin: 'com.google.gms.google-services'
