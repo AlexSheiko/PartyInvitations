@@ -2,6 +2,7 @@ package com.alexsheiko.invitationmaker.ads;
 
 import android.app.Activity;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 
 import com.google.android.gms.ads.AdRequest;
@@ -79,7 +80,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
     public void onClickShow() {
         if (mAdLoaded) {
-            mAdColony.show();
+            mAd.show();
         } else {
             loadVideo();
             showSnackBar();
@@ -102,7 +103,8 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
     @Override
     public void onRewardedVideoAdLoaded() {
-
+        mAdLoaded = true;
+        dismissSnackbar();
     }
 
     @Override
@@ -132,6 +134,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
     @Override
     public void onRewardedVideoAdFailedToLoad(int i) {
-
+        Log.d("AdProviderVideo", "onRewardedVideoAdFailedToLoad with code " + i);
+        dismissSnackbar();
     }
 }
