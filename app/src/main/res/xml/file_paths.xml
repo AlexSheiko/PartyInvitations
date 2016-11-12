@@ -4,9 +4,9 @@
         name="image_external"
         path="."/>
     <files-path
-        name="image_external"
+        name="image_files"
         path="."/>
     <cache-path
-        name="image_external"
+        name="image_cache"
         path="."/>
 </paths>

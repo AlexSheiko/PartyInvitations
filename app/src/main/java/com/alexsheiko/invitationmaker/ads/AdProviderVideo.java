@@ -16,10 +16,10 @@ public class AdProviderVideo {
     private Activity mActivity;
     private AdColonyInterstitial mAd;
     private boolean mAdLoaded = false;
-    private AdClosedListener mCloseListener;
+    private AdCloseListener mCloseListener;
     private Snackbar mSnackbar;
 
-    public void prepare(Activity activity, AdClosedListener closeListener) {
+    public void prepare(Activity activity, AdCloseListener closeListener) {
         mActivity = activity;
         mCloseListener = closeListener;
 
@@ -55,6 +55,7 @@ public class AdProviderVideo {
             public void onRequestNotFilled(AdColonyZone zone) {
                 super.onRequestNotFilled(zone);
                 dismissSnackbar();
+                mAdLoaded = false;
             }
         };
 
@@ -65,6 +66,7 @@ public class AdProviderVideo {
         if (mAdLoaded) {
             mAd.show();
         } else {
+            loadVideo();
             showSnackBar();
         }
     }

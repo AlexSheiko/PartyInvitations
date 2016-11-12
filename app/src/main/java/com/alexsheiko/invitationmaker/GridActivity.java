@@ -13,7 +13,7 @@ import android.widget.GridView;
 
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
-import com.alexsheiko.invitationmaker.ads.AdClosedListener;
+import com.alexsheiko.invitationmaker.ads.AdCloseListener;
 import com.alexsheiko.invitationmaker.ads.AdProviderVideo;
 import com.alexsheiko.invitationmaker.base.BaseActivity;
 import com.crashlytics.android.answers.Answers;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class GridActivity extends BaseActivity implements AdClosedListener {
+public class GridActivity extends BaseActivity implements AdCloseListener {
 
     public static final int REQUEST_CREATE = 101;
     private static final int REQUEST_SHARE = 237;

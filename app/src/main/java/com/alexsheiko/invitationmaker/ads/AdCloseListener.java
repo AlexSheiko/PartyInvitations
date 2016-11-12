@@ -1,6 +1,6 @@
 package com.alexsheiko.invitationmaker.ads;
 
-public interface AdClosedListener {
+public interface AdCloseListener {
 
     void onAdClosed();
 }
