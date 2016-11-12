@@ -31,7 +31,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
         initProviders();
 
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3038649646029056/3650335528");
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3038649646029056~9696869128");
         // Use an activity context to get the rewarded video instance.
         mAd = MobileAds.getRewardedVideoAdInstance(mActivity);
         mAd.setRewardedVideoAdListener(this);
