@@ -17,6 +17,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.jirbo.adcolony.AdColony;
 import com.jirbo.adcolony.AdColonyAdapter;
 import com.jirbo.adcolony.AdColonyBundleBuilder;
+import com.unity3d.ads.UnityAds;
 
 public class AdProviderVideo implements RewardedVideoAdListener {
 
@@ -43,7 +44,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
         AdColony.configure(mActivity, "appd3fbafd399de4909ab", "vz732ea85f536a4b0aae");
         Chartboost.startWithAppId(mActivity, "57c4638143150f2dbda90642", "97d51d16f7428263e14b26881a665e87b23f47ee");
         Chartboost.onCreate(mActivity);
-        // TODO: Init Unity ads
+        UnityAds.initialize(mActivity, "1127394", null);
     }
 
     public void loadVideo() {
