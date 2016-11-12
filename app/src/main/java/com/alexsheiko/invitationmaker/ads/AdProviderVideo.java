@@ -4,18 +4,20 @@ import android.app.Activity;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 
-import com.adcolony.sdk.AdColony;
-import com.adcolony.sdk.AdColonyInterstitial;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.jirbo.adcolony.AdColony;
+import com.jirbo.adcolony.AdColonyAdapter;
+import com.jirbo.adcolony.AdColonyBundleBuilder;
+import com.jirbo.adcolony.AdColonyInterstitialAd;
 
 public class AdProviderVideo implements RewardedVideoAdListener {
 
     private Activity mActivity;
-    private AdColonyInterstitial mAdColony;
+    private AdColonyInterstitialAd mAdColony;
     private boolean mAdLoaded = false;
     private AdCloseListener mCloseListener;
     private Snackbar mSnackbar;
@@ -35,8 +37,10 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     }
 
     public void loadVideo() {
+        AdColonyBundleBuilder.setZoneId("vz732ea85f536a4b0aae");
+
         AdRequest adRequest = new AdRequest.Builder()
-                //.addNetworkExtrasBundle(AdColonyAdapter.class)
+                .addNetworkExtrasBundle(AdColonyAdapter.class, AdColonyBundleBuilder.build())
                 .build();
 
         mAd.loadAd("ca-app-pub-3038649646029056/3650335528", adRequest);
