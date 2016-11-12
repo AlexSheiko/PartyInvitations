@@ -84,7 +84,7 @@
 -dontpreverify
 -verbose
 -dontnote com.android.vending.licensing.ILicensingService,com.google.vending.licensing.ILicensingService,com.google.android.vending.licensing.ILicensingService,android.support.**
--dontwarn android.support.**,android.app.Notification,com.squareup.okhttp.internal.**,com.adobe.**,android.support.**,org.apache.commons.**,com.squareup.okhttp.internal.**,okio.**,java.lang.invoke.*,sun.misc.Unsafe,javax.annotation.**,rx.**,com.adobe.creativesdk.aviary.AdobeImageEditorActivity**,org.apache.http.**,oauth.signpost.signature.**,uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper,sun.misc.**,android.support.**,android.support.**,proguard.annotation.**,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification
+-dontwarn android.support.**,android.app.Notification,com.squareup.okhttp.internal.**,com.adobe.**,com.google.android.gms.**,com.adcolony.sdk.AdColonyPubServicesPushRegIdListenerService,android.support.**,org.apache.commons.**,com.squareup.okhttp.internal.**,okio.**,java.lang.invoke.*,sun.misc.Unsafe,javax.annotation.**,rx.**,com.adobe.creativesdk.aviary.AdobeImageEditorActivity**,org.apache.http.**,oauth.signpost.signature.**,uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper,sun.misc.**,android.support.**,android.support.**,proguard.annotation.**,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification
 -printconfiguration 'D:\InvitationMaker\app\proguard_configuration.txt'
 -dump 'D:\InvitationMaker\app\build\outputs\mapping\release\dump.txt'
 -printseeds 'D:\InvitationMaker\app\build\outputs\mapping\release\seeds.txt'
@@ -477,8 +477,6 @@
     @android.webkit.JavascriptInterface
     <methods>;
 }
-
--keep class com.google.android.gms.gcm.**
 
 -keep public class com.google.vending.licensing.ILicensingService
 
@@ -1615,7 +1613,7 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:94
+# view AndroidManifest.xml #generated:92
 -keep class android.support.v4.content.FileProvider {
     <init>(...);
 }
@@ -1762,12 +1760,12 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:108
+# view AndroidManifest.xml #generated:106
 -keep class com.adcolony.sdk.AdColonyAdViewActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:104
+# view AndroidManifest.xml #generated:102
 -keep class com.adcolony.sdk.AdColonyInterstitialActivity {
     <init>(...);
 }
@@ -1855,32 +1853,32 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:186
+# view AndroidManifest.xml #generated:184
 -keep class com.adobe.creativesdk.aviary.AdobeImageBillingService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:112
+# view AndroidManifest.xml #generated:110
 -keep class com.adobe.creativesdk.aviary.AdobeImageEditorActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:159
+# view AndroidManifest.xml #generated:157
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsAssetsDownloaderService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:44
+# view AndroidManifest.xml #generated:42
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsProvider {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:171
+# view AndroidManifest.xml #generated:169
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:148
+# view AndroidManifest.xml #generated:146
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsService {
     <init>(...);
 }
@@ -2007,7 +2005,7 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:199
+# view AndroidManifest.xml #generated:197
 -keep class com.adobe.creativesdk.foundation.internal.auth.AdobeAuthSignInActivity {
     <init>(...);
 }
@@ -2058,102 +2056,102 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:58
+# view AndroidManifest.xml #generated:56
 -keep class com.alexsheiko.invitationmaker.GridActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:37
+# view AndroidManifest.xml #generated:35
 -keep class com.alexsheiko.invitationmaker.InvitationApplication {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:49
+# view AndroidManifest.xml #generated:47
 -keep class com.alexsheiko.invitationmaker.MainActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:62
+# view AndroidManifest.xml #generated:60
 -keep class com.alexsheiko.invitationmaker.ResultActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:79
+# view AndroidManifest.xml #generated:77
 -keep class com.google.ads.AdActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:257
+# view AndroidManifest.xml #generated:255
 -keep class com.google.android.gms.ads.AdActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:261
+# view AndroidManifest.xml #generated:259
 -keep class com.google.android.gms.ads.purchase.InAppPurchaseActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:264
+# view AndroidManifest.xml #generated:262
 -keep class com.google.android.gms.common.api.GoogleApiActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:209
+# view AndroidManifest.xml #generated:207
 -keep class com.google.android.gms.measurement.AppMeasurementReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:217
+# view AndroidManifest.xml #generated:215
 -keep class com.google.android.gms.measurement.AppMeasurementService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:237
+# view AndroidManifest.xml #generated:235
 -keep class com.google.firebase.iid.FirebaseInstanceIdInternalReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:222
+# view AndroidManifest.xml #generated:220
 -keep class com.google.firebase.iid.FirebaseInstanceIdReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:244
+# view AndroidManifest.xml #generated:242
 -keep class com.google.firebase.iid.FirebaseInstanceIdService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:252
+# view AndroidManifest.xml #generated:250
 -keep class com.google.firebase.provider.FirebaseInitProvider {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:82
+# view AndroidManifest.xml #generated:80
 -keep class com.millennialmedia.android.MMActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:86
+# view AndroidManifest.xml #generated:84
 -keep class com.millennialmedia.android.VideoPlayer {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:73
+# view AndroidManifest.xml #generated:71
 -keep class com.mopub.common.MoPubBrowser {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:67
+# view AndroidManifest.xml #generated:65
 -keep class com.mopub.mobileads.MoPubActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:70
+# view AndroidManifest.xml #generated:68
 -keep class com.mopub.mobileads.MraidActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:76
+# view AndroidManifest.xml #generated:74
 -keep class com.mopub.mobileads.MraidVideoPlayerActivity {
     <init>(...);
 }

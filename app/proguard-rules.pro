@@ -216,4 +216,6 @@
 -keepclassmembers class * {
     @android.webkit.JavascriptInterface <methods>;
 }
--keep class com.google.android.gms.gcm.**
+
+-dontwarn com.google.android.gms.**
+-dontwarn com.adcolony.sdk.AdColonyPubServicesPushRegIdListenerService
