@@ -12,6 +12,7 @@ import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 import com.jirbo.adcolony.AdColony;
+import com.jirbo.adcolony.AdColonyAdapter;
 import com.jirbo.adcolony.AdColonyBundleBuilder;
 import com.unity3d.ads.UnityAds;
 
@@ -21,6 +22,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
     private Activity mActivity;
     private boolean mAdLoaded = false;
+    private boolean mShowOnLoad = false;
     private RewardListener mRewardListener;
     private Snackbar mSnackbar;
     private RewardedVideoAd mAd;
@@ -50,7 +52,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
         AdColonyBundleBuilder.setZoneId("vz732ea85f536a4b0aae");
 
         AdRequest adRequest = new AdRequest.Builder()
-                //                .addNetworkExtrasBundle(AdColonyAdapter.class, AdColonyBundleBuilder.build())
+                .addNetworkExtrasBundle(AdColonyAdapter.class, AdColonyBundleBuilder.build())
                 //                .addNetworkExtrasBundle(ChartboostAdapter.class, new ChartboostAdapter.ChartboostExtrasBundleBuilder().build())
                 //                .addNetworkExtrasBundle(UnityAdapter.class, Bundle.EMPTY)
                 .build();
@@ -64,6 +66,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
         } else {
             loadVideo();
             showSnackBar();
+            mShowOnLoad = true;
         }
     }
 
@@ -85,6 +88,11 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     public void onRewardedVideoAdLoaded() {
         mAdLoaded = true;
         dismissSnackbar();
+
+        if (mShowOnLoad) {
+            onClickShow();
+            mShowOnLoad = false;
+        }
     }
 
     @Override
@@ -100,11 +108,13 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
     @Override
     public void onRewardedVideoAdClosed() {
+        reset();
     }
 
     @Override
     public void onRewarded(RewardItem rewardItem) {
         mRewardListener.onRewarded();
+        reset();
     }
 
     @Override
@@ -114,11 +124,18 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     @Override
     public void onRewardedVideoAdFailedToLoad(int i) {
         dismissSnackbar();
-        mAdLoaded = false;
+        reset();
 
         View parentLayout = mActivity.findViewById(android.R.id.content);
         Snackbar snackbar = Snackbar.make(parentLayout, "No ads available, try templates without green label", Snackbar.LENGTH_LONG);
         snackbar.show();
+    }
+
+    private void reset() {
+        mAd.setRewardedVideoAdListener(null);
+        mAd = null;
+        mAdLoaded = false;
+        loadVideo();
     }
 
     public RewardedVideoAd getAd() {
