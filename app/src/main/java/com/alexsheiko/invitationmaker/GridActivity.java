@@ -10,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.adobe.creativesdk.aviary.AdobeImageIntent;
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory;
@@ -81,9 +82,17 @@ public class GridActivity extends BaseActivity implements RewardListener {
         }
         Collections.shuffle(templates);
         adapter.addAll(templates);
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mAdProvider != null) {
+            mAdProvider = null;
+        }
         mAdProvider = new AdProviderVideo();
         mAdProvider.prepare(this, this);
+        mAdProvider.showEditorIfNeeded();
     }
 
     @Override
@@ -197,8 +206,9 @@ public class GridActivity extends BaseActivity implements RewardListener {
 
     @Override
     public void onRewarded() {
-        mAdProvider.loadVideo();
+        Toast.makeText(this, "Enjoy using the template!", Toast.LENGTH_LONG).show();
         openEditor(mShowingAdForId);
+        mAdProvider.loadVideo();
     }
 
     private void showSnackBar() {

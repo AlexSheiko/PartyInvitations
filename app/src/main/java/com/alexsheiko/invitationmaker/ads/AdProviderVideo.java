@@ -27,6 +27,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     private RewardListener mRewardListener;
     private Snackbar mSnackbar;
     private RewardedVideoAd mAd;
+    private boolean mWatchingAd;
 
     public void prepare(Activity activity, RewardListener rewardListener) {
         mActivity = activity;
@@ -62,10 +63,18 @@ public class AdProviderVideo implements RewardedVideoAdListener {
     public void onClickShow() {
         if (mAdLoaded) {
             mAd.show();
+            mWatchingAd = true;
         } else {
             loadVideo();
             showSnackBar();
             mShowOnLoad = true;
+        }
+    }
+
+    public void showEditorIfNeeded() {
+        if (mWatchingAd) {
+            mRewardListener.onRewarded();
+            mWatchingAd = false;
         }
     }
 
@@ -112,16 +121,14 @@ public class AdProviderVideo implements RewardedVideoAdListener {
 
     @Override
     public void onRewardedVideoAdClosed() {
-        mRewardListener.onRewarded();
-        Toast.makeText(mActivity, "Enjoy using the template!", Toast.LENGTH_LONG).show();
-        reset();
+        // mRewardListener.onRewarded();
+        // reset();
     }
 
     @Override
     public void onRewarded(RewardItem rewardItem) {
-        mRewardListener.onRewarded();
-        Toast.makeText(mActivity, "Enjoy using the template!", Toast.LENGTH_LONG).show();
-        reset();
+        // mRewardListener.onRewarded();
+        // reset();
     }
 
     @Override
