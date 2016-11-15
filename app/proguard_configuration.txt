@@ -66,6 +66,7 @@
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.4\5fe28b9518e58819180a43a850fbc0dd24b7c050\commons-lang3-3.4.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.4.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.sromku\simple-storage\1.2.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\InvitationMaker\unity-ads\unspecified\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\transforms\mergeJavaRes\release\jars\2\1f\main.jar'(!**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\transforms\retrolambda\release\folders\1\1\retrolambda'(**.class)
 -outjars 'D:\InvitationMaker\app\build\intermediates\transforms\proguard\release\jars\3\1f\main.jar'
@@ -82,12 +83,12 @@
 -dontobfuscate
 -printmapping 'D:\InvitationMaker\app\build\outputs\mapping\release\mapping.txt'
 -dontusemixedcaseclassnames
--keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod,Signature,SourceFile,LineNumberTable,JavascriptInterface,SourceFile,LineNumberTable,JavascriptInterface,*Annotation*,SourceFile,LineNumberTable,Signature,InnerClasses,*Annotation*,*Annotation*,*Annotation*
+-keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod,Signature,SourceFile,LineNumberTable,JavascriptInterface,SourceFile,LineNumberTable,JavascriptInterface,*Annotation*,SourceFile,LineNumberTable,Signature,InnerClasses,*Annotation*,*Annotation*,*Annotation*,SourceFile,LineNumberTable,JavascriptInterface
 -renamesourcefileattribute SourceFile
 -dontpreverify
 -verbose
--dontnote com.android.vending.licensing.ILicensingService,com.google.vending.licensing.ILicensingService,com.google.android.vending.licensing.ILicensingService,android.support.**
--dontwarn android.support.**,android.app.Notification,com.squareup.okhttp.internal.**,com.adobe.**,com.google.android.gms.**,com.adcolony.sdk.AdColonyPubServicesPushRegIdListenerService,android.support.**,org.apache.commons.**,com.squareup.okhttp.internal.**,okio.**,java.lang.invoke.*,sun.misc.Unsafe,javax.annotation.**,rx.**,com.adobe.creativesdk.aviary.AdobeImageEditorActivity**,org.apache.http.**,oauth.signpost.signature.**,uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper,sun.misc.**,android.support.**,android.support.**,proguard.annotation.**,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification
+-dontnote com.android.vending.licensing.ILicensingService,com.google.vending.licensing.ILicensingService,com.google.android.vending.licensing.ILicensingService,android.support.**,com.immersion.**
+-dontwarn android.support.**,android.app.Notification,com.squareup.okhttp.internal.**,com.adobe.**,com.google.android.gms.**,com.adcolony.sdk.AdColonyPubServicesPushRegIdListenerService,com.google.ads.mediation.unity.**,com.immersion.**,android.support.**,org.apache.commons.**,com.squareup.okhttp.internal.**,okio.**,java.lang.invoke.*,sun.misc.Unsafe,javax.annotation.**,rx.**,com.adobe.creativesdk.aviary.AdobeImageEditorActivity**,org.apache.http.**,oauth.signpost.signature.**,uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper,sun.misc.**,android.support.**,android.support.**,proguard.annotation.**,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification,android.security.NetworkSecurityPolicy,android.app.Notification
 -printconfiguration 'D:\InvitationMaker\app\proguard_configuration.txt'
 -dump 'D:\InvitationMaker\app\build\outputs\mapping\release\dump.txt'
 -printseeds 'D:\InvitationMaker\app\build\outputs\mapping\release\seeds.txt'
@@ -1607,6 +1608,18 @@
     public <methods>;
 }
 
+# Sometimes keepattributes is not enough to keep annotations
+-keep class android.webkit.JavascriptInterface {
+    <fields>;
+    <methods>;
+}
+
+# Keep all classes in Unity Ads package
+-keep class com.unity3d.ads.** {
+    <fields>;
+    <methods>;
+}
+
 # view res/layout/design_navigation_item.xml #generated:17
 -keep class android.support.design.internal.NavigationMenuItemView {
     <init>(...);
@@ -1874,17 +1887,17 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:192
+# view AndroidManifest.xml #generated:204
 -keep class com.adobe.creativesdk.aviary.AdobeImageBillingService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:118
+# view AndroidManifest.xml #generated:130
 -keep class com.adobe.creativesdk.aviary.AdobeImageEditorActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:165
+# view AndroidManifest.xml #generated:177
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsAssetsDownloaderService {
     <init>(...);
 }
@@ -1894,12 +1907,12 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:177
+# view AndroidManifest.xml #generated:189
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:154
+# view AndroidManifest.xml #generated:166
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsService {
     <init>(...);
 }
@@ -2026,7 +2039,7 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:205
+# view AndroidManifest.xml #generated:217
 -keep class com.adobe.creativesdk.foundation.internal.auth.AdobeAuthSignInActivity {
     <init>(...);
 }
@@ -2097,7 +2110,7 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:112
+# view AndroidManifest.xml #generated:124
 -keep class com.chartboost.sdk.CBImpressionActivity {
     <init>(...);
 }
@@ -2107,48 +2120,63 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:214
+# view AndroidManifest.xml #generated:226
 -keep class com.google.android.gms.ads.AdActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:218
+# view AndroidManifest.xml #generated:230
 -keep class com.google.android.gms.ads.purchase.InAppPurchaseActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:221
+# view AndroidManifest.xml #generated:233
 -keep class com.google.android.gms.common.api.GoogleApiActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:226
+# view AndroidManifest.xml #generated:238
 -keep class com.google.android.gms.measurement.AppMeasurementReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:234
+# view AndroidManifest.xml #generated:246
 -keep class com.google.android.gms.measurement.AppMeasurementService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:254
+# view AndroidManifest.xml #generated:266
 -keep class com.google.firebase.iid.FirebaseInstanceIdInternalReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:239
+# view AndroidManifest.xml #generated:251
 -keep class com.google.firebase.iid.FirebaseInstanceIdReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:261
+# view AndroidManifest.xml #generated:273
 -keep class com.google.firebase.iid.FirebaseInstanceIdService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:269
+# view AndroidManifest.xml #generated:281
 -keep class com.google.firebase.provider.FirebaseInitProvider {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:120
+-keep class com.jirbo.adcolony.AdColonyBrowser {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:116
+-keep class com.jirbo.adcolony.AdColonyFullscreen {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:112
+-keep class com.jirbo.adcolony.AdColonyOverlay {
     <init>(...);
 }
 
@@ -2179,6 +2207,16 @@
 
 # view AndroidManifest.xml #generated:76
 -keep class com.mopub.mobileads.MraidVideoPlayerActivity {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:291
+-keep class com.unity3d.ads.adunit.AdUnitActivity {
+    <init>(...);
+}
+
+# view AndroidManifest.xml #generated:296
+-keep class com.unity3d.ads.adunit.AdUnitSoftwareActivity {
     <init>(...);
 }
 

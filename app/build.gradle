@@ -33,7 +33,7 @@ android {
         applicationId "com.alexsheiko.invitationmaker"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 21
+        versionCode 22
         versionName "3.0"
         multiDexEnabled true
     }

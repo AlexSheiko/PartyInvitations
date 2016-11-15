@@ -88,11 +88,11 @@ public class GridActivity extends BaseActivity implements RewardListener {
     protected void onStart() {
         super.onStart();
         if (mAdProvider != null) {
+            mAdProvider.showEditorIfNeeded();
             mAdProvider = null;
         }
         mAdProvider = new AdProviderVideo();
         mAdProvider.prepare(this, this);
-        mAdProvider.showEditorIfNeeded();
     }
 
     @Override
@@ -136,6 +136,7 @@ public class GridActivity extends BaseActivity implements RewardListener {
             @Override
             protected void onPostExecute(Uri imageUri) {
                 super.onPostExecute(imageUri);
+                Toast.makeText(GridActivity.this, "Enjoy using the template!", Toast.LENGTH_LONG).show();
                 openImageEditor(imageUri);
                 dismissSnackbar();
             }
@@ -206,9 +207,8 @@ public class GridActivity extends BaseActivity implements RewardListener {
 
     @Override
     public void onRewarded() {
-        Toast.makeText(this, "Enjoy using the template!", Toast.LENGTH_LONG).show();
+        showSnackBar();
         openEditor(mShowingAdForId);
-        mAdProvider.loadVideo();
     }
 
     private void showSnackBar() {

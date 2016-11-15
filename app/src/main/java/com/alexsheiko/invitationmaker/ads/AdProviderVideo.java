@@ -50,7 +50,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
         UnityAds.initialize(mActivity, "1127394", null);
     }
 
-    public void loadVideo() {
+    private void loadVideo() {
         AdColonyBundleBuilder.setZoneId("vz732ea85f536a4b0aae");
 
         AdRequest adRequest = new AdRequest.Builder()
@@ -143,8 +143,7 @@ public class AdProviderVideo implements RewardedVideoAdListener {
         View parentLayout = mActivity.findViewById(android.R.id.content);
         Snackbar snackbar = Snackbar.make(parentLayout, "No ads available, try templates without green label", Snackbar.LENGTH_LONG);
         snackbar.show();
-    }
-
+        // TODO: Fall back to loading interstitials
     private void reset() {
         mAd.setRewardedVideoAdListener(null);
         mAdLoaded = false;
