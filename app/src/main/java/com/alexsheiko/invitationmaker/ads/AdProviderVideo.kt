@@ -84,7 +84,7 @@ class AdProviderVideo : RewardedVideoAdListener {
     private fun showSnackBar() {
         val parentLayout = mActivity!!.findViewById(android.R.id.content)
         if (mSnackbar == null) {
-            mSnackbar = Snackbar.make(parentLayout, "Loading video... thank you for waiting :-)", Snackbar.LENGTH_INDEFINITE)
+            mSnackbar = Snackbar.make(parentLayout, "Loading video... thank you for waiting  ☺", Snackbar.LENGTH_INDEFINITE)
         }
         mSnackbar!!.show()
     }
@@ -97,6 +97,7 @@ class AdProviderVideo : RewardedVideoAdListener {
 
     override fun onRewardedVideoAdLoaded() {
         mAdLoaded = true
+        mWatchingAd = true // TODO Not sure if it's needed. But it may fix Chartboost
         dismissSnackbar()
 
         if (mShowOnLoad) {
