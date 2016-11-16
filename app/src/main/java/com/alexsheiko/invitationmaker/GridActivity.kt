@@ -49,6 +49,21 @@ class GridActivity : BaseActivity(), RewardListener {
         adapter.addAll(templates)
     }
 
+    public override fun onResume() {
+        mAdProvider!!.ad?.resume(this)
+        super.onResume()
+    }
+
+    public override fun onPause() {
+        mAdProvider!!.ad?.pause(this)
+        super.onPause()
+    }
+
+    public override fun onDestroy() {
+        mAdProvider!!.ad?.destroy(this)
+        super.onDestroy()
+    }
+
     @DebugLog
     private fun processClick(resId: Int) {
         val imageName = resources.getResourceEntryName(resId)

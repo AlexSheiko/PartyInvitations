@@ -84,7 +84,7 @@ class AdProviderVideo : RewardedVideoAdListener {
     private fun showSnackBar() {
         val parentLayout = mActivity!!.findViewById(android.R.id.content)
         if (mSnackbar == null) {
-            mSnackbar = Snackbar.make(parentLayout, "Loading video... thank you for waiting", Snackbar.LENGTH_INDEFINITE)
+            mSnackbar = Snackbar.make(parentLayout, "Loading video... thank you for waiting :-)", Snackbar.LENGTH_INDEFINITE)
         }
         mSnackbar!!.show()
     }
@@ -110,11 +110,14 @@ class AdProviderVideo : RewardedVideoAdListener {
     }
 
     override fun onRewardedVideoStarted() {
-        Toast.makeText(mActivity, "Thank you for being patient!", Toast.LENGTH_LONG).show()
-        Toast.makeText(mActivity, "Thank you for being patient!", Toast.LENGTH_LONG).show()
-
         Handler().postDelayed({
             Toast.makeText(mActivity, "You're awesome!",
+                    Toast.LENGTH_LONG).show()
+        },
+                10000)
+
+        Handler().postDelayed({
+            Toast.makeText(mActivity, "Click the offer if you like it!",
                     Toast.LENGTH_LONG).show()
         },
                 15000)
