@@ -121,6 +121,12 @@ class AdProviderVideo : RewardedVideoAdListener {
                     Toast.LENGTH_LONG).show()
         },
                 15000)
+
+        Handler().postDelayed({
+            Toast.makeText(mActivity, "Your progress is saved!",
+                    Toast.LENGTH_LONG).show()
+        },
+                20000)
     }
 
     override fun onRewardedVideoAdClosed() {
