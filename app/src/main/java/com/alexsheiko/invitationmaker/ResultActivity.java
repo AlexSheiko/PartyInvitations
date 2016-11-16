@@ -29,6 +29,7 @@ public class ResultActivity extends BaseActivity {
     private boolean mStartup = true;
     private AdProviderImage mAdProvider;
     private FloatingActionButton mSendFAB;
+    private Uri mShareUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,8 +87,13 @@ public class ResultActivity extends BaseActivity {
     }
 
     public void onClickFinish(View view) {
+        recycleImage();
         showCongrats();
         navigateToMainScreen();
+    }
+
+    private void recycleImage() {
+        new File(mShareUri.toString()).delete();
     }
 
     private void navigateToMainScreen() {
@@ -105,11 +111,11 @@ public class ResultActivity extends BaseActivity {
 
     private void shareImage(Uri imageUri) {
         File fileSD = new File(imageUri.toString());
-        Uri uri = FileProvider.getUriForFile(this, "com.alexsheiko.invitationmaker.fileprovider", fileSD);
+        mShareUri = FileProvider.getUriForFile(this, "com.alexsheiko.invitationmaker.fileprovider", fileSD);
 
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, mShareUri);
         shareIntent.setType("image/*");
         startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
 

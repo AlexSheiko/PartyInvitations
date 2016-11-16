@@ -37,13 +37,12 @@
                 android:id="@+id/imageView"
                 android:layout_width="240dp"
                 android:layout_height="371dp"
-                android:adjustViewBounds="true"
                 android:background="@android:color/transparent"
                 android:clickable="true"
                 android:foreground="?selectableItemBackground"
                 android:onClick="onClickImage"
                 android:paddingBottom="52dp"
-                android:scaleType="fitStart"
+                android:scaleType="centerCrop"
                 tools:src="@drawable/birthday_template_10_paid"/>
 
         </android.support.v7.widget.CardView>
