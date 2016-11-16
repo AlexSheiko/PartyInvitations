@@ -115,7 +115,6 @@ public class ResultActivity extends BaseActivity {
         startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send_to)));
 
         Answers.getInstance().logShare(new ShareEvent());
-        // TODO: Remove file from cache
     }
 
     public void onClickImage(View view) {

@@ -50,8 +50,15 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     public override fun onResume() {
-        mAdProvider!!.ad?.resume(this)
         super.onResume()
+        if (mAdProvider != null) {
+            mAdProvider!!.showEditorIfNeeded()
+            mAdProvider = null
+        }
+        mAdProvider = AdProviderVideo()
+        mAdProvider!!.prepare(this, this)
+
+        mAdProvider!!.ad?.resume(this)
     }
 
     public override fun onPause() {
@@ -99,16 +106,6 @@ class GridActivity : BaseActivity(), RewardListener {
             }
         }
         return templates
-    }
-
-    override fun onStart() {
-        super.onStart()
-        if (mAdProvider != null) {
-            mAdProvider!!.showEditorIfNeeded()
-            mAdProvider = null
-        }
-        mAdProvider = AdProviderVideo()
-        mAdProvider!!.prepare(this, this)
     }
 
     private fun openEditor(resId: Int) {

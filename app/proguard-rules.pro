@@ -247,7 +247,6 @@
 -keep class com.unity3d.ads.** {
    *;
 }
-# TODO: Remove?
 -dontwarn com.google.ads.mediation.unity.**
 
 -dontwarn com.immersion.**
