@@ -50,7 +50,7 @@ class AdProviderVideo : RewardedVideoAdListener {
         UnityAds.initialize(mActivity, "1127394", null)
 
         mImageProvider = AdProviderImage()
-        mImageProvider!!.prepare(mActivity)
+        mImageProvider!!.prepare(mActivity, mRewardListener)
     }
 
     private fun loadVideo() {

@@ -10,9 +10,11 @@ public class AdProviderImage {
 
     private InterstitialAd mInterstitialAd;
     private Context mContext;
+    private RewardListener mRewardListener;
 
-    public void prepare(Context context) {
+    public void prepare(Context context, RewardListener rewardListener) {
         mContext = context;
+        mRewardListener = rewardListener;
         // Initialize the Mobile Ads SDK.
         mInterstitialAd = new InterstitialAd(context);
         mInterstitialAd.setAdUnitId("ca-app-pub-3038649646029056/5392277129");
@@ -38,6 +40,11 @@ public class AdProviderImage {
                 public void onAdLoaded() {
                     mInterstitialAd.show();
                     mInterstitialAd.setAdListener(null);
+                }
+
+                @Override
+                public void onAdClosed() {
+                    mRewardListener.onRewarded();
                 }
             });
         }

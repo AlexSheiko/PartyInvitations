@@ -41,7 +41,7 @@ public class ResultActivity extends BaseActivity {
         imageView.setImageURI(imageUri);
 
         mAdProvider = new AdProviderImage();
-        mAdProvider.prepare(this);
+        mAdProvider.prepare(this, mRewardListener);
 
         mSendFAB = (FloatingActionButton) findViewById(R.id.sendButton);
         mSendFAB.setOnClickListener(view -> shareImage(imageUri));
