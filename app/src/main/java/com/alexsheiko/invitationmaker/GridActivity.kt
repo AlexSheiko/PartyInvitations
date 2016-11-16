@@ -55,7 +55,6 @@ class GridActivity : BaseActivity(), RewardListener {
         */
 
         val templates = getTemplates(category)
-        Collections.shuffle(templates)
         adapter.addAll(templates)
     }
 
