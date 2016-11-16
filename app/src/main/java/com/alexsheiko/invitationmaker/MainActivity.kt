@@ -30,7 +30,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        alert("Are you sure you want to exit the app?", "Stay on Invitation Maker") {
+        alert("Are you sure you want to exit the app?", "Stay with us") {
             positiveButton("Exit") { super.onBackPressed() }
             negativeButton("Stay on") { }
         }.show()

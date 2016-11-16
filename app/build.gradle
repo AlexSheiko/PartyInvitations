@@ -31,7 +31,7 @@ android {
     project.archivesBaseName = "Invitation Maker";
     defaultConfig {
         applicationId "com.alexsheiko.invitationmaker"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 25
         versionCode 22
         versionName "3.0"
