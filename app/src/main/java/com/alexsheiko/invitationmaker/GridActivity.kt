@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
 import android.view.MenuItem
 import android.widget.GridView
@@ -54,11 +55,24 @@ class GridActivity : BaseActivity(), RewardListener {
         if (mAdProvider != null) {
             mAdProvider!!.showEditorIfNeeded()
             mAdProvider = null
+            recordPurchase(mShowingAdForId)
         }
         mAdProvider = AdProviderVideo()
         mAdProvider!!.prepare(this, this)
 
         mAdProvider!!.ad?.resume(this)
+    }
+
+    private fun recordPurchase(resId: Int) {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val purchased = prefs.getStringSet("purchased", HashSet<String>())
+        purchased.addAll(listOf(resId.toString()))
+        prefs.edit().putStringSet("purchased", purchased).apply()
+    }
+
+    private fun getPurchasedTemplates(): MutableSet<String>? {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        return prefs.getStringSet("purchased", HashSet<String>())
     }
 
     public override fun onPause() {
@@ -75,7 +89,9 @@ class GridActivity : BaseActivity(), RewardListener {
     private fun processClick(resId: Int) {
         val imageName = resources.getResourceEntryName(resId)
         val isImagePaid = imageName.contains("paid")
-        if (!isImagePaid) {
+        val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
+
+        if (!isImagePaid || isPurchased) {
             openEditor(resId)
         } else {
             // Show video ad
