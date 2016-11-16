@@ -113,6 +113,7 @@ dependencies {
         exclude module: 'annotations'
     }
     compile project(':unity-ads')
+    compile 'org.jetbrains.anko:anko-sdk15:0.9'
 }
 
 apply plugin: 'com.google.gms.google-services'

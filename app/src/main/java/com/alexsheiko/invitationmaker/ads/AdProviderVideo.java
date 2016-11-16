@@ -144,6 +144,8 @@ public class AdProviderVideo implements RewardedVideoAdListener {
         Snackbar snackbar = Snackbar.make(parentLayout, "No ads available, try templates without green label", Snackbar.LENGTH_LONG);
         snackbar.show();
         // TODO: Fall back to loading interstitials
+    }
+
     private void reset() {
         mAd.setRewardedVideoAdListener(null);
         mAdLoaded = false;
