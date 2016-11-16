@@ -194,7 +194,7 @@ class GridActivity : BaseActivity(), RewardListener {
     private fun showSnackBar() {
         val parentLayout = findViewById(android.R.id.content)
         if (mSnackbar == null) {
-            mSnackbar = Snackbar.make(parentLayout, "Loading image...", Snackbar.LENGTH_INDEFINITE)
+            mSnackbar = Snackbar.make(parentLayout, "Opening image...", Snackbar.LENGTH_INDEFINITE)
         }
         mSnackbar!!.show()
     }
