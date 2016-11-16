@@ -8,8 +8,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
+import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
-import android.widget.GridView
 import com.adobe.creativesdk.aviary.AdobeImageIntent
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory
 import com.alexsheiko.invitationmaker.ads.AdProviderVideo
@@ -18,6 +18,7 @@ import com.alexsheiko.invitationmaker.base.BaseActivity
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.ContentViewEvent
 import hugo.weaving.DebugLog
+import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.io.ByteArrayOutputStream
@@ -38,12 +39,16 @@ class GridActivity : BaseActivity(), RewardListener {
         val category = intent.getStringExtra("category")
         supportActionBar?.title = category
 
-        val gridView = findViewById(R.id.gridView) as GridView
         val adapter = GridAdapter(this)
-        gridView.adapter = adapter
-        gridView.setOnItemClickListener { parent, view, position, id ->
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = GridLayoutManager(this, 3)
+        recyclerView.adapter = adapter
+        /*
+        TODO: Move to adapter
+        recyclerView.setOnItemClickListener { parent, view, position, id ->
             processClick(adapter.getItem(position))
         }
+        */
 
         val templates = getTemplates(category)
         Collections.shuffle(templates)

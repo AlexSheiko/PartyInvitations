@@ -1,56 +1,48 @@
 package com.alexsheiko.invitationmaker
 
 import android.content.Context
-import android.preference.PreferenceManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.ImageView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.GlideDrawable
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
+import android.widget.TextView
+import it.sephiroth.android.library.picasso.Picasso
 import java.util.*
 
 
-class GridAdapter(context: Context) : ArrayAdapter<Int>(context, 0) {
+class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolder>() {
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val inflater = LayoutInflater.from(context)
-        val view: View
-        if (convertView != null) {
-            view = convertView
-        } else {
-            view = inflater.inflate(R.layout.item_template, parent, false)
-        }
-        val resId = getItem(position)!!
-        Glide.with(context)
-                .load(resId).fitCenter().centerCrop()
-                .listener(object : RequestListener<Int, GlideDrawable> {
-                    override fun onException(e: Exception, model: Int?, target: Target<GlideDrawable>, isFirstResource: Boolean): Boolean {
-                        return false
-                    }
+    private var mContext: Context = context
+    private var mDataset: ArrayList<Int> = ArrayList()
 
-                    override fun onResourceReady(resource: GlideDrawable, model: Int?, target: Target<GlideDrawable>, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                        val templateName = context.resources.getResourceEntryName(resId)
-                        val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
-
-                        if (templateName.contains("paid") && !isPurchased) {
-                            view.findViewById(R.id.priceTag).visibility = View.VISIBLE
-                        } else {
-                            view.findViewById(R.id.priceTag).visibility = View.GONE
-                        }
-                        return false
-                    }
-                })
-                .into(view.findViewById(R.id.imageView) as ImageView)
-
-        return view
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(mContext)
+                .inflate(R.layout.item_template, parent, false)
+        return ViewHolder(view)
     }
 
-    private fun getPurchasedTemplates(): MutableSet<String>? {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-        return prefs.getStringSet("purchased", HashSet<String>())
+    override fun getItemCount(): Int {
+        return mDataset.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+        val resId = mDataset[position]
+        Picasso.with(mContext).load(resId).into(holder?.mImageView)
+    }
+
+    // Provide a reference to the views for each data item
+    class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+        var mImageView: ImageView
+        var mPriceTag: TextView
+
+        init {
+            mImageView = v.findViewById(R.id.imageView) as ImageView
+            mPriceTag = v.findViewById(R.id.priceTag) as TextView
+        }
+    }
+
+    fun addAll(templates: List<Int>) {
+        mDataset.addAll(templates)
     }
 }
