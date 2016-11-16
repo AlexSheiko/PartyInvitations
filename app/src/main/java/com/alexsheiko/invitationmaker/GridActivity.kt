@@ -93,23 +93,11 @@ class GridActivity : BaseActivity(), RewardListener {
 
     @DebugLog
     private fun initAds() {
-        mAdProvider = AdProviderVideo()
-        mAdProvider!!.prepare(this, this)
-    }
-
-    public override fun onResume() {
-        mAdProvider!!.ad.resume(this)
-        super.onResume()
-    }
-
-    public override fun onPause() {
-        mAdProvider!!.ad.pause(this)
-        super.onPause()
-    }
-
-    public override fun onDestroy() {
-        mAdProvider!!.ad.destroy(this)
-        super.onDestroy()
+        val activity = this
+        doAsync {
+            mAdProvider = AdProviderVideo()
+            mAdProvider!!.prepare(activity, activity)
+        }
     }
 
     private fun openEditor(resId: Int) {
