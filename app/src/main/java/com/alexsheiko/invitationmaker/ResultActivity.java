@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.alexsheiko.invitationmaker.ads.AdProviderImage;
 import com.alexsheiko.invitationmaker.base.BaseActivity;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.ShareEvent;
@@ -27,7 +26,6 @@ import java.util.Random;
 public class ResultActivity extends BaseActivity {
 
     private boolean mStartup = true;
-    private AdProviderImage mAdProvider;
     private FloatingActionButton mSendFAB;
     private Uri mShareUri;
 
@@ -39,9 +37,6 @@ public class ResultActivity extends BaseActivity {
         Uri imageUri = Uri.parse(getIntent().getStringExtra("imageUri"));
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setImageURI(imageUri);
-
-        mAdProvider = new AdProviderImage();
-        mAdProvider.prepare(this, mRewardListener);
 
         mSendFAB = (FloatingActionButton) findViewById(R.id.sendButton);
         mSendFAB.setOnClickListener(view -> shareImage(imageUri));
