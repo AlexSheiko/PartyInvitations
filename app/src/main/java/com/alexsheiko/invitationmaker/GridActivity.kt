@@ -41,25 +41,29 @@ class GridActivity : BaseActivity(), RewardListener {
         val adapter = GridAdapter(this)
         gridView.adapter = adapter
         gridView.setOnItemClickListener { parent, view, position, id ->
-            val resId = adapter.getItem(position)!!
-            val imageName = resources.getResourceEntryName(resId)
-            val isImagePaid = imageName.contains("paid")
-            if (!isImagePaid) {
-                openEditor(resId)
-            } else {
-                // Show video ad
-                mAdProvider!!.onClickShow()
-                mShowingAdForId = resId
-            }
-
-            Answers.getInstance().logContentView(ContentViewEvent()
-                    .putContentType("Template")
-                    .putContentId(imageName))
+            processClick(adapter.getItem(position))
         }
 
         val templates = getTemplates(category)
         Collections.shuffle(templates)
         adapter.addAll(templates)
+    }
+
+    @DebugLog
+    private fun processClick(resId: Int) {
+        val imageName = resources.getResourceEntryName(resId)
+        val isImagePaid = imageName.contains("paid")
+        if (!isImagePaid) {
+            openEditor(resId)
+        } else {
+            // Show video ad
+            mAdProvider!!.onClickShow()
+            mShowingAdForId = resId
+        }
+
+        Answers.getInstance().logContentView(ContentViewEvent()
+                .putContentType("Template")
+                .putContentId(imageName))
     }
 
     private fun getTemplates(category: String): List<Int> {
@@ -88,16 +92,8 @@ class GridActivity : BaseActivity(), RewardListener {
             mAdProvider!!.showEditorIfNeeded()
             mAdProvider = null
         }
-        initAds()
-    }
-
-    @DebugLog
-    private fun initAds() {
-        val activity = this
-        doAsync {
-            mAdProvider = AdProviderVideo()
-            mAdProvider!!.prepare(activity, activity)
-        }
+        mAdProvider = AdProviderVideo()
+        mAdProvider!!.prepare(this, this)
     }
 
     private fun openEditor(resId: Int) {
@@ -159,7 +155,6 @@ class GridActivity : BaseActivity(), RewardListener {
 
     @Throws(IOException::class)
     private fun convertBitmapToFile(bitmap: Bitmap): File {
-        //Todo: Show loading snackbar and parse image in background
         // Create a file to write bitmap data
         val file = File(cacheDir, "image.png")
 
