@@ -10,6 +10,7 @@ import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
+import android.view.animation.OvershootInterpolator
 import com.adobe.creativesdk.aviary.AdobeImageIntent
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory
 import com.alexsheiko.invitationmaker.ads.AdProviderVideo
@@ -18,6 +19,7 @@ import com.alexsheiko.invitationmaker.base.BaseActivity
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.ContentViewEvent
 import hugo.weaving.DebugLog
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -43,6 +45,8 @@ class GridActivity : BaseActivity(), RewardListener {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.adapter = adapter
+        // TODO: Fix animation
+        recyclerView.itemAnimator = SlideInUpAnimator(OvershootInterpolator(1f))
         /*
         TODO: Move to adapter
         recyclerView.setOnItemClickListener { parent, view, position, id ->
@@ -210,9 +214,10 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     private fun showSnackBar() {
-        val parentLayout = findViewById(android.R.id.content)
+        // val parentLayout = findViewById(android.R.id.content)
         if (mSnackbar == null) {
-            mSnackbar = Snackbar.make(parentLayout, "Opening image...", Snackbar.LENGTH_INDEFINITE)
+            // TODO: Show again
+            // mSnackbar = Snackbar.make(parentLayout, "Opening image...", Snackbar.LENGTH_INDEFINITE)
         }
         mSnackbar!!.show()
     }
@@ -224,7 +229,6 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     companion object {
-
         val REQUEST_CREATE = 101
         private val REQUEST_SHARE = 237
     }

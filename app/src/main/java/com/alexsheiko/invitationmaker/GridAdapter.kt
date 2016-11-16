@@ -13,6 +13,10 @@ import java.util.*
 
 class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolder>() {
 
+    init {
+        setHasStableIds(true)
+    }
+
     private var mContext: Context = context
     private var mDataset: ArrayList<Int> = ArrayList()
 
@@ -24,6 +28,10 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
 
     override fun getItemCount(): Int {
         return mDataset.size
+    }
+
+    override fun getItemId(position: Int): Long {
+        return mDataset[position].toLong()
     }
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
@@ -43,6 +51,9 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
     }
 
     fun addAll(templates: List<Int>) {
-        mDataset.addAll(templates)
+        templates.forEachIndexed { i, j ->
+            mDataset.add(templates[i])
+            notifyItemInserted(i)
+        }
     }
 }
