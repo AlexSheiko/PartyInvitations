@@ -3,6 +3,7 @@ package com.alexsheiko.invitationmaker
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -16,6 +17,8 @@ import com.alexsheiko.invitationmaker.base.BaseActivity
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.ContentViewEvent
 import hugo.weaving.DebugLog
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -110,31 +113,23 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     private fun openEditor(resId: Int) {
-//        object : AsyncTask<Int, Void, Uri>() {
-//            override fun onPreExecute() {
-//                super.onPreExecute()
-//                showSnackBar()
-//            }
-//
-//            pr override fun doInBackground(vararg integers: Int): Uri? {
-//                val bitmap = BitmapFactory.decodeResource(resources, resId)
-//                try {
-//                    val file = convertBitmapToFile(bitmap)
-//                    return Uri.fromFile(file)
-//                } catch (e: IOException) {
-//                    e.printStackTrace()
-//                    return null
-//                }
-//
-//            }
-//
-//            override fun onPostExecute(imageUri: Uri) {
-//                super.onPostExecute(imageUri)
-//                Toast.makeText(this@GridActivity, "Enjoy using the template!", Toast.LENGTH_LONG).show()
-//                openImageEditor(imageUri)
-//                dismissSnackbar()
-//            }
-//        }.execute(resId)
+        showSnackBar()
+
+        var imageUri: Uri? = null
+        doAsync {
+            val bitmap = BitmapFactory.decodeResource(resources, resId)
+            try {
+                val file = convertBitmapToFile(bitmap)
+                imageUri = Uri.fromFile(file)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+
+            uiThread {
+                openImageEditor(imageUri!!)
+                dismissSnackbar()
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
