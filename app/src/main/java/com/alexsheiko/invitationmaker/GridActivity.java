@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import hugo.weaving.DebugLog;
+
 public class GridActivity extends BaseActivity implements RewardListener {
 
     public static final int REQUEST_CREATE = 101;
@@ -64,6 +66,12 @@ public class GridActivity extends BaseActivity implements RewardListener {
                     .putContentId(imageName));
         });
 
+        List<Integer> templates = getTemplates(category);
+        Collections.shuffle(templates);
+        adapter.addAll(templates);
+    }
+
+    private List<Integer> getTemplates(String category) {
         List<Integer> templates = new ArrayList<>();
         for (int i = 1; i < 300; i++) {
             String imageName = category.toLowerCase() + "_template_" + i;
@@ -80,8 +88,7 @@ public class GridActivity extends BaseActivity implements RewardListener {
                 }
             }
         }
-        Collections.shuffle(templates);
-        adapter.addAll(templates);
+        return templates;
     }
 
     @Override
@@ -91,6 +98,11 @@ public class GridActivity extends BaseActivity implements RewardListener {
             mAdProvider.showEditorIfNeeded();
             mAdProvider = null;
         }
+        initAds();
+    }
+
+    @DebugLog
+    private void initAds() {
         mAdProvider = new AdProviderVideo();
         mAdProvider.prepare(this, this);
     }
