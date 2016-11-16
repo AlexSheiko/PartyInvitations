@@ -10,7 +10,6 @@ import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
-import android.view.animation.OvershootInterpolator
 import com.adobe.creativesdk.aviary.AdobeImageIntent
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory
 import com.alexsheiko.invitationmaker.ads.AdProviderVideo
@@ -19,7 +18,7 @@ import com.alexsheiko.invitationmaker.base.BaseActivity
 import com.crashlytics.android.answers.Answers
 import com.crashlytics.android.answers.ContentViewEvent
 import hugo.weaving.DebugLog
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator
 import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -28,6 +27,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
+
 
 class GridActivity : BaseActivity(), RewardListener {
     private var mAdProvider: AdProviderVideo? = null
@@ -46,13 +46,7 @@ class GridActivity : BaseActivity(), RewardListener {
         recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.adapter = adapter
         // TODO: Fix animation
-        recyclerView.itemAnimator = SlideInUpAnimator(OvershootInterpolator(1f))
-        /*
-        TODO: Move to adapter
-        recyclerView.setOnItemClickListener { parent, view, position, id ->
-            processClick(adapter.getItem(position))
-        }
-        */
+        recyclerView.itemAnimator = SlideInLeftAnimator()
 
         val templates = getTemplates(category)
         adapter.addAll(templates)
@@ -64,6 +58,7 @@ class GridActivity : BaseActivity(), RewardListener {
             mAdProvider!!.showEditorIfNeeded()
             mAdProvider = null
             recordPurchase(mShowingAdForId)
+            recyclerView.adapter.notifyDataSetChanged()
         }
         mAdProvider = AdProviderVideo()
         mAdProvider!!.prepare(this, this)
@@ -93,8 +88,7 @@ class GridActivity : BaseActivity(), RewardListener {
         super.onDestroy()
     }
 
-    @DebugLog
-    private fun processClick(resId: Int) {
+    @DebugLog fun processClick(resId: Int) {
         val imageName = resources.getResourceEntryName(resId)
         val isImagePaid = imageName.contains("paid")
         val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
@@ -213,10 +207,9 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     private fun showSnackBar() {
-        // val parentLayout = findViewById(android.R.id.content)
+        val parentLayout = findViewById(android.R.id.content)
         if (mSnackbar == null) {
-            // TODO: Show again
-            // mSnackbar = Snackbar.make(parentLayout, "Opening image...", Snackbar.LENGTH_INDEFINITE)
+            mSnackbar = Snackbar.make(parentLayout, "Opening image...", Snackbar.LENGTH_INDEFINITE)
         }
         mSnackbar!!.show()
     }

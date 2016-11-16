@@ -1,6 +1,7 @@
 package com.alexsheiko.invitationmaker
 
 import android.content.Context
+import android.preference.PreferenceManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -37,16 +38,31 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val resId = mDataset[position]
         Picasso.with(mContext).load(resId).into(holder?.mImageView)
+
+        val templateName = mContext.resources.getResourceEntryName(resId)
+        val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
+
+        if (templateName.contains("paid") && !isPurchased) {
+            holder?.mPriceTag?.visibility = View.VISIBLE
+        } else {
+            holder?.mPriceTag?.visibility = View.GONE
+        }
+        holder?.mContainer?.setOnClickListener {
+            (mContext as GridActivity).processClick(resId)
+        }
     }
 
     // Provide a reference to the views for each data item
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+
         var mImageView: ImageView
         var mPriceTag: TextView
+        var mContainer: View
 
         init {
             mImageView = v.findViewById(R.id.imageView) as ImageView
             mPriceTag = v.findViewById(R.id.priceTag) as TextView
+            mContainer = v.findViewById(R.id.container)
         }
     }
 
@@ -55,5 +71,10 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
             mDataset.add(templates[i])
             notifyItemInserted(i)
         }
+    }
+
+    private fun getPurchasedTemplates(): MutableSet<String>? {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(mContext)
+        return prefs.getStringSet("purchased", HashSet<String>())
     }
 }
