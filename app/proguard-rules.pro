@@ -251,3 +251,5 @@
 
 -dontwarn com.immersion.**
 -dontnote com.immersion.**
+
+-dontwarn org.jetbrains.anko.internals.AnkoInternals
