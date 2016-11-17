@@ -172,7 +172,7 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     fun openImageEditor(imageUri: Uri) {
-        val tools = arrayOf(ToolLoaderFactory.Tools.TEXT, ToolLoaderFactory.Tools.DRAW, ToolLoaderFactory.Tools.CROP, ToolLoaderFactory.Tools.ENHANCE)
+        val tools = arrayOf(ToolLoaderFactory.Tools.TEXT, ToolLoaderFactory.Tools.DRAW)
         val imageEditorIntent = AdobeImageIntent.Builder(this)
                 .setData(imageUri)
                 .withSharedElementTransition(true)
