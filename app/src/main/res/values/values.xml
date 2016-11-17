@@ -7,4 +7,35 @@
     </integer-array>
     <item name="com_adobe_image_editor_text_default_size" format="dimension" type="dimen">18sp
     </item>
+    <!--<dimen name="com_adobe_image_editor_button_textSize">32sp</dimen>-->
+    <!--<dimen name="com_adobe_image_flat_button_padding_h">56dip</dimen>-->
+    <!--<dimen name="com_adobe_image_flat_button_padding_v">16dip</dimen>-->
+    <!--<dimen name="com_adobe_image_toolbar_horizontal_padding">40dp</dimen>-->
+    <style name="AdobeImageWidget.ActionButton.Overflow" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:paddingLeft">30dp</item>
+        <item name="android:paddingRight">30dp</item>
+    </style>
+
+    <style name="AdobeImageWidget.ActionMode" parent="Widget.AppCompat.ActionMode">
+        <item name="background">?attr/colorAccent</item>
+        <item name="backgroundSplit">?attr/colorAccent</item>
+        <item name="android:paddingLeft">56dp</item>
+        <item name="android:paddingRight">56dp</item>
+    </style>
+
+    <style name="AdobeImageWidget.BottomBarFlatToggleButton" parent="AdobeImageWidget.FlatButton">
+        <item name="android:background">
+            @drawable/com_adobe_image_flat_button_dgray_toggle_selector
+        </item>
+        <item name="android:textSize">
+            @dimen/com_adobe_image_editor_bottomBar_flat_toggle_button_textSize
+        </item>
+        <item name="android:paddingLeft">100dp</item>
+        <item name="android:paddingRight">100dp</item>
+        <item name="adobe_fontFamily">?attr/com_adobe_font_regular</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textScaleX">
+            @dimen/com_adobe_image_bottombar_flat_toggle_button_scale_x
+        </item>
+    </style>
 </resources>
