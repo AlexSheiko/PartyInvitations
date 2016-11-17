@@ -2,43 +2,47 @@
 -injars 'D:\InvitationMaker\app\libs\ChartboostAdapter.jar'(**.class)
 -injars 'D:\InvitationMaker\app\libs\chartboost.jar'(**.class)
 -injars 'D:\InvitationMaker\app\libs\UnityAdsAdapter.jar'(**.class)
--injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.0.5\5784635914dadf0635e7bf3f28f1711317e1433a\kotlin-stdlib-1.0.5.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.ab\ab-test\2.0.5\jars\classes.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.jakewharton\disklrucache\2.0.2\93b399470e72c0bc8cb52379943b63c9aa586cd8\disklrucache-2.0.2.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\io.reactivex\rxjava\1.1.0\748f0546d5c3c27f1aef07270ffea0c45f0c42a4\rxjava-1.1.0.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth\rxbroadcast\0.0.2\jars\classes.jar'(**.class)
--injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar'(**.class)
+-injars 'C:\Program Files\Android\Android Studio\gradle\m2repository\commons-io\commons-io\2.4\commons-io-2.4.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.imagezoom\imagezoom\2.2.4\jars\classes.jar'(**.class)
--injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics\2.6.2\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.4.0\jars\classes.jar'(**.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.0.5-2\9a397ba5477bf49ae0418cc3e392b3c0e5a112d1\kotlin-stdlib-1.0.5-2.jar'(**.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-runtime\1.0.5-2\16ba409719189072db06433a3c381015c0877998\kotlin-runtime-1.0.5-2.jar'(**.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.jakewharton.hugo\hugo-annotations\1.2.1\b01150795c5cdca1eb7e501bf00f105ff0e31501\hugo-annotations-1.2.1.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.trello\rxlifecycle\0.3.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\jp.wasabeef\recyclerview-animators\2.2.4\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\crashlytics-core\2.3.11\jars\classes.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.6.0\212387a39088ecd3daff8e3bfc3bdc4123e33c67\okhttp-2.6.0.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\libs\internal_impl-25.0.0.jar'(**.class)
 -injars 'C:\Users\Alexey\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.path\android-priority-jobqueue\1.1.2\b3549df66f71fb135bce3300eecb1a88fd45d86f\android-priority-jobqueue-1.1.2.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.sothree.slidinguppanel\library\3.0.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.4.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.4.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.targettooltip\target-tooltip-library\1.3.11\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.firebase\firebase-core\9.4.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.4.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar'(**.class)
--injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.getbase\floatingactionbutton\1.10.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.github.fengdai\alertdialogpro-theme-material\0.2.6\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.4.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\uk.co.chrisjenx\calligraphy\2.2.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.4.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.4.0\jars\classes.jar'(**.class)
--injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.4.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.adobe.creativesdk\image\4.4.8\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.infstory\proguard-annotations\1.0.2\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.github.fengdai\alertdialogpro-core\0.2.6\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.viewrevealanimator\view-reveal-animator\1.1.4\jars\classes.jar'(**.class)
--injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\commons-io\commons-io\2.4\b1b6ea3b7e4aa4f492509a4952029cd8e48019ad\commons-io-2.4.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.4.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.picasso\picasso\2.5.2.4b\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.4.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.exif\android-exif-extended\1.0.6\jars\classes.jar'(**.class)
@@ -46,27 +50,38 @@
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp-urlconnection\2.6.0\f1c87f9ffe72bfcdce6f2514d12e42ed43410a87\okhttp-urlconnection-2.6.0.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.adobe.creativesdk.foundation\auth\0.9.7\jars\classes.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\libs\internal_impl-25.0.0.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.adobe.creativesdk.aviary.common\common-ui\1.1.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.firebase\firebase-ads\9.4.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\InvitationMaker\unity-ads\unspecified\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\answers\1.3.9\jars\classes.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\io.fabric.sdk.android\fabric\1.3.13\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.trello\rxlifecycle-components\0.3.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.jakewharton.rxbinding\rxbinding\0.2.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.crashlytics.sdk.android\beta\1.2.2\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\it.sephiroth.android.library.disklrumulticache\disklrumulticache\1.0.6\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.0\jars\classes.jar'(**.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\org.jetbrains.anko\anko-common\0.9\26c6156bea5eb494474c90528240daadf4b067c8\anko-common-0.9.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.0.1\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.0.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.0\jars\classes.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\de.greenrobot\eventbus\2.4.0\ddd166d01b3158d1c00576d29f7ed15c030df719\eventbus-2.4.0.jar'(**.class)
--injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-runtime\1.0.5\67d6f90bf8ed20fcdc78a23fcdc6804749d24498\kotlin-runtime-1.0.5.jar'(**.class)
+-injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\org.jetbrains.anko\anko-sdk15\0.9\e741cd0d94e63a27bc7b8cbd8d04571c058bab32\anko-sdk15-0.9.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\palette-v7\23.1.1\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\25.0.0\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.adobe.creativesdk\image\4.4.8\jars\libs\localytics.jar'(**.class)
 -injars 'C:\Users\Alexey\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.4\5fe28b9518e58819180a43a850fbc0dd24b7c050\commons-lang3-3.4.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.4.0\jars\classes.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.sromku\simple-storage\1.2.0\jars\classes.jar'(**.class)
--injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\InvitationMaker\unity-ads\unspecified\jars\classes.jar'(**.class)
+-injars 'D:\InvitationMaker\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\libs\internal_impl-25.0.0.jar'(**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\transforms\mergeJavaRes\release\jars\2\1f\main.jar'(!**.class)
 -injars 'D:\InvitationMaker\app\build\intermediates\transforms\retrolambda\release\folders\1\1\retrolambda'(**.class)
 -outjars 'D:\InvitationMaker\app\build\intermediates\transforms\proguard\release\jars\3\1f\main.jar'
@@ -83,7 +98,7 @@
 -dontobfuscate
 -printmapping 'D:\InvitationMaker\app\build\outputs\mapping\release\mapping.txt'
 -dontusemixedcaseclassnames
--keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod,Signature,SourceFile,LineNumberTable,JavascriptInterface,SourceFile,LineNumberTable,JavascriptInterface,*Annotation*,SourceFile,LineNumberTable,Signature,InnerClasses,*Annotation*,*Annotation*,*Annotation*,SourceFile,LineNumberTable,JavascriptInterface
+-keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod,Signature,SourceFile,LineNumberTable,JavascriptInterface,SourceFile,LineNumberTable,JavascriptInterface,*Annotation*,SourceFile,LineNumberTable,Signature,InnerClasses,*Annotation*,*Annotation*,*Annotation*,SourceFile,LineNumberTable,JavascriptInterface,*Annotation*
 -renamesourcefileattribute SourceFile
 -dontpreverify
 -verbose
@@ -1620,6 +1635,25 @@
     <methods>;
 }
 
+# Copyright (C) 2015 The Android Open Source Project
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#      http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# When layoutManager xml attribute is used, RecyclerView inflates
+# LayoutManagers' constructors using reflection.
+-keep public class * extends android.support.v7.widget.RecyclerView$LayoutManager {
+    public <init>(...);
+}
+
 # view res/layout/design_navigation_item.xml #generated:17
 -keep class android.support.design.internal.NavigationMenuItemView {
     <init>(...);
@@ -1647,7 +1681,7 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:94
+# view AndroidManifest.xml #generated:92
 -keep class android.support.v4.content.FileProvider {
     <init>(...);
 }
@@ -1657,7 +1691,7 @@
     <init>(...);
 }
 
-# view res/layout/abc_alert_dialog_button_bar_material.xml #generated:40
+# view res/layout/abc_alert_dialog_button_bar_material.xml #generated:39
 # view res/layout/adp_alert_dialog_material.xml #generated:114
 -keep class android.support.v4.widget.Space {
     <init>(...);
@@ -1764,6 +1798,7 @@
     <init>(...);
 }
 
+# view res/layout/activity_grid.xml #generated:2
 # view res/layout/com_adobe_image_bottombar_panel_adjust.xml #generated:12
 # view res/layout/com_adobe_image_bottombar_panel_content_frames.xml #generated:16
 # view res/layout/com_adobe_image_bottombar_panel_stickers.xml #generated:24
@@ -1776,7 +1811,7 @@
     <init>(...);
 }
 
-# view res/layout/abc_search_view.xml #generated:78
+# view res/layout/abc_search_view.xml #generated:75
 -keep class android.support.v7.widget.SearchView$SearchAutoComplete {
     <init>(...);
 }
@@ -1794,12 +1829,12 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:108
+# view AndroidManifest.xml #generated:106
 -keep class com.adcolony.sdk.AdColonyAdViewActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:104
+# view AndroidManifest.xml #generated:102
 -keep class com.adcolony.sdk.AdColonyInterstitialActivity {
     <init>(...);
 }
@@ -1887,32 +1922,32 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:204
+# view AndroidManifest.xml #generated:202
 -keep class com.adobe.creativesdk.aviary.AdobeImageBillingService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:130
+# view AndroidManifest.xml #generated:128
 -keep class com.adobe.creativesdk.aviary.AdobeImageEditorActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:177
+# view AndroidManifest.xml #generated:175
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsAssetsDownloaderService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:44
+# view AndroidManifest.xml #generated:42
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsProvider {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:189
+# view AndroidManifest.xml #generated:187
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:166
+# view AndroidManifest.xml #generated:164
 -keep class com.adobe.creativesdk.aviary.internal.cds.CdsService {
     <init>(...);
 }
@@ -2039,7 +2074,7 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:217
+# view AndroidManifest.xml #generated:215
 -keep class com.adobe.creativesdk.foundation.internal.auth.AdobeAuthSignInActivity {
     <init>(...);
 }
@@ -2090,132 +2125,132 @@
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:58
+# view AndroidManifest.xml #generated:56
 -keep class com.alexsheiko.invitationmaker.GridActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:37
+# view AndroidManifest.xml #generated:35
 -keep class com.alexsheiko.invitationmaker.InvitationApplication {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:49
+# view AndroidManifest.xml #generated:47
 -keep class com.alexsheiko.invitationmaker.MainActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:62
+# view AndroidManifest.xml #generated:60
 -keep class com.alexsheiko.invitationmaker.ResultActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:124
+# view AndroidManifest.xml #generated:122
 -keep class com.chartboost.sdk.CBImpressionActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:79
+# view AndroidManifest.xml #generated:77
 -keep class com.google.ads.AdActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:226
+# view AndroidManifest.xml #generated:224
 -keep class com.google.android.gms.ads.AdActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:230
+# view AndroidManifest.xml #generated:228
 -keep class com.google.android.gms.ads.purchase.InAppPurchaseActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:233
+# view AndroidManifest.xml #generated:231
 -keep class com.google.android.gms.common.api.GoogleApiActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:238
+# view AndroidManifest.xml #generated:236
 -keep class com.google.android.gms.measurement.AppMeasurementReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:246
+# view AndroidManifest.xml #generated:244
 -keep class com.google.android.gms.measurement.AppMeasurementService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:266
+# view AndroidManifest.xml #generated:264
 -keep class com.google.firebase.iid.FirebaseInstanceIdInternalReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:251
+# view AndroidManifest.xml #generated:249
 -keep class com.google.firebase.iid.FirebaseInstanceIdReceiver {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:273
+# view AndroidManifest.xml #generated:271
 -keep class com.google.firebase.iid.FirebaseInstanceIdService {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:281
+# view AndroidManifest.xml #generated:279
 -keep class com.google.firebase.provider.FirebaseInitProvider {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:120
+# view AndroidManifest.xml #generated:118
 -keep class com.jirbo.adcolony.AdColonyBrowser {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:116
+# view AndroidManifest.xml #generated:114
 -keep class com.jirbo.adcolony.AdColonyFullscreen {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:112
+# view AndroidManifest.xml #generated:110
 -keep class com.jirbo.adcolony.AdColonyOverlay {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:82
+# view AndroidManifest.xml #generated:80
 -keep class com.millennialmedia.android.MMActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:86
+# view AndroidManifest.xml #generated:84
 -keep class com.millennialmedia.android.VideoPlayer {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:73
+# view AndroidManifest.xml #generated:71
 -keep class com.mopub.common.MoPubBrowser {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:67
+# view AndroidManifest.xml #generated:65
 -keep class com.mopub.mobileads.MoPubActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:70
+# view AndroidManifest.xml #generated:68
 -keep class com.mopub.mobileads.MraidActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:76
+# view AndroidManifest.xml #generated:74
 -keep class com.mopub.mobileads.MraidVideoPlayerActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:291
+# view AndroidManifest.xml #generated:289
 -keep class com.unity3d.ads.adunit.AdUnitActivity {
     <init>(...);
 }
 
-# view AndroidManifest.xml #generated:296
+# view AndroidManifest.xml #generated:294
 -keep class com.unity3d.ads.adunit.AdUnitSoftwareActivity {
     <init>(...);
 }
@@ -2225,7 +2260,7 @@
     *** onClickDonate(...);
 }
 
-# onClick res/layout/activity_result.xml #generated:77
+# onClick res/layout/activity_result.xml #generated:76
 # onClick res/layout/footer_recipes_list.xml #generated:33
 -keepclassmembers class * {
     *** onClickFinish(...);
