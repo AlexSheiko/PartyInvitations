@@ -8,8 +8,6 @@
     android:clipToPadding="false"
     android:horizontalSpacing="16dp"
     android:paddingBottom="26dp"
-    android:paddingLeft="4dp"
-    android:paddingRight="4dp"
     android:verticalSpacing="4dp"
     tools:context=".GridActivity"
     tools:listitem="@layout/item_template"/>
