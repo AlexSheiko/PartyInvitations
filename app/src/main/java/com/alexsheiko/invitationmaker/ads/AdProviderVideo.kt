@@ -4,7 +4,6 @@ import android.app.Activity
 import android.os.Handler
 import android.support.design.widget.Snackbar
 import android.widget.Toast
-import com.chartboost.sdk.Chartboost
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.reward.RewardItem
@@ -13,8 +12,6 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener
 import com.jirbo.adcolony.AdColony
 import com.jirbo.adcolony.AdColonyAdapter
 import com.jirbo.adcolony.AdColonyBundleBuilder
-import com.unity3d.ads.UnityAds
-import com.unity3d.ads.properties.ClientProperties.getApplicationContext
 import org.jetbrains.anko.doAsync
 
 class AdProviderVideo : RewardedVideoAdListener {
@@ -142,7 +139,7 @@ class AdProviderVideo : RewardedVideoAdListener {
         dismissSnackbar()
         reset()
 
-        mImageProvider!!.onClickShow()
+        mImageProvider?.onClickShow()
     }
 
     private fun reset() {

@@ -1,46 +1,17 @@
-buildscript {
-    repositories {
-        maven { url 'https://maven.fabric.io/public' }
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath 'io.fabric.tools:gradle:1.21.7'
-    }
-
-    dependencies {
-        classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
-    }
-}
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'io.fabric'
-apply plugin: 'com.jakewharton.hugo'
-
-configurations {
-    compile.exclude group: "com.google.android", module: "android"
-}
-
-repositories {
-    jcenter()
-    maven {
-        url 'https://maven.fabric.io/public'
-    }
-    mavenCentral()
-}
-
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25"
+    buildToolsVersion "25.0.2"
     project.archivesBaseName = "Invitation Maker";
     defaultConfig {
         applicationId "com.alexsheiko.invitationmaker"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 23
+        versionCode 24
         versionName "3.1"
         multiDexEnabled true
     }
@@ -77,57 +48,18 @@ android {
 }
 
 dependencies {
-    compile('com.github.bumptech.glide:glide:3.7.0') {
-        exclude module: 'annotations'
-    }
-    compile('com.adobe.creativesdk.foundation:auth:0.9.7') {
-        exclude module: 'annotations'
-    }
-    compile('com.adobe.creativesdk:image:4.4.8') {
-        exclude module: 'annotations'
-    }
-    compile('com.crashlytics.sdk.android:crashlytics:2.6.2@aar') {
-        transitive = true;
-    }
-    compile('io.fabric.sdk.android:fabric:1.3.10@aar') {
-        transitive = true;
-    }
-    compile('com.android.support:support-annotations:25.0.0') {
-        exclude module: 'annotations'
-    }
+    compile('com.github.bumptech.glide:glide:3.7.0')
+    compile('com.adobe.creativesdk.foundation:auth:0.9.7')
+    compile('com.adobe.creativesdk:image:4.4.8')
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile('uk.co.chrisjenx:calligraphy:2.2.0')
-            {
-        exclude module: 'annotations'
-    }
-    compile('com.sromku:simple-storage:1.2.0') {
-        exclude module: 'annotations'
-    }
-    compile('com.android.support:appcompat-v7:25.0.0') {
-        exclude module: 'annotations'
-    }
-    compile('com.android.support:cardview-v7:25.0.0') {
-        exclude module: 'annotations'
-    }
-    compile('com.android.support:recyclerview-v7:25.0.0') {
-        exclude module: 'annotations'
-    }
-    compile('com.google.firebase:firebase-core:9.4.0') {
-        exclude module: 'annotations'
-    }
-    compile('com.google.firebase:firebase-ads:9.4.0') {
-        exclude module: 'annotations'
-    }
+    compile('com.sromku:simple-storage:1.2.0')
+    compile('com.android.support:appcompat-v7:25.0.0')
+    compile('com.android.support:cardview-v7:25.0.0')
+    compile('com.android.support:recyclerview-v7:25.0.0')
+    compile('com.google.firebase:firebase-core:9.4.0')
+    compile('com.google.firebase:firebase-ads:9.4.0')
     compile files('libs/adcolony.jar')
-    compile files('libs/ChartboostAdapter.jar')
-    compile files('libs/chartboost.jar')
-    compile files('libs/UnityAdsAdapter.jar')
-    compile('com.android.support:multidex:1.0.1') {
-        exclude module: 'annotations'
-    }
-    compile project(':unity-ads')
+    compile('com.android.support:multidex:1.0.1')
     compile 'org.jetbrains.anko:anko-sdk15:0.9'
-    compile 'jp.wasabeef:recyclerview-animators:2.2.4'
 }
-
-apply plugin: 'com.google.gms.google-services'
