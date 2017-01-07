@@ -11,10 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <provider
-            android:name="com.adobe.creativesdk.aviary.internal.cds.CdsProvider"
-            android:authorities="${applicationId}.CdsProvider"
-            android:exported="false"/>
-        <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.alexsheiko.invitationmaker.fileprovider"
             android:exported="false"
@@ -40,20 +36,6 @@
             android:name=".ResultActivity"
             android:parentActivityName=".GridActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name="com.jirbo.adcolony.AdColonyOverlay"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
-        <activity
-            android:name="com.jirbo.adcolony.AdColonyFullscreen"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
-        <activity
-            android:name="com.jirbo.adcolony.AdColonyBrowser"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
-        <activity android:name=".EditActivity">
-        </activity>
     </application>
 
 </manifest>
