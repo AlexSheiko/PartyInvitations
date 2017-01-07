@@ -12,13 +12,22 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.GlideDrawable
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import java.util.*
 
 
 class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolder>() {
 
+    init {
+        setHasStableIds(true)
+    }
+
     private var mContext: Context = context
     private var mDataset: ArrayList<Int> = ArrayList()
+
+    private val mTemplateNames: ArrayList<String> = ArrayList()
+    private lateinit var mPurchasedTemplates: MutableSet<String>
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(mContext)
@@ -39,8 +48,8 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
         Glide.with(mContext).load(resId).centerCrop()
                 .listener(object : RequestListener<Int?, GlideDrawable?> {
                     override fun onResourceReady(resource: GlideDrawable?, model: Int?, target: Target<GlideDrawable?>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                            val templateName = mContext.resources.getResourceEntryName(resId)
-                            val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
+                        val templateName = mTemplateNames[position]
+                        val isPurchased = mPurchasedTemplates.contains(resId.toString())
 
                             if (templateName.contains("paid") && !isPurchased) {
                                 holder?.mPriceTag?.visibility = View.VISIBLE
@@ -69,13 +78,20 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
     }
 
     fun addAll(templates: List<Int>) {
-        templates.forEachIndexed { i, j ->
-            mDataset.add(templates[i])
-            notifyItemInserted(i)
+        doAsync {
+            templates.forEachIndexed { i, resId ->
+                mDataset.add(templates[i])
+                val templateName = mContext.resources.getResourceEntryName(resId)
+                mTemplateNames.add(templateName)
+            }
+            uiThread {
+                mPurchasedTemplates = getPurchasedTemplates()
+                notifyDataSetChanged()
+            }
         }
     }
 
-    private fun getPurchasedTemplates(): MutableSet<String>? {
+    private fun getPurchasedTemplates(): MutableSet<String> {
         val prefs = PreferenceManager.getDefaultSharedPreferences(mContext)
         return prefs.getStringSet("purchased", HashSet<String>())
     }
