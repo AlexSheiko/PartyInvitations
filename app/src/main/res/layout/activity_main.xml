@@ -46,7 +46,7 @@
 
             <LinearLayout
                 style="@style/GridCell"
-                android:layout_marginRight="-56dp">
+                android:paddingLeft="56dp">
 
                 <ImageView
                     android:layout_width="64dp"
@@ -61,7 +61,7 @@
 
             <LinearLayout
                 style="@style/GridCell"
-                android:layout_marginLeft="-56dp">
+                android:paddingRight="56dp">
 
                 <ImageView
                     android:layout_width="64dp"

@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#A2B29C</color>
     <color name="colorAccent">#8BC34A</color>
     <color name="colorWindowBackground">#FAFAFA</color>
+    <color name="textColorPrimary">#737e6e</color>
     <color name="editor_image_background">#757575</color>
     <color name="com_adobe_image_color_dark_gray1">@color/editor_image_background</color>
     <color name="com_adobe_image_color_light_gray41">@color/editor_image_background</color>
