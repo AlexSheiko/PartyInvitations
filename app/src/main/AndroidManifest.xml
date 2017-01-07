@@ -10,56 +10,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <provider
             android:name="com.adobe.creativesdk.aviary.internal.cds.CdsProvider"
             android:authorities="${applicationId}.CdsProvider"
             android:exported="false"/>
-
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.Main">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".GridActivity"
-            android:parentActivityName=".MainActivity">
-        </activity>
-        <activity
-            android:name=".ResultActivity"
-            android:parentActivityName=".GridActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
-        <activity
-            android:name="com.mopub.mobileads.MoPubActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity
-            android:name="com.mopub.mobileads.MraidActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity
-            android:name="com.mopub.common.MoPubBrowser"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity
-            android:name="com.mopub.mobileads.MraidVideoPlayerActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
-        <activity
-            android:name="com.google.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
-        <activity
-            android:name="com.millennialmedia.android.MMActivity"
-            android:configChanges="keyboardHidden|orientation|keyboard"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <activity
-            android:name="com.millennialmedia.android.VideoPlayer"
-            android:configChanges="keyboardHidden|orientation|keyboard"/>
-
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="37603fd544c2349d3453ebc172ed3673360bae53"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -72,14 +27,24 @@
         </provider>
 
         <activity
-            android:name="com.adcolony.sdk.AdColonyInterstitialActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:hardwareAccelerated="true"/>
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
         <activity
-            android:name="com.adcolony.sdk.AdColonyAdViewActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:hardwareAccelerated="true"/>
+            android:name=".GridActivity"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity
+            android:name=".ResultActivity"
+            android:parentActivityName=".GridActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name="com.jirbo.adcolony.AdColonyOverlay"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -94,12 +59,6 @@
             android:name="com.jirbo.adcolony.AdColonyBrowser"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
-        <activity
-            android:name="com.chartboost.sdk.CBImpressionActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
 
     </application>
 
