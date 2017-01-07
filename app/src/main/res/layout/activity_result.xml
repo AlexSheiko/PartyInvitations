@@ -85,7 +85,7 @@
             android:paddingLeft="48dp"
             android:paddingRight="48dp"
             android:paddingTop="32dp"
-            android:text="D o n e   ☺"
+            android:text="@string/done"
             android:textColor="@android:color/white"
             android:textSize="24sp"/>
 
