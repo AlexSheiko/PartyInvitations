@@ -12,6 +12,8 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        supportActionBar?.elevation = 0f
     }
 
     fun onClickCategory(view: View) {

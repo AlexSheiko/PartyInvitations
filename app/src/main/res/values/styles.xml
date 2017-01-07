@@ -15,6 +15,16 @@
     <style name="AppTheme.Main" parent="AppTheme">
         <item name="android:windowBackground">@drawable/background_window</item>
         <item name="colorPrimary">@color/colorWindowBackground</item>
+        <item name="actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
+        <item name="titleTextStyle">@style/MyTitleTextStyle</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="MyTitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
@@ -28,7 +38,7 @@
 
     <style name="GridRow">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">160dp</item>
+        <item name="android:layout_height">140dp</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:gravity">center_vertical</item>
     </style>
@@ -50,7 +60,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:alpha">0.9</item>
     </style>
 
     <style name="AdobeImageBaseTheme" parent="Theme.AppCompat.NoActionBar">
