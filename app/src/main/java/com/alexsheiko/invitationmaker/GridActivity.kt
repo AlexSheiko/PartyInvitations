@@ -12,9 +12,11 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
 import com.adobe.creativesdk.aviary.AdobeImageIntent
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory
-import com.alexsheiko.invitationmaker.ads.AdProviderVideo
 import com.alexsheiko.invitationmaker.ads.RewardListener
 import com.alexsheiko.invitationmaker.base.BaseActivity
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -25,7 +27,8 @@ import java.io.IOException
 import java.util.*
 
 class GridActivity : BaseActivity(), RewardListener {
-    private var mAdProvider: AdProviderVideo? = null
+
+    private var mInterstitialAd: InterstitialAd? = null
     private var mShowingAdForId: Int = 0
     private var mSnackbar: Snackbar? = null
 
@@ -45,20 +48,6 @@ class GridActivity : BaseActivity(), RewardListener {
         adapter.addAll(templates)
     }
 
-    public override fun onResume() {
-        super.onResume()
-        if (mAdProvider != null) {
-            mAdProvider!!.showEditorIfNeeded()
-            mAdProvider = null
-            recordPurchase(mShowingAdForId)
-            recyclerView.adapter.notifyDataSetChanged()
-        }
-        mAdProvider = AdProviderVideo()
-        mAdProvider!!.prepare(this, this)
-
-        mAdProvider!!.ad?.resume(this)
-    }
-
     private fun recordPurchase(resId: Int) {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val purchased = prefs.getStringSet("purchased", HashSet<String>())
@@ -71,16 +60,6 @@ class GridActivity : BaseActivity(), RewardListener {
         return prefs.getStringSet("purchased", HashSet<String>())
     }
 
-    public override fun onPause() {
-        mAdProvider!!.ad?.pause(this)
-        super.onPause()
-    }
-
-    public override fun onDestroy() {
-        mAdProvider!!.ad?.destroy(this)
-        super.onDestroy()
-    }
-
     fun processClick(resId: Int) {
         showSnackBar()
         doAsync {
@@ -88,14 +67,41 @@ class GridActivity : BaseActivity(), RewardListener {
             val isImagePaid = imageName.contains("paid")
             val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
 
-            if (!isImagePaid || isPurchased) {
-                uiThread {
+            uiThread {
+                if (!isImagePaid || isPurchased) {
                     openEditor(resId)
+                } else {
+                    if (mInterstitialAd == null) {
+                        mInterstitialAd = InterstitialAd(this@GridActivity)
+                        mInterstitialAd!!.adUnitId = "ca-app-pub-3038649646029056/5392277129"
+                    }
+                    requestNewInterstitial()
+                    mShowingAdForId = resId
                 }
-            } else {
-                // Show video ad
-                mAdProvider!!.onClickShow()
-                mShowingAdForId = resId
+            }
+        }
+    }
+
+    private fun requestNewInterstitial() {
+        val adRequest = AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("1A6B43A15E989B8B4F9121A9D649E323")
+                .build()
+
+        mInterstitialAd!!.loadAd(adRequest)
+        mInterstitialAd!!.adListener = object : AdListener() {
+            override fun onAdLoaded() {
+                mInterstitialAd!!.show()
+            }
+
+            override fun onAdClosed() {
+                recordPurchase(mShowingAdForId)
+                recyclerView.adapter.notifyDataSetChanged()
+                openEditor(mShowingAdForId)
+            }
+
+            override fun onAdLeftApplication() {
+                recordPurchase(mShowingAdForId)
             }
         }
     }
