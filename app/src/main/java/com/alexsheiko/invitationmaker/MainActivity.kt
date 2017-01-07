@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
 import com.alexsheiko.invitationmaker.base.BaseActivity
-import org.jetbrains.anko.alert
 
 class MainActivity : BaseActivity() {
 
@@ -27,12 +25,5 @@ class MainActivity : BaseActivity() {
                 }
                 .forEach { intent.putExtra("category", it) }
         startActivity(intent)
-    }
-
-    override fun onBackPressed() {
-        alert("Are you sure you want to exit the app?", "Stay with us") {
-            positiveButton("Exit") { super.onBackPressed() }
-            negativeButton("Stay on") { }
-        }.show()
     }
 }
