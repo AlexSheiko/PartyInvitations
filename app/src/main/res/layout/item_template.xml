@@ -9,7 +9,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?selectableItemBackground"
-    app:layout_aspectRatio="178%"
+    app:layout_aspectRatio="100%"
     tools:layout_width="115dp">
 
     <ImageView
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:layout_aspectRatio="178%"
+        app:layout_aspectRatio="100%"
         tools:scaleType="centerCrop"
         tools:src="@drawable/birthday_template_10_paid"/>
 

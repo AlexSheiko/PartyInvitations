@@ -10,8 +10,6 @@ import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
-import com.adobe.creativesdk.aviary.AdobeImageIntent
-import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory
 import com.alexsheiko.invitationmaker.ads.RewardListener
 import com.alexsheiko.invitationmaker.base.BaseActivity
 import com.google.android.gms.ads.AdListener
@@ -19,6 +17,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.uiThread
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -171,15 +170,7 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     fun openImageEditor(imageUri: Uri) {
-        val tools = arrayOf(ToolLoaderFactory.Tools.TEXT, ToolLoaderFactory.Tools.DRAW)
-        val imageEditorIntent = AdobeImageIntent.Builder(this)
-                .setData(imageUri)
-                .withSharedElementTransition(true)
-                .withToolList(tools)
-                .build()
-
-        /* Start the Image Editor */
-        startActivityForResult(imageEditorIntent, GridActivity.REQUEST_CREATE)
+        startActivity<EditActivity>("image" to imageUri)
     }
 
     @Throws(IOException::class)
