@@ -12,14 +12,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.GlideDrawable
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import org.jetbrains.anko.doAsync
 import java.util.*
 
 
 class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolder>() {
-
-    init {
-        setHasStableIds(true)
-    }
 
     private var mContext: Context = context
     private var mDataset: ArrayList<Int> = ArrayList()
@@ -40,16 +37,18 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val resId = mDataset[position]
-        Glide.with(mContext).load(resId).fitCenter()
+        Glide.with(mContext).load(resId).centerCrop()
                 .listener(object : RequestListener<Int?, GlideDrawable?> {
                     override fun onResourceReady(resource: GlideDrawable?, model: Int?, target: Target<GlideDrawable?>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                        val templateName = mContext.resources.getResourceEntryName(resId)
-                        val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
+                        doAsync {
+                            val templateName = mContext.resources.getResourceEntryName(resId)
+                            val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
 
-                        if (templateName.contains("paid") && !isPurchased) {
-                            holder?.mPriceTag?.visibility = View.VISIBLE
-                        } else {
-                            holder?.mPriceTag?.visibility = View.GONE
+                            if (templateName.contains("paid") && !isPurchased) {
+                                holder?.mPriceTag?.visibility = View.VISIBLE
+                            } else {
+                                holder?.mPriceTag?.visibility = View.GONE
+                            }
                         }
                         return false
                     }

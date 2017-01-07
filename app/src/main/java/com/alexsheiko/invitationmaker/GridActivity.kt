@@ -10,11 +10,13 @@ import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
+import android.view.animation.OvershootInterpolator
 import com.adobe.creativesdk.aviary.AdobeImageIntent
 import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory
 import com.alexsheiko.invitationmaker.ads.AdProviderVideo
 import com.alexsheiko.invitationmaker.ads.RewardListener
 import com.alexsheiko.invitationmaker.base.BaseActivity
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -23,6 +25,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
+
 
 
 class GridActivity : BaseActivity(), RewardListener {
@@ -40,7 +43,11 @@ class GridActivity : BaseActivity(), RewardListener {
         val adapter = GridAdapter(this)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 3)
-        recyclerView.adapter = adapter
+        val alphaAdapter = AlphaInAnimationAdapter(adapter)
+        alphaAdapter.setFirstOnly(true)
+        alphaAdapter.setDuration(500)
+        alphaAdapter.setInterpolator(OvershootInterpolator(.5f))
+        recyclerView.adapter = alphaAdapter
 
         val templates = getTemplates(category)
         adapter.addAll(templates)
