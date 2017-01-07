@@ -82,6 +82,7 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     fun processClick(resId: Int) {
+        showSnackBar()
         doAsync {
             val imageName = resources.getResourceEntryName(resId)
             val isImagePaid = imageName.contains("paid")
@@ -89,7 +90,6 @@ class GridActivity : BaseActivity(), RewardListener {
 
             if (!isImagePaid || isPurchased) {
                 uiThread {
-                    showSnackBar()
                     openEditor(resId)
                 }
             } else {
