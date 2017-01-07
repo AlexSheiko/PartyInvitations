@@ -13,6 +13,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        title = getString(R.string.app_name_full)
         supportActionBar?.elevation = 0f
     }
 

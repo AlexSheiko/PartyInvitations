@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.GlideDrawable
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import org.jetbrains.anko.doAsync
 import java.util.*
 
 
@@ -40,7 +39,6 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
         Glide.with(mContext).load(resId).centerCrop()
                 .listener(object : RequestListener<Int?, GlideDrawable?> {
                     override fun onResourceReady(resource: GlideDrawable?, model: Int?, target: Target<GlideDrawable?>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                        doAsync {
                             val templateName = mContext.resources.getResourceEntryName(resId)
                             val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
 
@@ -49,7 +47,6 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
                             } else {
                                 holder?.mPriceTag?.visibility = View.GONE
                             }
-                        }
                         return false
                     }
 
