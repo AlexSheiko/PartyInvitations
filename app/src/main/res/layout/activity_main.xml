@@ -59,12 +59,12 @@
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:src="@drawable/ic_category_holidays"/>
+                    android:src="@drawable/ic_category_party"/>
 
                 <TextView
                     style="@style/GridLabel"
                     android:alpha="0.7"
-                    android:text="H o l i d a y s"/>
+                    android:text="P a r t y"/>
 
             </LinearLayout>
 
@@ -93,11 +93,11 @@
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:src="@drawable/ic_category_party"/>
+                    android:src="@drawable/ic_category_holidays"/>
 
                 <TextView
                     style="@style/GridLabel"
-                    android:text="P a r t y"/>
+                    android:text="H o l i d a y s"/>
 
             </LinearLayout>
 
