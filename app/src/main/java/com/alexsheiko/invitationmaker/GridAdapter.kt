@@ -19,10 +19,6 @@ import java.util.*
 
 class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolder>() {
 
-    init {
-        setHasStableIds(true)
-    }
-
     private var mContext: Context = context
     private var mDataset: ArrayList<Int> = ArrayList()
 

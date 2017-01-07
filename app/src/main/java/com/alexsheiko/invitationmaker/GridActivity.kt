@@ -24,8 +24,6 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
 
-
-
 class GridActivity : BaseActivity(), RewardListener {
     private var mAdProvider: AdProviderVideo? = null
     private var mShowingAdForId: Int = 0
@@ -84,16 +82,21 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     fun processClick(resId: Int) {
-        val imageName = resources.getResourceEntryName(resId)
-        val isImagePaid = imageName.contains("paid")
-        val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
+        doAsync {
+            val imageName = resources.getResourceEntryName(resId)
+            val isImagePaid = imageName.contains("paid")
+            val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
 
-        if (!isImagePaid || isPurchased) {
-            openEditor(resId)
-        } else {
-            // Show video ad
-            mAdProvider!!.onClickShow()
-            mShowingAdForId = resId
+            if (!isImagePaid || isPurchased) {
+                uiThread {
+                    showSnackBar()
+                    openEditor(resId)
+                }
+            } else {
+                // Show video ad
+                mAdProvider!!.onClickShow()
+                mShowingAdForId = resId
+            }
         }
     }
 
@@ -118,8 +121,6 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     private fun openEditor(resId: Int) {
-        showSnackBar()
-
         var imageUri: Uri? = null
         doAsync {
             val bitmap = BitmapFactory.decodeResource(resources, resId)
