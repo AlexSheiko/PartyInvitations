@@ -11,8 +11,8 @@ android {
         applicationId "com.alexsheiko.invitationmaker"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 24
-        versionName "3.1"
+        versionCode 25
+        versionName "3.2"
         multiDexEnabled true
     }
     buildTypes {
