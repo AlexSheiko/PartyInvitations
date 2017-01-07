@@ -67,15 +67,9 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
     // Provide a reference to the views for each data item
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
-        var mImageView: ImageView
-        var mPriceTag: TextView
-        var mContainer: View
-
-        init {
-            mImageView = v.findViewById(R.id.imageView) as ImageView
-            mPriceTag = v.findViewById(R.id.priceTag) as TextView
-            mContainer = v.findViewById(R.id.container)
-        }
+        var mImageView: ImageView = v.findViewById(R.id.imageView) as ImageView
+        var mPriceTag: TextView = v.findViewById(R.id.priceTag) as TextView
+        var mContainer: View = v.findViewById(R.id.container)
     }
 
     fun addAll(templates: List<Int>) {

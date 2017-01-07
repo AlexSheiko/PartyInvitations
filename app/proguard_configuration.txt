@@ -2130,7 +2130,7 @@
 }
 
 # view AndroidManifest.xml #generated:35
--keep class com.alexsheiko.invitationmaker.InvitationApplication {
+-keep class com.alexsheiko.invitationmaker.InvitationApp {
     <init>(...);
 }
 

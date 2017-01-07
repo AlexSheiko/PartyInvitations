@@ -57,7 +57,7 @@ class GridActivity : BaseActivity(), RewardListener {
         mAdProvider = AdProviderVideo()
         mAdProvider!!.prepare(this, this)
 
-        mAdProvider!!.ad.resume(this)
+        mAdProvider!!.ad?.resume(this)
     }
 
     private fun recordPurchase(resId: Int) {
@@ -73,12 +73,12 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     public override fun onPause() {
-        mAdProvider!!.ad.pause(this)
+        mAdProvider!!.ad?.pause(this)
         super.onPause()
     }
 
     public override fun onDestroy() {
-        mAdProvider!!.ad.destroy(this)
+        mAdProvider!!.ad?.destroy(this)
         super.onDestroy()
     }
 
