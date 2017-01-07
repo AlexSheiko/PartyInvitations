@@ -24,7 +24,6 @@ class AdProviderVideo : RewardedVideoAdListener {
     var ad: RewardedVideoAd? = null
         private set
     private var mWatchingAd: Boolean = false
-    private var mImageProvider: AdProviderImage? = null
 
     fun prepare(activity: Activity, rewardListener: RewardListener) {
         mActivity = activity
@@ -41,13 +40,7 @@ class AdProviderVideo : RewardedVideoAdListener {
 
     private fun initProviders() {
         // TODO: Make class a singeleton to only initialize once
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3038649646029056~9696869128")
         AdColony.configure(mActivity, "version:3.0,store:google", "appd3fbafd399de4909ab", "vz732ea85f536a4b0aae")
-        Chartboost.startWithAppId(mActivity, "57c4638143150f2dbda90642", "97d51d16f7428263e14b26881a665e87b23f47ee")
-        UnityAds.initialize(mActivity, "1127394", null)
-
-        mImageProvider = AdProviderImage()
-        mImageProvider!!.prepare(mActivity, mRewardListener)
     }
 
     private fun loadVideo() {
@@ -138,8 +131,6 @@ class AdProviderVideo : RewardedVideoAdListener {
     override fun onRewardedVideoAdFailedToLoad(i: Int) {
         dismissSnackbar()
         reset()
-
-        mImageProvider?.onClickShow()
     }
 
     private fun reset() {

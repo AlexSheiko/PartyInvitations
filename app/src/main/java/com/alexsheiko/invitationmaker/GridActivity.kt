@@ -15,10 +15,6 @@ import com.adobe.creativesdk.aviary.internal.filters.ToolLoaderFactory
 import com.alexsheiko.invitationmaker.ads.AdProviderVideo
 import com.alexsheiko.invitationmaker.ads.RewardListener
 import com.alexsheiko.invitationmaker.base.BaseActivity
-import com.crashlytics.android.answers.Answers
-import com.crashlytics.android.answers.ContentViewEvent
-import hugo.weaving.DebugLog
-import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator
 import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
@@ -45,8 +41,6 @@ class GridActivity : BaseActivity(), RewardListener {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.adapter = adapter
-        // TODO: Fix animation
-        recyclerView.itemAnimator = SlideInLeftAnimator()
 
         val templates = getTemplates(category)
         adapter.addAll(templates)
@@ -63,7 +57,7 @@ class GridActivity : BaseActivity(), RewardListener {
         mAdProvider = AdProviderVideo()
         mAdProvider!!.prepare(this, this)
 
-        mAdProvider!!.ad?.resume(this)
+        mAdProvider!!.ad.resume(this)
     }
 
     private fun recordPurchase(resId: Int) {
@@ -79,16 +73,16 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     public override fun onPause() {
-        mAdProvider!!.ad?.pause(this)
+        mAdProvider!!.ad.pause(this)
         super.onPause()
     }
 
     public override fun onDestroy() {
-        mAdProvider!!.ad?.destroy(this)
+        mAdProvider!!.ad.destroy(this)
         super.onDestroy()
     }
 
-    @DebugLog fun processClick(resId: Int) {
+    fun processClick(resId: Int) {
         val imageName = resources.getResourceEntryName(resId)
         val isImagePaid = imageName.contains("paid")
         val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
@@ -100,10 +94,6 @@ class GridActivity : BaseActivity(), RewardListener {
             mAdProvider!!.onClickShow()
             mShowingAdForId = resId
         }
-
-        Answers.getInstance().logContentView(ContentViewEvent()
-                .putContentType("Template")
-                .putContentId(imageName))
     }
 
     private fun getTemplates(category: String): List<Int> {

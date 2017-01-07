@@ -62,6 +62,7 @@ dependencies {
     compile('com.adobe.creativesdk:image:4.4.8')
 
     compile('com.google.firebase:firebase-core:9.4.0')
+    compile('com.google.firebase:firebase-ads:9.4.0')
     compile('com.github.bumptech.glide:glide:3.7.0')
     compile('uk.co.chrisjenx:calligraphy:2.2.0')
     compile('com.sromku:simple-storage:1.2.0')
