@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="aviary_sdk_csdk_about_dialog_message">Adobe Creative Cloud powers the world\'s creativity. Developers: add the Creative SDK to your app in minutes.</string>
+    <string name="feather_acc_decrease_value">Decrease value</string>
+    <string name="feather_acc_increase_value">Increase value</string>
+    <string name="feather_cant_undo_anymore">Can’t undo any more</string>
+    <string name="feather_confirm">Confirm</string>
+    <string name="feather_iap_failed_download_previews">Failed to download the previews</string>
+    <string name="feather_iap_restore_all_summary">Already purchased? Tap below to restore all your in-app purchases for free.</string>
+    <string name="feather_iap_subscription_banner_text">Get this pack and tons of other Aviary effects for one low price with Aviary Passport!</string>
+    <string name="feather_infoscreen_bottom_button">About this editor</string>
+    <string name="feather_keep_editing">Keep editing</string>
+    <string name="feather_new_stickers">New Stickers</string>
+    <string name="feather_restore_original">Restore Original</string>
+    <string name="feather_revert_dialog_title">Revert to original?</string>
+    <string name="feather_stickers_dialog_first_time">Install Aviary\'s free pack of beautiful high resolution stickers to get started.</string>
+    <string name="feather_store_passport_refunded">Refunded</string>
+    <string name="feather_store_passport_welcome_body">You now have unlimited access to every single Effect, Sticker, and Frame pack we offer, including all future packs. To manage your subscription status, visit the Passport account screen in the Shop. Happy Editing!</string>
+    <string name="feather_version">Version</string>
+    <string name="feather_yes_leave">Leave editor</string>
+    <string name="feather_cant_undo_anymore_text">Long press on the photo to restore your original image.</string>
+    <string name="feather_store_passport_subscribed">Subscribed</string>
+</resources>

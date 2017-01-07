@@ -19,14 +19,15 @@ class MainActivity : BaseActivity() {
 
     fun onClickCategory(view: View) {
         val intent = Intent(this, GridActivity::class.java)
-        (0..(view as ViewGroup).childCount - 1)
-                .map { view.getChildAt(it) }
-                .filterIsInstance<TextView>()
-                .map {
-                    it.text.toString()
-                            .replace(" ", "").replace("\n", " ")
-                }
-                .forEach { intent.putExtra("category", it) }
+        for (i in 0..(view as ViewGroup).childCount - 1) {
+            val child = view.getChildAt(i)
+            if (child is TextView) {
+                val title = child.text.toString()
+                        .replace(" ", "").replace("\n", " ")
+                intent.putExtra("title", title)
+                intent.putExtra("category", child.tag.toString())
+            }
+        }
         startActivity(intent)
     }
 }

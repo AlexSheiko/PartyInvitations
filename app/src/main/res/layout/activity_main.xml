@@ -26,7 +26,8 @@
 
                 <TextView
                     style="@style/GridLabel"
-                    android:text="B i r t h d a y"/>
+                    android:tag="birthday"
+                    android:text="@string/birthday"/>
 
             </LinearLayout>
 
@@ -40,7 +41,8 @@
 
                 <TextView
                     style="@style/GridLabel"
-                    android:text="W e d d i n g"/>
+                    android:tag="wedding"
+                    android:text="@string/wedding"/>
 
             </LinearLayout>
 
@@ -68,7 +70,8 @@
                     style="@style/GridLabel"
                     android:layout_marginTop="4dp"
                     android:alpha="0.7"
-                    android:text="P a r t y"/>
+                    android:tag="party"
+                    android:text="@string/party"/>
 
             </LinearLayout>
 
@@ -87,7 +90,8 @@
 
                 <TextView
                     style="@style/GridLabel"
-                    android:text="K i d s"/>
+                    android:tag="kids"
+                    android:text="@string/kids"/>
 
             </LinearLayout>
 
@@ -101,7 +105,8 @@
 
                 <TextView
                     style="@style/GridLabel"
-                    android:text="H o l i d a y s"/>
+                    android:tag="holidays"
+                    android:text="@string/holidays"/>
 
             </LinearLayout>
 

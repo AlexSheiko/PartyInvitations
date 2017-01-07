@@ -36,14 +36,15 @@ class GridActivity : BaseActivity(), RewardListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grid)
 
-        val category = intent.getStringExtra("category")
-        supportActionBar?.title = category
+        val title = intent.getStringExtra("title")
+        supportActionBar?.title = title
 
         val adapter = GridAdapter(this)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.adapter = adapter
 
+        val category = intent.getStringExtra("category")
         val templates = getTemplates(category)
         adapter.addAll(templates)
     }

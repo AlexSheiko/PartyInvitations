@@ -23,7 +23,7 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
     private var mDataset: ArrayList<Int> = ArrayList()
 
     private val mTemplateNames: ArrayList<String> = ArrayList()
-    private lateinit var mPurchasedTemplates: MutableSet<String>
+    private var mPurchasedTemplates: MutableSet<String> = getPurchasedTemplates()
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(mContext)
@@ -81,7 +81,6 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
                 mTemplateNames.add(templateName)
             }
             uiThread {
-                mPurchasedTemplates = getPurchasedTemplates()
                 notifyDataSetChanged()
             }
         }
