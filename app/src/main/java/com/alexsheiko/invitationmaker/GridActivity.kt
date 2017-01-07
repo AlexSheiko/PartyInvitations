@@ -98,7 +98,7 @@ class GridActivity : BaseActivity(), RewardListener {
 
     private fun getTemplates(category: String): List<Int> {
         val templates = ArrayList<Int>()
-        for (i in 1..299) {
+        for (i in 1..20) {
             var imageName = category.toLowerCase() + "_template_" + i
             imageName = imageName.replace(" ", "_")
             val resId = resources.getIdentifier(imageName, "drawable", packageName)
