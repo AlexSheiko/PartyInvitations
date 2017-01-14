@@ -170,7 +170,10 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     fun openImageEditor(imageUri: Uri) {
-        startActivity<EditActivity>("image" to imageUri)
+        startActivity<EditActivity>(
+                "image" to imageUri,
+                "title" to intent.getStringExtra("title")
+        )
     }
 
     @Throws(IOException::class)

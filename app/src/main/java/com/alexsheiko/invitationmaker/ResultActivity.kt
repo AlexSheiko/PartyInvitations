@@ -3,6 +3,7 @@ package com.alexsheiko.invitationmaker
 import android.app.Activity
 import android.content.Intent
 import android.content.res.ColorStateList
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.net.Uri
 import android.os.Build
@@ -12,12 +13,13 @@ import android.support.v4.content.FileProvider
 import android.support.v7.widget.CardView
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import com.alexsheiko.invitationmaker.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_result.*
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import java.io.File
 import java.util.*
-
 
 class ResultActivity : BaseActivity() {
 
@@ -29,12 +31,19 @@ class ResultActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        val imageUri = Uri.parse(intent.getStringExtra("imageUri"))
-        val imageView = findViewById(R.id.imageView) as ImageView
-        imageView.setImageURI(imageUri)
+        setImage()
 
         mSendFAB = findViewById(R.id.sendButton) as FloatingActionButton
         mSendFAB!!.setOnClickListener { view -> shareImage(imageUri) }
+    }
+
+    private fun setImage() {
+        doAsync {
+            val bytes = intent.getByteArrayExtra("bytes")
+            val bitmap = BitmapFactory.decodeByteArray(
+                    bytes, 0, bytes.size)
+            uiThread { imageView.setImageBitmap(bitmap) }
+        }
     }
 
     override fun onResume() {

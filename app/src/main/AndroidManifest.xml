@@ -36,6 +36,10 @@
             android:name=".ResultActivity"
             android:parentActivityName=".GridActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".EditActivity"
+            android:parentActivityName=".GridActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
