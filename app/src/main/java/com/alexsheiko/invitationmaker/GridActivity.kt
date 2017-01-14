@@ -35,8 +35,7 @@ class GridActivity : BaseActivity(), RewardListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grid)
 
-        val title = intent.getStringExtra("title")
-        supportActionBar?.title = title
+        title = intent.getStringExtra("title")
 
         val adapter = GridAdapter(this)
         recyclerView.setHasFixedSize(true)
@@ -153,9 +152,6 @@ class GridActivity : BaseActivity(), RewardListener {
                 startActivityForResult(intent, REQUEST_SHARE)
                 overridePendingTransition(0, 0)
             }
-        } else if (requestCode == REQUEST_SHARE) {
-            val imageUri = Uri.parse(data.getStringExtra("imageUri"))
-            openImageEditor(imageUri)
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
@@ -171,7 +167,7 @@ class GridActivity : BaseActivity(), RewardListener {
 
     fun openImageEditor(imageUri: Uri) {
         startActivity<EditActivity>(
-                "image" to imageUri,
+                "imageUri" to imageUri.toString(),
                 "title" to intent.getStringExtra("title")
         )
     }

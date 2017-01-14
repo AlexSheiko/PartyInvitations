@@ -1,6 +1,5 @@
 package com.alexsheiko.invitationmaker
 
-import android.app.Activity
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.BitmapFactory
@@ -8,7 +7,6 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
 import android.support.v4.content.FileProvider
 import android.support.v7.widget.CardView
 import android.view.MenuItem
@@ -24,7 +22,6 @@ import java.util.*
 class ResultActivity : BaseActivity() {
 
     private var mStartup = true
-    private var mSendFAB: FloatingActionButton? = null
     private var mShareUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,8 +30,7 @@ class ResultActivity : BaseActivity() {
 
         setImage()
 
-        mSendFAB = findViewById(R.id.sendButton) as FloatingActionButton
-        mSendFAB!!.setOnClickListener { view -> shareImage(imageUri) }
+        sendButton.setOnClickListener { view -> shareImage(Uri.parse("")) }
     }
 
     private fun setImage() {
@@ -56,10 +52,10 @@ class ResultActivity : BaseActivity() {
 
     private fun showFinishButton() {
         findViewById(R.id.finish_container).visibility = View.VISIBLE
-        mSendFAB!!.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
-        mSendFAB!!.setImageResource(R.drawable.ic_send)
+        sendButton.backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+        sendButton.setImageResource(R.drawable.ic_send)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mSendFAB!!.elevation = 0.0f
+            sendButton.elevation = 0.0f
             val containerCardView = findViewById(R.id.containerCardView) as CardView
             containerCardView.elevation = 0.0f
         }
@@ -72,14 +68,6 @@ class ResultActivity : BaseActivity() {
             return true
         }
         return false
-    }
-
-    override fun onBackPressed() {
-        val imageUri = Uri.parse(intent.getStringExtra("imageUri"))
-        val intent = Intent()
-        intent.putExtra("imageUri", imageUri.toString())
-        setResult(Activity.RESULT_CANCELED, intent)
-        super.onBackPressed()
     }
 
     fun onClickFinish(view: View) {

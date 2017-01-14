@@ -3,9 +3,11 @@ package com.alexsheiko.invitationmaker
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.ImageView
+import android.widget.TextView
 import com.alexsheiko.invitationmaker.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit.*
 import org.jetbrains.anko.doAsync
@@ -14,26 +16,31 @@ import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.uiThread
 import java.io.ByteArrayOutputStream
 
-
 class EditActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
 
-        setTitle()
         setImage()
+        setFields()
 
         reactToInput()
         doneButton.onClick { captureCanvas() }
+    }
+
+    private fun setFields() {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        name1.setText(prefs.getString("nameBride", "Leila"), TextView.BufferType.EDITABLE)
+        name2.setText(prefs.getString("nameGroom", "Markus"), TextView.BufferType.EDITABLE)
     }
 
     private fun captureCanvas() {
         doAsync {
             canvas.isDrawingCacheEnabled = true
             canvas.buildDrawingCache()
-            val bitmap = canvas.drawingCache
 
+            val bitmap = canvas.drawingCache
             val stream = ByteArrayOutputStream()
             bitmap.compress(Bitmap.CompressFormat.PNG, 50, stream)
 
@@ -44,7 +51,7 @@ class EditActivity : BaseActivity() {
     }
 
     private fun reactToInput() {
-        nameField.addTextChangedListener(object : TextWatcher {
+        name1.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -61,11 +68,5 @@ class EditActivity : BaseActivity() {
         val imageUri = Uri.parse(intent.getStringExtra("imageUri"))
         val imageView = findViewById(R.id.imageView) as ImageView
         imageView.setImageURI(imageUri)
-    }
-
-    private fun setTitle() {
-        val title = intent.getStringExtra("title")
-        setSupportActionBar(toolbar)
-        supportActionBar?.title = title
     }
 }
