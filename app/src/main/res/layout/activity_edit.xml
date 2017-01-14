@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.alexsheiko.invitationmaker.EditActivity">
+    tools:context="com.alexsheiko.invitationmaker.EditActivity"
+    tools:ignore="MissingPrefix">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,13 +16,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="18dp">
+            android:orientation="horizontal">
 
             <android.support.percent.PercentFrameLayout
                 android:id="@+id/canvas"
-                android:layout_width="150dp"
-                android:layout_height="100dp">
+                android:layout_width="100dp"
+                android:layout_height="76dp"
+                android:layout_margin="18dp">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -31,15 +32,26 @@
                     tools:src="@drawable/wedding_template_1"/>
 
                 <TextView
-                    android:id="@+id/nameLabel"
+                    android:id="@+id/name1Label"
+                    fontPath="fonts/DancingScript.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
-                    android:text="Theodore"
-                    android:textAllCaps="true"
-                    android:textSize="12sp"
+                    android:text="Leila &amp;"
+                    android:textSize="16sp"
                     app:layout_marginTopPercent="25%"/>
+
+                <TextView
+                    android:id="@+id/name2Label"
+                    fontPath="fonts/DancingScript.otf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="100dp"
+                    android:text="Markus"
+                    android:textSize="16sp"
+                    app:layout_marginTopPercent="44%"/>
 
             </android.support.percent.PercentFrameLayout>
 
@@ -53,8 +65,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/ic_done_white_24dp"/>
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_done_white_24dp"
+                app:useCompatPadding="true"/>
 
         </LinearLayout>
 
@@ -67,23 +81,53 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/name1Field"
+                        style="@style/EditText"
+                        android:hint="Bride"
+                        android:inputType="textPersonName|textCapWords"
+                        android:maxLength="10"
+                        tools:text="Leila"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/name2Field"
+                        style="@style/EditText"
+                        android:hint="Broom"
+                        android:inputType="textPersonName|textCapWords"
+                        android:maxLength="10"
+                        tools:text="Markus"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
             <android.support.design.widget.TextInputLayout
                 style="@style/TextInputLayout">
 
                 <EditText
-                    android:id="@+id/name1"
+                    android:id="@+id/addressField"
                     style="@style/EditText"
-                    android:hint="Bride"/>
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                style="@style/TextInputLayout">
-
-                <EditText
-                    android:id="@+id/name2"
-                    style="@style/EditText"
-                    android:hint="Broom"/>
+                    android:layout_marginTop="16dp"
+                    android:hint="Address"
+                    android:inputType="textPostalAddress|textCapWords"
+                    tools:text="Markus"/>
 
             </android.support.design.widget.TextInputLayout>
 

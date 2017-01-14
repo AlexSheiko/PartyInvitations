@@ -31,8 +31,8 @@ class EditActivity : BaseActivity() {
 
     private fun setFields() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        name1.setText(prefs.getString("nameBride", "Leila"), TextView.BufferType.EDITABLE)
-        name2.setText(prefs.getString("nameGroom", "Markus"), TextView.BufferType.EDITABLE)
+        name1Field.setText(prefs.getString("nameBride", "Leila"), TextView.BufferType.EDITABLE)
+        name2Field.setText(prefs.getString("nameGroom", "Markus"), TextView.BufferType.EDITABLE)
     }
 
     private fun captureCanvas() {
@@ -51,7 +51,7 @@ class EditActivity : BaseActivity() {
     }
 
     private fun reactToInput() {
-        name1.addTextChangedListener(object : TextWatcher {
+        name1Field.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -59,7 +59,18 @@ class EditActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                nameLabel.text = s
+                name1Label.text = "$s &"
+            }
+        })
+        name2Field.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                name2Label.text = s
             }
         })
     }
