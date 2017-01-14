@@ -38,8 +38,8 @@ class GridActivity : BaseActivity(), RewardListener {
         title = intent.getStringExtra("title")
 
         val adapter = GridAdapter(this)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = GridLayoutManager(this, 3)
+        // TODO: recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = adapter
 
         val category = intent.getStringExtra("category")

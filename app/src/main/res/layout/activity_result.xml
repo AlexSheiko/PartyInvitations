@@ -35,8 +35,8 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="240dp"
-                android:layout_height="371dp"
+                android:layout_width="371dp"
+                android:layout_height="240dp"
                 android:background="@android:color/transparent"
                 android:clickable="true"
                 android:foreground="?selectableItemBackground"

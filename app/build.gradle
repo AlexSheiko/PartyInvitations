@@ -6,6 +6,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     project.archivesBaseName = "Invitation Maker";
+
     defaultConfig {
         applicationId "com.alexsheiko.invitationmaker"
         minSdkVersion 16

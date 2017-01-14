@@ -7,11 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.GlideDrawable
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.util.*
@@ -41,24 +37,7 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val resId = mDataset[position]
-        Glide.with(mContext).load(resId).centerCrop()
-                .listener(object : RequestListener<Int?, GlideDrawable?> {
-                    override fun onResourceReady(resource: GlideDrawable?, model: Int?, target: Target<GlideDrawable?>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                        val templateName = mTemplateNames[position]
-                        val isPurchased = mPurchasedTemplates.contains(resId.toString())
-
-                            if (templateName.contains("paid") && !isPurchased) {
-                                holder?.mPriceTag?.visibility = View.VISIBLE
-                            } else {
-                                holder?.mPriceTag?.visibility = View.GONE
-                            }
-                        return false
-                    }
-
-                    override fun onException(e: Exception?, model: Int?, target: Target<GlideDrawable?>?, isFirstResource: Boolean): Boolean {
-                        return false
-                    }
-                }).into(holder?.mImageView)
+        Glide.with(mContext).load(resId).into(holder?.mImageView)
 
         holder?.mContainer?.setOnClickListener {
             (mContext as GridActivity).processClick(resId)
@@ -69,7 +48,6 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
         var mImageView: ImageView = v.findViewById(R.id.imageView) as ImageView
-        var mPriceTag: TextView = v.findViewById(R.id.priceTag) as TextView
         var mContainer: View = v.findViewById(R.id.container)
     }
 
