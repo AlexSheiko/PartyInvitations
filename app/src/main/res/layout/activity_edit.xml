@@ -178,6 +178,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Address, Time"
                     android:inputType="textPostalAddress|textCapWords|textMultiLine"
+                    android:lineSpacingMultiplier="0.8"
+                    android:translationY="-8dp"
                     tools:text="2509 Nogales Street, Texas"/>
 
             </android.support.design.widget.TextInputLayout>
