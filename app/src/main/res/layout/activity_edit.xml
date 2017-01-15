@@ -20,15 +20,15 @@
 
             <android.support.percent.PercentFrameLayout
                 android:id="@+id/canvas"
-                android:layout_width="100dp"
-                android:layout_height="76dp"
+                android:layout_width="200dp"
+                android:layout_height="142dp"
                 android:layout_margin="18dp">
 
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
                     android:transitionName="image"
                     tools:src="@drawable/wedding_template_1"/>
 
@@ -40,8 +40,8 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
                     android:text="Leila &amp;"
-                    android:textSize="12sp"
-                    app:layout_marginTopPercent="25%"/>
+                    android:textSize="18sp"
+                    app:layout_marginTopPercent="20%"/>
 
                 <TextView
                     android:id="@+id/name2Label"
@@ -51,8 +51,8 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
                     android:text="Markus"
-                    android:textSize="12sp"
-                    app:layout_marginTopPercent="44%"/>
+                    android:textSize="18sp"
+                    app:layout_marginTopPercent="35%"/>
 
                 <TextView
                     android:id="@+id/addressLabel"
@@ -60,10 +60,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
+                    android:gravity="center_horizontal"
                     android:lineSpacingMultiplier="0.8"
-                    android:text="2509 Nogales Street,\nCorpus Christi, Texas"
-                    android:textSize="4sp"
-                    app:layout_marginTopPercent="70%"/>
+                    android:text="2509 Nogales Street,\nTexas"
+                    android:textSize="8sp"
+                    app:layout_marginTopPercent="61%"/>
 
             </android.support.percent.PercentFrameLayout>
 
@@ -73,13 +74,13 @@
                 android:layout_weight="1"/>
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/doneButton"
+                android:id="@+id/shareButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="18dp"
-                android:src="@drawable/ic_done_white_24dp"
+                android:src="@drawable/ic_send_white_24dp"
                 app:useCompatPadding="true"/>
 
         </LinearLayout>
@@ -139,7 +140,7 @@
                     android:layout_marginTop="16dp"
                     android:hint="Address"
                     android:inputType="textPostalAddress|textCapWords"
-                    tools:text="2509 Nogales Street, Corpus Christi, Texas"/>
+                    tools:text="2509 Nogales Street, Texas"/>
 
             </android.support.design.widget.TextInputLayout>
 
