@@ -75,21 +75,29 @@ class EditActivity : BaseActivity() {
         firstLabel.typeface = font
         secondLabel.typeface = font
 
-        // 2. wedding
-        val nameBride = prefs.getString("nameBride", "Leila")
-        val nameBroom = prefs.getString("nameGroom", "Markus")
-        brideField.setText(nameBride, TextView.BufferType.EDITABLE)
-        broomField.setText(nameBroom, TextView.BufferType.EDITABLE)
-        firstLabel.text = formatBrideName(nameBride)
-        secondLabel.text = nameBroom
-
-        // 3. birthday
-        val title = prefs.getString("title", "Birthday Party!")
-        val nameAge = prefs.getString("nameAge", "Joey turns 18.")
-        titleField.setText(title, TextView.BufferType.EDITABLE)
-        nameAgeField.setText(nameAge, TextView.BufferType.EDITABLE)
-        firstLabel.text = title
-        secondLabel.text = nameAge
+        val category = intent.getStringExtra("category")
+        when (category) {
+            "wedding" -> {
+                // 2. wedding
+                weddingContainer.visibility = VISIBLE
+                val nameBride = prefs.getString("nameBride", "Leila")
+                val nameBroom = prefs.getString("nameGroom", "Markus")
+                brideField.setText(nameBride, TextView.BufferType.EDITABLE)
+                broomField.setText(nameBroom, TextView.BufferType.EDITABLE)
+                firstLabel.text = formatBrideName(nameBride)
+                secondLabel.text = nameBroom
+            }
+            "birthday" -> {
+                // 3. birthday
+                birthdayContainer.visibility = VISIBLE
+                val title = prefs.getString("title", "Birthday Party!")
+                val nameAge = prefs.getString("nameAge", "Joey turns 18.")
+                titleField.setText(title, TextView.BufferType.EDITABLE)
+                nameAgeField.setText(nameAge, TextView.BufferType.EDITABLE)
+                firstLabel.text = title
+                secondLabel.text = nameAge
+            }
+        }
     }
 
     private fun saveFields() {

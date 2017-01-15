@@ -1,7 +1,5 @@
 package com.alexsheiko.invitationmaker
 
-import android.app.Activity
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
@@ -9,7 +7,6 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.GridLayoutManager
-import android.view.MenuItem
 import com.alexsheiko.invitationmaker.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.doAsync
@@ -85,32 +82,11 @@ class GridActivity : BaseActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-        if (requestCode == REQUEST_CREATE) {
-            if (resultCode == Activity.RESULT_OK) {
-                val editedImageUri = data.data
-                val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("imageUri", editedImageUri.toString())
-                startActivityForResult(intent, REQUEST_SHARE)
-                overridePendingTransition(0, 0)
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
-        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            onBackPressed()
-            return true
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
     fun openImageEditor(imageUri: Uri, options: ActivityOptionsCompat) {
         startActivity(intentFor<EditActivity>(
                 "imageUri" to imageUri.toString(),
-                "title" to intent.getStringExtra("title")
+                "title" to intent.getStringExtra("title"),
+                "category" to intent.getStringExtra("category")
         ))
     }
 
@@ -144,10 +120,5 @@ class GridActivity : BaseActivity() {
         if (mSnackbar != null && mSnackbar!!.isShown) {
             mSnackbar!!.dismiss()
         }
-    }
-
-    companion object {
-        val REQUEST_CREATE = 101
-        private val REQUEST_SHARE = 237
     }
 }

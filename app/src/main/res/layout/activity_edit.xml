@@ -170,9 +170,12 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/birthdayContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <android.support.design.widget.TextInputLayout
                     style="@style/TextInputLayout"
@@ -195,7 +198,7 @@
                         android:id="@+id/nameAgeField"
                         style="@style/EditText"
                         android:hint="Name and age"
-                        android:inputType="textPersonName|textCapWords"
+                        android:inputType="textPersonName|textCapSentences"
                         tools:text="Joey turns 18."/>
 
                 </android.support.design.widget.TextInputLayout>
