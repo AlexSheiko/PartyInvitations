@@ -13,6 +13,7 @@ import android.view.View.VISIBLE
 import android.widget.TextView
 import com.alexsheiko.invitationmaker.ads.AdProvider
 import com.alexsheiko.invitationmaker.base.BaseActivity
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_edit.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.doAsync
@@ -257,7 +258,7 @@ class EditActivity : BaseActivity() {
     }
 
     private fun setImage() {
-        val imageUri = Uri.parse(intent.getStringExtra("imageUri"))
-        imageView.setImageURI(imageUri)
+        val resId = intent.getIntExtra("imageResId", -1)
+        Glide.with(this).load(resId).dontAnimate().into(imageView)
     }
 }

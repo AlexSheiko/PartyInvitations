@@ -24,7 +24,7 @@ class MainActivity : BaseActivity() {
             if (child is TextView) {
                 val title = child.text.toString()
                         .replace(" ", "").replace("\n", " ")
-                intent.putExtra("titleBirthday", title)
+                intent.putExtra("title", title)
                 intent.putExtra("category", child.tag.toString())
             }
         }
