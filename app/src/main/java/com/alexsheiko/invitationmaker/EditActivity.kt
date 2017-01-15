@@ -34,11 +34,25 @@ class EditActivity : BaseActivity() {
         shareButton.onClick { captureCanvas() }
     }
 
+    override fun onStop() {
+        super.onStop()
+        saveFields()
+    }
+
     private fun setFields() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         name1Field.setText(prefs.getString("nameBride", "Leila"), TextView.BufferType.EDITABLE)
         name2Field.setText(prefs.getString("nameGroom", "Markus"), TextView.BufferType.EDITABLE)
         addressField.setText(prefs.getString("address", "2509 Nogales Street, Texas"), TextView.BufferType.EDITABLE)
+    }
+
+    private fun saveFields() {
+        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
+        prefs.edit()
+                .putString("nameBride", name1Field.text.toString())
+                .putString("nameGroom", name2Field.text.toString())
+                .putString("address", addressField.text.toString())
+                .apply()
     }
 
     private fun captureCanvas() {

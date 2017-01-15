@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context="com.alexsheiko.invitationmaker.EditActivity"
     tools:ignore="MissingPrefix">
 
@@ -127,7 +128,8 @@
                 <android.support.design.widget.TextInputLayout
                     style="@style/TextInputLayout"
                     android:layout_width="0dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    app:hintAnimationEnabled="false">
 
                     <EditText
                         android:id="@+id/name1Field"
@@ -142,7 +144,8 @@
                 <android.support.design.widget.TextInputLayout
                     style="@style/TextInputLayout"
                     android:layout_width="0dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    app:hintAnimationEnabled="false">
 
                     <EditText
                         android:id="@+id/name2Field"
@@ -157,7 +160,8 @@
             </LinearLayout>
 
             <android.support.design.widget.TextInputLayout
-                style="@style/TextInputLayout">
+                style="@style/TextInputLayout"
+                app:hintAnimationEnabled="false">
 
                 <EditText
                     android:id="@+id/addressField"
@@ -170,6 +174,23 @@
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            android:alpha="0.7"
+            android:lineSpacingMultiplier="0.8"
+            android:text="You can go back to change the background,\nall information is saved"
+            android:textColor="@android:color/holo_green_dark"
+            android:textStyle="italic"/>
 
     </LinearLayout>
 
