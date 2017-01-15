@@ -9,7 +9,6 @@ import android.preference.PreferenceManager
 import android.support.v4.content.FileProvider
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.ImageView
 import android.widget.TextView
 import com.alexsheiko.invitationmaker.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit.*
@@ -31,7 +30,12 @@ class EditActivity : BaseActivity() {
         setFields()
 
         reactToInput()
+        setOnClickListeners()
+    }
+
+    private fun setOnClickListeners() {
         shareButton.onClick { captureCanvas() }
+        backHint.onClick { onBackPressed() }
     }
 
     override fun onStop() {
@@ -41,9 +45,18 @@ class EditActivity : BaseActivity() {
 
     private fun setFields() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        name1Field.setText(prefs.getString("nameBride", "Leila"), TextView.BufferType.EDITABLE)
-        name2Field.setText(prefs.getString("nameGroom", "Markus"), TextView.BufferType.EDITABLE)
-        addressField.setText(prefs.getString("address", "2509 Nogales Street, Texas"), TextView.BufferType.EDITABLE)
+
+        val nameBride = prefs.getString("nameBride", "Leila")
+        val nameBroom = prefs.getString("nameGroom", "Markus")
+        val address = prefs.getString("address", "2509 Nogales Street, Texas")
+
+        name1Field.setText(nameBride, TextView.BufferType.EDITABLE)
+        name2Field.setText(nameBroom, TextView.BufferType.EDITABLE)
+        addressField.setText(address, TextView.BufferType.EDITABLE)
+
+        name1Label.text = nameBride
+        name2Label.text = nameBroom
+        addressLabel.text = formatAddress(address)
     }
 
     private fun saveFields() {
@@ -56,9 +69,10 @@ class EditActivity : BaseActivity() {
     }
 
     private fun captureCanvas() {
-        canvas.isDrawingCacheEnabled = true
         canvas.backgroundColor = WHITE
+        canvas.isDrawingCacheEnabled = true
         canvas.buildDrawingCache()
+        canvas.isDrawingCacheEnabled = false
         val bitmap = canvas.drawingCache
 
         doAsync {
@@ -130,14 +144,17 @@ class EditActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                addressLabel.text = s.toString().replaceFirst(", ", ",\n")
+                addressLabel.text = formatAddress(s.toString())
             }
         })
     }
 
     private fun setImage() {
         val imageUri = Uri.parse(intent.getStringExtra("imageUri"))
-        val imageView = findViewById(R.id.imageView) as ImageView
         imageView.setImageURI(imageUri)
+    }
+
+    private fun formatAddress(address: String): String {
+        return address.replaceFirst(", ", ",\n")
     }
 }

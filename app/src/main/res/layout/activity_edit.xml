@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:descendantFocusability="afterDescendants"
     android:fillViewport="true"
     tools:context="com.alexsheiko.invitationmaker.EditActivity"
     tools:ignore="MissingPrefix">
@@ -13,6 +12,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <LinearLayout
@@ -49,9 +50,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
-                    android:text="Leila &amp;"
                     android:textSize="18sp"
-                    app:layout_marginTopPercent="20%"/>
+                    app:layout_marginTopPercent="20%"
+                    tools:text="Leila &amp;"/>
 
                 <TextView
                     android:id="@+id/name2Label"
@@ -60,9 +61,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
-                    android:text="Markus"
                     android:textSize="18sp"
-                    app:layout_marginTopPercent="35%"/>
+                    app:layout_marginTopPercent="35%"
+                    tools:text="Markus"/>
 
                 <TextView
                     android:id="@+id/addressLabel"
@@ -72,9 +73,9 @@
                     android:layout_marginTop="100dp"
                     android:gravity="center_horizontal"
                     android:lineSpacingMultiplier="0.8"
-                    android:text="2509 Nogales Street,\nTexas"
                     android:textSize="8sp"
-                    app:layout_marginTopPercent="61%"/>
+                    app:layout_marginTopPercent="61%"
+                    tools:text="2509 Nogales Street,\nTexas"/>
 
             </android.support.percent.PercentFrameLayout>
 
@@ -184,13 +185,18 @@
             android:layout_weight="1"/>
 
         <TextView
+            android:id="@+id/backHint"
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="64dp"
             android:layout_gravity="bottom"
-            android:layout_margin="20dp"
             android:alpha="0.7"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:gravity="center_vertical"
             android:lineSpacingMultiplier="0.8"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:text="You can go back to change the background,\nall information is saved"
             android:textColor="@android:color/holo_green_dark"
             android:textStyle="italic"/>
