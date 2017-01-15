@@ -69,31 +69,33 @@ class EditActivity : BaseActivity() {
     private fun setFields() {
         // 1. common
         val font = Typeface.createFromAsset(assets, "fonts/CaviarDreams.ttf")
-        val address = prefs.getString("address", "2509 Nogales Street, Texas")
+        val address = prefs.getString("address", "2509 Nogales Street, Texas\nSeptember 23, 6:00 PM")
         addressField.setText(address, TextView.BufferType.EDITABLE)
         addressLabel.text = address
         firstLabel.typeface = font
         secondLabel.typeface = font
 
+        // 2. wedding
+        val nameBride = prefs.getString("nameBride", "Leila")
+        val nameBroom = prefs.getString("nameGroom", "Markus")
+        brideField.setText(nameBride, TextView.BufferType.EDITABLE)
+        broomField.setText(nameBroom, TextView.BufferType.EDITABLE)
+
+        // 3. birthday
+        val title = prefs.getString("title", "Birthday Party!")
+        val nameAge = prefs.getString("nameAge", "Joey turns 18.")
+        titleField.setText(title, TextView.BufferType.EDITABLE)
+        nameAgeField.setText(nameAge, TextView.BufferType.EDITABLE)
+
         val category = intent.getStringExtra("category")
         when (category) {
             "wedding" -> {
-                // 2. wedding
                 weddingContainer.visibility = VISIBLE
-                val nameBride = prefs.getString("nameBride", "Leila")
-                val nameBroom = prefs.getString("nameGroom", "Markus")
-                brideField.setText(nameBride, TextView.BufferType.EDITABLE)
-                broomField.setText(nameBroom, TextView.BufferType.EDITABLE)
                 firstLabel.text = formatBrideName(nameBride)
                 secondLabel.text = nameBroom
             }
             "birthday" -> {
-                // 3. birthday
                 birthdayContainer.visibility = VISIBLE
-                val title = prefs.getString("title", "Birthday Party!")
-                val nameAge = prefs.getString("nameAge", "Joey turns 18.")
-                titleField.setText(title, TextView.BufferType.EDITABLE)
-                nameAgeField.setText(nameAge, TextView.BufferType.EDITABLE)
                 firstLabel.text = title
                 secondLabel.text = nameAge
             }

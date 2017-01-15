@@ -219,7 +219,7 @@
                     android:inputType="textPostalAddress|textCapWords|textMultiLine"
                     android:lineSpacingMultiplier="0.9"
                     android:translationY="-8dp"
-                    tools:text="2509 Nogales Street, Texas"/>
+                    tools:text="2509 Nogales Street, Texas\nSeptember 23, 6:00 PM"/>
 
             </android.support.design.widget.TextInputLayout>
 
