@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.support.v4.content.FileProvider
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View.VISIBLE
 import android.widget.TextView
 import com.alexsheiko.invitationmaker.ads.AdProvider
 import com.alexsheiko.invitationmaker.base.BaseActivity
@@ -40,7 +41,12 @@ class EditActivity : BaseActivity() {
     }
 
     private fun showTutorialIfNeeded() {
-
+        val firstLaunch = prefs.getBoolean("firstLaunch", true)
+        if (firstLaunch) {
+            prefs.edit().putBoolean("firstLaunch", false).apply()
+            shareHint.visibility = VISIBLE
+            backHint.visibility = VISIBLE
+        }
     }
 
     override fun onStop() {

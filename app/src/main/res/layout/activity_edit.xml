@@ -105,11 +105,14 @@
                     app:useCompatPadding="true"/>
 
                 <TextView
+                    android:id="@+id/shareHint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-14dp"
                     android:alpha="0.3"
-                    android:text="+ AD   "/>
+                    android:text="+ AD   "
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
 
             </LinearLayout>
 
@@ -199,7 +202,9 @@
             android:paddingRight="20dp"
             android:text="You can go back to change the background,\nall information is saved"
             android:textColor="@android:color/holo_green_dark"
-            android:textStyle="italic"/>
+            android:textStyle="italic"
+            android:visibility="gone"
+            tools:visibility="visible"/>
 
     </LinearLayout>
 
