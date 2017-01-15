@@ -65,12 +65,15 @@
 
     <style name="TextInputLayout">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">bottom</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:clipToPadding">false</item>
     </style>
 
     <style name="EditText">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">48dp</item>
     </style>
 
 </resources>
