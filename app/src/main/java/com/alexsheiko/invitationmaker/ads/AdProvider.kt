@@ -6,7 +6,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import org.jetbrains.anko.doAsync
 
-class AdProvider(private var mContext: Context) {
+class AdProvider(mContext: Context) {
 
     private var mInterstitialAd: InterstitialAd = InterstitialAd(mContext)
 

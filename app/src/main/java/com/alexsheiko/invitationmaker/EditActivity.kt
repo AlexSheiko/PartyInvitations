@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import android.graphics.Color.WHITE
 import android.net.Uri
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.support.v4.content.FileProvider
 import android.text.Editable
 import android.text.TextWatcher
@@ -31,13 +30,18 @@ class EditActivity : BaseActivity() {
 
         setImage()
         setFields()
-
-        reactToInput()
         setOnClickListeners()
 
+        showTutorialIfNeeded()
+        reactToInput()
+
         doAsync {
-            loadAd()
+            mAdProvider.loadInBackground()
         }
+    }
+
+    private fun showTutorialIfNeeded() {
+
     }
 
     override fun onStop() {
@@ -51,18 +55,12 @@ class EditActivity : BaseActivity() {
         mAdProvider.loadInBackground()
     }
 
-    private fun loadAd() {
-        mAdProvider.loadInBackground()
-    }
-
     private fun setOnClickListeners() {
         shareButton.onClick { captureCanvas() }
         backHint.onClick { onBackPressed() }
     }
 
     private fun setFields() {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-
         val nameBride = prefs.getString("nameBride", "Leila")
         val nameBroom = prefs.getString("nameGroom", "Markus")
         val address = prefs.getString("address", "2509 Nogales Street, Texas")
@@ -77,7 +75,6 @@ class EditActivity : BaseActivity() {
     }
 
     private fun saveFields() {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         prefs.edit()
                 .putString("nameBride", name1Field.text.toString())
                 .putString("nameGroom", name2Field.text.toString())

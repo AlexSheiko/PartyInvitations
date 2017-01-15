@@ -6,7 +6,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.GridLayoutManager
@@ -47,14 +46,12 @@ class GridActivity : BaseActivity(), CloseListener {
     }
 
     private fun recordPurchase(resId: Int) {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         val purchased = prefs.getStringSet("purchased", HashSet<String>())
         purchased.addAll(listOf(resId.toString()))
         prefs.edit().putStringSet("purchased", purchased).apply()
     }
 
     private fun getPurchasedTemplates(): MutableSet<String>? {
-        val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         return prefs.getStringSet("purchased", HashSet<String>())
     }
 
