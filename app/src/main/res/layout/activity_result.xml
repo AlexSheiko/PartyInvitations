@@ -42,7 +42,7 @@
                 android:clickable="true"
                 android:foreground="?selectableItemBackground"
                 android:onClick="onClickImage"
-                tools:src="@drawable/wedding_template_1"/>
+                tools:src="@drawable/wedding_template_3"/>
 
         </android.support.v7.widget.CardView>
 
