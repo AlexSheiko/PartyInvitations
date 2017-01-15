@@ -29,6 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
+                    android:transitionName="image"
                     tools:src="@drawable/wedding_template_1"/>
 
                 <TextView
@@ -39,7 +40,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
                     android:text="Leila &amp;"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     app:layout_marginTopPercent="25%"/>
 
                 <TextView
@@ -50,8 +51,19 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
                     android:text="Markus"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
                     app:layout_marginTopPercent="44%"/>
+
+                <TextView
+                    android:id="@+id/addressLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="100dp"
+                    android:lineSpacingMultiplier="0.8"
+                    android:text="2509 Nogales Street,\nCorpus Christi, Texas"
+                    android:textSize="4sp"
+                    app:layout_marginTopPercent="70%"/>
 
             </android.support.percent.PercentFrameLayout>
 
@@ -127,7 +139,7 @@
                     android:layout_marginTop="16dp"
                     android:hint="Address"
                     android:inputType="textPostalAddress|textCapWords"
-                    tools:text="Markus"/>
+                    tools:text="2509 Nogales Street, Corpus Christi, Texas"/>
 
             </android.support.design.widget.TextInputLayout>
 

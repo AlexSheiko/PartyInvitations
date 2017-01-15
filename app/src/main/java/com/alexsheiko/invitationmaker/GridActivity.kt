@@ -8,16 +8,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.design.widget.Snackbar
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
 import com.alexsheiko.invitationmaker.ads.RewardListener
 import com.alexsheiko.invitationmaker.base.BaseActivity
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.uiThread
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -59,50 +58,8 @@ class GridActivity : BaseActivity(), RewardListener {
         return prefs.getStringSet("purchased", HashSet<String>())
     }
 
-    fun processClick(resId: Int) {
-        showSnackBar()
-        doAsync {
-            val imageName = resources.getResourceEntryName(resId)
-            val isImagePaid = imageName.contains("paid")
-            val isPurchased = getPurchasedTemplates()!!.contains(resId.toString())
-
-            uiThread {
-                if (!isImagePaid || isPurchased) {
-                    openEditor(resId)
-                } else {
-                    if (mInterstitialAd == null) {
-                        mInterstitialAd = InterstitialAd(this@GridActivity)
-                        mInterstitialAd!!.adUnitId = "ca-app-pub-3038649646029056/5392277129"
-                    }
-                    requestNewInterstitial()
-                    mShowingAdForId = resId
-                }
-            }
-        }
-    }
-
-    private fun requestNewInterstitial() {
-        val adRequest = AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice("1A6B43A15E989B8B4F9121A9D649E323")
-                .build()
-
-        mInterstitialAd!!.loadAd(adRequest)
-        mInterstitialAd!!.adListener = object : AdListener() {
-            override fun onAdLoaded() {
-                mInterstitialAd!!.show()
-            }
-
-            override fun onAdClosed() {
-                recordPurchase(mShowingAdForId)
-                recyclerView.adapter.notifyDataSetChanged()
-                openEditor(mShowingAdForId)
-            }
-
-            override fun onAdLeftApplication() {
-                recordPurchase(mShowingAdForId)
-            }
-        }
+    fun processClick(resId: Int, options: ActivityOptionsCompat) {
+        openEditor(resId, options)
     }
 
     private fun getTemplates(category: String): List<Int> {
@@ -125,7 +82,7 @@ class GridActivity : BaseActivity(), RewardListener {
         return templates
     }
 
-    private fun openEditor(resId: Int) {
+    private fun openEditor(resId: Int, options: ActivityOptionsCompat) {
         var imageUri: Uri? = null
         doAsync {
             val bitmap = BitmapFactory.decodeResource(resources, resId)
@@ -137,7 +94,7 @@ class GridActivity : BaseActivity(), RewardListener {
             }
 
             uiThread {
-                openImageEditor(imageUri!!)
+                openImageEditor(imageUri!!, options)
                 dismissSnackbar()
             }
         }
@@ -165,11 +122,11 @@ class GridActivity : BaseActivity(), RewardListener {
         return super.onOptionsItemSelected(item)
     }
 
-    fun openImageEditor(imageUri: Uri) {
-        startActivity<EditActivity>(
+    fun openImageEditor(imageUri: Uri, options: ActivityOptionsCompat) {
+        startActivity(intentFor<EditActivity>(
                 "imageUri" to imageUri.toString(),
                 "title" to intent.getStringExtra("title")
-        )
+        ))
     }
 
     @Throws(IOException::class)
@@ -191,8 +148,7 @@ class GridActivity : BaseActivity(), RewardListener {
     }
 
     override fun onRewarded() {
-        showSnackBar()
-        openEditor(mShowingAdForId)
+        // TODO: remove
     }
 
     private fun showSnackBar() {

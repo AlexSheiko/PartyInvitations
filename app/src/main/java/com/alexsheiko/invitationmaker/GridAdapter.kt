@@ -1,7 +1,9 @@
 package com.alexsheiko.invitationmaker
 
+import android.app.Activity
 import android.content.Context
 import android.preference.PreferenceManager
+import android.support.v4.app.ActivityOptionsCompat.makeSceneTransitionAnimation
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,14 +14,11 @@ import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 import java.util.*
 
-
 class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolder>() {
 
     private var mContext: Context = context
     private var mDataset: ArrayList<Int> = ArrayList()
-
     private val mTemplateNames: ArrayList<String> = ArrayList()
-    private var mPurchasedTemplates: MutableSet<String> = getPurchasedTemplates()
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(mContext)
@@ -39,8 +38,11 @@ class GridAdapter(context: Context) : RecyclerView.Adapter<GridAdapter.ViewHolde
         val resId = mDataset[position]
         Glide.with(mContext).load(resId).into(holder?.mImageView)
 
+        val options = makeSceneTransitionAnimation(
+                mContext as Activity, holder?.mImageView, "image")
+
         holder?.mContainer?.setOnClickListener {
-            (mContext as GridActivity).processClick(resId)
+            (mContext as GridActivity).processClick(resId, options)
         }
     }
 

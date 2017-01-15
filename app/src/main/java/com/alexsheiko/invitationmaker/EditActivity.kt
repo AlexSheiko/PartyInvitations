@@ -33,6 +33,7 @@ class EditActivity : BaseActivity() {
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         name1Field.setText(prefs.getString("nameBride", "Leila"), TextView.BufferType.EDITABLE)
         name2Field.setText(prefs.getString("nameGroom", "Markus"), TextView.BufferType.EDITABLE)
+        addressField.setText(prefs.getString("address", "2509 Nogales Street, Corpus Christi, Texas"), TextView.BufferType.EDITABLE)
     }
 
     private fun captureCanvas() {
@@ -71,6 +72,17 @@ class EditActivity : BaseActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 name2Label.text = s
+            }
+        })
+        addressField.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                addressLabel.text = s.toString().replaceFirst(", ", ",\n")
             }
         })
     }
