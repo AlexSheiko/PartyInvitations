@@ -42,9 +42,9 @@ class EditActivity : BaseActivity() {
     }
 
     private fun showTutorialIfNeeded() {
-        val firstLaunch = prefs.getBoolean("firstLaunch", true)
-        if (firstLaunch) {
-            prefs.edit().putBoolean("firstLaunch", false).apply()
+        val launchCount = prefs.getInt("launchCount", 0)
+        if (launchCount < 3) {
+            prefs.edit().putInt("launchCount", launchCount + 1).apply()
             shareHint.visibility = VISIBLE
             backHint.visibility = VISIBLE
         }
@@ -67,28 +67,38 @@ class EditActivity : BaseActivity() {
     }
 
     private fun setFields() {
+        // 1. common
+        val font = Typeface.createFromAsset(assets, "fonts/CaviarDreams.ttf")
+        val address = prefs.getString("address", "2509 Nogales Street, Texas")
+        addressField.setText(address, TextView.BufferType.EDITABLE)
+        addressLabel.text = address
+        firstLabel.typeface = font
+        secondLabel.typeface = font
+
+        // 2. wedding
         val nameBride = prefs.getString("nameBride", "Leila")
         val nameBroom = prefs.getString("nameGroom", "Markus")
-        val address = prefs.getString("address", "2509 Nogales Street, Texas")
+        brideField.setText(nameBride, TextView.BufferType.EDITABLE)
+        broomField.setText(nameBroom, TextView.BufferType.EDITABLE)
+        firstLabel.text = formatBrideName(nameBride)
+        secondLabel.text = nameBroom
 
-        name1Field.setText(nameBride, TextView.BufferType.EDITABLE)
-        name2Field.setText(nameBroom, TextView.BufferType.EDITABLE)
-        addressField.setText(address, TextView.BufferType.EDITABLE)
-
-        name1Label.text = formatBrideName(nameBride)
-        name2Label.text = nameBroom
-        addressLabel.text = address
-
-        val font = Typeface.createFromAsset(assets, "fonts/CaviarDreams.ttf")
-        name1Label.typeface = font
-        name2Label.typeface = font
+        // 3. birthday
+        val title = prefs.getString("title", "Birthday Party!")
+        val nameAge = prefs.getString("nameAge", "Joey turns 18.")
+        titleField.setText(title, TextView.BufferType.EDITABLE)
+        nameAgeField.setText(nameAge, TextView.BufferType.EDITABLE)
+        firstLabel.text = title
+        secondLabel.text = nameAge
     }
 
     private fun saveFields() {
         prefs.edit()
-                .putString("nameBride", name1Field.text.toString())
-                .putString("nameGroom", name2Field.text.toString())
                 .putString("address", addressField.text.toString())
+                .putString("nameBride", brideField.text.toString())
+                .putString("nameGroom", broomField.text.toString())
+                .putString("title", titleField.text.toString())
+                .putString("nameAge", nameAgeField.text.toString())
                 .apply()
     }
 
@@ -139,7 +149,7 @@ class EditActivity : BaseActivity() {
     }
 
     private fun reactToInput() {
-        name1Field.addTextChangedListener(object : TextWatcher {
+        brideField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -147,10 +157,10 @@ class EditActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                name1Label.text = formatBrideName(s.toString())
+                firstLabel.text = formatBrideName(s.toString())
             }
         })
-        name2Field.addTextChangedListener(object : TextWatcher {
+        broomField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -158,7 +168,8 @@ class EditActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                name2Label.text = s
+
+                secondLabel.text = s
             }
         })
         addressField.addTextChangedListener(object : TextWatcher {
@@ -170,6 +181,28 @@ class EditActivity : BaseActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 addressLabel.text = s.toString()
+            }
+        })
+        titleField.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                firstLabel.text = s.toString()
+            }
+        })
+        nameAgeField.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                secondLabel.text = s.toString()
             }
         })
     }

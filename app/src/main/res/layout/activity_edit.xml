@@ -44,7 +44,7 @@
                     tools:src="@drawable/wedding_template_3"/>
 
                 <TextView
-                    android:id="@+id/name1Label"
+                    android:id="@+id/firstLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -55,7 +55,7 @@
                     tools:text="Leila &amp;"/>
 
                 <TextView
-                    android:id="@+id/name2Label"
+                    android:id="@+id/secondLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -128,9 +128,12 @@
             android:paddingRight="16dp">
 
             <LinearLayout
+                android:id="@+id/weddingContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="gone">
 
                 <android.support.design.widget.TextInputLayout
                     style="@style/TextInputLayout"
@@ -139,7 +142,7 @@
                     app:hintAnimationEnabled="false">
 
                     <EditText
-                        android:id="@+id/name1Field"
+                        android:id="@+id/brideField"
                         style="@style/EditText"
                         android:hint="Bride"
                         android:inputType="textPersonName|textCapWords"
@@ -155,12 +158,45 @@
                     app:hintAnimationEnabled="false">
 
                     <EditText
-                        android:id="@+id/name2Field"
+                        android:id="@+id/broomField"
                         style="@style/EditText"
                         android:hint="Broom"
                         android:inputType="textPersonName|textCapWords"
                         android:maxLength="10"
                         tools:text="Markus"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/TextInputLayout"
+                    app:hintAnimationEnabled="false">
+
+                    <EditText
+                        android:id="@+id/titleField"
+                        style="@style/EditText"
+                        android:hint="Title"
+                        android:inputType="textPersonName|textCapWords"
+                        tools:text="Birthday Party!"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/TextInputLayout"
+                    app:hintAnimationEnabled="false">
+
+                    <EditText
+                        android:id="@+id/nameAgeField"
+                        style="@style/EditText"
+                        android:hint="Name and age"
+                        android:inputType="textPersonName|textCapWords"
+                        tools:text="Joey turns 18."/>
 
                 </android.support.design.widget.TextInputLayout>
 
