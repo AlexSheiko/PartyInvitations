@@ -168,14 +168,16 @@
 
             <android.support.design.widget.TextInputLayout
                 style="@style/TextInputLayout"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 app:hintAnimationEnabled="false">
 
                 <EditText
                     android:id="@+id/addressField"
                     style="@style/EditText"
-                    android:layout_marginTop="16dp"
-                    android:hint="Address"
-                    android:inputType="textPostalAddress|textCapWords"
+                    android:layout_height="wrap_content"
+                    android:hint="Address, Time"
+                    android:inputType="textPostalAddress|textCapWords|textMultiLine"
                     tools:text="2509 Nogales Street, Texas"/>
 
             </android.support.design.widget.TextInputLayout>

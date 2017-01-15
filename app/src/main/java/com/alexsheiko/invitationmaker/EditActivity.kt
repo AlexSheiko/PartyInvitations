@@ -77,7 +77,7 @@ class EditActivity : BaseActivity() {
 
         name1Label.text = nameBride
         name2Label.text = nameBroom
-        addressLabel.text = formatAddress(address)
+        addressLabel.text = address
 
         val font = Typeface.createFromAsset(getAssets(), "fonts/CaviarDreams.ttf");
         name1Label.typeface = font;
@@ -169,7 +169,7 @@ class EditActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                addressLabel.text = formatAddress(s.toString())
+                addressLabel.text = s.toString()
             }
         })
     }
@@ -177,9 +177,5 @@ class EditActivity : BaseActivity() {
     private fun setImage() {
         val imageUri = Uri.parse(intent.getStringExtra("imageUri"))
         imageView.setImageURI(imageUri)
-    }
-
-    private fun formatAddress(address: String): String {
-        return address.replaceFirst(", ", ",\n")
     }
 }

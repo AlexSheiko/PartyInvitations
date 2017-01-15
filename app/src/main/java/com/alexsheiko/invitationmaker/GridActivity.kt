@@ -10,9 +10,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
-import com.alexsheiko.invitationmaker.ads.CloseListener
 import com.alexsheiko.invitationmaker.base.BaseActivity
-import com.google.android.gms.ads.InterstitialAd
 import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.intentFor
@@ -23,10 +21,8 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
 
-class GridActivity : BaseActivity(), CloseListener {
+class GridActivity : BaseActivity() {
 
-    private var mInterstitialAd: InterstitialAd? = null
-    private var mShowingAdForId: Int = 0
     private var mSnackbar: Snackbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,23 +32,13 @@ class GridActivity : BaseActivity(), CloseListener {
         title = intent.getStringExtra("title")
 
         val adapter = GridAdapter(this)
-        // TODO: recyclerView.setHasFixedSize(true)
+        recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = adapter
 
         val category = intent.getStringExtra("category")
         val templates = getTemplates(category)
         adapter.addAll(templates)
-    }
-
-    private fun recordPurchase(resId: Int) {
-        val purchased = prefs.getStringSet("purchased", HashSet<String>())
-        purchased.addAll(listOf(resId.toString()))
-        prefs.edit().putStringSet("purchased", purchased).apply()
-    }
-
-    private fun getPurchasedTemplates(): MutableSet<String>? {
-        return prefs.getStringSet("purchased", HashSet<String>())
     }
 
     fun processClick(resId: Int, options: ActivityOptionsCompat) {
@@ -80,6 +66,8 @@ class GridActivity : BaseActivity(), CloseListener {
     }
 
     private fun openEditor(resId: Int, options: ActivityOptionsCompat) {
+        showSnackBar()
+
         var imageUri: Uri? = null
         doAsync {
             val bitmap = BitmapFactory.decodeResource(resources, resId)
@@ -142,10 +130,6 @@ class GridActivity : BaseActivity(), CloseListener {
         fos.flush()
         fos.close()
         return file
-    }
-
-    override fun onClosed() {
-        // TODO: remove
     }
 
     private fun showSnackBar() {
