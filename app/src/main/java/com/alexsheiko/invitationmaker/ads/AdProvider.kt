@@ -4,7 +4,6 @@ import android.content.Context
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
-import org.jetbrains.anko.doAsync
 
 class AdProvider(mContext: Context) {
 
@@ -15,9 +14,7 @@ class AdProvider(mContext: Context) {
     }
 
     fun loadInBackground() {
-        doAsync {
             requestNewInterstitial()
-        }
     }
 
     private fun requestNewInterstitial() {
