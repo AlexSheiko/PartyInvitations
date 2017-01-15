@@ -11,7 +11,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.TextView
 import com.alexsheiko.invitationmaker.ads.AdProvider
-import com.alexsheiko.invitationmaker.ads.CloseListener
 import com.alexsheiko.invitationmaker.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit.*
 import org.jetbrains.anko.backgroundColor
@@ -22,9 +21,9 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
-class EditActivity : BaseActivity(), CloseListener {
+class EditActivity : BaseActivity() {
 
-    private val mAdProvider = AdProvider(this, this)
+    private val mAdProvider = AdProvider(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,15 +48,11 @@ class EditActivity : BaseActivity(), CloseListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         mAdProvider.show()
-        mAdProvider.load()
-    }
-
-    override fun onClosed() {
-        // No need for a listener right now
+        mAdProvider.loadInBackground()
     }
 
     private fun loadAd() {
-        mAdProvider.load()
+        mAdProvider.loadInBackground()
     }
 
     private fun setOnClickListeners() {

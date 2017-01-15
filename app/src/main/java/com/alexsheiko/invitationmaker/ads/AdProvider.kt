@@ -1,14 +1,12 @@
 package com.alexsheiko.invitationmaker.ads
 
 import android.content.Context
-
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
+import org.jetbrains.anko.doAsync
 
-class AdProvider(
-        private var mContext: Context,
-        private var mCloseListener: CloseListener) {
+class AdProvider(private var mContext: Context) {
 
     private var mInterstitialAd: InterstitialAd = InterstitialAd(mContext)
 
@@ -16,8 +14,10 @@ class AdProvider(
         mInterstitialAd.adUnitId = "ca-app-pub-3038649646029056/5392277129"
     }
 
-    fun load() {
-        requestNewInterstitial()
+    fun loadInBackground() {
+        doAsync {
+            requestNewInterstitial()
+        }
     }
 
     private fun requestNewInterstitial() {
@@ -25,7 +25,6 @@ class AdProvider(
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("1A6B43A15E989B8B4F9121A9D649E323")
                 .build()
-
         mInterstitialAd.loadAd(adRequest)
     }
 
@@ -37,10 +36,6 @@ class AdProvider(
                 override fun onAdLoaded() {
                     mInterstitialAd.show()
                     mInterstitialAd.adListener = null
-                }
-
-                override fun onAdClosed() {
-                    mCloseListener.onClosed()
                 }
             }
         }
