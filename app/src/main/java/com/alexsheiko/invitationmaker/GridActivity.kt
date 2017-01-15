@@ -26,7 +26,7 @@ class GridActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grid)
 
-        title = intent.getStringExtra("title")
+        title = intent.getStringExtra("titleBirthday")
 
         val adapter = GridAdapter(this)
         recyclerView.setHasFixedSize(true)
@@ -85,7 +85,7 @@ class GridActivity : BaseActivity() {
     fun openImageEditor(imageUri: Uri, options: ActivityOptionsCompat) {
         startActivity(intentFor<EditActivity>(
                 "imageUri" to imageUri.toString(),
-                "title" to intent.getStringExtra("title"),
+                "title" to intent.getStringExtra("titleBirthday"),
                 "category" to intent.getStringExtra("category")
         ))
     }

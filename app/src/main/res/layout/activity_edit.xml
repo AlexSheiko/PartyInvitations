@@ -60,6 +60,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingMultiplier="0.7"
                     android:textSize="18sp"
                     android:textStyle="italic"
                     app:layout_marginTopPercent="35%"
@@ -182,7 +184,7 @@
                     app:hintAnimationEnabled="false">
 
                     <EditText
-                        android:id="@+id/titleField"
+                        android:id="@+id/titleBirthdayField"
                         style="@style/EditText"
                         android:hint="Title"
                         android:inputType="textPersonName|textCapWords"
@@ -200,6 +202,46 @@
                         android:hint="Name and age"
                         android:inputType="textPersonName|textCapSentences"
                         tools:text="Joey turns 18."/>
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/partyContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/TextInputLayout"
+                    app:hintAnimationEnabled="false">
+
+                    <EditText
+                        android:id="@+id/titlePartyField"
+                        style="@style/EditText"
+                        android:hint="Title"
+                        android:inputType="textPersonName|textCapWords"
+                        tools:text="You are invited!"/>
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/TextInputLayout"
+                    android:layout_height="wrap_content"
+                    app:hintAnimationEnabled="false">
+
+                    <EditText
+                        android:id="@+id/detailsField"
+                        style="@style/EditText"
+                        android:layout_height="wrap_content"
+                        android:hint="Details"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:lineSpacingMultiplier="0.9"
+                        android:translationY="-8dp"
+                        tools:text="Jane's tea party"/>
 
                 </android.support.design.widget.TextInputLayout>
 

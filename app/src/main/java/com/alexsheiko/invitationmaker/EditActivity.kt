@@ -77,15 +77,21 @@ class EditActivity : BaseActivity() {
 
         // 2. wedding
         val nameBride = prefs.getString("nameBride", "Leila")
-        val nameBroom = prefs.getString("nameGroom", "Markus")
         brideField.setText(nameBride, TextView.BufferType.EDITABLE)
+        val nameBroom = prefs.getString("nameGroom", "Markus")
         broomField.setText(nameBroom, TextView.BufferType.EDITABLE)
 
         // 3. birthday
-        val title = prefs.getString("title", "Birthday Party!")
+        val titleBirthday = prefs.getString("titleBirthday", "Birthday Party!")
+        titleBirthdayField.setText(titleBirthday, TextView.BufferType.EDITABLE)
         val nameAge = prefs.getString("nameAge", "Joey turns 18.")
-        titleField.setText(title, TextView.BufferType.EDITABLE)
         nameAgeField.setText(nameAge, TextView.BufferType.EDITABLE)
+
+        // 4. party
+        val titleParty = prefs.getString("titleParty", "You are invited!")
+        titlePartyField.setText(titleParty, TextView.BufferType.EDITABLE)
+        val details = prefs.getString("details", "Jane's tea party")
+        detailsField.setText(details, TextView.BufferType.EDITABLE)
 
         val category = intent.getStringExtra("category")
         when (category) {
@@ -96,8 +102,13 @@ class EditActivity : BaseActivity() {
             }
             "birthday" -> {
                 birthdayContainer.visibility = VISIBLE
-                firstLabel.text = title
+                firstLabel.text = titleBirthday
                 secondLabel.text = nameAge
+            }
+            "party" -> {
+                partyContainer.visibility = VISIBLE
+                firstLabel.text = titleParty
+                secondLabel.text = details
             }
         }
     }
@@ -107,8 +118,10 @@ class EditActivity : BaseActivity() {
                 .putString("address", addressField.text.toString())
                 .putString("nameBride", brideField.text.toString())
                 .putString("nameGroom", broomField.text.toString())
-                .putString("title", titleField.text.toString())
+                .putString("titleBirthday", titleBirthdayField.text.toString())
                 .putString("nameAge", nameAgeField.text.toString())
+                .putString("titleParty", titlePartyField.text.toString())
+                .putString("details", detailsField.text.toString())
                 .apply()
     }
 
@@ -193,7 +206,7 @@ class EditActivity : BaseActivity() {
                 addressLabel.text = s.toString()
             }
         })
-        titleField.addTextChangedListener(object : TextWatcher {
+        titleBirthdayField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
@@ -205,6 +218,28 @@ class EditActivity : BaseActivity() {
             }
         })
         nameAgeField.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                secondLabel.text = s.toString()
+            }
+        })
+        titlePartyField.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                firstLabel.text = s.toString()
+            }
+        })
+        detailsField.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }
 
