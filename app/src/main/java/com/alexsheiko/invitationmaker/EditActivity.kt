@@ -10,6 +10,8 @@ import android.support.v4.content.FileProvider
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.TextView
+import com.alexsheiko.invitationmaker.ads.AdProvider
+import com.alexsheiko.invitationmaker.ads.CloseListener
 import com.alexsheiko.invitationmaker.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit.*
 import org.jetbrains.anko.backgroundColor
@@ -20,7 +22,9 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
-class EditActivity : BaseActivity() {
+class EditActivity : BaseActivity(), CloseListener {
+
+    private val mAdProvider = AdProvider(this, this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,16 +35,34 @@ class EditActivity : BaseActivity() {
 
         reactToInput()
         setOnClickListeners()
-    }
 
-    private fun setOnClickListeners() {
-        shareButton.onClick { captureCanvas() }
-        backHint.onClick { onBackPressed() }
+        doAsync {
+            loadAd()
+        }
     }
 
     override fun onStop() {
         super.onStop()
         saveFields()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        mAdProvider.show()
+        mAdProvider.load()
+    }
+
+    override fun onClosed() {
+        // No need for a listener right now
+    }
+
+    private fun loadAd() {
+        mAdProvider.load()
+    }
+
+    private fun setOnClickListeners() {
+        shareButton.onClick { captureCanvas() }
+        backHint.onClick { onBackPressed() }
     }
 
     private fun setFields() {
@@ -72,7 +94,7 @@ class EditActivity : BaseActivity() {
         canvas.backgroundColor = WHITE
         canvas.isDrawingCacheEnabled = true
         canvas.buildDrawingCache()
-        canvas.isDrawingCacheEnabled = false
+        // TODO: canvas.isDrawingCacheEnabled = false
         val bitmap = canvas.drawingCache
 
         doAsync {
@@ -110,7 +132,8 @@ class EditActivity : BaseActivity() {
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) // temp permission for receiving app to read this file
         shareIntent.setDataAndType(contentUri, contentResolver.getType(contentUri))
         shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri)
-        startActivity(Intent.createChooser(shareIntent, "Choose an app"))
+        startActivityForResult(Intent.createChooser(shareIntent,
+                resources.getText(R.string.send_to)), 1)
     }
 
     private fun reactToInput() {

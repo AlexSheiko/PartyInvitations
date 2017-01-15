@@ -11,7 +11,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.GridLayoutManager
 import android.view.MenuItem
-import com.alexsheiko.invitationmaker.ads.RewardListener
+import com.alexsheiko.invitationmaker.ads.CloseListener
 import com.alexsheiko.invitationmaker.base.BaseActivity
 import com.google.android.gms.ads.InterstitialAd
 import kotlinx.android.synthetic.main.activity_grid.*
@@ -24,7 +24,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
 
-class GridActivity : BaseActivity(), RewardListener {
+class GridActivity : BaseActivity(), CloseListener {
 
     private var mInterstitialAd: InterstitialAd? = null
     private var mShowingAdForId: Int = 0
@@ -147,7 +147,7 @@ class GridActivity : BaseActivity(), RewardListener {
         return file
     }
 
-    override fun onRewarded() {
+    override fun onClosed() {
         // TODO: remove
     }
 
