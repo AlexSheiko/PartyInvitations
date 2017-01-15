@@ -3,6 +3,7 @@ package com.alexsheiko.invitationmaker
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color.WHITE
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.content.FileProvider
@@ -77,6 +78,10 @@ class EditActivity : BaseActivity() {
         name1Label.text = nameBride
         name2Label.text = nameBroom
         addressLabel.text = formatAddress(address)
+
+        val font = Typeface.createFromAsset(getAssets(), "fonts/CaviarDreams.ttf");
+        name1Label.typeface = font;
+        name2Label.typeface = font;
     }
 
     private fun saveFields() {

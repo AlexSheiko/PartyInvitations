@@ -45,23 +45,23 @@
 
                 <TextView
                     android:id="@+id/name1Label"
-                    fontPath="fonts/DancingScript.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
                     android:textSize="18sp"
+                    android:textStyle="italic"
                     app:layout_marginTopPercent="20%"
                     tools:text="Leila &amp;"/>
 
                 <TextView
                     android:id="@+id/name2Label"
-                    fontPath="fonts/DancingScript.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="100dp"
                     android:textSize="18sp"
+                    android:textStyle="italic"
                     app:layout_marginTopPercent="35%"
                     tools:text="Markus"/>
 
