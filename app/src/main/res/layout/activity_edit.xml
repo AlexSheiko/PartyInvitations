@@ -18,11 +18,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <android.support.percent.PercentFrameLayout
-                android:id="@+id/canvas"
-                android:layout_width="200dp"
-                android:layout_height="142dp"
-                android:layout_margin="18dp">
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:elevation="1dp"
+                card_view:cardCornerRadius="0dp">
+
+                <android.support.percent.PercentFrameLayout
+                    android:id="@+id/canvas"
+                    android:layout_width="200dp"
+                    android:layout_height="141dp">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -67,6 +75,8 @@
                     app:layout_marginTopPercent="61%"/>
 
             </android.support.percent.PercentFrameLayout>
+
+            </android.support.v7.widget.CardView>
 
             <Space
                 android:layout_width="0dp"
