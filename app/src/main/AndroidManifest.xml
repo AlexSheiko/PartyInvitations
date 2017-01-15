@@ -21,7 +21,7 @@
         </provider>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:theme="@style/AppTheme.Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -30,15 +30,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GridActivity"
-            android:parentActivityName=".MainActivity"/>
+            android:name=".ui.GridActivity"
+            android:parentActivityName=".ui.MainActivity"/>
         <activity
             android:name=".ui.ResultActivity"
-            android:parentActivityName=".GridActivity"
+            android:parentActivityName=".ui.GridActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".EditActivity"
-            android:parentActivityName=".GridActivity"
+            android:name=".ui.EditActivity"
+            android:parentActivityName=".ui.GridActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
