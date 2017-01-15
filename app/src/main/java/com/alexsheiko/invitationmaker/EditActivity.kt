@@ -75,13 +75,13 @@ class EditActivity : BaseActivity() {
         name2Field.setText(nameBroom, TextView.BufferType.EDITABLE)
         addressField.setText(address, TextView.BufferType.EDITABLE)
 
-        name1Label.text = nameBride
+        name1Label.text = formatBrideName(nameBride)
         name2Label.text = nameBroom
         addressLabel.text = address
 
-        val font = Typeface.createFromAsset(getAssets(), "fonts/CaviarDreams.ttf");
-        name1Label.typeface = font;
-        name2Label.typeface = font;
+        val font = Typeface.createFromAsset(assets, "fonts/CaviarDreams.ttf")
+        name1Label.typeface = font
+        name2Label.typeface = font
     }
 
     private fun saveFields() {
@@ -147,7 +147,7 @@ class EditActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                name1Label.text = "$s &"
+                name1Label.text = formatBrideName(s.toString())
             }
         })
         name2Field.addTextChangedListener(object : TextWatcher {
@@ -172,6 +172,10 @@ class EditActivity : BaseActivity() {
                 addressLabel.text = s.toString()
             }
         })
+    }
+
+    private fun formatBrideName(s: String): String {
+        return "$s &"
     }
 
     private fun setImage() {
