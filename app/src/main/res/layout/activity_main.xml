@@ -78,7 +78,8 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/GridRow">
+            style="@style/GridRow"
+            android:visibility="gone">
 
             <LinearLayout
                 style="@style/GridCell">
