@@ -1,4 +1,4 @@
-package com.alexsheiko.invitationmaker
+package com.alexsheiko.invitationmaker.ui
 
 import android.content.Intent
 import android.content.res.ColorStateList
@@ -12,7 +12,7 @@ import android.support.v7.widget.CardView
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import com.alexsheiko.invitationmaker.base.BaseActivity
+import com.alexsheiko.invitationmaker.R
 import kotlinx.android.synthetic.main.activity_result.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread

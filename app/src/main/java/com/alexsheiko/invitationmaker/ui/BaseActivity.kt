@@ -1,5 +1,6 @@
-package com.alexsheiko.invitationmaker.base
+package com.alexsheiko.invitationmaker.ui
 
+import android.R
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
@@ -16,7 +17,7 @@ open class BaseActivity : AppCompatActivity(), Extensions {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
+        if (item.itemId == R.id.home) {
             onBackPressed()
             return true
         }

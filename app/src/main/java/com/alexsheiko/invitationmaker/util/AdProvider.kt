@@ -1,4 +1,4 @@
-package com.alexsheiko.invitationmaker.ads
+package com.alexsheiko.invitationmaker.util
 
 import android.content.Context
 import com.google.android.gms.ads.AdListener

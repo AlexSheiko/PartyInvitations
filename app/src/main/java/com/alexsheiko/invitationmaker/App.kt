@@ -4,7 +4,7 @@ import android.app.Application
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 
 
-class InvitationApp : Application() {
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()

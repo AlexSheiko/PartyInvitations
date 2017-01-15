@@ -4,7 +4,7 @@
           android:installLocation="preferExternal">
 
     <application
-        android:name=".InvitationApp"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -33,7 +33,7 @@
             android:name=".GridActivity"
             android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".ResultActivity"
+            android:name=".ui.ResultActivity"
             android:parentActivityName=".GridActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
