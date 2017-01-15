@@ -56,12 +56,12 @@ class EditActivity : BaseActivity() {
     }
 
     private fun captureCanvas() {
-        doAsync {
-            canvas.isDrawingCacheEnabled = true
-            canvas.backgroundColor = WHITE
-            canvas.buildDrawingCache()
+        canvas.isDrawingCacheEnabled = true
+        canvas.backgroundColor = WHITE
+        canvas.buildDrawingCache()
+        val bitmap = canvas.drawingCache
 
-            val bitmap = canvas.drawingCache
+        doAsync {
             saveImage(bitmap)
 
             uiThread {
