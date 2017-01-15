@@ -18,7 +18,6 @@ import org.jetbrains.anko.onClick
 import org.jetbrains.anko.uiThread
 import java.io.File
 import java.io.FileOutputStream
-import java.io.IOException
 
 class EditActivity : BaseActivity() {
 
@@ -86,7 +85,6 @@ class EditActivity : BaseActivity() {
         canvas.backgroundColor = WHITE
         canvas.isDrawingCacheEnabled = true
         canvas.buildDrawingCache()
-        // TODO: canvas.isDrawingCacheEnabled = false
         val bitmap = canvas.drawingCache
 
         doAsync {
@@ -94,6 +92,7 @@ class EditActivity : BaseActivity() {
 
             uiThread {
                 shareImage()
+                canvas.isDrawingCacheEnabled = false
             }
         }
     }
@@ -105,7 +104,7 @@ class EditActivity : BaseActivity() {
             val stream = FileOutputStream("$cachePath/image.png")
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
             stream.close()
-        } catch (e: IOException) {
+        } catch (e: Exception) {
             e.printStackTrace()
         }
     }
