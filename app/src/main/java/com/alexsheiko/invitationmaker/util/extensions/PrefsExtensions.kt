@@ -1,10 +1,10 @@
-package com.alexsheiko.invitationmaker.util
+package com.alexsheiko.invitationmaker.util.extensions
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 
-interface Extensions {
+interface PrefsExtensions {
 
     val Context.prefs: SharedPreferences get() = PreferenceManager.getDefaultSharedPreferences(this)
 }

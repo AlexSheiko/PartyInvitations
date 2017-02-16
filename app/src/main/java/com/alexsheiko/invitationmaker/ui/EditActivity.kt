@@ -1,6 +1,7 @@
 package com.alexsheiko.invitationmaker.ui
 
 import android.content.Intent
+import android.content.Intent.createChooser
 import android.graphics.Bitmap
 import android.graphics.Color.WHITE
 import android.graphics.Typeface
@@ -30,25 +31,13 @@ class EditActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
 
-        setImage()
-        setFields()
-        setOnClickListeners()
+        showImage()
+        populateFields()
+        attachClickListeners()
 
         showTutorialIfNeeded()
         reactToInput()
-
-        doAsync {
-            mAdProvider.loadInBackground()
-        }
-    }
-
-    private fun showTutorialIfNeeded() {
-        val launchCount = prefs.getInt("launchCount", 0)
-        if (launchCount < 3) {
-            prefs.edit().putInt("launchCount", launchCount + 1).apply()
-            shareHint.visibility = VISIBLE
-            backHint.visibility = VISIBLE
-        }
+        preloadAd()
     }
 
     override fun onStop() {
@@ -62,12 +51,25 @@ class EditActivity : BaseActivity() {
         mAdProvider.loadInBackground()
     }
 
-    private fun setOnClickListeners() {
+    private fun preloadAd() {
+        mAdProvider.loadInBackground()
+    }
+
+    private fun showTutorialIfNeeded() {
+        val launchCount = prefs.getInt("launchCount", 0)
+        if (launchCount < 3) {
+            prefs.edit().putInt("launchCount", launchCount + 1).apply()
+            shareHint.visibility = VISIBLE
+            backHint.visibility = VISIBLE
+        }
+    }
+
+    private fun attachClickListeners() {
         shareButton.onClick { captureCanvas() }
         backHint.onClick { onBackPressed() }
     }
 
-    private fun setFields() {
+    private fun populateFields() {
         // 1. common
         val font = Typeface.createFromAsset(assets, "fonts/CaviarDreams.ttf")
         val address = prefs.getString("address", "2509 Nogales Street, Texas\nSeptember 23, 6:00 PM")
@@ -136,7 +138,7 @@ class EditActivity : BaseActivity() {
             saveImage(bitmap)
 
             uiThread {
-                shareImage()
+                shareImage(getImageUri())
                 canvas.isDrawingCacheEnabled = false
             }
         }
@@ -161,14 +163,13 @@ class EditActivity : BaseActivity() {
                 "com.alexsheiko.invitationmaker.fileprovider", newFile)
     }
 
-    private fun shareImage() {
-        val contentUri = getImageUri()
-        val shareIntent = Intent()
-        shareIntent.action = Intent.ACTION_SEND
-        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) // temp permission for receiving app to read this file
-        shareIntent.setDataAndType(contentUri, contentResolver.getType(contentUri))
-        shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri)
-        startActivityForResult(Intent.createChooser(shareIntent,
+    private fun shareImage(imageUri: Uri) {
+        val i = Intent()
+        i.action = Intent.ACTION_SEND
+        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) // temp permission for receiving app to read this file
+        i.setDataAndType(imageUri, contentResolver.getType(imageUri))
+        i.putExtra(Intent.EXTRA_STREAM, imageUri)
+        startActivityForResult(createChooser(i,
                 resources.getText(R.string.send_to)), 1)
     }
 
@@ -257,7 +258,7 @@ class EditActivity : BaseActivity() {
         return "$s &"
     }
 
-    private fun setImage() {
+    private fun showImage() {
         val resId = intent.getIntExtra("imageResId", -1)
         Glide.with(this).load(resId).dontAnimate().into(imageView)
     }
