@@ -1,25 +1,22 @@
 package com.alexsheiko.invitationmaker.ui
 
-import android.R
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.alexsheiko.invitationmaker.util.extensions.PrefsExtensions
-import com.alexsheiko.invitationmaker.util.extensions.ShareExtensions
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+import com.alexsheiko.invitationmaker.R.id.home
+import com.alexsheiko.invitationmaker.util.extensions.BaseExtensions
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper.wrap
 
-open class BaseActivity : AppCompatActivity(),
-        PrefsExtensions, ShareExtensions {
+abstract class BaseActivity : AppCompatActivity(),
+        BaseExtensions {
 
-    /**
-     * Use custom font in all screens.
-     */
     override fun attachBaseContext(newBase: Context) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+        // Use custom font
+        super.attachBaseContext(wrap(newBase))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.home) {
+        if (item.itemId == home) {
             onBackPressed()
             return true
         }
