@@ -3,6 +3,7 @@ package com.alexsheiko.invitationmaker.ui
 import android.content.Intent
 import android.content.Intent.createChooser
 import android.graphics.Bitmap
+import android.graphics.Bitmap.CompressFormat.PNG
 import android.graphics.Color.WHITE
 import android.graphics.Typeface
 import android.net.Uri
@@ -145,15 +146,11 @@ class EditActivity : BaseActivity() {
     }
 
     private fun saveImage(bitmap: Bitmap) {
-        try {
-            val cachePath = File(cacheDir, "images")
-            cachePath.mkdirs()
-            val stream = FileOutputStream("$cachePath/image.png")
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-            stream.close()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+        val cachePath = File(cacheDir, "images")
+        cachePath.mkdirs()
+        val stream = FileOutputStream("$cachePath/image.png")
+        bitmap.compress(PNG, 100, stream)
+        stream.close()
     }
 
     private fun getImageUri(): Uri {
