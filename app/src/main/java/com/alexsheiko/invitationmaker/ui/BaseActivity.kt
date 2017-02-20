@@ -4,7 +4,7 @@ import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.alexsheiko.invitationmaker.R.id.home
-import com.alexsheiko.invitationmaker.util.extensions.BaseExtensions
+import com.alexsheiko.invitationmaker.extensions.BaseExtensions
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper.wrap
 
 abstract class BaseActivity : AppCompatActivity(),

@@ -14,7 +14,7 @@ import android.text.TextWatcher
 import android.view.View.VISIBLE
 import android.widget.TextView
 import com.alexsheiko.invitationmaker.R
-import com.alexsheiko.invitationmaker.util.AdProvider
+import com.alexsheiko.invitationmaker.ads.AdProvider
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_edit.*
 import org.jetbrains.anko.backgroundColor

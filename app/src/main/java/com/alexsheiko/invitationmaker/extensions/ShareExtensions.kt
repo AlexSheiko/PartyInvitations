@@ -1,4 +1,4 @@
-package com.alexsheiko.invitationmaker.util.extensions
+package com.alexsheiko.invitationmaker.extensions
 
 import android.app.Activity
 import android.content.Intent
