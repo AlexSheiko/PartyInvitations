@@ -1,9 +1,9 @@
-package com.alexsheiko.invitationmaker.ui
+package com.alexsheiko.invite.ui
 
 import android.os.Bundle
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.GridLayoutManager
-import com.alexsheiko.invitationmaker.R
+import com.alexsheiko.invite.R
 import kotlinx.android.synthetic.main.activity_grid.*
 import org.jetbrains.anko.intentFor
 import java.util.*

@@ -1,7 +1,6 @@
-package com.alexsheiko.invitationmaker.ui
+package com.alexsheiko.invite.ui
 
 import android.content.Intent
-import android.content.Intent.createChooser
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat.PNG
 import android.graphics.Color.WHITE
@@ -13,8 +12,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View.VISIBLE
 import android.widget.TextView
-import com.alexsheiko.invitationmaker.R
-import com.alexsheiko.invitationmaker.ads.AdProvider
+import com.alexsheiko.invite.R
+import com.alexsheiko.invite.ads.AdProvider
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_edit.*
 import org.jetbrains.anko.backgroundColor
@@ -34,7 +33,7 @@ class EditActivity : BaseActivity() {
 
         showImage()
         populateFields()
-        attachClickListeners()
+        handleClicks()
 
         showTutorialIfNeeded()
         reactToInput()
@@ -65,13 +64,13 @@ class EditActivity : BaseActivity() {
         }
     }
 
-    private fun attachClickListeners() {
+    private fun handleClicks() {
         shareButton.onClick { captureCanvas() }
         backHint.onClick { onBackPressed() }
     }
 
     private fun populateFields() {
-        // 1. common
+        // Common
         val font = Typeface.createFromAsset(assets, "fonts/CaviarDreams.ttf")
         val address = prefs.getString("address", "2509 Nogales Street, Texas\nSeptember 23, 6:00 PM")
         addressField.setText(address, TextView.BufferType.EDITABLE)
@@ -79,19 +78,19 @@ class EditActivity : BaseActivity() {
         firstLabel.typeface = font
         secondLabel.typeface = font
 
-        // 2. wedding
+        // Wedding
         val nameBride = prefs.getString("nameBride", "Leila")
         brideField.setText(nameBride, TextView.BufferType.EDITABLE)
         val nameBroom = prefs.getString("nameGroom", "Markus")
         broomField.setText(nameBroom, TextView.BufferType.EDITABLE)
 
-        // 3. birthday
+        // Birthday
         val titleBirthday = prefs.getString("titleBirthday", "Birthday Party!")
         titleBirthdayField.setText(titleBirthday, TextView.BufferType.EDITABLE)
         val nameAge = prefs.getString("nameAge", "Joey turns 18.")
         nameAgeField.setText(nameAge, TextView.BufferType.EDITABLE)
 
-        // 4. party
+        // Party
         val titleParty = prefs.getString("titleParty", "You are invited!")
         titlePartyField.setText(titleParty, TextView.BufferType.EDITABLE)
         val details = prefs.getString("details", "Jane's tea party")
@@ -158,16 +157,6 @@ class EditActivity : BaseActivity() {
         val newFile = File(imagePath, "image.png")
         return FileProvider.getUriForFile(this,
                 "com.alexsheiko.invitationmaker.fileprovider", newFile)
-    }
-
-    private fun shareImage(imageUri: Uri) {
-        val i = Intent()
-        i.action = Intent.ACTION_SEND
-        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION) // temp permission for receiving app to read this file
-        i.setDataAndType(imageUri, contentResolver.getType(imageUri))
-        i.putExtra(Intent.EXTRA_STREAM, imageUri)
-        startActivityForResult(createChooser(i,
-                resources.getText(R.string.send_to)), 1)
     }
 
     private fun reactToInput() {

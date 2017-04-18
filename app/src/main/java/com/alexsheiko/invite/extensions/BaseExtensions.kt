@@ -1,4 +1,4 @@
-package com.alexsheiko.invitationmaker.extensions
+package com.alexsheiko.invite.extensions
 
 interface BaseExtensions :
         PrefsExtensions,

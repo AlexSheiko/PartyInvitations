@@ -1,10 +1,10 @@
-package com.alexsheiko.invitationmaker.ui
+package com.alexsheiko.invite.ui
 
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.alexsheiko.invitationmaker.R.id.home
-import com.alexsheiko.invitationmaker.extensions.BaseExtensions
+import com.alexsheiko.invite.R.id.home
+import com.alexsheiko.invite.extensions.BaseExtensions
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper.wrap
 
 abstract class BaseActivity : AppCompatActivity(),

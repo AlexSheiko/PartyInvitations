@@ -1,4 +1,4 @@
-package com.alexsheiko.invitationmaker
+package com.alexsheiko.invite
 
 import android.app.Application
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig

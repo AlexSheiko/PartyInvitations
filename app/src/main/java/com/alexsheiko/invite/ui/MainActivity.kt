@@ -1,11 +1,11 @@
-package com.alexsheiko.invitationmaker.ui
+package com.alexsheiko.invite.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.alexsheiko.invitationmaker.R
+import com.alexsheiko.invite.R
 
 class MainActivity : BaseActivity() {
 

@@ -1,10 +1,10 @@
-package com.alexsheiko.invitationmaker.extensions
+package com.alexsheiko.invite.extensions
 
 import android.app.Activity
 import android.content.Intent
 import android.content.Intent.*
 import android.net.Uri
-import com.alexsheiko.invitationmaker.R
+import com.alexsheiko.invite.R
 
 interface ShareExtensions {
 
