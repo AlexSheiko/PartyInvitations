@@ -1,6 +1,5 @@
 package com.alexsheiko.invite.ui
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat.PNG
 import android.graphics.Color.WHITE
@@ -13,7 +12,8 @@ import android.text.TextWatcher
 import android.view.View.VISIBLE
 import android.widget.TextView
 import com.alexsheiko.invite.R
-import com.alexsheiko.invite.ads.AdProvider
+import com.alexsheiko.invite.util.prefs
+import com.alexsheiko.invite.util.shareImage
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_edit.*
 import org.jetbrains.anko.backgroundColor
@@ -25,8 +25,6 @@ import java.io.FileOutputStream
 
 class EditActivity : BaseActivity() {
 
-    private val mAdProvider = AdProvider(this)
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
@@ -35,33 +33,12 @@ class EditActivity : BaseActivity() {
         populateFields()
         handleClicks()
 
-        showTutorialIfNeeded()
         reactToInput()
-        preloadAd()
     }
 
     override fun onStop() {
         super.onStop()
         saveFields()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        mAdProvider.show()
-        mAdProvider.loadInBackground()
-    }
-
-    private fun preloadAd() {
-        mAdProvider.loadInBackground()
-    }
-
-    private fun showTutorialIfNeeded() {
-        val launchCount = prefs.getInt("launchCount", 0)
-        if (launchCount < 3) {
-            prefs.edit().putInt("launchCount", launchCount + 1).apply()
-            shareHint.visibility = VISIBLE
-            backHint.visibility = VISIBLE
-        }
     }
 
     private fun handleClicks() {

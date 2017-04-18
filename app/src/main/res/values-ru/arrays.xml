@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="congrats">
-        <item>Хороший результат!</item>
-        <item>Надеюсь, друзьям понравится!</item>
-        <item>Текст также поддерживает разные цвета!</item>
-        <item>Лучшая открытка!</item>
-    </string-array>
-</resources>

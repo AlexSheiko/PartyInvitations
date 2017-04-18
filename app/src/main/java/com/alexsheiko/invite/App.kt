@@ -1,18 +1,12 @@
 package com.alexsheiko.invite
 
 import android.app.Application
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig
-
+import com.alexsheiko.invite.util.initCustomFont
 
 class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-        // Init default font
-        CalligraphyConfig.initDefault(CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Brandon-Regular.otf")
-                .setFontAttrId(R.attr.fontPath)
-                .build())
+        initCustomFont()
     }
 }
