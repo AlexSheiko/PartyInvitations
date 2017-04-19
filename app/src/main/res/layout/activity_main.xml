@@ -1,117 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWindowBackground"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:context="com.alexsheiko.invite.ui.MainActivity"
+    tools:ignore="MissingPrefix">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
 
         <LinearLayout
-            style="@style/GridRow">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:elevation="1dp"
+                card_view:cardCornerRadius="0dp">
+
+                <android.support.percent.PercentFrameLayout
+                    android:id="@+id/canvas"
+                    android:layout_width="200dp"
+                    android:layout_height="141dp">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:transitionName="image"
+                        tools:src="@drawable/wedding_template_3"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:text="Join us"
+                        android:textSize="22sp"
+                        app:layout_marginTopPercent="25%"/>
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:lineSpacingMultiplier="0.8"
+                        android:textSize="8sp"
+                        app:layout_marginTopPercent="47%"
+                        tools:text="@string/details_default"/>
+
+                </android.support.percent.PercentFrameLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
 
             <LinearLayout
-                style="@style/GridCell">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="18dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_category_birthday"/>
-
-                <TextView
-                    style="@style/GridLabel"
-                    android:tag="birthday"
-                    android:text="@string/birthday"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/GridCell">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_category_wedding_anniversary"/>
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/shareButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:src="@drawable/ic_send_white_24dp"
+                    app:useCompatPadding="true"/>
 
                 <TextView
-                    style="@style/GridLabel"
-                    android:tag="wedding"
-                    android:text="@string/wedding"/>
+                    android:id="@+id/shareHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-16dp"
+                    android:alpha="0.3"
+                    android:text="+AD  "
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            style="@style/GridRow"
-            android:layout_height="120dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
-            android:scaleX="1.7"
-            android:scaleY="1.7">
+        <android.support.design.widget.TextInputLayout
+            style="@style/TextInputLayout"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            app:hintTextAppearance="@style/TextLabel">
 
-            <LinearLayout
-                style="@style/GridCell"
-                android:background="@null"
-                android:foreground="?selectableItemBackgroundBorderless">
+            <EditText
+                android:id="@+id/inputField"
+                style="@style/EditText"
+                android:hint="Details"
+                android:inputType="textPostalAddress|textCapWords|textMultiLine"
+                android:lineSpacingMultiplier="0.9"
+                android:text="2509 Nogales Street, Texas\nSeptember 23, 6:00 PM"/>
 
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_category_party"/>
-
-                <TextView
-                    style="@style/GridLabel"
-                    android:layout_marginTop="4dp"
-                    android:alpha="0.7"
-                    android:tag="party"
-                    android:text="@string/party"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/GridRow"
-            android:visibility="gone">
-
-            <LinearLayout
-                style="@style/GridCell">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_category_kids"/>
-
-                <TextView
-                    style="@style/GridLabel"
-                    android:tag="kids"
-                    android:text="@string/kids"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/GridCell">
-
-                <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
-                    android:src="@drawable/ic_category_holidays"/>
-
-                <TextView
-                    style="@style/GridLabel"
-                    android:tag="holidays"
-                    android:text="@string/holidays"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
+        </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
 
