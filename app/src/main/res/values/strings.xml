@@ -2,5 +2,5 @@
     <string name="app_name">Invites</string>
     <string name="action_send">Send</string>
     <string name="send_to">Send image</string>
-    <string name="details_default">2509 Example Street, Texas\nSeptember 23, 6:00 PM</string>
+    <string name="details_default">Enter event title\n2509 Example Street, Texas\nSeptember 23, 6:00 PM</string>
 </resources>

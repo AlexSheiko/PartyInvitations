@@ -51,9 +51,12 @@ class MainActivity : BaseActivity() {
     }
 
     private fun saveFields() {
-        prefs.edit()
-                .putString("address", inputField.text.toString())
-                .apply()
+        val details = inputField.text.toString()
+        if (!details.startsWith("Enter")) {
+            prefs.edit()
+                    .putString("address", details)
+                    .apply()
+        }
     }
 
     private fun captureCanvas() {

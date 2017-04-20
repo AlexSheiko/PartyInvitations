@@ -12,8 +12,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
         android:orientation="vertical">
 
         <LinearLayout
@@ -104,21 +102,16 @@
 
         </LinearLayout>
 
-        <android.support.design.widget.TextInputLayout
-            style="@style/TextInputLayout"
-            android:paddingLeft="14dp"
-            android:paddingRight="14dp"
-            app:hintTextAppearance="@style/TextLabel">
-
             <EditText
                 android:id="@+id/inputField"
                 style="@style/EditText"
                 android:hint="Details"
                 android:inputType="textPostalAddress|textCapWords|textMultiLine"
                 android:lineSpacingMultiplier="0.9"
-                android:text="2509 Nogales Street, Texas\nSeptember 23, 6:00 PM"/>
-
-        </android.support.design.widget.TextInputLayout>
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp"
+                android:selectAllOnFocus="true"
+                android:text="@string/details_default"/>
 
     </LinearLayout>
 
