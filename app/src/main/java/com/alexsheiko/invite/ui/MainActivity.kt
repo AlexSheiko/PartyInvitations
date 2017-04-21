@@ -9,6 +9,7 @@ import android.support.v4.content.FileProvider
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.TextView.BufferType.EDITABLE
+import com.alexsheiko.invite.BuildConfig.DEBUG
 import com.alexsheiko.invite.R
 import com.alexsheiko.invite.util.prefs
 import com.alexsheiko.invite.util.shareImage
@@ -20,6 +21,7 @@ import org.jetbrains.anko.onClick
 import org.jetbrains.anko.uiThread
 import java.io.File
 import java.io.FileOutputStream
+import java.util.*
 
 class MainActivity : BaseActivity() {
 
@@ -29,8 +31,8 @@ class MainActivity : BaseActivity() {
 
         showImage()
         populateFields()
-        setClickListeners()
 
+        setClickListeners()
         reactToInput()
     }
 
@@ -41,6 +43,7 @@ class MainActivity : BaseActivity() {
 
     private fun setClickListeners() {
         shareButton.onClick { captureCanvas() }
+        imageView.onClick { changeImage() }
     }
 
     private fun populateFields() {
@@ -52,7 +55,7 @@ class MainActivity : BaseActivity() {
 
     private fun saveFields() {
         val details = inputField.text.toString()
-        if (!details.startsWith("Enter")) {
+        if (!DEBUG && !details.startsWith("Enter")) {
             prefs.edit()
                     .putString("address", details)
                     .apply()
@@ -87,7 +90,7 @@ class MainActivity : BaseActivity() {
         val imagePath = File(cacheDir, "images")
         val newFile = File(imagePath, "image.png")
         return FileProvider.getUriForFile(this,
-                "com.alexsheiko.invitationmaker.fileprovider", newFile)
+                "com.alexsheiko.invite.fileprovider", newFile)
     }
 
     private fun reactToInput() {
@@ -106,6 +109,27 @@ class MainActivity : BaseActivity() {
 
     private fun showImage() {
         val resId = R.drawable.party_template_5
-        Glide.with(this).load(resId).dontAnimate().into(imageView)
+        Glide.with(this).load(resId).into(imageView)
+    }
+
+    private fun changeImage() {
+        val images = arrayOf(
+                R.drawable.party_template_1,
+                R.drawable.party_template_2,
+                R.drawable.party_template_4,
+                R.drawable.party_template_5,
+                R.drawable.party_template_6,
+                R.drawable.party_template_8,
+                R.drawable.wedding_template_1,
+                R.drawable.wedding_template_2,
+                R.drawable.wedding_template_3,
+                R.drawable.wedding_template_4,
+                R.drawable.wedding_template_6,
+                R.drawable.wedding_template_7,
+                R.drawable.wedding_template_8)
+
+        val index = Random().nextInt(images.size - 1)
+
+        Glide.with(this).load(images[index]).into(imageView)
     }
 }
