@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorPrimary">#E8FFE0</color>
+<resources>
     <color name="colorPrimaryDark">#A2B29C</color>
     <color name="colorAccent">#8BC34A</color>
     <color name="colorWindowBackground">#FAFAFA</color>
     <color name="textColorPrimary">#737e6e</color>
-    <color name="editor_image_background">#757575</color>
-    <color name="com_adobe_image_color_dark_gray1">@color/editor_image_background</color>
-    <color name="com_adobe_image_color_light_gray41">@color/editor_image_background</color>
-    <color name="com_adobe_image_color_light_gray4">@color/editor_image_background</color>
-    <color name="editor_control">#96ffffff</color>
-    <color name="hint_foreground_material_light" tools:override="true">#96ffffff</color>
-    <color name="hint_foreground_material_dark" tools:override="true">#96ffffff</color>
 </resources>

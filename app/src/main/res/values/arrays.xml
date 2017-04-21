@@ -1,9 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="congrats">
-        <item>Great job!</item>
-        <item>Your friends will appreciate it!</item>
-        <item>Play with multiple text colors next time!</item>
-        <item>Coolest invitation ever!</item>
-    </string-array>
 </resources>
