@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:fillViewport="true"
     tools:context="com.alexsheiko.invite.ui.MainActivity"
     tools:ignore="MissingPrefix">
@@ -44,6 +46,7 @@
                         tools:src="@drawable/wedding_template_3"/>
 
                     <TextView
+                        android:id="@+id/titleView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -104,16 +107,41 @@
 
         </LinearLayout>
 
-            <EditText
-                android:id="@+id/inputField"
-                style="@style/EditText"
-                android:hint="Details"
-                android:inputType="textPostalAddress|textCapWords|textMultiLine"
-                android:lineSpacingMultiplier="0.9"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp"
-                android:selectAllOnFocus="true"
-                android:text="@string/details_default"/>
+        <EditText
+            android:id="@+id/inputTitle"
+            style="@style/EditText"
+            android:background="@null"
+            android:inputType="textCapWords"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:textStyle="bold"
+            tools:text="@string/title_default"/>
+
+        <EditText
+            android:id="@+id/inputText"
+            style="@style/EditText"
+            android:inputType="textPostalAddress|textCapWords|textMultiLine"
+            android:lineSpacingMultiplier="0.9"
+            android:paddingTop="0dp"
+            tools:text="@string/details_default">
+
+            <requestFocus/>
+        </EditText>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <com.google.android.gms.ads.NativeExpressAdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            ads:adSize="LARGE_BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"
+            tools:visibility="visible"/>
 
     </LinearLayout>
 
