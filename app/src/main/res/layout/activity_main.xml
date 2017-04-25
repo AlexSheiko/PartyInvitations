@@ -120,8 +120,10 @@
         <EditText
             android:id="@+id/inputText"
             style="@style/EditText"
+            android:background="@null"
             android:inputType="textPostalAddress|textCapWords|textMultiLine"
             android:lineSpacingMultiplier="0.9"
+            android:paddingBottom="16dp"
             android:paddingTop="0dp"
             tools:text="@string/details_default"/>
 
@@ -130,13 +132,13 @@
             android:layout_height="0dp"
             android:layout_weight="1"/>
 
-        <com.google.android.gms.ads.NativeExpressAdView
+        <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:visibility="gone"
-            ads:adSize="LARGE_BANNER"
+            ads:adSize="MEDIUM_RECTANGLE"
             ads:adUnitId="@string/banner_ad_unit_id"
             tools:visibility="visible"/>
 
