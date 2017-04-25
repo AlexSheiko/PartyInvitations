@@ -43,7 +43,7 @@
                         android:focusable="true"
                         android:foreground="?selectableItemBackground"
                         android:transitionName="image"
-                        tools:src="@drawable/wedding_template_3"/>
+                        tools:src="@drawable/wedding_template_7"/>
 
                     <TextView
                         android:id="@+id/titleView"
@@ -52,7 +52,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="16dp"
                         android:text="Join us"
-                        android:textSize="22sp"
+                        android:textSize="18sp"
                         app:layout_marginTopPercent="25%"/>
 
                     <TextView
@@ -123,10 +123,7 @@
             android:inputType="textPostalAddress|textCapWords|textMultiLine"
             android:lineSpacingMultiplier="0.9"
             android:paddingTop="0dp"
-            tools:text="@string/details_default">
-
-            <requestFocus/>
-        </EditText>
+            tools:text="@string/details_default"/>
 
         <Space
             android:layout_width="match_parent"

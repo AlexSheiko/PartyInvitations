@@ -98,11 +98,9 @@ class MainActivity : BaseActivity() {
         val title = inputTitle.text.toString()
         val details = inputText.text.toString()
 
-        if (!DEBUG && !details.startsWith("Enter")) {
-            prefs.edit()
-                    .putString("address", details)
-                    .apply()
-        }
+        prefs.edit()
+                .putString("address", details)
+                .apply()
         prefs.edit()
                 .putString("title", title)
                 .apply()
@@ -167,7 +165,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun showImage() {
-        val resId = R.drawable.party_template_5
+        val resId = R.drawable.wedding_template_7
 
         Glide.with(this)
                 .load(resId)
@@ -178,15 +176,12 @@ class MainActivity : BaseActivity() {
         val images = listOf(
                 R.drawable.party_template_1,
                 R.drawable.party_template_2,
-                R.drawable.party_template_4,
                 R.drawable.party_template_5,
                 R.drawable.party_template_8,
                 R.drawable.wedding_template_2,
                 R.drawable.wedding_template_3,
                 R.drawable.wedding_template_4,
-                R.drawable.wedding_template_6,
-                R.drawable.wedding_template_7,
-                R.drawable.wedding_template_8)
+                R.drawable.wedding_template_6)
 
         shuffle(images)
 
