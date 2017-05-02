@@ -1,6 +1,6 @@
-package com.alexsheiko.invite.util
+package com.alexsheiko.party.util
 
-import com.alexsheiko.invite.R
+import com.alexsheiko.party.R
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 
 fun initCustomFont() {

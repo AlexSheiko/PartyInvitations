@@ -1,4 +1,4 @@
-package com.alexsheiko.invite.ui
+package com.alexsheiko.party.ui
 
 import android.content.Context
 import android.support.v7.app.AppCompatActivity

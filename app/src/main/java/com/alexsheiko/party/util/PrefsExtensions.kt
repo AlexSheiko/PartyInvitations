@@ -1,4 +1,4 @@
-package com.alexsheiko.invite.util
+package com.alexsheiko.party.util
 
 import android.content.Context
 import android.content.SharedPreferences

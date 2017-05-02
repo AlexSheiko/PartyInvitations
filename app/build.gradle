@@ -7,17 +7,18 @@ android {
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "com.alexsheiko.invite"
+        applicationId "com.alexsheiko.party"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 6
+        versionCode 1
         versionName "5.0"
     }
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+            proguardFiles getDefaultProguardFile(
+                    'proguard-android.txt'),
                     'proguard-rules.pro'
         }
     }
@@ -44,5 +45,3 @@ dependencies {
     compile 'com.google.firebase:firebase-crash:10.0.1'
     compile 'com.google.firebase:firebase-ads:10.0.1'
 }
-
-apply plugin: 'com.google.gms.google-services'

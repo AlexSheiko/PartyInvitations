@@ -1,4 +1,4 @@
-package com.alexsheiko.invite.ui
+package com.alexsheiko.party.ui
 
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat.PNG
@@ -6,19 +6,18 @@ import android.graphics.Color.WHITE
 import android.graphics.Typeface.BOLD
 import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings.Secure.ANDROID_ID
-import android.provider.Settings.Secure.getString
 import android.support.v4.content.FileProvider
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View.VISIBLE
 import android.widget.TextView.BufferType.EDITABLE
-import com.alexsheiko.invite.BuildConfig.DEBUG
-import com.alexsheiko.invite.R
-import com.alexsheiko.invite.util.prefs
-import com.alexsheiko.invite.util.shareImage
+import com.alexsheiko.party.BuildConfig.DEBUG
+import com.alexsheiko.party.R
+import com.alexsheiko.party.util.prefs
+import com.alexsheiko.party.util.shareImage
 import com.bumptech.glide.Glide
-import com.google.android.gms.ads.AdRequest.*
+import com.google.android.gms.ads.AdRequest.Builder
+import com.google.android.gms.ads.AdRequest.GENDER_FEMALE
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.doAsync
@@ -58,15 +57,6 @@ class MainActivity : BaseActivity() {
     private fun preloadAd() {
         val request = Builder()
         request.setGender(GENDER_FEMALE)
-
-        if (DEBUG) {
-            val deviceId = getString(
-                    contentResolver,
-                    ANDROID_ID)
-            request.addTestDevice(deviceId)
-            request.addTestDevice(DEVICE_ID_EMULATOR)
-        }
-
         adView.loadAd(request.build())
     }
 

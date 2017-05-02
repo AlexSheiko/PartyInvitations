@@ -1,10 +1,10 @@
-package com.alexsheiko.invite.util
+package com.alexsheiko.party.util
 
 import android.app.Activity
 import android.content.Intent
 import android.content.Intent.*
 import android.net.Uri
-import com.alexsheiko.invite.R
+import com.alexsheiko.party.R
 
 fun Activity.shareImage(imageUri: Uri) {
     val i = Intent(ACTION_SEND)

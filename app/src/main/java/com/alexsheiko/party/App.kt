@@ -1,7 +1,7 @@
-package com.alexsheiko.invite
+package com.alexsheiko.party
 
 import android.app.Application
-import com.alexsheiko.invite.util.initCustomFont
+import com.alexsheiko.party.util.initCustomFont
 
 class App : Application() {
 

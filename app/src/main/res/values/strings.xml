@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Invites</string>
+    <string name="app_name">Party</string>
     <string name="send_to">Send image</string>
-    <string name="title_default">Adam &amp; Eve</string>
+    <string name="title_default">Join us</string>
     <string name="details_default">2509 Example Street, Texas\nSeptember 23, 6:00 PM</string>
-    <string name="banner_ad_unit_id">ca-app-pub-2661615672484310/7292217381</string>
+    <string name="banner_ad_unit_id">ca-app-pub-2661615672484310/8822982980</string>
 </resources>
