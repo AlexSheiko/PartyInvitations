@@ -9,20 +9,13 @@ import android.os.Bundle
 import android.support.v4.content.FileProvider
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View.VISIBLE
 import android.widget.TextView.BufferType.EDITABLE
-import com.alexsheiko.party.BuildConfig.DEBUG
 import com.alexsheiko.party.R
 import com.alexsheiko.party.util.prefs
 import com.alexsheiko.party.util.shareImage
 import com.bumptech.glide.Glide
-import com.google.android.gms.ads.AdRequest.Builder
-import com.google.android.gms.ads.AdRequest.GENDER_FEMALE
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.backgroundColor
-import org.jetbrains.anko.doAsync
-import org.jetbrains.anko.onClick
-import org.jetbrains.anko.uiThread
+import org.jetbrains.anko.*
 import java.io.File
 import java.io.FileOutputStream
 import java.util.Collections.shuffle
@@ -40,24 +33,6 @@ class MainActivity : BaseActivity() {
 
         setClickListeners()
         reactToInput()
-        preloadAd()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        if (DEBUG || mShared) {
-            showAd()
-        }
-    }
-
-    private fun showAd() {
-        adView.visibility = VISIBLE
-    }
-
-    private fun preloadAd() {
-        val request = Builder()
-        request.setGender(GENDER_FEMALE)
-        adView.loadAd(request.build())
     }
 
     override fun onStop() {
@@ -97,6 +72,8 @@ class MainActivity : BaseActivity() {
     }
 
     private fun captureCanvas() {
+        toast("Saving...")
+
         mShared = true
 
         canvas.backgroundColor = WHITE
