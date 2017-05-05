@@ -103,7 +103,7 @@ class MainActivity : BaseActivity() {
         val imagePath = File(cacheDir, "images")
         val newFile = File(imagePath, "image.png")
         return FileProvider.getUriForFile(this,
-                "com.alexsheiko.invite.fileprovider", newFile)
+                "com.alexsheiko.party.fileprovider", newFile)
     }
 
     private fun reactToInput() {
