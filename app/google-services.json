@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "393923182072",
+    "firebase_url": "https://partyinvitations-422a1.firebaseio.com",
+    "project_id": "partyinvitations-422a1",
+    "storage_bucket": "partyinvitations-422a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393923182072:android:f82db386d64f8c7e",
+        "android_client_info": {
+          "package_name": "com.alexsheiko.party"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393923182072-e6habk5pm16ftacfjjkdil68tvehde2f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexsheiko.party",
+            "certificate_hash": "23f79f514c050a2f99b27e294846bae1d9f231ab"
+          }
+        },
+        {
+          "client_id": "393923182072-mjpirru8ppmtlmkarm2nr34grgeughr5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8OTt3p_tdNSjWl21pLxqbOfolJeO9BUc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393923182072-mjpirru8ppmtlmkarm2nr34grgeughr5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
