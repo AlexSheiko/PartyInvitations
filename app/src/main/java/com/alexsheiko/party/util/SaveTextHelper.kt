@@ -14,6 +14,6 @@ fun MainActivity.saveTextAndImage() {
             .putString("title", title)
             .apply()
     prefs.edit()
-            .putInt("image", Integer.parseInt(imageView.tag.toString()))
+            .putInt("image", mSelectedTemplate)
             .apply()
 }

@@ -10,7 +10,7 @@ fun MainActivity.showImage(resId: Int) {
     Glide.with(this)
             .load(resId)
             .into(imageView)
-    imageView.tag = resId
+    mSelectedTemplate = resId
 }
 
 fun MainActivity.changeTemplate() {
