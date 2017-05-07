@@ -3,7 +3,7 @@ package com.alexsheiko.party.util
 import com.alexsheiko.party.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-fun MainActivity.saveFields() {
+fun MainActivity.saveTextAndImage() {
     val title = inputTitle.text.toString()
     val details = inputText.text.toString()
 
