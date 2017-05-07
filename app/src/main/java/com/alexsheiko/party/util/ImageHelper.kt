@@ -27,4 +27,6 @@ fun MainActivity.changeTemplate() {
     Collections.shuffle(images)
 
     showImage(images[0])
+
+    logSwitchTemplate()
 }

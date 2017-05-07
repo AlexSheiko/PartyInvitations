@@ -1,12 +1,12 @@
 package com.alexsheiko.party.util
 
-import android.app.Activity
 import android.content.Intent
 import android.content.Intent.*
 import android.net.Uri
 import com.alexsheiko.party.R
+import com.alexsheiko.party.ui.BaseActivity
 
-fun Activity.shareImage(imageUri: Uri) {
+fun BaseActivity.shareImage(imageUri: Uri) {
     val i = Intent(ACTION_SEND)
     i.addFlags(FLAG_GRANT_READ_URI_PERMISSION)
     i.setDataAndType(imageUri,
