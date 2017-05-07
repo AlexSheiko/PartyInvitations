@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.*
 import java.io.File
 import java.io.FileOutputStream
+import java.lang.Integer.parseInt
 import java.util.Collections.shuffle
 
 class MainActivity : BaseActivity() {
@@ -28,7 +29,6 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        showImage()
         populateFields()
 
         setClickListeners()
@@ -50,6 +50,8 @@ class MainActivity : BaseActivity() {
                 getString(R.string.title_default))
         val address = prefs.getString("address",
                 getString(R.string.details_default))
+        val image = prefs.getInt("image",
+                R.drawable.wedding_template_7)
 
         inputTitle.setTypeface(null, BOLD)
         inputTitle.setText(title, EDITABLE)
@@ -57,6 +59,8 @@ class MainActivity : BaseActivity() {
 
         titleView.text = title
         textView.text = address
+
+        showImage(image)
     }
 
     private fun saveFields() {
@@ -68,6 +72,9 @@ class MainActivity : BaseActivity() {
                 .apply()
         prefs.edit()
                 .putString("title", title)
+                .apply()
+        prefs.edit()
+                .putInt("image", parseInt(imageView.tag.toString()))
                 .apply()
     }
 
@@ -131,9 +138,7 @@ class MainActivity : BaseActivity() {
         })
     }
 
-    private fun showImage() {
-        val resId = R.drawable.wedding_template_7
-
+    private fun showImage(resId: Int) {
         Glide.with(this)
                 .load(resId)
                 .into(imageView)
@@ -152,8 +157,10 @@ class MainActivity : BaseActivity() {
 
         shuffle(images)
 
+        val newTemplateId = images[0]
         Glide.with(this)
-                .load(images[0])
+                .load(newTemplateId)
                 .into(imageView)
+        imageView.tag = newTemplateId
     }
 }
