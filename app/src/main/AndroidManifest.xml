@@ -4,6 +4,8 @@
           package="com.alexsheiko.party"
           android:installLocation="preferExternal">
 
+    <uses-permission android:name="com.android.vending.BILLING"/>
+
     <application
         android:name="com.alexsheiko.party.App"
         android:allowBackup="true"
@@ -22,6 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.PayDialog"
+            android:theme="@style/DialogTheme"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -32,6 +37,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"/>
         </provider>
-    </application>
 
+    </application>
 </manifest>

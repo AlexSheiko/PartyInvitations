@@ -3,8 +3,7 @@ package com.alexsheiko.party.util
 import android.os.Bundle
 import com.alexsheiko.party.BuildConfig.DEBUG
 import com.alexsheiko.party.ui.BaseActivity
-import com.google.firebase.analytics.FirebaseAnalytics.Event.APP_OPEN
-import com.google.firebase.analytics.FirebaseAnalytics.Event.VIEW_ITEM
+import com.google.firebase.analytics.FirebaseAnalytics.Event.*
 import com.google.firebase.analytics.FirebaseAnalytics.Param.ITEM_ID
 
 fun BaseActivity.logEventAppOpen() {
@@ -19,10 +18,10 @@ fun BaseActivity.logSwitchTemplate() {
     }
 }
 
-fun BaseActivity.logShare(successful: Boolean) {
+fun BaseActivity.logShare(itemId: String) {
     if (!DEBUG) {
         val bundle = Bundle()
-        bundle.putString(ITEM_ID, "$successful success")
-        mAnalytics.logEvent(APP_OPEN, bundle)
+        bundle.putString(ITEM_ID, itemId)
+        mAnalytics.logEvent(SHARE, bundle)
     }
 }

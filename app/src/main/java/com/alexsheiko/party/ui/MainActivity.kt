@@ -1,11 +1,10 @@
 package com.alexsheiko.party.ui
 
+import android.content.Intent
 import android.os.Bundle
 import com.alexsheiko.party.R
-import com.alexsheiko.party.util.reactToInput
-import com.alexsheiko.party.util.saveTextAndImage
-import com.alexsheiko.party.util.setClickListeners
-import com.alexsheiko.party.util.showTextAndImage
+import com.alexsheiko.party.util.*
+import org.jetbrains.anko.toast
 
 class MainActivity : BaseActivity() {
 
@@ -23,5 +22,16 @@ class MainActivity : BaseActivity() {
     override fun onStop() {
         super.onStop()
         saveTextAndImage()
+    }
+
+    override fun onActivityResult(requestCode: Int,
+                                  resultCode: Int,
+                                  data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == RESULT_OK) {
+            toast("Opening...")
+            shareImage(getImageUri())
+        }
     }
 }
