@@ -2,6 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,54 +21,61 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <android.support.v7.widget.CardView
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="18dp"
-                android:elevation="1dp"
-                card_view:cardCornerRadius="0dp">
+                android:clipToPadding="false"
+                android:padding="18dp">
 
-                <android.support.percent.PercentFrameLayout
-                    android:id="@+id/canvas"
-                    android:layout_width="200dp"
-                    android:layout_height="141dp">
+                <android.support.v7.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="1dp"
+                    card_view:cardCornerRadius="0dp">
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:foreground="?selectableItemBackground"
-                        android:transitionName="image"
-                        tools:src="@drawable/wedding_template_7"/>
+                    <android.support.percent.PercentFrameLayout
+                        android:id="@+id/canvas"
+                        android:layout_width="200dp"
+                        android:layout_height="141dp">
 
-                    <TextView
-                        android:id="@+id/titleView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="16dp"
-                        android:text="Join us"
-                        android:textSize="18sp"
-                        app:layout_marginTopPercent="25%"/>
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:foreground="?selectableItemBackground"
+                            tools:src="@drawable/wedding_template_7"/>
 
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center_horizontal"
-                        android:lineSpacingMultiplier="0.8"
-                        android:textSize="8sp"
-                        app:layout_marginTopPercent="47%"
-                        tools:text="@string/details_default"/>
+                        <TextView
+                            android:id="@+id/titleView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="16dp"
+                            android:textSize="18sp"
+                            app:layout_marginTopPercent="25%"
+                            tools:text="@string/title_default"/>
 
-                </android.support.percent.PercentFrameLayout>
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_horizontal"
+                            android:lineSpacingMultiplier="0.8"
+                            android:paddingLeft="32dp"
+                            android:paddingRight="32dp"
+                            android:textSize="8sp"
+                            app:layout_marginTopPercent="42%"
+                            tools:text="@string/details_default"/>
 
-            </android.support.v7.widget.CardView>
+                    </android.support.percent.PercentFrameLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </FrameLayout>
 
             <Space
                 android:layout_width="0dp"
@@ -92,16 +100,6 @@
                     android:src="@drawable/ic_send_white_24dp"
                     app:useCompatPadding="true"/>
 
-                <TextView
-                    android:id="@+id/shareHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="-16dp"
-                    android:alpha="0.3"
-                    android:text="+AD  "
-                    android:visibility="gone"
-                    tools:visibility="visible"/>
-
             </LinearLayout>
 
         </LinearLayout>
@@ -110,7 +108,7 @@
             android:id="@+id/inputTitle"
             style="@style/EditText"
             android:background="@null"
-            android:inputType="textCapWords"
+            android:inputType="textVisiblePassword|textCapWords"
             android:paddingBottom="0dp"
             android:paddingTop="0dp"
             android:textStyle="bold"
@@ -119,9 +117,14 @@
         <EditText
             android:id="@+id/inputText"
             style="@style/EditText"
-            android:inputType="textPostalAddress|textCapWords|textMultiLine"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="4dp"
+            android:inputType="textPostalAddress|textCapSentences|textMultiLine"
             android:lineSpacingMultiplier="0.9"
             android:paddingBottom="16dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
             android:paddingTop="0dp"
             tools:text="@string/details_default"/>
 
