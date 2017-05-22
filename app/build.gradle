@@ -10,7 +10,7 @@ android {
         applicationId "com.alexsheiko.party"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 7
+        versionCode 8
         versionName "5.0"
     }
     buildTypes {
