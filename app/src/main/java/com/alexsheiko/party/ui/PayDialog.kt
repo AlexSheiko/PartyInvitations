@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import com.alexsheiko.party.util.billing.IabResult
 import com.alexsheiko.party.util.billing.Purchase
-import com.alexsheiko.party.util.logShare
+import com.alexsheiko.party.util.logPurchaseCompleted
+import com.alexsheiko.party.util.logPurchaseStarted
 
 class PayDialog : BaseActivityWithBilling() {
 
@@ -20,6 +21,7 @@ class PayDialog : BaseActivityWithBilling() {
                 submit("free")
             }
         }
+        logPurchaseStarted()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -42,6 +44,6 @@ class PayDialog : BaseActivityWithBilling() {
         setResult(RESULT_OK)
         finish()
 
-        logShare(productId)
+        logPurchaseCompleted()
     }
 }

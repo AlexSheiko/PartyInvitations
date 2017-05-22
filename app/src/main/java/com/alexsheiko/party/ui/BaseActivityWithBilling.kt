@@ -1,6 +1,7 @@
 package com.alexsheiko.party.ui
 
 import android.os.Bundle
+import android.util.Log
 import com.alexsheiko.party.util.billing.IabHelper
 
 abstract class BaseActivityWithBilling : BaseActivity() {
@@ -12,6 +13,11 @@ abstract class BaseActivityWithBilling : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         mHelper = IabHelper(this, base64EncodedPublicKey)
+        mHelper.startSetup { result ->
+            if (result.isFailure) {
+                Log.d("TAG", "Problem setting up In-app Billing: " + result)
+            }
+        }
     }
 
     abstract fun submit(productId: String)
