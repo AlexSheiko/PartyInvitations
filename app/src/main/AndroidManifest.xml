@@ -17,7 +17,6 @@
 
         <activity
             android:name="com.alexsheiko.party.ui.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateVisible">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
