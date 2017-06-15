@@ -62,11 +62,10 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:gravity="center_horizontal"
-                            android:lineSpacingMultiplier="0.8"
                             android:paddingLeft="32dp"
                             android:paddingRight="32dp"
                             android:textSize="8sp"
-                            app:layout_marginTopPercent="42%"
+                            app:layout_marginTopPercent="44%"
                             tools:text="@string/details_default"/>
 
                     </android.support.percent.PercentFrameLayout>
@@ -127,7 +126,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="4dp"
             android:inputType="textPostalAddress|textCapSentences|textMultiLine"
-            android:lineSpacingMultiplier="0.9"
+            android:lineSpacingMultiplier="1.1"
             android:paddingBottom="16dp"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
