@@ -15,7 +15,7 @@ class PayDialog : BaseActivityWithBilling() {
 
         mHelper.startSetup { result ->
             if (result.isSuccess) {
-                buy("3")
+                buy("1")
             } else {
                 Log.d("TAG", "Problem setting up In-app Billing: " + result)
                 submit("free")
