@@ -19,6 +19,19 @@ class MainActivity : BaseActivityWithBilling() {
         showTextAndImage()
         setClickListeners()
         reactToInput()
+
+        mHelper.startSetup { result ->
+            if (result.isSuccess) {
+                mHelper.queryInventoryAsync(false,
+                        listOf("1"),
+                        emptyList(),
+                        { result, inv ->
+                            if (result.isSuccess && inv.hasPurchase("1")) {
+                                textPrice.visibility = GONE
+                            }
+                        })
+            }
+        }
     }
 
     override fun onStart() {
