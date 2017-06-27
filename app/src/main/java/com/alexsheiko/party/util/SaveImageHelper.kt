@@ -31,8 +31,9 @@ fun MainActivity.getImageUri(): Uri {
 }
 
 fun MainActivity.captureCanvas() {
-    startActivityForResult(intentFor<PayDialog>(), 123)
-
+    if (!isUserPro()) {
+        startActivityForResult(intentFor<PayDialog>(), 123)
+    }
     canvas.backgroundColor = Color.WHITE
     canvas.isDrawingCacheEnabled = true
     canvas.buildDrawingCache()
@@ -42,6 +43,10 @@ fun MainActivity.captureCanvas() {
         saveImage(bitmap)
         uiThread {
             canvas.isDrawingCacheEnabled = false
+
+            if (isUserPro()) {
+                shareImage(getImageUri())
+            }
         }
     }
 }

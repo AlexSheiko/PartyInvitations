@@ -20,8 +20,6 @@ abstract class BaseActivityWithBilling : BaseActivity() {
         }
     }
 
-    abstract fun submit(productId: String)
-
     public override fun onDestroy() {
         super.onDestroy()
         mHelper.dispose()

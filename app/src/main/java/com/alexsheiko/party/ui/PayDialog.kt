@@ -7,6 +7,7 @@ import com.alexsheiko.party.util.billing.IabResult
 import com.alexsheiko.party.util.billing.Purchase
 import com.alexsheiko.party.util.logPurchaseCompleted
 import com.alexsheiko.party.util.logPurchaseStarted
+import com.alexsheiko.party.util.saveUserPro
 
 class PayDialog : BaseActivityWithBilling() {
 
@@ -18,7 +19,7 @@ class PayDialog : BaseActivityWithBilling() {
                 buy("1")
             } else {
                 Log.d("TAG", "Problem setting up In-app Billing: " + result)
-                submit("free")
+                submit()
             }
         }
         logPurchaseStarted()
@@ -31,7 +32,7 @@ class PayDialog : BaseActivityWithBilling() {
     private fun buy(productId: String) {
         val listener: (IabResult?, Purchase?) -> Unit = { result, _ ->
             if (result != null && result.isSuccess) {
-                submit(productId)
+                submit()
             } else {
                 finish()
             }
@@ -40,10 +41,11 @@ class PayDialog : BaseActivityWithBilling() {
                 productId, 10001, listener, "")
     }
 
-    override fun submit(productId: String) {
+    fun submit() {
         setResult(RESULT_OK)
         finish()
 
+        saveUserPro()
         logPurchaseCompleted()
     }
 }
