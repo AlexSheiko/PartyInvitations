@@ -12,5 +12,5 @@ fun Context.isUserPro(): Boolean {
 }
 
 fun Context.saveUserPro() {
-    prefs.edit().putBoolean("isPro", true).apply()
+    prefs.edit().putBoolean("isPro", true).commit()
 }

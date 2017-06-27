@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.PayDialog"
+            android:name=".ui.PayActivity"
             android:theme="@style/DialogTheme"/>
 
         <provider

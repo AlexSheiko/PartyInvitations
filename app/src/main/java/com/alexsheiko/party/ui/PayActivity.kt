@@ -3,20 +3,25 @@ package com.alexsheiko.party.ui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import com.alexsheiko.party.BuildConfig.DEBUG
 import com.alexsheiko.party.util.billing.IabResult
 import com.alexsheiko.party.util.billing.Purchase
 import com.alexsheiko.party.util.logPurchaseCompleted
 import com.alexsheiko.party.util.logPurchaseStarted
 import com.alexsheiko.party.util.saveUserPro
 
-class PayDialog : BaseActivityWithBilling() {
+class PayActivity : BaseActivityWithBilling() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         mHelper.startSetup { result ->
             if (result.isSuccess) {
-                buy("1")
+                if (!DEBUG) {
+                    buy("1")
+                } else {
+                    submit()
+                }
             } else {
                 Log.d("TAG", "Problem setting up In-app Billing: " + result)
                 submit()
@@ -42,10 +47,10 @@ class PayDialog : BaseActivityWithBilling() {
     }
 
     fun submit() {
-        setResult(RESULT_OK)
-        finish()
-
         saveUserPro()
         logPurchaseCompleted()
+
+        setResult(RESULT_OK)
+        finish()
     }
 }

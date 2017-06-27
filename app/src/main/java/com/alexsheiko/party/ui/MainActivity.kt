@@ -6,7 +6,6 @@ import android.view.View.GONE
 import com.alexsheiko.party.R
 import com.alexsheiko.party.util.*
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.toast
 
 class MainActivity : BaseActivityWithBilling() {
 
@@ -27,6 +26,7 @@ class MainActivity : BaseActivityWithBilling() {
                         emptyList(),
                         { result, inv ->
                             if (result.isSuccess && inv.hasPurchase("1")) {
+                                saveUserPro()
                                 textPrice.visibility = GONE
                             }
                         })
@@ -34,8 +34,8 @@ class MainActivity : BaseActivityWithBilling() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onResume() {
+        super.onResume()
         if (isUserPro()) {
             textPrice.visibility = GONE
         }
@@ -52,7 +52,6 @@ class MainActivity : BaseActivityWithBilling() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (resultCode == RESULT_OK) {
-            toast("Opening...")
             shareImage(getImageUri())
         }
     }
