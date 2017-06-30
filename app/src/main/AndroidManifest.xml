@@ -26,6 +26,9 @@
         <activity
             android:name=".ui.PayActivity"
             android:theme="@style/DialogTheme"/>
+        <activity
+            android:name=".ui.PayOptionsDialog"
+            android:theme="@style/DialogTheme"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

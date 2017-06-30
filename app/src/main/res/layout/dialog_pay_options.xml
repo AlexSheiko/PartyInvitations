@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.alexsheiko.party.ui.PayOptionsDialog">
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="#DB80A9"
+        android:text="Pay $1"
+        android:textAllCaps="false"
+        android:textColor="#fff"/>
+
+    <Button
+        android:id="@+id/buttonFree"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:background="#d66799"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:text="Leave 5-star rating"
+        android:textAllCaps="false"
+        android:textColor="#f4e7ed"/>
+
+</LinearLayout>
