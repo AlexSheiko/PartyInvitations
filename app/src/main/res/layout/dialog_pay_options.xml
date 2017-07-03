@@ -16,6 +16,13 @@
         android:textAllCaps="false"
         android:textColor="#fff"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="or"/>
+
     <Button
         android:id="@+id/buttonFree"
         android:layout_width="match_parent"
