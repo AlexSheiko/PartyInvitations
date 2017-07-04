@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 
 android {
@@ -10,7 +11,7 @@ android {
         applicationId "com.alexsheiko.party"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 15
+        versionCode 16
         versionName "5.0"
     }
     buildTypes {
@@ -36,15 +37,12 @@ dependencies {
 
     // kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile 'org.jetbrains.anko:anko-sdk15:0.9.1'
+    compile 'org.jetbrains.anko:anko-sdk15:0.10.1'
 
     // firebase
     compile 'com.google.firebase:firebase-core:11.0.2'
     compile 'com.google.firebase:firebase-crash:11.0.2'
 
     // utils
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'uk.co.chrisjenx:calligraphy:2.3.0'
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
 }
-
-apply plugin: 'com.google.gms.google-services'
