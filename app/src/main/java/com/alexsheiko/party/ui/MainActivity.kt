@@ -36,7 +36,7 @@ class MainActivity : BaseActivityWithBilling() {
 
     override fun onResume() {
         super.onResume()
-        if (isUserPro()) {
+        if (isUserPro() || MODE_BOOST_REVIEWS) {
             textPrice.visibility = GONE
         }
     }

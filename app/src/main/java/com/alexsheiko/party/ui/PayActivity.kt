@@ -3,6 +3,7 @@ package com.alexsheiko.party.ui
 import android.content.Intent
 import android.os.Bundle
 import com.alexsheiko.party.BuildConfig.DEBUG
+import com.alexsheiko.party.util.MODE_BOOST_REVIEWS
 import com.alexsheiko.party.util.billing.IabResult
 import com.alexsheiko.party.util.billing.Purchase
 import com.alexsheiko.party.util.logPurchaseCompleted
@@ -15,7 +16,11 @@ class PayActivity : BaseActivityWithBilling() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        startActivityForResult(intentFor<PayOptionsDialog>(), 234)
+        if (MODE_BOOST_REVIEWS) {
+            startActivityForResult(intentFor<PayOrReviewDialog>(), 234)
+        } else {
+            startPaying()
+        }
     }
 
     private fun startPaying() {

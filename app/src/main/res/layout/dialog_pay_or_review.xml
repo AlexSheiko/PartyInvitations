@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.alexsheiko.party.ui.PayOptionsDialog">
+    tools:context="com.alexsheiko.party.ui.PayOrReviewDialog">
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttonPay"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:background="#DB80A9"
@@ -24,7 +24,7 @@
         android:text="or"/>
 
     <Button
-        android:id="@+id/buttonFree"
+        android:id="@+id/buttonReview"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:background="#d66799"

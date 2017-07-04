@@ -27,7 +27,7 @@
             android:name=".ui.PayActivity"
             android:theme="@style/DialogTheme"/>
         <activity
-            android:name=".ui.PayOptionsDialog"
+            android:name=".ui.PayOrReviewDialog"
             android:theme="@style/DialogTheme"/>
 
         <provider
