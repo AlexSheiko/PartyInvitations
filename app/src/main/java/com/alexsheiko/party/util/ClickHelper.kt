@@ -5,5 +5,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 fun MainActivity.setClickListeners() {
     shareButton.setOnClickListener { captureCanvas() }
-    imageView.setOnClickListener { changeTemplate() }
+    imageView.setOnClickListener { refreshTemplateView() }
+    buttonPrevious.setOnClickListener { previousTemplate() }
+    buttonNext.setOnClickListener { nextTemplate() }
 }
