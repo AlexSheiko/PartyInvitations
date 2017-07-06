@@ -9,6 +9,7 @@ import com.alexsheiko.party.util.billing.IabResult
 import com.alexsheiko.party.util.billing.Purchase
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.longToast
+import org.jetbrains.anko.toast
 
 class PayActivity : BaseActivityWithBilling() {
 
@@ -53,10 +54,11 @@ class PayActivity : BaseActivityWithBilling() {
     }
 
     private fun buy(productId: String) {
-        val listener: (IabResult?, Purchase?) -> Unit = { result, _ ->
-            if (result != null && result.isSuccess) {
+        val listener: (IabResult, Purchase?) -> Unit = { result, _ ->
+            if (result.isSuccess) {
                 submit()
             } else {
+                toast("Error: ${result.message}")
                 finish()
             }
         }
@@ -66,7 +68,6 @@ class PayActivity : BaseActivityWithBilling() {
 
     fun submit() {
         saveUserPro()
-        logPurchaseCompleted()
 
         setResult(RESULT_OK)
         finish()

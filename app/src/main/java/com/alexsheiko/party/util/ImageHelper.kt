@@ -44,6 +44,4 @@ fun MainActivity.nextTemplate() {
 
 fun MainActivity.refreshTemplateView() {
     showImage(templates[templateIndex])
-
-    logSwitchTemplate()
 }
