@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:background="#DB80A9"
-        android:text="Pay $1"
+        android:text="💵 Pay $1"
         android:textAllCaps="false"
         android:textColor="#fff"/>
 
@@ -30,7 +30,7 @@
         android:background="#d66799"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:text="Leave 5-star rating"
+        android:text="⭐⭐⭐⭐⭐\nLeave 5-star rating"
         android:textAllCaps="false"
         android:textColor="#f4e7ed"/>
 

@@ -38,7 +38,7 @@ class PayActivity : BaseActivityWithBilling() {
         if (!DEBUG) {
             buy("1")
         } else {
-            submit()
+            saveProAndExit()
         }
         logPurchaseStarted()
     }
@@ -56,7 +56,7 @@ class PayActivity : BaseActivityWithBilling() {
     private fun buy(productId: String) {
         val listener: (IabResult, Purchase?) -> Unit = { result, _ ->
             if (result.isSuccess) {
-                submit()
+                saveProAndExit()
             } else {
                 toast("Error: ${result.message}")
                 finish()
@@ -66,7 +66,7 @@ class PayActivity : BaseActivityWithBilling() {
                 productId, 10001, listener, "")
     }
 
-    fun submit() {
+    fun saveProAndExit() {
         saveUserPro()
 
         setResult(RESULT_OK)
