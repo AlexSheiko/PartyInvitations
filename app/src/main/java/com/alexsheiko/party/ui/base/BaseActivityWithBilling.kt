@@ -1,4 +1,4 @@
-package com.alexsheiko.party.ui
+package com.alexsheiko.party.ui.base
 
 import android.os.Bundle
 import android.util.Log

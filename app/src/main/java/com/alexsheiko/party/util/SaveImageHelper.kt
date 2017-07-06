@@ -6,7 +6,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.support.v4.content.FileProvider
 import com.alexsheiko.party.ui.MainActivity
-import com.alexsheiko.party.ui.PayActivity
+import com.alexsheiko.party.ui.pay.PayActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.doAsync

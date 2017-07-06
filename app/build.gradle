@@ -11,7 +11,7 @@ android {
         applicationId "com.alexsheiko.party"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 18
+        versionCode 19
         versionName "5.0"
     }
     buildTypes {
@@ -42,6 +42,7 @@ dependencies {
     // firebase
     compile 'com.google.firebase:firebase-core:11.0.2'
     compile 'com.google.firebase:firebase-crash:11.0.2'
+    compile 'com.google.firebase:firebase-config:11.0.2'
 
     // utils
     compile 'com.github.bumptech.glide:glide:3.7.0'

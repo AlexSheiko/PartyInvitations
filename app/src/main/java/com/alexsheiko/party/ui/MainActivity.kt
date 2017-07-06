@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View.GONE
 import com.alexsheiko.party.R
+import com.alexsheiko.party.ui.base.BaseActivity
 import com.alexsheiko.party.util.*
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,13 +19,14 @@ class MainActivity : BaseActivity() {
         showTextAndImage()
         setClickListeners()
         reactToInput()
-    }
 
-    override fun onResume() {
-        super.onResume()
-        if (isUserPro() || MODE_BOOST_REVIEWS) {
-            textPrice.visibility = GONE
-        }
+        initRemoteSettings({
+            val modeBoostReviews = it
+
+            if (modeBoostReviews || isUserPro()) {
+                textPrice.visibility = GONE
+            }
+        })
     }
 
     override fun onStop() {

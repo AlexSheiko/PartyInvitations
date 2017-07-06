@@ -2,7 +2,7 @@ package com.alexsheiko.party.util
 
 import android.os.Bundle
 import com.alexsheiko.party.BuildConfig.DEBUG
-import com.alexsheiko.party.ui.BaseActivity
+import com.alexsheiko.party.ui.base.BaseActivity
 import com.google.firebase.analytics.FirebaseAnalytics.Event.*
 
 fun BaseActivity.logSwitchTemplate() {

@@ -1,14 +1,14 @@
-package com.alexsheiko.party.ui
+package com.alexsheiko.party.ui.pay
 
 import android.os.Bundle
 import com.alexsheiko.party.R
+import com.alexsheiko.party.ui.base.BaseActivity
+import com.alexsheiko.party.util.RESULT_PAY
+import com.alexsheiko.party.util.RESULT_REVIEWED
 import com.alexsheiko.party.util.saveUserPro
 import kotlinx.android.synthetic.main.dialog_pay_or_review.*
 import org.jetbrains.anko.browse
 import org.jetbrains.anko.toast
-
-val RESULT_PAY = 1
-val RESULT_REVIEWED = 2
 
 class PayOrReviewDialog : BaseActivity() {
 

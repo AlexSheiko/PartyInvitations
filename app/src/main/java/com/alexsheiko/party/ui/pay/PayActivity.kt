@@ -1,15 +1,14 @@
-package com.alexsheiko.party.ui
+package com.alexsheiko.party.ui.pay
 
 import android.content.Intent
 import android.os.Bundle
 import com.alexsheiko.party.BuildConfig.DEBUG
-import com.alexsheiko.party.util.MODE_BOOST_REVIEWS
+import com.alexsheiko.party.ui.base.BaseActivityWithBilling
+import com.alexsheiko.party.util.*
 import com.alexsheiko.party.util.billing.IabResult
 import com.alexsheiko.party.util.billing.Purchase
-import com.alexsheiko.party.util.logPurchaseCompleted
-import com.alexsheiko.party.util.logPurchaseStarted
-import com.alexsheiko.party.util.saveUserPro
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.longToast
 
 class PayActivity : BaseActivityWithBilling() {
 
@@ -18,11 +17,18 @@ class PayActivity : BaseActivityWithBilling() {
 
         mHelper.startSetup { result ->
             if (result.isSuccess) {
-                if (MODE_BOOST_REVIEWS) {
-                    startActivityForResult(intentFor<PayOrReviewDialog>(), 234)
+                val modeBoostReviews = remoteConfig
+                        .getBoolean("mode_boost_reviews")
+                if (modeBoostReviews) {
+                    startActivityForResult(
+                            intentFor<PayOrReviewDialog>(),
+                            234)
                 } else {
                     startPaying()
                 }
+            } else {
+                longToast("Error: ${result.message}")
+                finish()
             }
         }
     }

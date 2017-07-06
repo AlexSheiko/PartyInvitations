@@ -1,4 +1,4 @@
-package com.alexsheiko.party.ui
+package com.alexsheiko.party.ui.base
 
 import android.support.v7.app.AppCompatActivity
 import com.google.firebase.analytics.FirebaseAnalytics

@@ -24,10 +24,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.PayActivity"
+            android:name=".ui.pay.PayActivity"
             android:theme="@style/DialogTheme"/>
         <activity
-            android:name=".ui.PayOrReviewDialog"
+            android:name=".ui.pay.PayOrReviewDialog"
             android:theme="@style/DialogTheme"/>
 
         <provider

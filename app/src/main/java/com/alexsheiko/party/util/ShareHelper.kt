@@ -4,7 +4,7 @@ import android.content.Intent
 import android.content.Intent.*
 import android.net.Uri
 import com.alexsheiko.party.R
-import com.alexsheiko.party.ui.BaseActivity
+import com.alexsheiko.party.ui.base.BaseActivity
 import org.jetbrains.anko.toast
 
 fun BaseActivity.shareImage(imageUri: Uri) {
