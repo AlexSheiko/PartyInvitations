@@ -16,10 +16,14 @@ class PayActivity : BaseActivityWithBilling() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (MODE_BOOST_REVIEWS) {
-            startActivityForResult(intentFor<PayOrReviewDialog>(), 234)
-        } else {
-            startPaying()
+        mHelper.startSetup { result ->
+            if (result.isSuccess) {
+                if (MODE_BOOST_REVIEWS) {
+                    startActivityForResult(intentFor<PayOrReviewDialog>(), 234)
+                } else {
+                    startPaying()
+                }
+            }
         }
     }
 
