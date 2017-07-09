@@ -6,6 +6,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 fun MainActivity.setClickListeners() {
     shareButton.setOnClickListener { captureCanvas() }
     imageView.setOnClickListener { refreshTemplateView() }
+
     buttonPrevious.setOnClickListener { previousTemplate() }
     buttonNext.setOnClickListener { nextTemplate() }
+
+    textHeaderPreview.setOnClickListener { inputHeader.requestFocus() }
+    textBodyPreview.setOnClickListener { inputBody.requestFocus() }
 }

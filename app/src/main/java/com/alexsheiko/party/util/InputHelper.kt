@@ -8,8 +8,8 @@ import com.alexsheiko.party.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 fun MainActivity.reactToInput() {
-    inputTitle.handleInput(titleView)
-    inputText.handleInput(textView)
+    inputHeader.handleInput(textHeaderPreview)
+    inputBody.handleInput(textBodyPreview)
 }
 
 fun EditText.handleInput(textView: TextView) {

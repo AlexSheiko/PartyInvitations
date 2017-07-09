@@ -4,8 +4,8 @@ import com.alexsheiko.party.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 fun MainActivity.saveTextAndImage() {
-    val title = inputTitle.text.toString()
-    val details = inputText.text.toString()
+    val title = inputHeader.text.toString()
+    val details = inputBody.text.toString()
 
     prefs.edit()
             .putString("address", details)

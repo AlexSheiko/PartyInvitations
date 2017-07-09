@@ -63,21 +63,27 @@
                                 tools:src="@drawable/wedding_template_7"/>
 
                             <TextView
-                                android:id="@+id/titleView"
+                                android:id="@+id/textHeaderPreview"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="16dp"
+                                android:background="?selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:textSize="14sp"
                                 android:textStyle="bold"
                                 app:layout_marginTopPercent="27%"
                                 tools:text="@string/title_default"/>
 
                             <TextView
-                                android:id="@+id/textView"
+                                android:id="@+id/textBodyPreview"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
+                                android:background="?selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
                                 android:gravity="center_horizontal"
                                 android:paddingLeft="32dp"
                                 android:paddingRight="32dp"
@@ -132,7 +138,7 @@
         </FrameLayout>
 
         <EditText
-            android:id="@+id/inputTitle"
+            android:id="@+id/inputHeader"
             style="@style/EditText"
             android:background="@null"
             android:inputType="textVisiblePassword|textCapWords"
@@ -142,7 +148,7 @@
             tools:text="@string/title_default"/>
 
         <EditText
-            android:id="@+id/inputText"
+            android:id="@+id/inputBody"
             style="@style/EditText"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"

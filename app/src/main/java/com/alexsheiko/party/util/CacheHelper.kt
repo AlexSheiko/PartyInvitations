@@ -14,12 +14,12 @@ fun MainActivity.showTextAndImage() {
     val image = prefs.getInt("image",
             R.drawable.party_template_5)
 
-    inputTitle.setTypeface(null, BOLD)
-    inputTitle.setText(title, EDITABLE)
-    inputText.setText(address, EDITABLE)
+    inputHeader.setTypeface(null, BOLD)
+    inputHeader.setText(title, EDITABLE)
+    inputBody.setText(address, EDITABLE)
 
-    titleView.text = title
-    textView.text = address
+    textHeaderPreview.text = title
+    textBodyPreview.text = address
 
     showImage(image)
 }
