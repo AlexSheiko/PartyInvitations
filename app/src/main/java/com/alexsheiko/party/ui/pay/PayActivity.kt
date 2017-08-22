@@ -16,20 +16,20 @@ class PayActivity : BaseActivityWithBilling() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mHelper.startSetup { result ->
-            if (result.isSuccess) {
-                val modeBoostReviews = remoteConfig
-                        .getBoolean("mode_boost_reviews")
-                if (modeBoostReviews) {
-                    startActivityForResult(
-                            intentFor<PayOrReviewDialog>(),
-                            234)
-                } else {
+        val modeBoostReviews = remoteConfig
+                .getBoolean("mode_boost_reviews")
+        if (modeBoostReviews) {
+            startActivityForResult(
+                    intentFor<PayOrReviewDialog>(),
+                    234)
+        } else {
+            mHelper.startSetup { result ->
+                if (result.isSuccess) {
                     startPaying()
+                } else {
+                    longToast("Error: ${result.message}")
+                    finish()
                 }
-            } else {
-                longToast("Error: ${result.message}")
-                finish()
             }
         }
     }
