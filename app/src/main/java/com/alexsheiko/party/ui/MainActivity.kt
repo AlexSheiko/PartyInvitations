@@ -4,11 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View.GONE
 import com.alexsheiko.party.R
-import com.alexsheiko.party.ui.base.BaseActivity
+import com.alexsheiko.party.ui.base.BaseActivityWithBilling
+import com.alexsheiko.party.ui.pay.restorePurchaseIfNeeded
 import com.alexsheiko.party.util.*
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivityWithBilling() {
 
     var mSelectedTemplate = 0
 
@@ -20,6 +21,7 @@ class MainActivity : BaseActivity() {
         setClickListeners()
         reactToInput()
 
+        restorePurchaseIfNeeded()
         initRemoteSettings({
             val modeBoostReviews = it
 
