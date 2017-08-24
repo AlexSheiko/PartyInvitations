@@ -20,12 +20,11 @@ fun MainActivity.restorePurchaseIfNeeded() {
                             saveUserPro()
                         }
                     } else {
-                        longToast("Error: ${result.message}")
-                        finish()
+                        longToast("Failed to query inventory: ${result2.message}")
                     }
                 })
             } else {
-                longToast("Error: ${result.message}")
+                longToast("Failed to set up billing: ${result.message}")
                 finish()
             }
         }
