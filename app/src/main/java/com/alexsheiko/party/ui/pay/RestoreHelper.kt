@@ -13,10 +13,10 @@ fun MainActivity.restorePurchaseIfNeeded() {
             if (result.isSuccess) {
                 mHelper.queryInventoryAsync(
                         false,
-                        listOf("pro"),
+                        listOf("1"),
                         emptyList(), { result2, inv ->
                     if (result2.isSuccess) {
-                        if (inv.hasPurchase("pro")) {
+                        if (inv.hasPurchase("1")) {
                             saveUserPro()
                         }
                     } else {
